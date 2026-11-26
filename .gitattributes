@@ -1,0 +1,2 @@
+# Keep every file byte-exact on checkout: tests compare raw bytes and SHA-256.
+* -text
