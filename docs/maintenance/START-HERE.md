@@ -6,7 +6,7 @@
 
 - 个人本地CTF/电子数据取证知识库，浅色中文界面。主模块是Web、Misc、Reverse、Crypto、Forensics。
 - 技术栈：Astro静态站点、Markdown内容集合、Pagefind构建搜索、Python导入与覆盖检查。不要改造成有数据库后台的应用。
-- 唯一工程：`D:\winoptimizeDir\Desktop\Misc学习\ctf-atlas`。Cursor工作区直接引用这里，不复制第二套网站，不自动发布到云端。
+- 唯一工程：`D:\Desktop\学习资源\ctf-atlas`。Cursor工作区直接引用这里，不复制第二套网站，不自动发布到云端。
 - 当前安装版本由package.json/package-lock.json和本地工具读取；本轮读到Astro 7.3.5。历史README/测试结果并不代替当前核对。
 
 ## 2. 从哪里改

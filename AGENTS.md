@@ -1,6 +1,6 @@
 # CTF Atlas 维护约定
 
-- 只修改 `ctf-atlas` 内的网站和整理内容。上一级 `Misc学习` 中的原始 DOCX、PDF、Markdown、TXT 与 ZIP 保持只读。
+- 只修改 `ctf-atlas` 内的网站和整理内容。上一级 `学习资源` 中的原始 DOCX、PDF、Markdown、TXT 与 ZIP 保持只读。
 - 站点维持浅色界面；展示知识点、工具、题目和 WP。任何用户可见的页面文案都不提及源文件、文档出处或原文。
 - 主模块限定 Web、Misc、Reverse、Crypto、Forensics。Pwn / Binary Exploitation 进入待归档，不硬塞进五大模块。
 - Forensics 知识点按 `src/data/forensics-taxonomy.ts` 的七类题型与通用方法归类，文章填写 `track` 和 `topic`；不使用“专项笔记”兜底分类。虚拟币取证是用户授权的独立题型，按基础、钱包、链上交易、资金追踪与实战归类；`fic-case-12` 保留完整资金流正文及 URL 作为专题入口。Docker 只归入服务器取证的“Docker 与容器”，其五篇合并专题由 `scripts/import_manuals.py` 生成，修改后同步核对正文保全与分类覆盖测试。
