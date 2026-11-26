@@ -14,6 +14,7 @@ whenToUse: "在 ctf-atlas 中需要核对命令语法、工具版本、库或框
 2. 内部数据（`src/data/`）：`inventory.json`（原始文件清单与哈希）、`forensics-supplements.json`（授权资料的归并关系）、`external-links.json`、`tool-inventory.json`、`volatility-catalog.json`。
 3. 已有正文、相邻章节和认可样例，避免重复或前后矛盾。
 4. `docs/` 下的核对记录：来源映射、版本差异、已知的验证边界。
+5. **本机工具索引**：`references/local-tools.md` 按类别列出 `D:\CTF_MISC_Tools\` 的工具目录，先在这里定位，再读该工具的 README 或 `--help`。
 
 ## 2. 本机资料
 
@@ -26,14 +27,15 @@ whenToUse: "在 ctf-atlas 中需要核对命令语法、工具版本、库或框
 ## 3. 再查技术文档与外部来源
 
 - 常用来源按类别列在 `references/sources.md`，都核对过可访问。
-- 库、框架、SDK、API、CLI 的当前语法与配置：已配置 Context7 时先 resolve-library-id，再按单一主题 query-docs；版本明确就核对该版本。没有该工具就如实说明“待配置”，不虚构调用。
-- 用 `webSearch` / `webFetch` 找一手来源：官方文档、官方仓库、工具自带手册。先官方后教程，看清版本号和日期，不把旧版本的语法写成当前写法。
+- 库、框架、SDK、API、CLI 的当前语法与配置：已配置 Context7 时先 resolve-library-id，再按单一主题 query-docs；一次只查一个问题，版本明确就核对该版本。没有该工具就如实说明“待配置”，不虚构调用。
+- 用 `webSearch` / `webFetch` 找一手来源：官方文档、官方仓库、工具自带手册。先官方后教程，看清版本号和日期，不把旧版本的语法写成当前写法。搜索结果必须回源到写明版本的一手页面，不能只凭摘要下结论。
 - 渗透技巧和工具参数，以工具官方文档和可核实的权威资料为准，再与靶场里的实际行为对照。
 - 纯文字组织和一般脚本逻辑，不为凑流程去查无关文档。
 
 ## 4. 查到的资料怎样用
 
 - 核对性查询（确认语法、版本、输出格式、参数含义）可以直接做，用来校正和补全已有条目。
+- 每条外部来源记录三件事：URL、版本、访问日期。三者缺一，标“待核”。
 - 把外部资料作为新的独立知识点或新来源写入，需要用户授权。授权后把来源登记到对应内部数据，例如 `forensics-supplements.json` 的 `webSources`（`id`、`url`、`reviewedAt`、`articleIds`）。
 - 来源信息只进内部数据和 `docs/` 记录。页面文案不提来源名或文件出处；根 `AGENTS.md` 里用户授权的例外继续保留。
 

@@ -31,6 +31,7 @@
 2. CURRENT-STATE.md、WORK-LOG.md：看最新状态、谁在写哪些文件及确切续接点。
 3. WRITING-STANDARD.md和对应认可示例：按用户要求写，不沿用过度理论化旧稿。
 4. 目标维护稿、生成页、相邻章节、来源记录和专项测试：语义查重后确定小批范围。
+5. TERMINOLOGY.md与REJECTED-PATTERNS.md：工具名写法与已退回的写法；动笔前读反例集最近10条。
 
 别一次把上百份历史报告塞进上下文。按索引读对应材料；需要旧缓存时显式打开`.work`中的确切路径。`.cursorindexingignore`只减少索引噪声，不是访问授权或证据可读性证明。
 
@@ -41,6 +42,7 @@
 命令在工程根目录执行。Windows用`npm.cmd`可避免PowerShell脚本策略问题；Python解释器先确认依赖，工作区任务使用本机已验证的独立解释器，不依赖Cursor终端默认别名。
 
 ```powershell
+python -X utf8 scripts/lint_writing.py --strict
 python -X utf8 scripts/cursor_project_check.py
 python -X utf8 -m unittest discover -s tests -p test_server_practical_review.py -v
 python -X utf8 -m unittest discover -s tests -v

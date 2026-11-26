@@ -13,6 +13,7 @@ whenToUse: "在 ctf-atlas 中开始一批修改之前，以及一批修改验收
 3. `docs/maintenance/CURRENT-STATE.md` 和 `WORK-LOG.md` 的最新条目：当前状态、谁在写哪些文件、确切的续接点。
 4. `docs/maintenance/WRITING-STANDARD.md` 和认可样例 `examples/website-reconstruction-approved.md`。
 5. 目标维护稿、对应生成页、相邻章节、来源记录和专项测试。
+6. `docs/maintenance/TERMINOLOGY.md` 与 `REJECTED-PATTERNS.md`：术语写法和已退回的写法。
 
 必须实际读取，不能只说“已加载”。别一次把上百份历史报告塞进上下文，按索引读对应材料。首次接手只做 `docs/maintenance/CURSOR-START-PROMPT.md` 里的只读理解核对，然后等用户的具体修改命令。
 
@@ -34,6 +35,7 @@ whenToUse: "在 ctf-atlas 中开始一批修改之前，以及一批修改验收
 ## 5. 收尾时写回
 
 - 补全 `WORK-LOG.md` 本批条目：修改前备份与哈希、改了什么、保留了哪些考点、没有做什么、检验命令与真实结果（构建页数、索引、链接数、测试失败项）、真实 UI 状态、下一步。
+- 记三个能力指标：本批退回次数、verify 失败项数、`py -V:3.12 -X utf8 scripts/lint_writing.py --strict` 命中数。指标上升时，先把原因写进 `REJECTED-PATTERNS.md` 或术语表，再改技能。
 - `CURRENT-STATE.md` 随最新验收更新；历史 `.work` 产物不覆盖。
 
 ## 6. git

@@ -6,7 +6,7 @@ whenToUse: "在 ctf-atlas 中写或改任何知识文章、工具页、WP 之前
 
 # CTF Atlas 写作标准
 
-本技能是 `docs/maintenance/WRITING-STANDARD.md`、`.cursor/rules/10-practical-knowledge-style.mdc` 和根 `AGENTS.md` 的操作摘要。动笔前先读用户认可的样例 `docs/maintenance/examples/website-reconstruction-approved.md`，再读 `WRITING-STANDARD.md`。与用户最新明确要求冲突时，以用户要求为准。
+本技能是 `docs/maintenance/WRITING-STANDARD.md`、`.cursor/rules/10-practical-knowledge-style.mdc` 和根 `AGENTS.md` 的操作摘要。动笔前先读用户认可的样例 `docs/maintenance/examples/website-reconstruction-approved.md`，再读 `WRITING-STANDARD.md`、`docs/maintenance/TERMINOLOGY.md` 和 `docs/maintenance/REJECTED-PATTERNS.md` 最近 10 条。与用户最新明确要求冲突时，以用户要求为准。
 
 ## 1. 动笔前
 
@@ -29,6 +29,14 @@ whenToUse: "在 ctf-atlas 中写或改任何知识文章、工具页、WP 之前
 - 区分离线镜像、运行现场和隔离仿真：不拿分析机输出当镜像信息，也不拿仿真后的行为当历史事实。
 
 ## 3. 命令与方法必须完整可执行
+
+### 句级规则
+
+- 一段一件事；长句拆开，主语明确。
+- 不用“进行检查、进行验证、相关操作、使用相关工具、配置好后继续”这类空转表达，直接写动作。
+- 中文句子用全角标点；代码、路径、URL 内部保持原样。
+- 工具名按 `TERMINOLOGY.md`；正文里中英文之间不加空格。
+- 不写“本页把……分为几部分”这类结构解释句，直接进入操作。
 
 这是硬性要求：读者复制命令就能在自己的环境里跑起来。只给思路，或把关键步骤写成“……”“此处省略”“使用相关工具”，都算没写完。
 
@@ -115,6 +123,8 @@ sqlmap -u "$TARGET/product.php?id=1*" --batch --current-db --current-user --is-d
 - 每个方法都有探测、利用、结果、排错四环。
 - 每条命令都能直接复制执行，没有 `...`、“略”或占位词。
 - 每条命令后面写了参数作用、关键输出和下一步。
+- `py -V:3.12 -X utf8 scripts/lint_writing.py --strict` 0 命中；改动文件再用 `--wide` 看一遍。
+- 输出过“考点 → 新位置”对照表，条数与第 1 节的保留清单一致。
 - 保留清单逐点核对过：原有考点、命令、表格和锚点都在。
 - frontmatter 的模块、主题、标签合规，`sourceIds` 已更新。
 - Forensics 页的维护稿与生成页正文一致。

@@ -20,12 +20,19 @@ whenToUse: "在 ctf-atlas 中改过文件之后、汇报之前必须加载；接
 在工程根目录执行，顺序如下。`py -V:3.12` 就是工作区任务登记的 Python 3.12。PowerShell 里用 `npm.cmd`，Git Bash 里用 `npm`。
 
 ```powershell
+py -V:3.12 -X utf8 scripts/lint_writing.py --strict
 py -V:3.12 -X utf8 scripts/cursor_project_check.py
 py -V:3.12 -X utf8 -m unittest discover -s tests -v
 npm.cmd run test:ui
 npm.cmd run check
 npm.cmd run build
 py -V:3.12 -X utf8 scripts/audit_site.py
+```
+
+改了正文时，对改动的文件再跑一次宽规则，人工复核提示：
+
+```powershell
+py -V:3.12 -X utf8 scripts/lint_writing.py --wide --paths src/content-curation src/content/knowledge
 ```
 
 改了服务器取证相关页面时，先单跑专项再跑全套：
@@ -38,6 +45,7 @@ py -V:3.12 -X utf8 -m unittest discover -s tests -p test_server_practical_review
 
 | 检查 | 能证明 | 不能证明 |
 |---|---|---|
+| `lint_writing.py` | 正文没有占位词、元叙述、术语错拼、空代码块 | 语义正确、命令可执行 |
 | `cursor_project_check.py` | 工作区与规则文件齐全、Forensics 维护稿与生成页正文一致 | 语义完整性、页面视觉 |
 | Python 全套测试 | 数据与内容满足机器可核对的约束 | 真实检材已复跑 |
 | `npm run test:ui` | 界面脚本的单元测试 | 浏览器里的实际表现 |

@@ -20,7 +20,7 @@
     "src/content-curation/forensic-ios-backup.md": "5ea9ae6ff03f72c9bfe9ae6ce25d8dda91c1bf587fbd49a6254e27c24c54a003",
     "src/content-curation/forensic-ios-forensics.md": "fcf620152fc542c864bf700c0738ca6591f0532bdeeea1bbad1dcdb856315d5d",
     "src/content-curation/forensic-ios-tools.md": "0387fe043bc1335375172181e73e08dbb71dc6bb517de754884a9e9ddf6cd9e1",
-    "src/content-curation/forensic-memory-volatility.md": "0b75a4fb36a7e87810f0da32be75932062aa59ef0cfbef586d8a7d9013ec34f3",
+    "src/content-curation/forensic-memory-volatility.md": "833844e134da5c6a4ae029804db964df400474507a25add227caaac8f804a4ad",
     "src/content/knowledge/fic-case-06.md": "c9547817c98965e70662466e704f9cdcb1117e85394a467771d1badbf8da49ea",
     "src/content/knowledge/forensic-android-forensics.md": "a11c742323195a9fb92fb954ce67bc53c3ad36c38f424fa025ac5b4b20476461",
     "src/content/knowledge/forensic-android-storage.md": "cd324b0adcf7810ba808f354c4beae529c80ed55e00954d67470591864a6100b",
@@ -28,6 +28,6 @@
     "src/content/knowledge/forensic-ios-backup.md": "4f0f766d625d112fcf713d24586790b26b6ba2a448a423d6fdf117fbe586a5a9",
     "src/content/knowledge/forensic-ios-forensics.md": "8d36868f9a2ab769b94b32b7dbe330a6b8603dcdc7407ca901b12693706c35ee",
     "src/content/knowledge/forensic-ios-tools.md": "096dbd66141857f2947ca8e0a0945c9452139c89f81f9575606d1993b247fa62",
-    "src/content/knowledge/forensic-memory-volatility.md": "49f7cac10caace0eb59854aa6c44934570c0961cb80d9ac2e7b61c2b83ceb7e9"
+    "src/content/knowledge/forensic-memory-volatility.md": "02518aee3ec3cc5ecca1bf4a5a9f3292dd869b2caf3e85ed278d221bbf676d4f"
   }
 }

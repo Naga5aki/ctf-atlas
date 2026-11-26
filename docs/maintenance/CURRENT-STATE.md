@@ -1,3 +1,9 @@
+# 当前维护状态（交接快照：2026-11-26）
+
+## 2026-11-26 · DSH 写作/查证/验证能力工程化（已验收）
+
+新增 `scripts/lint_writing.py`（`tests/test_lint_writing.py` 12 项自测）、`docs/maintenance/TERMINOLOGY.md`、`docs/maintenance/REJECTED-PATTERNS.md`、`.dsh/skills/ctf-atlas-research/references/local-tools.md` 与 `tests/writing-regression/` 两个案例；四个 DSH 技能同步增补查证、写作、验证和交接步骤；修正 `forensic-memory-volatility` 的元叙述并更新 `docs/forensics-shellbags-preservation.json` 的两个哈希。`lint_writing.py --strict` 在 400 篇内容上 0 命中；构建 391 页、索引 382 页、9414 条链接 0 错误、Astro 0 诊断。profile 侧新增子代理 V4 Pro 授权与 persona 一条，需新会话验证。
+
 # 当前维护状态（交接快照：2026-10-25）
 
 ## 2026-10-25 · Web 六页补入综合靶场复核顺序

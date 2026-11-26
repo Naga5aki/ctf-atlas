@@ -559,3 +559,32 @@
 - 构建审计：`sh /app/data/build/ctf-build.sh` 退出码 0；Astro check 0 errors / 0 warnings；构建 391 页；审计 392 页、9414 条本地链接、232 篇知识文章、79 篇工具，`Errors: 0`，输出 `CTF_ATLAS_BUILD_OK`。
 - 浏览器抽查（Edge，`http://127.0.0.1:4329/`）：`/module/web/` 列出 52 条知识页链接且包含 `web-race-logic`、`git-history`；`web-python-script` 显示 00–10 共 11 个二级标题、L0–L4 共 5 个三级标题、13 张表；`git-history` 11 个二级标题、L0–L4、12 张表；`web-race-logic`、`web-docker-lab` 均为 L0–L4、13 张表；抽查页面正文均无“防御/修复/训练”章节。截图：`web-home.png`、`web-module.png`、`web-python-script.png`。
 - 状态：已落库，构建审计与浏览器抽查均通过。
+
+## 2026-11-26 · DSH 写作/查证/验证能力工程化（开工登记）
+
+- 日期 / 执行者 / 用户任务：2026-11-26 / DSH / 按用户“依次全部执行，确保优化效果”落实能力改造：写作 lint、反例与术语固化、查证索引、验证与交接闭环。
+- 修改前备份：`.work/2026-11-26-dsh-writing-improve/`，含 4 个 SKILL.md、CURRENT-STATE.md、WORK-LOG.md、START-HERE.md 与 profile 的 cordis.patch.yml；哈希随备份文件保存。
+- 打算新增：`scripts/lint_writing.py`、`docs/maintenance/REJECTED-PATTERNS.md`、`docs/maintenance/TERMINOLOGY.md`、`.dsh/skills/ctf-atlas-research/references/local-tools.md`、`tests/writing-regression/`。
+- 打算修改：4 个 SKILL.md、CURRENT-STATE.md 头部、profile 的 cordis.patch.yml（子代理模型授权与 persona 补一条）。
+- 不改：现有正文、frontmatter、页面 ID、分类与测试契约；不动原始材料。
+- 状态：开工，基线另记。
+### 2026-11-26 · 能力工程化验收
+
+- 实际写入：
+  - 新增 `scripts/lint_writing.py`：高置信规则（正文占位词、代码块占位、元叙述、术语错拼、正文一级标题）加宽规则（空转表达、代码块后缺说明、中英标点混用、标题跳级）；默认报告模式退出码 0，`--strict` 才失败。
+  - 新增 `tests/test_lint_writing.py`：12 项规则级自测，覆盖代码块与行内代码不误报、宽规则默认关闭、frontmatter 跳过。
+  - 新增 `docs/maintenance/TERMINOLOGY.md`（依据 400 篇内容的真实写法统计）与 `REJECTED-PATTERNS.md`（7 条，全部取自现有规范或历史 WORK-LOG）。
+  - 新增 `.dsh/skills/ctf-atlas-research/references/local-tools.md`：`D:\CTF_MISC_Tools` 19 类目录索引，只列目录名，不猜版本。
+  - 新增 `tests/writing-regression/`：README 加 2 个案例（空泛闭环句、sqlmap 四环），粗稿与参考定稿均取自现有规范，未虚构。
+  - 修改 4 个 DSH 技能（写作加句级规则与 lint 自检，验证加 lint 命令，查证加本机索引与来源三件套，交接加三项能力指标）；修改 START-HERE 与 CURRENT-STATE。
+- 内容修正：`forensic-memory-volatility` 首段“本页把……”改为直接陈述，维护稿与生成页同步；`docs/forensics-shellbags-preservation.json` 两个哈希更新为新值。
+- 保留：其余正文、frontmatter、页面 ID、分类与测试契约未动；未改动原始材料。
+- 检验：
+  - `python -X utf8 scripts/lint_writing.py --strict`：400 篇，0 命中，退出码 0。
+  - `python -X utf8 -m unittest tests.test_lint_writing`：12 项 OK。
+  - 全套 226 项：10 失败、9 错误，与改前 214 项的 10 失败、9 错误逐项相同；新增 12 项全过，零新增。
+  - `cursor_project_check` 0 错误；`npm run check` 0 错误 0 警告；构建 391 页；Pagefind 382 页、16948 词；`audit_site.py` 9414 条链接、0 错误。
+- profile 配置：`cordis.patch.yml` 新增子代理模型授权（`deepseek-account/deepseek-v4-pro`），persona 增加一条“动笔前读术语表与反例集”；改后 SHA-256 `435CDB6D…F25C1`，用 DSH 自带 YAML 方言校验通过。MCP 参数未变，热重载后 context7 与 playwright 实例继续运行，未重建。
+- 回滚：`.work/2026-11-26-dsh-writing-improve/` 内含 4 个技能、3 份维护文档与改前 profile 补丁；恢复后重跑上述命令。
+- 未做：没有复跑真实检材；没有在浏览器里逐页检查（仅一段正文改动，构建与链接审计通过）；子代理授权与 persona 需新建会话观察。
+- 状态：已验收（构建与测试），浏览器与 DSH 新会话待用户确认。
