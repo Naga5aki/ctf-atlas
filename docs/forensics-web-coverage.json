@@ -1,0 +1,2219 @@
+{
+  "checkedAt": "2026-10-01",
+  "scope": "四个指定入口；Forensics-Wiki目录57个正文节点（另有1个分类节点）；DigiForensics知识目录58页；外链仅登记，不递归采集外站",
+  "accessPolicy": "仅公开页面。登录后正文未采集，不绕过权限、不下载工具包、不复跑未知检材。",
+  "records": [
+    {
+      "site": "DigiForensics",
+      "id": "windows-registry-basics",
+      "url": "https://www.digiforensics.cn/wiki/windows-registry-basics",
+      "status": "login-required",
+      "chars": 2965,
+      "sha256": "f22c8041df856921fbb2cb4d65c19c7a895a0bd3d4e7abe5ad65c0926bf89e68",
+      "cache": "windows-registry-basics.txt",
+      "title": "Windows 注册表取证基础",
+      "coverage": "public-preview",
+      "targets": [
+        "knowledge/forensic-registry"
+      ],
+      "themes": [
+        "hive/用户与系统、路径与可见开头"
+      ],
+      "pending": "登录后完整正文尚未读取"
+    },
+    {
+      "site": "DigiForensics",
+      "id": "sf-z-jd-0400001-2014",
+      "url": "https://www.digiforensics.cn/wiki/sf-z-jd-0400001-2014",
+      "status": "login-required",
+      "chars": 2452,
+      "sha256": "edd7c0192c1bb65222682fd738983054e2d137a4a378bff88b79d94146205de3",
+      "cache": "sf-z-jd-0400001-2014.txt",
+      "title": "SF/Z JD0400001-2014 电子数据司法鉴定通用实施规范",
+      "coverage": "public-preview",
+      "targets": [
+        "knowledge/forensic-quality"
+      ],
+      "themes": [
+        "规范编号、标题、公开检验范围索引；未提取完整规范正文"
+      ],
+      "pending": "登录后完整正文尚未读取"
+    },
+    {
+      "site": "DigiForensics",
+      "id": "sf-z-jd-0400002-2015",
+      "url": "https://www.digiforensics.cn/wiki/sf-z-jd-0400002-2015",
+      "status": "login-required",
+      "chars": 1957,
+      "sha256": "68b1f7e14d5d8405fcf6cc992816f1c440fb9785ef688f7acf1f39805119feda",
+      "cache": "sf-z-jd-0400002-2015.txt",
+      "title": "SF/Z JD0400002-2015 电子数据证据现场获取通用规范",
+      "coverage": "public-preview",
+      "targets": [
+        "knowledge/forensic-quality"
+      ],
+      "themes": [
+        "规范编号、标题、公开检验范围索引；未提取完整规范正文"
+      ],
+      "pending": "登录后完整正文尚未读取"
+    },
+    {
+      "site": "DigiForensics",
+      "id": "sf-z-jd-0402004-2018",
+      "url": "https://www.digiforensics.cn/wiki/sf-z-jd-0402004-2018",
+      "status": "login-required",
+      "chars": 1721,
+      "sha256": "bb262a95b8be00f7b4b4a8725f290011e34cc206e368dfa02cceea663a77fb78",
+      "cache": "sf-z-jd-0402004-2018.txt",
+      "title": "SF/Z JD0402004-2018 电子文档真实性鉴定技术规范",
+      "coverage": "public-preview",
+      "targets": [
+        "knowledge/forensic-quality"
+      ],
+      "themes": [
+        "规范编号、标题、公开检验范围索引；未提取完整规范正文"
+      ],
+      "pending": "登录后完整正文尚未读取"
+    },
+    {
+      "site": "DigiForensics",
+      "id": "sf-t-0076-2020",
+      "url": "https://www.digiforensics.cn/wiki/sf-t-0076-2020",
+      "status": "login-required",
+      "chars": 2377,
+      "sha256": "549952fdb04e50c3e0e5f370d21100f1e33b651d89957706e107699ec2134d65",
+      "cache": "sf-t-0076-2020.txt",
+      "title": "SF/T 0076-2020 电子数据存证技术规范",
+      "coverage": "public-preview",
+      "targets": [
+        "knowledge/forensic-quality"
+      ],
+      "themes": [
+        "规范编号、标题、公开检验范围索引；未提取完整规范正文"
+      ],
+      "pending": "登录后完整正文尚未读取"
+    },
+    {
+      "site": "DigiForensics",
+      "id": "sf-t-0105-2021",
+      "url": "https://www.digiforensics.cn/wiki/sf-t-0105-2021",
+      "status": "login-required",
+      "chars": 2895,
+      "sha256": "47377fc1df99733a15a78e405d305315e5b3588ba36cc3ad29b06cb11809c5e0",
+      "cache": "sf-t-0105-2021.txt",
+      "title": "SF/T 0105-2021 存储介质数据镜像技术规程",
+      "coverage": "public-preview",
+      "targets": [
+        "knowledge/forensic-quality"
+      ],
+      "themes": [
+        "规范编号、标题、公开检验范围索引；未提取完整规范正文"
+      ],
+      "pending": "登录后完整正文尚未读取"
+    },
+    {
+      "site": "DigiForensics",
+      "id": "sf-z-jd-0401001-2014",
+      "url": "https://www.digiforensics.cn/wiki/sf-z-jd-0401001-2014",
+      "status": "login-required",
+      "chars": 2453,
+      "sha256": "ee759f955c821db62efc4ee624d2fb828fe23c428777097bcb9f150d86d92f46",
+      "cache": "sf-z-jd-0401001-2014.txt",
+      "title": "SF/Z JD0401001-2014 电子数据复制设备鉴定实施规范",
+      "coverage": "public-preview",
+      "targets": [
+        "knowledge/forensic-quality"
+      ],
+      "themes": [
+        "规范编号、标题、公开检验范围索引；未提取完整规范正文"
+      ],
+      "pending": "登录后完整正文尚未读取"
+    },
+    {
+      "site": "DigiForensics",
+      "id": "sf-t-0077-2020",
+      "url": "https://www.digiforensics.cn/wiki/sf-t-0077-2020",
+      "status": "login-required",
+      "chars": 2722,
+      "sha256": "0856d1634ea9b535bb5d6b89cee3f7f73eb58cb8ed6bd9a76f309596ea86e806",
+      "cache": "sf-t-0077-2020.txt",
+      "title": "SF/T 0077-2020 汽车电子数据检验技术规范",
+      "coverage": "public-preview",
+      "targets": [
+        "knowledge/forensic-quality"
+      ],
+      "themes": [
+        "规范编号、标题、公开检验范围索引；未提取完整规范正文"
+      ],
+      "pending": "登录后完整正文尚未读取"
+    },
+    {
+      "site": "DigiForensics",
+      "id": "sf-t-0104-2021",
+      "url": "https://www.digiforensics.cn/wiki/sf-t-0104-2021",
+      "status": "login-required",
+      "chars": 2175,
+      "sha256": "2a2efb4fcd764ddd43649097ffa34e315132f6c76f625169c01facd287edfa0f",
+      "cache": "sf-t-0104-2021.txt",
+      "title": "SF/T 0104-2021 银行卡侧录器鉴定技术规范",
+      "coverage": "public-preview",
+      "targets": [
+        "knowledge/forensic-quality"
+      ],
+      "themes": [
+        "规范编号、标题、公开检验范围索引；未提取完整规范正文"
+      ],
+      "pending": "登录后完整正文尚未读取"
+    },
+    {
+      "site": "DigiForensics",
+      "id": "sf-t-0143-2023",
+      "url": "https://www.digiforensics.cn/wiki/sf-t-0143-2023",
+      "status": "login-required",
+      "chars": 5233,
+      "sha256": "498394710c5b259a6a21ff1de2f13474e3c1694e2084eebacea43a0752d457ed",
+      "cache": "sf-t-0143-2023.txt",
+      "title": "SF/T 0143-2023 移动终端数据鉴定设备技术要求和测试评价方法",
+      "coverage": "public-preview",
+      "targets": [
+        "knowledge/forensic-quality"
+      ],
+      "themes": [
+        "规范编号、标题、公开检验范围索引；未提取完整规范正文"
+      ],
+      "pending": "登录后完整正文尚未读取"
+    },
+    {
+      "site": "DigiForensics",
+      "id": "sf-t-0144-2023",
+      "url": "https://www.digiforensics.cn/wiki/sf-t-0144-2023",
+      "status": "login-required",
+      "chars": 2488,
+      "sha256": "f377fd61f56c908ea977c69b1cc618a7cfce7f9431c13eb36be61e714a3f63d6",
+      "cache": "sf-t-0144-2023.txt",
+      "title": "SF/T 0144-2023 民用无人机电子数据鉴定技术规范",
+      "coverage": "public-preview",
+      "targets": [
+        "knowledge/forensic-quality"
+      ],
+      "themes": [
+        "规范编号、标题、公开检验范围索引；未提取完整规范正文"
+      ],
+      "pending": "登录后完整正文尚未读取"
+    },
+    {
+      "site": "DigiForensics",
+      "id": "sf-t-0145-2023",
+      "url": "https://www.digiforensics.cn/wiki/sf-t-0145-2023",
+      "status": "login-required",
+      "chars": 2684,
+      "sha256": "79ccb0e42d98c6fd8f4eaa20e5e741e187bc283cb459eedcd1f381307911d256",
+      "cache": "sf-t-0145-2023.txt",
+      "title": "SF/T 0145-2023 智能移动终端应用程序功能鉴定技术规范",
+      "coverage": "public-preview",
+      "targets": [
+        "knowledge/forensic-quality"
+      ],
+      "themes": [
+        "规范编号、标题、公开检验范围索引；未提取完整规范正文"
+      ],
+      "pending": "登录后完整正文尚未读取"
+    },
+    {
+      "site": "DigiForensics",
+      "id": "sf-t-0157-2023",
+      "url": "https://www.digiforensics.cn/wiki/sf-t-0157-2023",
+      "status": "login-required",
+      "chars": 3425,
+      "sha256": "f0624c92d9f85d63a74c91a97c293c0b8f9e25b71f2b02d56d100f0fbb5fab75",
+      "cache": "sf-t-0157-2023.txt",
+      "title": "SF/T 0157-2023 移动终端电子数据鉴定技术规范",
+      "coverage": "public-preview",
+      "targets": [
+        "knowledge/forensic-quality"
+      ],
+      "themes": [
+        "规范编号、标题、公开检验范围索引；未提取完整规范正文"
+      ],
+      "pending": "登录后完整正文尚未读取"
+    },
+    {
+      "site": "DigiForensics",
+      "id": "sf-t-0075-2020",
+      "url": "https://www.digiforensics.cn/wiki/sf-t-0075-2020",
+      "status": "login-required",
+      "chars": 2337,
+      "sha256": "339b1c7389fe23e449e193532484fe9cd45f682d4bf88a9bb31614d7e025d7e2",
+      "cache": "sf-t-0075-2020.txt",
+      "title": "SF/T 0075-2020 网络文学作品相似性检验技术规范",
+      "coverage": "public-preview",
+      "targets": [
+        "knowledge/forensic-quality"
+      ],
+      "themes": [
+        "规范编号、标题、公开检验范围索引；未提取完整规范正文"
+      ],
+      "pending": "登录后完整正文尚未读取"
+    },
+    {
+      "site": "DigiForensics",
+      "id": "sf-t-0146-2023",
+      "url": "https://www.digiforensics.cn/wiki/sf-t-0146-2023",
+      "status": "login-required",
+      "chars": 5457,
+      "sha256": "1e1a0bb3716aaf9572333df9d03b837cdb449f4ccad0980ffcb30229026f51c8",
+      "cache": "sf-t-0146-2023.txt",
+      "title": "SF/T 0146-2023 文件恢复工具技术要求和测试评价方法",
+      "coverage": "public-preview",
+      "targets": [
+        "knowledge/forensic-quality"
+      ],
+      "themes": [
+        "规范编号、标题、公开检验范围索引；未提取完整规范正文"
+      ],
+      "pending": "登录后完整正文尚未读取"
+    },
+    {
+      "site": "DigiForensics",
+      "id": "sf-t-0158-2023",
+      "url": "https://www.digiforensics.cn/wiki/sf-t-0158-2023",
+      "status": "login-required",
+      "chars": 3335,
+      "sha256": "fb5c7e69e8969e4d652e456433b48b0077bd45577dfb0999ab9f366c9902d0f0",
+      "cache": "sf-t-0158-2023.txt",
+      "title": "SF/T 0158-2023 软件相似性鉴定技术规范",
+      "coverage": "public-preview",
+      "targets": [
+        "knowledge/forensic-quality"
+      ],
+      "themes": [
+        "规范编号、标题、公开检验范围索引；未提取完整规范正文"
+      ],
+      "pending": "登录后完整正文尚未读取"
+    },
+    {
+      "site": "DigiForensics",
+      "id": "sf-z-jd-0403002-2015",
+      "url": "https://www.digiforensics.cn/wiki/sf-z-jd-0403002-2015",
+      "status": "login-required",
+      "chars": 2100,
+      "sha256": "fc2e44d24d192d0b3eb96f2ce3e43b17c95b95f8063c770b3d86e04522174ade",
+      "cache": "sf-z-jd-0403002-2015.txt",
+      "title": "SF/Z JD0403002-2015 破坏性程序检验操作规范",
+      "coverage": "public-preview",
+      "targets": [
+        "knowledge/forensic-quality"
+      ],
+      "themes": [
+        "规范编号、标题、公开检验范围索引；未提取完整规范正文"
+      ],
+      "pending": "登录后完整正文尚未读取"
+    },
+    {
+      "site": "DigiForensics",
+      "id": "sf-z-jd-0403003-2015",
+      "url": "https://www.digiforensics.cn/wiki/sf-z-jd-0403003-2015",
+      "status": "login-required",
+      "chars": 2052,
+      "sha256": "93c4080de58717f21cb99904831b2f259678d5272e8b9c1d24f66139d0c53962",
+      "cache": "sf-z-jd-0403003-2015.txt",
+      "title": "SF/Z JD0403003-2015 计算机系统用户操作行为检验规范",
+      "coverage": "public-preview",
+      "targets": [
+        "knowledge/forensic-quality"
+      ],
+      "themes": [
+        "规范编号、标题、公开检验范围索引；未提取完整规范正文"
+      ],
+      "pending": "登录后完整正文尚未读取"
+    },
+    {
+      "site": "DigiForensics",
+      "id": "sf-z-jd-0403004-2018",
+      "url": "https://www.digiforensics.cn/wiki/sf-z-jd-0403004-2018",
+      "status": "login-required",
+      "chars": 1805,
+      "sha256": "5a9726b9e7a0d635e4fcf2d942b5c868519dc0c365dae61dfab45321e29d03e5",
+      "cache": "sf-z-jd-0403004-2018.txt",
+      "title": "SF/Z JD0403004-2018 软件功能鉴定技术规范",
+      "coverage": "public-preview",
+      "targets": [
+        "knowledge/forensic-quality"
+      ],
+      "themes": [
+        "规范编号、标题、公开检验范围索引；未提取完整规范正文"
+      ],
+      "pending": "登录后完整正文尚未读取"
+    },
+    {
+      "site": "DigiForensics",
+      "id": "sf-z-jd-0404001-2018",
+      "url": "https://www.digiforensics.cn/wiki/sf-z-jd-0404001-2018",
+      "status": "login-required",
+      "chars": 1851,
+      "sha256": "e4749663588934befda8af447e49ad0aa452915c346a068dcf4d8641837fe2bc",
+      "cache": "sf-z-jd-0404001-2018.txt",
+      "title": "SF/Z JD0404001-2018 伪基站检验操作规范",
+      "coverage": "public-preview",
+      "targets": [
+        "knowledge/forensic-quality"
+      ],
+      "themes": [
+        "规范编号、标题、公开检验范围索引；未提取完整规范正文"
+      ],
+      "pending": "登录后完整正文尚未读取"
+    },
+    {
+      "site": "DigiForensics",
+      "id": "sf-t-0156-2023",
+      "url": "https://www.digiforensics.cn/wiki/sf-t-0156-2023",
+      "status": "login-required",
+      "chars": 2905,
+      "sha256": "9cb20139b1da0089b78c68f0b0cfb99c30000a4695efc6aa8ff1ce6819779e09",
+      "cache": "sf-t-0156-2023.txt",
+      "title": "SF/T 0156-2023 电子邮件鉴定技术规范",
+      "coverage": "public-preview",
+      "targets": [
+        "knowledge/forensic-quality"
+      ],
+      "themes": [
+        "规范编号、标题、公开检验范围索引；未提取完整规范正文"
+      ],
+      "pending": "登录后完整正文尚未读取"
+    },
+    {
+      "site": "DigiForensics",
+      "id": "sf-z-jd-0402002-2015",
+      "url": "https://www.digiforensics.cn/wiki/sf-z-jd-0402002-2015",
+      "status": "login-required",
+      "chars": 1842,
+      "sha256": "b6a1dac4ea1c400e2701f716daa26de62709d1273efc4cc8f6daa966f0cf2e70",
+      "cache": "sf-z-jd-0402002-2015.txt",
+      "title": "SF/Z JD0402002-2015 数据库数据真实性鉴定规范",
+      "coverage": "public-preview",
+      "targets": [
+        "knowledge/forensic-quality"
+      ],
+      "themes": [
+        "规范编号、标题、公开检验范围索引；未提取完整规范正文"
+      ],
+      "pending": "登录后完整正文尚未读取"
+    },
+    {
+      "site": "DigiForensics",
+      "id": "sf-z-jd-0402003-2015",
+      "url": "https://www.digiforensics.cn/wiki/sf-z-jd-0402003-2015",
+      "status": "login-required",
+      "chars": 2098,
+      "sha256": "dc752ec07d8834f9630a9b89171df93616b2fd57f39b3ed9b2c4a23caee29727",
+      "cache": "sf-z-jd-0402003-2015.txt",
+      "title": "SF/Z JD0402003-2015 即时通讯记录检验操作规范",
+      "coverage": "public-preview",
+      "targets": [
+        "knowledge/forensic-quality"
+      ],
+      "themes": [
+        "规范编号、标题、公开检验范围索引；未提取完整规范正文"
+      ],
+      "pending": "登录后完整正文尚未读取"
+    },
+    {
+      "site": "DigiForensics",
+      "id": "sf-t-0078-2020",
+      "url": "https://www.digiforensics.cn/wiki/sf-t-0078-2020",
+      "status": "login-required",
+      "chars": 1781,
+      "sha256": "154093bc983a789dbde998611bac56723fdf3097f425a274365cf6574e9f995d",
+      "cache": "sf-t-0078-2020.txt",
+      "title": "SF/T 0078-2020 数字图像元数据检验技术规范",
+      "coverage": "public-preview",
+      "targets": [
+        "knowledge/forensic-quality"
+      ],
+      "themes": [
+        "规范编号、标题、公开检验范围索引；未提取完整规范正文"
+      ],
+      "pending": "登录后完整正文尚未读取"
+    },
+    {
+      "site": "DigiForensics",
+      "id": "sf-t-0106-2021",
+      "url": "https://www.digiforensics.cn/wiki/sf-t-0106-2021",
+      "status": "login-required",
+      "chars": 1995,
+      "sha256": "c69985f4e4615d69ec2e7945bb0af702e310a3ccf3850d3497b0df6c518a4b05",
+      "cache": "sf-t-0106-2021.txt",
+      "title": "SF/T 0106-2021 人像鉴定中人脸识别技术检验规范",
+      "coverage": "public-preview",
+      "targets": [
+        "knowledge/forensic-quality"
+      ],
+      "themes": [
+        "规范编号、标题、公开检验范围索引；未提取完整规范正文"
+      ],
+      "pending": "登录后完整正文尚未读取"
+    },
+    {
+      "site": "DigiForensics",
+      "id": "sf-t-0119-2021",
+      "url": "https://www.digiforensics.cn/wiki/sf-t-0119-2021",
+      "status": "login-required",
+      "chars": 3032,
+      "sha256": "dfd35e950f4ab1f965500260e65e5951bf7ef009e8edd443bcc2d012c79b5f82",
+      "cache": "sf-t-0119-2021.txt",
+      "title": "SF/T 0119-2021 声像资料鉴定通用规范",
+      "coverage": "public-preview",
+      "targets": [
+        "knowledge/forensic-quality"
+      ],
+      "themes": [
+        "规范编号、标题、公开检验范围索引；未提取完整规范正文"
+      ],
+      "pending": "登录后完整正文尚未读取"
+    },
+    {
+      "site": "DigiForensics",
+      "id": "sf-t-0120-2021",
+      "url": "https://www.digiforensics.cn/wiki/sf-t-0120-2021",
+      "status": "login-required",
+      "chars": 2841,
+      "sha256": "e3cf1ed9b06671b2e8599ffc8c5878c2e2062e49f6e4642158f78835b44d8611",
+      "cache": "sf-t-0120-2021.txt",
+      "title": "SF/T 0120-2021 录音真实性鉴定技术规范",
+      "coverage": "public-preview",
+      "targets": [
+        "knowledge/forensic-quality"
+      ],
+      "themes": [
+        "规范编号、标题、公开检验范围索引；未提取完整规范正文"
+      ],
+      "pending": "登录后完整正文尚未读取"
+    },
+    {
+      "site": "DigiForensics",
+      "id": "sf-t-0121-2021",
+      "url": "https://www.digiforensics.cn/wiki/sf-t-0121-2021",
+      "status": "login-required",
+      "chars": 2103,
+      "sha256": "0ed4926acd20154b521f139566fecb73de559ce090dbc33e8bd9ef1dc72b2895",
+      "cache": "sf-t-0121-2021.txt",
+      "title": "SF/T 0121-2021 录音内容辨听技术规范",
+      "coverage": "public-preview",
+      "targets": [
+        "knowledge/forensic-quality"
+      ],
+      "themes": [
+        "规范编号、标题、公开检验范围索引；未提取完整规范正文"
+      ],
+      "pending": "登录后完整正文尚未读取"
+    },
+    {
+      "site": "DigiForensics",
+      "id": "sf-t-0122-2021",
+      "url": "https://www.digiforensics.cn/wiki/sf-t-0122-2021",
+      "status": "login-required",
+      "chars": 2582,
+      "sha256": "124a9e4a1d17660d5f45e6a6d4b556cf9ef22c045bc56ff184697cc27a8df3c2",
+      "cache": "sf-t-0122-2021.txt",
+      "title": "SF/T 0122-2021 语音同一性鉴定技术规范",
+      "coverage": "public-preview",
+      "targets": [
+        "knowledge/forensic-quality"
+      ],
+      "themes": [
+        "规范编号、标题、公开检验范围索引；未提取完整规范正文"
+      ],
+      "pending": "登录后完整正文尚未读取"
+    },
+    {
+      "site": "DigiForensics",
+      "id": "sf-t-0123-2021",
+      "url": "https://www.digiforensics.cn/wiki/sf-t-0123-2021",
+      "status": "login-required",
+      "chars": 2896,
+      "sha256": "a666832ba78489629f5fbd5628d560fae998800feb2ed4bd11c1ea6da2173e93",
+      "cache": "sf-t-0123-2021.txt",
+      "title": "SF/T 0123-2021 录像真实性鉴定技术规范",
+      "coverage": "public-preview",
+      "targets": [
+        "knowledge/forensic-quality"
+      ],
+      "themes": [
+        "规范编号、标题、公开检验范围索引；未提取完整规范正文"
+      ],
+      "pending": "登录后完整正文尚未读取"
+    },
+    {
+      "site": "DigiForensics",
+      "id": "sf-t-0124-2021",
+      "url": "https://www.digiforensics.cn/wiki/sf-t-0124-2021",
+      "status": "login-required",
+      "chars": 2106,
+      "sha256": "105ac037d057128989d978ae9d96fe308fd5b0214305468e564669d0f2d620e3",
+      "cache": "sf-t-0124-2021.txt",
+      "title": "SF/T 0124-2021 录像过程分析技术规范",
+      "coverage": "public-preview",
+      "targets": [
+        "knowledge/forensic-quality"
+      ],
+      "themes": [
+        "规范编号、标题、公开检验范围索引；未提取完整规范正文"
+      ],
+      "pending": "登录后完整正文尚未读取"
+    },
+    {
+      "site": "DigiForensics",
+      "id": "sf-t-0125-2021",
+      "url": "https://www.digiforensics.cn/wiki/sf-t-0125-2021",
+      "status": "login-required",
+      "chars": 2988,
+      "sha256": "27f8a8ad4e4e6006cb71e90fd4cf8e04463ee9f30b3a6503c7890101b538282d",
+      "cache": "sf-t-0125-2021.txt",
+      "title": "SF/T 0125-2021 人像鉴定技术规范",
+      "coverage": "public-preview",
+      "targets": [
+        "knowledge/forensic-quality"
+      ],
+      "themes": [
+        "规范编号、标题、公开检验范围索引；未提取完整规范正文"
+      ],
+      "pending": "登录后完整正文尚未读取"
+    },
+    {
+      "site": "DigiForensics",
+      "id": "sf-t-0126-2021",
+      "url": "https://www.digiforensics.cn/wiki/sf-t-0126-2021",
+      "status": "login-required",
+      "chars": 2624,
+      "sha256": "6738e9a0ccc6680987c6f95fcda9f741a66afb77e709a999cad8713c4880ee92",
+      "cache": "sf-t-0126-2021.txt",
+      "title": "SF/T 0126-2021 物像鉴定技术规范",
+      "coverage": "public-preview",
+      "targets": [
+        "knowledge/forensic-quality"
+      ],
+      "themes": [
+        "规范编号、标题、公开检验范围索引；未提取完整规范正文"
+      ],
+      "pending": "登录后完整正文尚未读取"
+    },
+    {
+      "site": "DigiForensics",
+      "id": "sf-t-0138-2023",
+      "url": "https://www.digiforensics.cn/wiki/sf-t-0138-2023",
+      "status": "login-required",
+      "chars": 3171,
+      "sha256": "48dc83a145b7c3d06270a4732daa38f570b7596e2a2161724d93917892436112",
+      "cache": "sf-t-0138-2023.txt",
+      "title": "SF/T 0138-2023 手写电子签名笔迹鉴定技术规范",
+      "coverage": "public-preview",
+      "targets": [
+        "knowledge/forensic-quality"
+      ],
+      "themes": [
+        "规范编号、标题、公开检验范围索引；未提取完整规范正文"
+      ],
+      "pending": "登录后完整正文尚未读取"
+    },
+    {
+      "site": "DigiForensics",
+      "id": "sf-t-0147-2023",
+      "url": "https://www.digiforensics.cn/wiki/sf-t-0147-2023",
+      "status": "login-required",
+      "chars": 2431,
+      "sha256": "c02c13b8dfe67fd87abd9d0d9804fd9c0ecf716a022e958affdd2353a78da1fc",
+      "cache": "sf-t-0147-2023.txt",
+      "title": "SF/T 0147-2023 录音作品相似性鉴定技术规范",
+      "coverage": "public-preview",
+      "targets": [
+        "knowledge/forensic-quality"
+      ],
+      "themes": [
+        "规范编号、标题、公开检验范围索引；未提取完整规范正文"
+      ],
+      "pending": "登录后完整正文尚未读取"
+    },
+    {
+      "site": "DigiForensics",
+      "id": "sf-t-0148-2023",
+      "url": "https://www.digiforensics.cn/wiki/sf-t-0148-2023",
+      "status": "login-required",
+      "chars": 2505,
+      "sha256": "e72a4ff4ad41b320ffa45ca2d6090a0c713485b105e81b0584c151d6593bfb5d",
+      "cache": "sf-t-0148-2023.txt",
+      "title": "SF/T 0148-2023 合成人脸图像鉴定技术规范",
+      "coverage": "public-preview",
+      "targets": [
+        "knowledge/forensic-quality"
+      ],
+      "themes": [
+        "规范编号、标题、公开检验范围索引；未提取完整规范正文"
+      ],
+      "pending": "登录后完整正文尚未读取"
+    },
+    {
+      "site": "DigiForensics",
+      "id": "sf-t-0149-2023",
+      "url": "https://www.digiforensics.cn/wiki/sf-t-0149-2023",
+      "status": "login-required",
+      "chars": 2243,
+      "sha256": "163613890d998a90abf7d9c9ede48ff4121ec921d22ea1aec9c84cbe271015ad",
+      "cache": "sf-t-0149-2023.txt",
+      "title": "SF/T 0149-2023 音像制品同源性鉴定技术规范",
+      "coverage": "public-preview",
+      "targets": [
+        "knowledge/forensic-quality"
+      ],
+      "themes": [
+        "规范编号、标题、公开检验范围索引；未提取完整规范正文"
+      ],
+      "pending": "登录后完整正文尚未读取"
+    },
+    {
+      "site": "DigiForensics",
+      "id": "sf-t-0150-2023",
+      "url": "https://www.digiforensics.cn/wiki/sf-t-0150-2023",
+      "status": "login-required",
+      "chars": 2336,
+      "sha256": "fad24313cff0213f31e04a8adc7faacaccaa28c38b299cd97a8ffe6e70e7f2af",
+      "cache": "sf-t-0150-2023.txt",
+      "title": "SF/T 0150-2023 录音设备鉴定技术规范",
+      "coverage": "public-preview",
+      "targets": [
+        "knowledge/forensic-quality"
+      ],
+      "themes": [
+        "规范编号、标题、公开检验范围索引；未提取完整规范正文"
+      ],
+      "pending": "登录后完整正文尚未读取"
+    },
+    {
+      "site": "DigiForensics",
+      "id": "sf-t-0151-2023",
+      "url": "https://www.digiforensics.cn/wiki/sf-t-0151-2023",
+      "status": "login-required",
+      "chars": 1999,
+      "sha256": "314e12113eb59d1af65d3f176bae09820b2fc332064e8a45e5509fd6baada73e",
+      "cache": "sf-t-0151-2023.txt",
+      "title": "SF/T 0151-2023 录音处理技术规范",
+      "coverage": "public-preview",
+      "targets": [
+        "knowledge/forensic-quality"
+      ],
+      "themes": [
+        "规范编号、标题、公开检验范围索引；未提取完整规范正文"
+      ],
+      "pending": "登录后完整正文尚未读取"
+    },
+    {
+      "site": "DigiForensics",
+      "id": "sf-t-0152-2023",
+      "url": "https://www.digiforensics.cn/wiki/sf-t-0152-2023",
+      "status": "login-required",
+      "chars": 2030,
+      "sha256": "9c0215df25ca73ebfe11e0fdfa9b855c206bfaa9eb1a4aa99d14d9cbf08f16cb",
+      "cache": "sf-t-0152-2023.txt",
+      "title": "SF/T 0152-2023 图像处理技术规范",
+      "coverage": "public-preview",
+      "targets": [
+        "knowledge/forensic-quality"
+      ],
+      "themes": [
+        "规范编号、标题、公开检验范围索引；未提取完整规范正文"
+      ],
+      "pending": "登录后完整正文尚未读取"
+    },
+    {
+      "site": "DigiForensics",
+      "id": "sf-t-0153-2023",
+      "url": "https://www.digiforensics.cn/wiki/sf-t-0153-2023",
+      "status": "login-required",
+      "chars": 2591,
+      "sha256": "21e7b6b1f0c1c31aeb5c79cf7a9b909f909df27191a5ecdfe487806dcfaa1919",
+      "cache": "sf-t-0153-2023.txt",
+      "title": "SF/T 0153-2023 图片真实性鉴定技术规范",
+      "coverage": "public-preview",
+      "targets": [
+        "knowledge/forensic-quality"
+      ],
+      "themes": [
+        "规范编号、标题、公开检验范围索引；未提取完整规范正文"
+      ],
+      "pending": "登录后完整正文尚未读取"
+    },
+    {
+      "site": "DigiForensics",
+      "id": "sf-t-0154-2023",
+      "url": "https://www.digiforensics.cn/wiki/sf-t-0154-2023",
+      "status": "login-required",
+      "chars": 2163,
+      "sha256": "9958ae0d20daeb41935ccb483292921b17480e87cee083f77f386ae033173725",
+      "cache": "sf-t-0154-2023.txt",
+      "title": "SF/T 0154-2023 照相设备鉴定技术规范",
+      "coverage": "public-preview",
+      "targets": [
+        "knowledge/forensic-quality"
+      ],
+      "themes": [
+        "规范编号、标题、公开检验范围索引；未提取完整规范正文"
+      ],
+      "pending": "登录后完整正文尚未读取"
+    },
+    {
+      "site": "DigiForensics",
+      "id": "sf-t-0155-2023",
+      "url": "https://www.digiforensics.cn/wiki/sf-t-0155-2023",
+      "status": "login-required",
+      "chars": 2215,
+      "sha256": "a42859464d670b354f4149dc5481f52aa7866940a2dc8f8b114b6937a2315c75",
+      "cache": "sf-t-0155-2023.txt",
+      "title": "SF/T 0155-2023 录像设备鉴定技术规范",
+      "coverage": "public-preview",
+      "targets": [
+        "knowledge/forensic-quality"
+      ],
+      "themes": [
+        "规范编号、标题、公开检验范围索引；未提取完整规范正文"
+      ],
+      "pending": "登录后完整正文尚未读取"
+    },
+    {
+      "site": "DigiForensics",
+      "id": "sf-z-jd-0300002-2018",
+      "url": "https://www.digiforensics.cn/wiki/sf-z-jd-0300002-2018",
+      "status": "login-required",
+      "chars": 1704,
+      "sha256": "8366d85b59afd14dc0cde1ca33dcbca021cf84bc94044e4e17a8d8cd6bdde1de",
+      "cache": "sf-z-jd-0300002-2018.txt",
+      "title": "SF/Z JD0300002-2018 数字声像资料提取与固定技术规范",
+      "coverage": "public-preview",
+      "targets": [
+        "knowledge/forensic-quality"
+      ],
+      "themes": [
+        "规范编号、标题、公开检验范围索引；未提取完整规范正文"
+      ],
+      "pending": "登录后完整正文尚未读取"
+    },
+    {
+      "site": "DigiForensics",
+      "id": "sf-z-jd-0302003-2018",
+      "url": "https://www.digiforensics.cn/wiki/sf-z-jd-0302003-2018",
+      "status": "login-required",
+      "chars": 1687,
+      "sha256": "92ca6f1b15a8ff74a4b13b471657486816344ed6e93a313553b20a42b8c79909",
+      "cache": "sf-z-jd-0302003-2018.txt",
+      "title": "SF/Z JD0302003-2018 数字图像修复技术规范",
+      "coverage": "public-preview",
+      "targets": [
+        "knowledge/forensic-quality"
+      ],
+      "themes": [
+        "规范编号、标题、公开检验范围索引；未提取完整规范正文"
+      ],
+      "pending": "登录后完整正文尚未读取"
+    },
+    {
+      "site": "DigiForensics",
+      "id": "gb-t-45428-2025",
+      "url": "https://www.digiforensics.cn/wiki/gb-t-45428-2025",
+      "status": "login-required",
+      "chars": 1301,
+      "sha256": "f64693e29a8f9fcb3f4baa9766eeced36f701d6c24dad03ffd460a82fb3f261d",
+      "cache": "gb-t-45428-2025.txt",
+      "title": "GB/T 45428-2025 法庭科学 伪造人像 多光谱检验",
+      "coverage": "public-preview",
+      "targets": [
+        "knowledge/forensic-quality"
+      ],
+      "themes": [
+        "规范编号、标题、公开检验范围索引；未提取完整规范正文"
+      ],
+      "pending": "登录后完整正文尚未读取"
+    },
+    {
+      "site": "DigiForensics",
+      "id": "gb-t-45429-2025",
+      "url": "https://www.digiforensics.cn/wiki/gb-t-45429-2025",
+      "status": "login-required",
+      "chars": 1298,
+      "sha256": "1ca15fa461c56182f298089f71fef698b9a2621ed9ae2d2518e165e6fc7fe62d",
+      "cache": "gb-t-45429-2025.txt",
+      "title": "GB/T 45429-2025 法庭科学 伪造人像 检验通则",
+      "coverage": "public-preview",
+      "targets": [
+        "knowledge/forensic-quality"
+      ],
+      "themes": [
+        "规范编号、标题、公开检验范围索引；未提取完整规范正文"
+      ],
+      "pending": "登录后完整正文尚未读取"
+    },
+    {
+      "site": "DigiForensics",
+      "id": "gb-t-45430-2025",
+      "url": "https://www.digiforensics.cn/wiki/gb-t-45430-2025",
+      "status": "login-required",
+      "chars": 1302,
+      "sha256": "5c47a376ac0de0ca3106d9cae7acbad2bca0f2210c156772f4e06227b3eb70b2",
+      "cache": "gb-t-45430-2025.txt",
+      "title": "GB/T 45430-2025 法庭科学 伪造人像 深度伪造检验",
+      "coverage": "public-preview",
+      "targets": [
+        "knowledge/forensic-quality"
+      ],
+      "themes": [
+        "规范编号、标题、公开检验范围索引；未提取完整规范正文"
+      ],
+      "pending": "登录后完整正文尚未读取"
+    },
+    {
+      "site": "DigiForensics",
+      "id": "gb-t-45431-2025",
+      "url": "https://www.digiforensics.cn/wiki/gb-t-45431-2025",
+      "status": "login-required",
+      "chars": 1302,
+      "sha256": "2d552958ff0f7baa25f6f946c29a7ff04f6e55f569a2df5d6223fe8b868fb673",
+      "cache": "gb-t-45431-2025.txt",
+      "title": "GB/T 45431-2025 法庭科学 伪造人像 检验系统评测",
+      "coverage": "public-preview",
+      "targets": [
+        "knowledge/forensic-quality"
+      ],
+      "themes": [
+        "规范编号、标题、公开检验范围索引；未提取完整规范正文"
+      ],
+      "pending": "登录后完整正文尚未读取"
+    },
+    {
+      "site": "DigiForensics",
+      "id": "gb-t-45432-2025",
+      "url": "https://www.digiforensics.cn/wiki/gb-t-45432-2025",
+      "status": "login-required",
+      "chars": 1298,
+      "sha256": "5381e0c5ecca17d4a052a98867da026e7a7664385cff09ca81c647d2f50fd853",
+      "cache": "gb-t-45432-2025.txt",
+      "title": "GB/T 45432-2025 法庭科学 伪造人像 来源检验",
+      "coverage": "public-preview",
+      "targets": [
+        "knowledge/forensic-quality"
+      ],
+      "themes": [
+        "规范编号、标题、公开检验范围索引；未提取完整规范正文"
+      ],
+      "pending": "登录后完整正文尚未读取"
+    },
+    {
+      "site": "DigiForensics",
+      "id": "gb-t-45433-2025",
+      "url": "https://www.digiforensics.cn/wiki/gb-t-45433-2025",
+      "status": "login-required",
+      "chars": 1308,
+      "sha256": "e28f2d659ee90cd8225c4af37f7430a8a3ead20f07b50eb13b940ac78c44acad",
+      "cache": "gb-t-45433-2025.txt",
+      "title": "GB/T 45433-2025 法庭科学 伪造人像 可解释性检验特征集",
+      "coverage": "public-preview",
+      "targets": [
+        "knowledge/forensic-quality"
+      ],
+      "themes": [
+        "规范编号、标题、公开检验范围索引；未提取完整规范正文"
+      ],
+      "pending": "登录后完整正文尚未读取"
+    },
+    {
+      "site": "DigiForensics",
+      "id": "android-app-forensics",
+      "url": "https://www.digiforensics.cn/wiki/android-app-forensics",
+      "status": "login-required",
+      "chars": 1960,
+      "sha256": "9d2b04a1be4dea10f4ec3fd9aff86aade3d5cb26acb716c6ed084e51eba1ae99",
+      "cache": "android-app-forensics.txt",
+      "title": "Android 应用数据取证",
+      "coverage": "public-preview",
+      "targets": [
+        "knowledge/forensic-android-storage"
+      ],
+      "themes": [
+        "包名、应用沙箱、私有/外部路径、packages.xml/list"
+      ],
+      "pending": "登录后完整正文尚未读取"
+    },
+    {
+      "site": "DigiForensics",
+      "id": "ios-backup-forensics",
+      "url": "https://www.digiforensics.cn/wiki/ios-backup-forensics",
+      "status": "login-required",
+      "chars": 1752,
+      "sha256": "170e32117b0051125eb22102998810c4939241f42a43c7f9497533de53441fdb",
+      "cache": "ios-backup-forensics.txt",
+      "title": "iOS 手机取证",
+      "coverage": "public-preview",
+      "targets": [
+        "knowledge/forensic-ios-backup"
+      ],
+      "themes": [
+        "备份/文件系统/应用域、设备信息、Manifest、账号和范围"
+      ],
+      "pending": "登录后完整正文尚未读取"
+    },
+    {
+      "site": "DigiForensics",
+      "id": "linux-log-forensics",
+      "url": "https://www.digiforensics.cn/wiki/linux-log-forensics",
+      "status": "login-required",
+      "chars": 1654,
+      "sha256": "6d181029d6bf459c9dc696b882ef98b98e09dce8d26cddcbeae9706f2ae6e8ac",
+      "cache": "linux-log-forensics.txt",
+      "title": "Linux 服务器日志取证",
+      "coverage": "public-preview",
+      "targets": [
+        "knowledge/forensic-server-services"
+      ],
+      "themes": [
+        "auth/secure/syslog/messages/journal/wtmp/btmp/lastlog，日志位置和时间基准"
+      ],
+      "pending": "登录后完整正文尚未读取"
+    },
+    {
+      "site": "DigiForensics",
+      "id": "pve-ceph",
+      "url": "https://www.digiforensics.cn/wiki/pve-ceph",
+      "status": "login-required",
+      "chars": 1792,
+      "sha256": "c582eb27f91f3b79f173be36f6ff2be31334b3b815972111c8caef91b8efee57",
+      "cache": "pve-ceph.txt",
+      "title": "PVE + Ceph 集群取证",
+      "coverage": "public-preview",
+      "targets": [
+        "knowledge/forensic-cloud-vm"
+      ],
+      "themes": [
+        "PVE/Ceph、虚拟机/容器、配置、磁盘和控制面范围"
+      ],
+      "pending": "登录后完整正文尚未读取"
+    },
+    {
+      "site": "DigiForensics",
+      "id": "deleted-data-mobile-forensics",
+      "url": "https://www.digiforensics.cn/wiki/deleted-data-mobile-forensics",
+      "status": "login-required",
+      "chars": 1501,
+      "sha256": "b7a466acf7aa855428b535fdecf8e410ec68aeb15f3574a2ef55fb6c7fedc698",
+      "cache": "deleted-data-mobile-forensics.txt",
+      "title": "手机删除痕迹取证",
+      "coverage": "public-preview",
+      "targets": [
+        "knowledge/forensic-mobile-apps"
+      ],
+      "themes": [
+        "SQLite/WAL/缓存/缩略图/备份、删除与未见记录区别"
+      ],
+      "pending": "登录后完整正文尚未读取"
+    },
+    {
+      "site": "DigiForensics",
+      "id": "mobile-sport-app-forensics",
+      "url": "https://www.digiforensics.cn/wiki/mobile-sport-app-forensics",
+      "status": "login-required",
+      "chars": 3833,
+      "sha256": "f4af6d387132251085553a898b7bac007b90bc18993bcf07c08a40d8d737cd6d",
+      "cache": "mobile-sport-app-forensics.txt",
+      "title": "运动软件取证",
+      "coverage": "public-preview",
+      "targets": [
+        "knowledge/forensic-mobile-apps"
+      ],
+      "themes": [
+        "运动App、账号/轨迹/设备/时间、应用包名与对应字段"
+      ],
+      "pending": "登录后完整正文尚未读取"
+    },
+    {
+      "site": "DigiForensics",
+      "id": "harmonyos-mobile-forensics",
+      "url": "https://www.digiforensics.cn/wiki/harmonyos-mobile-forensics",
+      "status": "login-required",
+      "chars": 1614,
+      "sha256": "895b86195c4c85dc0721c00310d6c8b92eadc151834cf76a4879f794a91914bb",
+      "cache": "harmonyos-mobile-forensics.txt",
+      "title": "鸿蒙设备取证",
+      "coverage": "public-preview",
+      "targets": [
+        "knowledge/forensic-mobile-apps"
+      ],
+      "themes": [
+        "系统/版本、Android兼容条件、应用与账号关联，未读取登录后的提取教程"
+      ],
+      "pending": "登录后完整正文尚未读取"
+    },
+    {
+      "site": "Forensics-Wiki",
+      "id": "0197f50d-35a1-798a-8d25-1f454440073f",
+      "title": "商业软件授权问题",
+      "group": "8c67068c-765f-4a8c-af5a-a74550678c0d",
+      "url": "https://www.forensics-wiki.com/node/0197f50d-35a1-798a-8d25-1f454440073f",
+      "status": "read",
+      "chars": 1974,
+      "sha256": "b04b5373b6b2351402510ae423a892efd8207978e1e2f9a61c345c81acc9e493",
+      "cache": "0197f50d-35a1-798a-8d25-1f454440073f.txt",
+      "coverage": "non-knowledge",
+      "targets": [],
+      "themes": [
+        "软件授权讨论，无取证技术正文"
+      ],
+      "pending": ""
+    },
+    {
+      "site": "Forensics-Wiki",
+      "id": "0197f50d-3601-7876-b08d-223087cf89a0",
+      "title": "电子数据取证引入",
+      "group": "8c67068c-765f-4a8c-af5a-a74550678c0d",
+      "url": "https://www.forensics-wiki.com/node/0197f50d-3601-7876-b08d-223087cf89a0",
+      "status": "read",
+      "chars": 9037,
+      "sha256": "1f5444d3510859839064c70148c2cd1ebe7db726eb491bd3d44fc552213e645a",
+      "cache": "0197f50d-3601-7876-b08d-223087cf89a0.txt",
+      "coverage": "curated",
+      "targets": [
+        "knowledge/forensic-quality"
+      ],
+      "themes": [
+        "采集、检验、记录、真实性与功能边界"
+      ],
+      "pending": ""
+    },
+    {
+      "site": "Forensics-Wiki",
+      "id": "0197f50d-3ab0-7dda-8901-d00599ab3a15",
+      "title": "首页",
+      "group": "8c67068c-765f-4a8c-af5a-a74550678c0d",
+      "url": "https://www.forensics-wiki.com/node/0197f50d-3ab0-7dda-8901-d00599ab3a15",
+      "status": "read",
+      "chars": 1489,
+      "sha256": "7a367b582eb284f076f4735fc311552b89185cd1eb10acdf378909d9793ce25b",
+      "cache": "0197f50d-3ab0-7dda-8901-d00599ab3a15.txt",
+      "coverage": "non-knowledge",
+      "targets": [],
+      "themes": [
+        "站点介绍"
+      ],
+      "pending": ""
+    },
+    {
+      "site": "Forensics-Wiki",
+      "id": "0197f511-22fd-71f2-bbaf-9df7b6a5d7fe",
+      "title": "给贡献者的一封信",
+      "group": "8c67068c-765f-4a8c-af5a-a74550678c0d",
+      "url": "https://www.forensics-wiki.com/node/0197f511-22fd-71f2-bbaf-9df7b6a5d7fe",
+      "status": "read",
+      "chars": 3927,
+      "sha256": "8d54796391d6061b59cb37390e8f25664336a8087d2d0c11e403a32d462b9c27",
+      "cache": "0197f511-22fd-71f2-bbaf-9df7b6a5d7fe.txt",
+      "coverage": "non-knowledge",
+      "targets": [],
+      "themes": [
+        "贡献说明"
+      ],
+      "pending": ""
+    },
+    {
+      "site": "Forensics-Wiki",
+      "id": "0199ed6b-1807-7e31-9983-f4827bfb5692",
+      "title": "赛事介绍",
+      "group": "8c67068c-765f-4a8c-af5a-a74550678c0d",
+      "url": "https://www.forensics-wiki.com/node/0199ed6b-1807-7e31-9983-f4827bfb5692",
+      "status": "read",
+      "chars": 7145,
+      "sha256": "18a3011438489c1ec9523318ecac12554bb4ec286f875f38580db83d2d3e0f4c",
+      "cache": "0199ed6b-1807-7e31-9983-f4827bfb5692.txt",
+      "coverage": "non-knowledge",
+      "targets": [],
+      "themes": [
+        "赛事安排，未作为技术知识入库"
+      ],
+      "pending": ""
+    },
+    {
+      "site": "Forensics-Wiki",
+      "id": "0197f50d-36c1-7572-9eda-92fa84da27ca",
+      "title": "镜像制作",
+      "group": "b9631502-1fe3-411c-9924-f51ebed08d04",
+      "url": "https://www.forensics-wiki.com/node/0197f50d-36c1-7572-9eda-92fa84da27ca",
+      "status": "read",
+      "chars": 2415,
+      "sha256": "a38a67920b97c88a76174b5f3b10879f6d9873ead50756eeee0fc9362b2bd64f",
+      "cache": "0197f50d-36c1-7572-9eda-92fa84da27ca.txt",
+      "coverage": "curated",
+      "targets": [
+        "knowledge/disk-evidence",
+        "tool/forensic-disk-tools"
+      ],
+      "themes": [
+        "FTK采集、物理/逻辑范围、校验、内存采集"
+      ],
+      "pending": ""
+    },
+    {
+      "site": "Forensics-Wiki",
+      "id": "0197f50d-372d-7ae5-958a-63652e6ae830",
+      "title": "镜像仿真-Windows Server",
+      "group": "b9631502-1fe3-411c-9924-f51ebed08d04",
+      "url": "https://www.forensics-wiki.com/node/0197f50d-372d-7ae5-958a-63652e6ae830",
+      "status": "read",
+      "chars": 3647,
+      "sha256": "c88dcaa6b093c10070325d0d23cdb54b511a1f61e4ce2196af2d9f6bc9e08b0f",
+      "cache": "0197f50d-372d-7ae5-958a-63652e6ae830.txt",
+      "coverage": "curated",
+      "targets": [
+        "knowledge/forensic-cloud-vm"
+      ],
+      "themes": [
+        "Windows Server仿真、虚拟硬件、启动和副本"
+      ],
+      "pending": ""
+    },
+    {
+      "site": "Forensics-Wiki",
+      "id": "0197f50d-3790-7b25-822f-516e717d44b2",
+      "title": "VeraCrypt使用方法",
+      "group": "b9631502-1fe3-411c-9924-f51ebed08d04",
+      "url": "https://www.forensics-wiki.com/node/0197f50d-3790-7b25-822f-516e717d44b2",
+      "status": "read",
+      "chars": 2494,
+      "sha256": "44efe2fe94aca6ac728b97a9304b3c52ffda626a9856d44c02ec46720b701b67",
+      "cache": "0197f50d-3790-7b25-822f-516e717d44b2.txt",
+      "coverage": "curated",
+      "targets": [
+        "knowledge/forensic-protected-data",
+        "tool/forensic-assist-tools"
+      ],
+      "themes": [
+        "外层/隐藏卷、口令、keyfile、PIM、兼容模式"
+      ],
+      "pending": ""
+    },
+    {
+      "site": "Forensics-Wiki",
+      "id": "0197f50d-37f1-77ec-b1e9-277b2d040952",
+      "title": "常见的时间戳转换",
+      "group": "b9631502-1fe3-411c-9924-f51ebed08d04",
+      "url": "https://www.forensics-wiki.com/node/0197f50d-37f1-77ec-b1e9-277b2d040952",
+      "status": "read",
+      "chars": 2256,
+      "sha256": "6d41a4a248ca15ce2a79bde454736ee7461a200ae72c8e921bd24b9d2e3953ee",
+      "cache": "0197f50d-37f1-77ec-b1e9-277b2d040952.txt",
+      "coverage": "curated",
+      "targets": [
+        "knowledge/forensic-time-evidence",
+        "knowledge/forensic-browser"
+      ],
+      "themes": [
+        "Unix/WebKit/FILETIME/Apple、精度、UTC与漂移"
+      ],
+      "pending": ""
+    },
+    {
+      "site": "Forensics-Wiki",
+      "id": "0197f50d-3856-7c83-847d-eef855a55590",
+      "title": "各类文件打开方式",
+      "group": "b9631502-1fe3-411c-9924-f51ebed08d04",
+      "url": "https://www.forensics-wiki.com/node/0197f50d-3856-7c83-847d-eef855a55590",
+      "status": "read",
+      "chars": 966,
+      "sha256": "ffdee0321311522cdc8f26fed55f45f3378ab42bd7c2a2e7eefca92e71550e15",
+      "cache": "0197f50d-3856-7c83-847d-eef855a55590.txt",
+      "coverage": "curated",
+      "targets": [
+        "knowledge/disk-evidence",
+        "knowledge/forensic-documents",
+        "knowledge/forensic-protected-data",
+        "tool/forensic-disk-tools"
+      ],
+      "themes": [
+        "镜像、数据库、虚拟磁盘、文档及加密容器的工具对应"
+      ],
+      "pending": ""
+    },
+    {
+      "site": "Forensics-Wiki",
+      "id": "0197f50d-38c2-763e-8a3d-05b66b2c9f40",
+      "title": "哈希值",
+      "group": "b9631502-1fe3-411c-9924-f51ebed08d04",
+      "url": "https://www.forensics-wiki.com/node/0197f50d-38c2-763e-8a3d-05b66b2c9f40",
+      "status": "read",
+      "chars": 4312,
+      "sha256": "73b654e81df6d20c7af1163c25671fa4a2296e0e912c88b49f62eaa8c5095230",
+      "cache": "0197f50d-38c2-763e-8a3d-05b66b2c9f40.txt",
+      "coverage": "curated",
+      "targets": [
+        "knowledge/forensic-quality"
+      ],
+      "themes": [
+        "哈希、复制完整性、MD5碰撞与真实性区别"
+      ],
+      "pending": ""
+    },
+    {
+      "site": "Forensics-Wiki",
+      "id": "0197f50d-391e-7695-a190-200a705a46de",
+      "title": "证据文件格式",
+      "group": "b9631502-1fe3-411c-9924-f51ebed08d04",
+      "url": "https://www.forensics-wiki.com/node/0197f50d-391e-7695-a190-200a705a46de",
+      "status": "read",
+      "chars": 2297,
+      "sha256": "35a994a925b00a348667c330b4106162b35036c3116f97e0c30def0d5ba4d595",
+      "cache": "0197f50d-391e-7695-a190-200a705a46de.txt",
+      "coverage": "curated",
+      "targets": [
+        "knowledge/disk-evidence",
+        "tool/forensic-disk-tools"
+      ],
+      "themes": [
+        "DD/E01/Ex01/AD1/L01/AFF及虚拟磁盘，分段和范围"
+      ],
+      "pending": ""
+    },
+    {
+      "site": "Forensics-Wiki",
+      "id": "0197f50d-397f-78ce-b6d1-f9a48254c80f",
+      "title": "镜像仿真-DD、E01",
+      "group": "b9631502-1fe3-411c-9924-f51ebed08d04",
+      "url": "https://www.forensics-wiki.com/node/0197f50d-397f-78ce-b6d1-f9a48254c80f",
+      "status": "read",
+      "chars": 5784,
+      "sha256": "19db832c81aa73cc1a5e05f863efd500ca8afb4be9755d6ad69f737823063040",
+      "cache": "0197f50d-397f-78ce-b6d1-f9a48254c80f.txt",
+      "coverage": "curated",
+      "targets": [
+        "knowledge/forensic-cloud-vm",
+        "tool/forensic-disk-tools"
+      ],
+      "themes": [
+        "E01/DD挂载、qemu转换、工作副本仿真"
+      ],
+      "pending": ""
+    },
+    {
+      "site": "Forensics-Wiki",
+      "id": "01983aef-6529-7d4a-a872-e246b0e9d1e7",
+      "title": "电子数据取证技能树",
+      "group": "b9631502-1fe3-411c-9924-f51ebed08d04",
+      "url": "https://www.forensics-wiki.com/node/01983aef-6529-7d4a-a872-e246b0e9d1e7",
+      "status": "read",
+      "chars": 308,
+      "sha256": "ec5cbbdeea99d9324bbe7eb100dc69ff9c144fb4983adc977e322d2b543170b2",
+      "cache": "01983aef-6529-7d4a-a872-e246b0e9d1e7.txt",
+      "coverage": "image-index",
+      "targets": [
+        "knowledge/forensic-guide-computer",
+        "knowledge/forensic-guide-mobile",
+        "knowledge/forensic-guide-server",
+        "knowledge/forensic-quality",
+        "tool/forensic-assist-tools"
+      ],
+      "themes": [
+        "图示已在浏览器放大分区核对：系统、手机、逆向辅助、服务器、资金、OSINT、IoT；图中只有节点，没有逐节点操作正文"
+      ],
+      "pending": ""
+    },
+    {
+      "site": "Forensics-Wiki",
+      "id": "0198c111-35d4-7e8c-a8c4-802c1dc80e87",
+      "title": "更好的手工仿真方式——向物理磁盘已被使用say no",
+      "group": "b9631502-1fe3-411c-9924-f51ebed08d04",
+      "url": "https://www.forensics-wiki.com/node/0198c111-35d4-7e8c-a8c4-802c1dc80e87",
+      "status": "read",
+      "chars": 5667,
+      "sha256": "5545a7a43322bdd9feecab975da091fed7d1feb6c6236bd8e334558843a46ff3",
+      "cache": "0198c111-35d4-7e8c-a8c4-802c1dc80e87.txt",
+      "coverage": "curated",
+      "targets": [
+        "knowledge/forensic-cloud-vm"
+      ],
+      "themes": [
+        "物理磁盘占用、转换为虚拟磁盘、差分副本和验证"
+      ],
+      "pending": ""
+    },
+    {
+      "site": "Forensics-Wiki",
+      "id": "01a0c443-ba3c-7ab8-842e-00593291a68e",
+      "title": "APFS / ext4 / F2FS 文件系统结构速览",
+      "group": "b9631502-1fe3-411c-9924-f51ebed08d04",
+      "url": "https://www.forensics-wiki.com/node/01a0c443-ba3c-7ab8-842e-00593291a68e",
+      "status": "read",
+      "chars": 5312,
+      "sha256": "27e35765b640c29be37d212b7468ce42ab34fcbb942d9f4e0d957e94f38a05bc",
+      "cache": "01a0c443-ba3c-7ab8-842e-00593291a68e.txt",
+      "coverage": "curated",
+      "targets": [
+        "knowledge/disk-evidence",
+        "knowledge/forensic-file-recovery"
+      ],
+      "themes": [
+        "APFS容器/快照、ext4 inode/journal、F2FS、元数据与恢复范围"
+      ],
+      "pending": ""
+    },
+    {
+      "site": "Forensics-Wiki",
+      "id": "01a0c4fa-08b0-74d7-a940-7b3a8b83a8c5",
+      "title": "SQLite / WAL 数据库取证基础",
+      "group": "b9631502-1fe3-411c-9924-f51ebed08d04",
+      "url": "https://www.forensics-wiki.com/node/01a0c4fa-08b0-74d7-a940-7b3a8b83a8c5",
+      "status": "read",
+      "chars": 3614,
+      "sha256": "0f1cb5a2749f97f68c8f37e2e5edbef8073075b9019b18881f19ad66bfa5cb87",
+      "cache": "01a0c4fa-08b0-74d7-a940-7b3a8b83a8c5.txt",
+      "coverage": "curated",
+      "targets": [
+        "knowledge/forensic-sqlite",
+        "knowledge/forensic-browser",
+        "knowledge/forensic-mobile-apps"
+      ],
+      "themes": [
+        "SQLite头/B-tree/varint、WAL frame/salt/checksum/commit、SHM、恢复分层"
+      ],
+      "pending": ""
+    },
+    {
+      "site": "Forensics-Wiki",
+      "id": "0197f50d-2bdb-7330-b0b0-68f9a9677df2",
+      "title": "注册表取证",
+      "group": "1162e209-005b-476e-b486-f34cd0b576f9",
+      "url": "https://www.forensics-wiki.com/node/0197f50d-2bdb-7330-b0b0-68f9a9677df2",
+      "status": "read",
+      "chars": 7692,
+      "sha256": "d0c5f56b5c0ba3178cef49cdc2f4de8a64ea32b694e7e1bacd632ef0b8c5965e",
+      "cache": "0197f50d-2bdb-7330-b0b0-68f9a9677df2.txt",
+      "coverage": "curated",
+      "targets": [
+        "knowledge/forensic-registry",
+        "tool/forensic-registry-tools"
+      ],
+      "themes": [
+        "hive/事务日志、ControlSet、系统时间、SID、MRU、USB、程序痕迹"
+      ],
+      "pending": ""
+    },
+    {
+      "site": "Forensics-Wiki",
+      "id": "0197f50d-2c41-7ed8-a076-41618ac44502",
+      "title": "EFS加密与解密",
+      "group": "1162e209-005b-476e-b486-f34cd0b576f9",
+      "url": "https://www.forensics-wiki.com/node/0197f50d-2c41-7ed8-a076-41618ac44502",
+      "status": "read",
+      "chars": 541,
+      "sha256": "d7a86e8a9cedf6ffd9f28d2429f99babdcba253d33e1975ba4fce7badc0ec47e",
+      "cache": "0197f50d-2c41-7ed8-a076-41618ac44502.txt",
+      "coverage": "curated",
+      "targets": [
+        "knowledge/forensic-protected-data"
+      ],
+      "themes": [
+        "EFS文件元数据、证书、私钥、DPAPI及恢复条件"
+      ],
+      "pending": ""
+    },
+    {
+      "site": "Forensics-Wiki",
+      "id": "0197f50d-2d09-7a81-8865-8266243ddad4",
+      "title": "Bitlocker加密与解密",
+      "group": "1162e209-005b-476e-b486-f34cd0b576f9",
+      "url": "https://www.forensics-wiki.com/node/0197f50d-2d09-7a81-8865-8266243ddad4",
+      "status": "read",
+      "chars": 3104,
+      "sha256": "5d301dd2b0b4e7e8befc302a16105724f0e9b97fe94a6f67a59e3a186789e9e0",
+      "cache": "0197f50d-2d09-7a81-8865-8266243ddad4.txt",
+      "coverage": "curated",
+      "targets": [
+        "knowledge/forensic-protected-data",
+        "tool/forensic-assist-tools"
+      ],
+      "themes": [
+        "BitLocker卷、恢复密钥、内存密钥与解密镜像验证"
+      ],
+      "pending": ""
+    },
+    {
+      "site": "Forensics-Wiki",
+      "id": "01a0c781-9520-7a71-9f3f-5d13923d3eaa",
+      "title": "常见远程连接工具取证分析",
+      "group": "1162e209-005b-476e-b486-f34cd0b576f9",
+      "url": "https://www.forensics-wiki.com/node/01a0c781-9520-7a71-9f3f-5d13923d3eaa",
+      "status": "read",
+      "chars": 8260,
+      "sha256": "847bba3b83613bdf253e35fc1aeec24ff0ebedcd1361b86722103cf7a3ca074d",
+      "cache": "01a0c781-9520-7a71-9f3f-5d13923d3eaa.txt",
+      "coverage": "curated",
+      "targets": [
+        "knowledge/forensic-remote-connections"
+      ],
+      "themes": [
+        "远程控制、数据库客户端、SSH/终端配置、会话与密码版本条件"
+      ],
+      "pending": ""
+    },
+    {
+      "site": "Forensics-Wiki",
+      "id": "01a0c7c0-3712-76eb-ac95-31427a68b55a",
+      "title": "Windows 11 取证新特性（Recall / Copilot 本地痕迹 / WSA 安卓子系统）",
+      "group": "1162e209-005b-476e-b486-f34cd0b576f9",
+      "url": "https://www.forensics-wiki.com/node/01a0c7c0-3712-76eb-ac95-31427a68b55a",
+      "status": "read",
+      "chars": 3784,
+      "sha256": "5d9262cba9c177cfda67fd6cbe8b6b74516db20ee55da7e4205cce78bb1628ad",
+      "cache": "01a0c7c0-3712-76eb-ac95-31427a68b55a.txt",
+      "coverage": "curated",
+      "targets": [
+        "knowledge/forensic-windows-artifacts"
+      ],
+      "themes": [
+        "Recall/Copilot/WSA、PhoneLink、截图/标签页、PowerShell编码与版本限制"
+      ],
+      "pending": ""
+    },
+    {
+      "site": "Forensics-Wiki",
+      "id": "01a0c8fa-eeca-73a1-a896-9a961ee0122f",
+      "title": "Windows 事件日志深度分析",
+      "group": "1162e209-005b-476e-b486-f34cd0b576f9",
+      "url": "https://www.forensics-wiki.com/node/01a0c8fa-eeca-73a1-a896-9a961ee0122f",
+      "status": "read",
+      "chars": 5939,
+      "sha256": "ca807912bd79a923c64c239a5cecbf6139174b1ddfc89011180893d20269cc15",
+      "cache": "01a0c8fa-eeca-73a1-a896-9a961ee0122f.txt",
+      "coverage": "curated",
+      "targets": [
+        "knowledge/forensic-windows-logs",
+        "tool/forensic-registry-tools"
+      ],
+      "themes": [
+        "EVTX、登录/RDP/PowerShell/Sysmon、Provider、原始XML、清理边界"
+      ],
+      "pending": ""
+    },
+    {
+      "site": "Forensics-Wiki",
+      "id": "01a0c9a2-493b-7bb6-a7c8-0d4faa5d87c9",
+      "title": "浏览器取证",
+      "group": "1162e209-005b-476e-b486-f34cd0b576f9",
+      "url": "https://www.forensics-wiki.com/node/01a0c9a2-493b-7bb6-a7c8-0d4faa5d87c9",
+      "status": "read",
+      "chars": 5427,
+      "sha256": "d066519d98158ba2586d1845e1275724a1ee2428f890ec3cd02ae2b5c1d7034f",
+      "cache": "01a0c9a2-493b-7bb6-a7c8-0d4faa5d87c9.txt",
+      "coverage": "curated",
+      "targets": [
+        "knowledge/forensic-browser",
+        "tool/forensic-browser-tools"
+      ],
+      "themes": [
+        "Chromium/Firefox路径、历史/下载/搜索SQL、WAL、缓存、DPAPI/AppBound/NSS"
+      ],
+      "pending": ""
+    },
+    {
+      "site": "Forensics-Wiki",
+      "id": "0197f50d-3227-79d6-9455-3dd19c0f913a",
+      "title": "常见webshell工具流量特征",
+      "group": "925527ce-ef46-4ddf-9b5e-3891ef10a3a7",
+      "url": "https://www.forensics-wiki.com/node/0197f50d-3227-79d6-9455-3dd19c0f913a",
+      "status": "read",
+      "chars": 8219,
+      "sha256": "be3406e59709aac5232a9b0b4914957c8d8743713b07584f247ceb131fff8203",
+      "cache": "0197f50d-3227-79d6-9455-3dd19c0f913a.txt",
+      "coverage": "curated",
+      "targets": [
+        "knowledge/forensic-network-traffic"
+      ],
+      "themes": [
+        "菜刀/蚁剑/冰蝎/哥斯拉、HTTP特征、加密、会话与服务端核对"
+      ],
+      "pending": ""
+    },
+    {
+      "site": "Forensics-Wiki",
+      "id": "0197f50d-328c-71f2-bfa8-8cec4f0e1440",
+      "title": "通过.frm和.idb文件恢复mysql数据库",
+      "group": "925527ce-ef46-4ddf-9b5e-3891ef10a3a7",
+      "url": "https://www.forensics-wiki.com/node/0197f50d-328c-71f2-bfa8-8cec4f0e1440",
+      "status": "read",
+      "chars": 8965,
+      "sha256": "c55f4d11c7ebc703b866cbb4117d881f4edcc55fb1de20dd94b5da8035b417ba",
+      "cache": "0197f50d-328c-71f2-bfa8-8cec4f0e1440.txt",
+      "coverage": "curated",
+      "targets": [
+        "knowledge/forensic-database-recovery"
+      ],
+      "themes": [
+        "frm/ibd恢复、相同DDL、InnoDB导入、XtraBackup/qpress/xbstream、LSN"
+      ],
+      "pending": ""
+    },
+    {
+      "site": "Forensics-Wiki",
+      "id": "0197f50d-32ef-7472-b176-d344b993d9a8",
+      "title": "PVE 7.2 iso 镜像重置 pve root密码",
+      "group": "925527ce-ef46-4ddf-9b5e-3891ef10a3a7",
+      "url": "https://www.forensics-wiki.com/node/0197f50d-32ef-7472-b176-d344b993d9a8",
+      "status": "read",
+      "chars": 2380,
+      "sha256": "0d483293dfee5e0fa058e7ae421919baa19860bfc4551fa8fcd8d521ca4072b3",
+      "cache": "0197f50d-32ef-7472-b176-d344b993d9a8.txt",
+      "coverage": "curated",
+      "targets": [
+        "knowledge/forensic-cloud-vm"
+      ],
+      "themes": [
+        "PVE 7.2救援环境重置属于实验副本变更，不是原口令提取"
+      ],
+      "pending": ""
+    },
+    {
+      "site": "Forensics-Wiki",
+      "id": "0197f50d-3354-780a-b5ea-48cdbdc4b793",
+      "title": "新版宝塔加密数据解密",
+      "group": "925527ce-ef46-4ddf-9b5e-3891ef10a3a7",
+      "url": "https://www.forensics-wiki.com/node/0197f50d-3354-780a-b5ea-48cdbdc4b793",
+      "status": "read",
+      "chars": 6270,
+      "sha256": "2dee96ac113913ac61f2535eac9d465ea6bb905dd302fc4446c899f243a331f1",
+      "cache": "0197f50d-3354-780a-b5ea-48cdbdc4b793.txt",
+      "coverage": "curated",
+      "targets": [
+        "knowledge/forensic-server-panel"
+      ],
+      "themes": [
+        "新版宝塔加密字段、BT前缀、key/IV、版本配套与验证"
+      ],
+      "pending": ""
+    },
+    {
+      "site": "Forensics-Wiki",
+      "id": "0197f50d-33bd-73f5-abec-2b5778493cd9",
+      "title": "CDN基础",
+      "group": "925527ce-ef46-4ddf-9b5e-3891ef10a3a7",
+      "url": "https://www.forensics-wiki.com/node/0197f50d-33bd-73f5-abec-2b5778493cd9",
+      "status": "read",
+      "chars": 3951,
+      "sha256": "6f8d08fa62dded7caf0142db5e7ff3ee5b3b4c8d5259b32626361013b2f522e8",
+      "cache": "0197f50d-33bd-73f5-abec-2b5778493cd9.txt",
+      "coverage": "curated",
+      "targets": [
+        "knowledge/forensic-network-traffic"
+      ],
+      "themes": [
+        "CDN/代理/缓存、地址信任边界、源站证据关联"
+      ],
+      "pending": ""
+    },
+    {
+      "site": "Forensics-Wiki",
+      "id": "0197f50d-341b-7655-bc2c-e8709ed380cb",
+      "title": "介绍",
+      "group": "925527ce-ef46-4ddf-9b5e-3891ef10a3a7",
+      "url": "https://www.forensics-wiki.com/node/0197f50d-341b-7655-bc2c-e8709ed380cb",
+      "status": "read",
+      "chars": 2194,
+      "sha256": "588727a26552f4d7fd05814b97444fa0efb46eb29305fbb40284544f06d60e5a",
+      "cache": "0197f50d-341b-7655-bc2c-e8709ed380cb.txt",
+      "coverage": "curated",
+      "targets": [
+        "knowledge/forensic-server-services"
+      ],
+      "themes": [
+        "Linux版本、用户、文件系统、主机与服务证据"
+      ],
+      "pending": ""
+    },
+    {
+      "site": "Forensics-Wiki",
+      "id": "0197f50d-34d2-71fa-bb7a-8cac1e18d713",
+      "title": "基础命令",
+      "group": "925527ce-ef46-4ddf-9b5e-3891ef10a3a7",
+      "url": "https://www.forensics-wiki.com/node/0197f50d-34d2-71fa-bb7a-8cac1e18d713",
+      "status": "read",
+      "chars": 51368,
+      "sha256": "2d4efdfaa6c94202fe376403c7e9db205951d8382d7c3fd8433c3e2e1c368bf9",
+      "cache": "0197f50d-34d2-71fa-bb7a-8cac1e18d713.txt",
+      "coverage": "curated",
+      "targets": [
+        "tool/forensic-linux-commands",
+        "knowledge/forensic-server-services"
+      ],
+      "themes": [
+        "cat/chattr/chgrp/chmod/find/mdir/mv、ftp/tftp/ncftp/ftpshut/ftpwho/ftpcount、cd/dirs/mkdir、adduser/useradd/sudo/kill、gzexe/gzip/tar"
+      ],
+      "pending": ""
+    },
+    {
+      "site": "Forensics-Wiki",
+      "id": "0197f50d-353e-7830-88f7-c9bd2e007518",
+      "title": "宝塔面板取证",
+      "group": "925527ce-ef46-4ddf-9b5e-3891ef10a3a7",
+      "url": "https://www.forensics-wiki.com/node/0197f50d-353e-7830-88f7-c9bd2e007518",
+      "status": "read",
+      "chars": 8003,
+      "sha256": "fb43a3488fbe38bdc4875483da4f4cfa2d84a4dc98d3dae213fe72a3ae4a2ada",
+      "cache": "0197f50d-353e-7830-88f7-c9bd2e007518.txt",
+      "coverage": "curated",
+      "targets": [
+        "knowledge/forensic-server-panel",
+        "tool/forensic-assist-tools"
+      ],
+      "themes": [
+        "宝塔面板版本、DB/配置/网站/日志/任务/FTP与账户字段"
+      ],
+      "pending": ""
+    },
+    {
+      "site": "Forensics-Wiki",
+      "id": "019809ca-e521-7bc5-996d-c935f253f181",
+      "title": "利用宝塔重构网站",
+      "group": "925527ce-ef46-4ddf-9b5e-3891ef10a3a7",
+      "url": "https://www.forensics-wiki.com/node/019809ca-e521-7bc5-996d-c935f253f181",
+      "status": "read",
+      "chars": 9894,
+      "sha256": "7e7d9783d3378a3d1b16e667336529bd1a01f5bcfbc3da90b3124d62424f1e2d",
+      "cache": "019809ca-e521-7bc5-996d-c935f253f181.txt",
+      "coverage": "curated",
+      "targets": [
+        "knowledge/forensic-server-panel",
+        "knowledge/forensic-website-reconstruction"
+      ],
+      "themes": [
+        "隔离重构网站、hosts/vhost/版本/数据库、原件与仿真变化分开"
+      ],
+      "pending": ""
+    },
+    {
+      "site": "Forensics-Wiki",
+      "id": "019809d1-cfbe-72b5-9d9e-53e9bea08444",
+      "title": "服务器远程勘验取证固定指南",
+      "group": "925527ce-ef46-4ddf-9b5e-3891ef10a3a7",
+      "url": "https://www.forensics-wiki.com/node/019809d1-cfbe-72b5-9d9e-53e9bea08444",
+      "status": "read",
+      "chars": 14132,
+      "sha256": "fcc29831ea13f6ec1e166a2e6a560d8b32f4937cb9ffbcbe35fa90f54c4d890b",
+      "cache": "019809d1-cfbe-72b5-9d9e-53e9bea08444.txt",
+      "coverage": "curated",
+      "targets": [
+        "knowledge/forensic-server-services",
+        "knowledge/forensic-quality",
+        "knowledge/forensic-guide-server"
+      ],
+      "themes": [
+        "远程固定、范围/时间/权限/日志/失败项、活体变化、派生结果映射"
+      ],
+      "pending": ""
+    },
+    {
+      "site": "Forensics-Wiki",
+      "id": "0197f50d-2ca8-706b-847f-4b351bd47ab3",
+      "title": "Win-Profiles",
+      "group": "79c6da8a-fc77-4a51-afe5-d6a8694d9c2e",
+      "url": "https://www.forensics-wiki.com/node/0197f50d-2ca8-706b-847f-4b351bd47ab3",
+      "status": "read",
+      "chars": 7481,
+      "sha256": "c2d71146ac0848e1dccce6f553716337ca0e59ce6e69fec7150029b09a8c2f13",
+      "cache": "0197f50d-2ca8-706b-847f-4b351bd47ab3.txt",
+      "coverage": "curated",
+      "targets": [
+        "tool/forensic-volatility",
+        "knowledge/forensic-memory"
+      ],
+      "themes": [
+        "Windows Vol2 Profile、imageinfo/kdbgscan、自动符号与版本区别"
+      ],
+      "pending": ""
+    },
+    {
+      "site": "Forensics-Wiki",
+      "id": "0197f50d-2d70-7786-b7db-cdc5a5230a89",
+      "title": "安装",
+      "group": "79c6da8a-fc77-4a51-afe5-d6a8694d9c2e",
+      "url": "https://www.forensics-wiki.com/node/0197f50d-2d70-7786-b7db-cdc5a5230a89",
+      "status": "read",
+      "chars": 2479,
+      "sha256": "a0cd39f01967c6c1fccd661415c458d3d66f56aa6fb07b559546a3b85edb3440",
+      "cache": "0197f50d-2d70-7786-b7db-cdc5a5230a89.txt",
+      "coverage": "curated",
+      "targets": [
+        "tool/forensic-volatility"
+      ],
+      "themes": [
+        "Vol2/Vol3依赖隔离、插件路径、帮助与符号，不执行未知检材"
+      ],
+      "pending": ""
+    },
+    {
+      "site": "Forensics-Wiki",
+      "id": "0197f50d-2dd6-79c2-8451-c75c9b37584a",
+      "title": "介绍",
+      "group": "79c6da8a-fc77-4a51-afe5-d6a8694d9c2e",
+      "url": "https://www.forensics-wiki.com/node/0197f50d-2dd6-79c2-8451-c75c9b37584a",
+      "status": "read",
+      "chars": 472,
+      "sha256": "3723df949ef1e7e7474af47e14643532d74c9e49af33664f0b78da19fad17300",
+      "cache": "0197f50d-2dd6-79c2-8451-c75c9b37584a.txt",
+      "coverage": "curated",
+      "targets": [
+        "knowledge/forensic-memory",
+        "tool/forensic-volatility"
+      ],
+      "themes": [
+        "内存分析与采集区别、进程/网络/文件/注册表/可疑代码"
+      ],
+      "pending": ""
+    },
+    {
+      "site": "Forensics-Wiki",
+      "id": "0197f50d-2e3b-781d-94eb-ba3ccfb2319f",
+      "title": "Windows基本用法",
+      "group": "79c6da8a-fc77-4a51-afe5-d6a8694d9c2e",
+      "url": "https://www.forensics-wiki.com/node/0197f50d-2e3b-781d-94eb-ba3ccfb2319f",
+      "status": "read",
+      "chars": 9999,
+      "sha256": "8f2d61e41b33744b9caef98b656090f3cc633bbc1bf1464fc622bf20efa5ecf4",
+      "cache": "0197f50d-2e3b-781d-94eb-ba3ccfb2319f.txt",
+      "coverage": "curated",
+      "targets": [
+        "knowledge/forensic-memory",
+        "tool/forensic-volatility"
+      ],
+      "themes": [
+        "Vol2操作序列、进程/连接/注册表/导出、地址与格式条件"
+      ],
+      "pending": ""
+    },
+    {
+      "site": "Forensics-Wiki",
+      "id": "0197f50d-3020-7a5e-a04b-5114afc23bea",
+      "title": "Windows命令参考",
+      "group": "79c6da8a-fc77-4a51-afe5-d6a8694d9c2e",
+      "url": "https://www.forensics-wiki.com/node/0197f50d-3020-7a5e-a04b-5114afc23bea",
+      "status": "read",
+      "chars": 182701,
+      "sha256": "a9a2ad3f1f200e6de2daa55c34093762fae2bd12a5f0613dbc54b35081f1c2d1",
+      "cache": "0197f50d-3020-7a5e-a04b-5114afc23bea.txt",
+      "coverage": "curated",
+      "targets": [
+        "tool/forensic-volatility",
+        "knowledge/forensic-memory"
+      ],
+      "themes": [
+        "Windows插件按任务索引、过滤/导出、物理/虚拟地址、旧版条件"
+      ],
+      "pending": ""
+    },
+    {
+      "site": "Forensics-Wiki",
+      "id": "01980981-d714-7079-bbeb-ce3720e7c031",
+      "title": "LovelyMem-基于Memprocfs和Volatility的可视化内存取证工具",
+      "group": "79c6da8a-fc77-4a51-afe5-d6a8694d9c2e",
+      "url": "https://www.forensics-wiki.com/node/01980981-d714-7079-bbeb-ce3720e7c031",
+      "status": "read",
+      "chars": 7663,
+      "sha256": "713963585a842eb29859568303aada5301ac0b2d98f2f71e6fb9b1d2fe26a1a8",
+      "cache": "01980981-d714-7079-bbeb-ce3720e7c031.txt",
+      "coverage": "curated",
+      "targets": [
+        "tool/forensic-memprocfs",
+        "tool/forensic-volatility"
+      ],
+      "themes": [
+        "LovelyMem/Vol2/Vol3/MemProcFS、挂载、文件树、时间线、扫描边界"
+      ],
+      "pending": ""
+    },
+    {
+      "site": "Forensics-Wiki",
+      "id": "0197f50d-3a4d-7e7d-8279-d043696ea684",
+      "title": "Android数据存储技术",
+      "group": "92cdf54a-451f-4e19-858a-30dd35d272ef",
+      "url": "https://www.forensics-wiki.com/node/0197f50d-3a4d-7e7d-8279-d043696ea684",
+      "status": "read",
+      "chars": 4630,
+      "sha256": "692b8859350b2f4b01bb35b1c3b5b6a93b26347728b4f7cdbfb580ecb9b5caa0",
+      "cache": "0197f50d-3a4d-7e7d-8279-d043696ea684.txt",
+      "coverage": "curated",
+      "targets": [
+        "knowledge/forensic-android-storage",
+        "knowledge/forensic-guide-mobile"
+      ],
+      "themes": [
+        "应用沙箱、多用户、CE/DE、SQLite/Room、SharedPreferences、文件、外部存储、Provider、缓存"
+      ],
+      "pending": ""
+    },
+    {
+      "site": "Forensics-Wiki",
+      "id": "0197f50d-365f-7174-8736-0240a5fe4de6",
+      "title": "彩信/短信取证",
+      "group": "9f049a31-a67a-4739-a41b-50209bcd7aec",
+      "url": "https://www.forensics-wiki.com/node/0197f50d-365f-7174-8736-0240a5fe4de6",
+      "status": "read",
+      "chars": 62,
+      "sha256": "55c4cf7a499ebf7fe7f67705c38200b41ae8be82432d36aaf076f7810f18033c",
+      "cache": "0197f50d-365f-7174-8736-0240a5fe4de6.txt",
+      "coverage": "curated",
+      "targets": [
+        "knowledge/forensic-ios-backup"
+      ],
+      "themes": [
+        "短信/彩信数据库路径、备份映射与关联附件；更正模板占位路径"
+      ],
+      "pending": ""
+    },
+    {
+      "site": "Forensics-Wiki",
+      "id": "0197f5e4-596e-7162-a5e4-786ed580e369",
+      "title": "iPhone6及以下版本进入恢复模式和DFU模式操作方法",
+      "group": "9f049a31-a67a-4739-a41b-50209bcd7aec",
+      "url": "https://www.forensics-wiki.com/node/0197f5e4-596e-7162-a5e4-786ed580e369",
+      "status": "read",
+      "chars": 2871,
+      "sha256": "09c39c58cb62449aaed44214005c7969aa74641b92befcfc9312dc7a59a84c7c",
+      "cache": "0197f5e4-596e-7162-a5e4-786ed580e369.txt",
+      "coverage": "curated",
+      "targets": [
+        "knowledge/forensic-ios-backup"
+      ],
+      "themes": [
+        "iPhone6及更旧机型Recovery/DFU边界、黑屏/连接提示、恢复会变更设备"
+      ],
+      "pending": ""
+    },
+    {
+      "site": "Forensics-Wiki",
+      "id": "0197f545-c680-7c45-b86b-dd4ca7bc2821",
+      "title": "面板一把梭",
+      "group": "3a53bd81-2317-4043-a139-9279fb43a28b",
+      "url": "https://www.forensics-wiki.com/node/0197f545-c680-7c45-b86b-dd4ca7bc2821",
+      "status": "read",
+      "chars": 634,
+      "sha256": "58885859c5bc35cdf7da61b5fa89e7f66ded4894200a7a167f4fed0a2869c724",
+      "cache": "0197f545-c680-7c45-b86b-dd4ca7bc2821.txt",
+      "coverage": "curated",
+      "targets": [
+        "tool/forensic-assist-tools",
+        "knowledge/forensic-server-panel"
+      ],
+      "themes": [
+        "PanelForensics、面板范围、目录/数据库输入与支持限制"
+      ],
+      "pending": ""
+    },
+    {
+      "site": "Forensics-Wiki",
+      "id": "0197f5eb-59ea-7d5d-a88f-d997aac44bdc",
+      "title": "X-Ways Forensics 入门指南（一）",
+      "group": "3a53bd81-2317-4043-a139-9279fb43a28b",
+      "url": "https://www.forensics-wiki.com/node/0197f5eb-59ea-7d5d-a88f-d997aac44bdc",
+      "status": "read",
+      "chars": 25420,
+      "sha256": "7450e9943231a48228aa56d81524fd1bdabfa6faf8ebf2292ef40ac685c0a202",
+      "cache": "0197f5eb-59ea-7d5d-a88f-d997aac44bdc.txt",
+      "coverage": "curated",
+      "targets": [
+        "tool/forensic-xways"
+      ],
+      "themes": [
+        "案件、全局配置、证据快照、类型/索引/提取、查找、导出"
+      ],
+      "pending": ""
+    },
+    {
+      "site": "Forensics-Wiki",
+      "id": "0197f603-6725-7f16-9edb-87c885033916",
+      "title": "使用 X-Ways Forensics Excire 照片分析模块进行照片分析",
+      "group": "3a53bd81-2317-4043-a139-9279fb43a28b",
+      "url": "https://www.forensics-wiki.com/node/0197f603-6725-7f16-9edb-87c885033916",
+      "status": "read",
+      "chars": 13407,
+      "sha256": "6d101dcc9d1ec94cc1473690fc2b130e741b0a0de91f74ff1af8770bd827a43c",
+      "cache": "0197f603-6725-7f16-9edb-87c885033916.txt",
+      "coverage": "curated",
+      "targets": [
+        "tool/forensic-xways"
+      ],
+      "themes": [
+        "Excire图片分类、分析任务、结果筛选与人工核验"
+      ],
+      "pending": ""
+    },
+    {
+      "site": "Forensics-Wiki",
+      "id": "0197f606-44de-70fa-840c-6ed2c0462d5c",
+      "title": "X-Ways Forensics 入门指南（二）——使用技巧",
+      "group": "3a53bd81-2317-4043-a139-9279fb43a28b",
+      "url": "https://www.forensics-wiki.com/node/0197f606-44de-70fa-840c-6ed2c0462d5c",
+      "status": "read",
+      "chars": 10626,
+      "sha256": "94aaa2a6d73d66041bbbdff77752b4e885e68b295abdf7728523225a0d79bb4f",
+      "cache": "0197f606-44de-70fa-840c-6ed2c0462d5c.txt",
+      "coverage": "curated",
+      "targets": [
+        "tool/forensic-xways"
+      ],
+      "themes": [
+        "快照与筛选、内嵌文件/注册表、目录浏览、注释、哈希和时间设置"
+      ],
+      "pending": ""
+    },
+    {
+      "site": "Forensics-Wiki",
+      "id": "0197f60b-d83d-705d-b14b-71aba1555d5d",
+      "title": "X-Ways Forensics安装、设置、界面、使用技巧",
+      "group": "3a53bd81-2317-4043-a139-9279fb43a28b",
+      "url": "https://www.forensics-wiki.com/node/0197f60b-d83d-705d-b14b-71aba1555d5d",
+      "status": "read",
+      "chars": 147,
+      "sha256": "5b193a73482496bd19b7af6ae9c7f4c62b70d08c1106aed3b811019c63137fe9",
+      "cache": "0197f60b-d83d-705d-b14b-71aba1555d5d.txt",
+      "coverage": "link-index",
+      "targets": [
+        "tool/forensic-xways"
+      ],
+      "themes": [
+        "页面只有微信公众号链接，没有操作正文；索引登记，不声称该链接全文已提取"
+      ],
+      "pending": ""
+    },
+    {
+      "site": "Forensics-Wiki",
+      "id": "0197f612-4279-7699-a18b-3ca961f7b7bb",
+      "title": "XWF 高效取证思路——多开提效",
+      "group": "3a53bd81-2317-4043-a139-9279fb43a28b",
+      "url": "https://www.forensics-wiki.com/node/0197f612-4279-7699-a18b-3ca961f7b7bb",
+      "status": "read",
+      "chars": 4452,
+      "sha256": "4f4a6725425a922b7b00465952f0274f878e0bbe01f95001e9dc1334d0b9c7ba",
+      "cache": "0197f612-4279-7699-a18b-3ca961f7b7bb.txt",
+      "coverage": "curated",
+      "targets": [
+        "tool/forensic-xways"
+      ],
+      "themes": [
+        "多实例/并行、内存线程与I/O、案件一致性和避免并写"
+      ],
+      "pending": ""
+    },
+    {
+      "site": "Forensics-Wiki",
+      "id": "0197f6a2-0ff5-765c-b6ef-2bc895124367",
+      "title": "电子取证工具包",
+      "group": "3a53bd81-2317-4043-a139-9279fb43a28b",
+      "url": "https://www.forensics-wiki.com/node/0197f6a2-0ff5-765c-b6ef-2bc895124367",
+      "status": "read",
+      "chars": 11413,
+      "sha256": "eba866c888810b274e05fcffb8e8149802bc31f6d322dd0e2d6fed7818cf965a",
+      "cache": "0197f6a2-0ff5-765c-b6ef-2bc895124367.txt",
+      "coverage": "tool-index",
+      "targets": [
+        "tool/forensic-assist-tools",
+        "tool/forensic-disk-tools",
+        "tool/forensic-volatility",
+        "tool/forensic-registry-tools"
+      ],
+      "themes": [
+        "工具库分类与公开工具名称；未下载/执行网盘工具包，页面并无逐工具教程"
+      ],
+      "pending": ""
+    },
+    {
+      "site": "Forensics-Wiki",
+      "id": "0197fd30-0ac9-7077-b4a6-bb8badd8accf",
+      "title": "XWaysForensics功能介绍事件列表功能",
+      "group": "3a53bd81-2317-4043-a139-9279fb43a28b",
+      "url": "https://www.forensics-wiki.com/node/0197fd30-0ac9-7077-b4a6-bb8badd8accf",
+      "status": "read",
+      "chars": 8488,
+      "sha256": "2bb8c355bf2382f51c9dd77de38c00bf8462990341ce11709f24e3e10ac38f28",
+      "cache": "0197fd30-0ac9-7077-b4a6-bb8badd8accf.txt",
+      "coverage": "curated",
+      "targets": [
+        "tool/forensic-xways"
+      ],
+      "themes": [
+        "事件列表、时间/来源列、排序过滤、导出与语义边界"
+      ],
+      "pending": ""
+    },
+    {
+      "site": "Forensics-Wiki",
+      "id": "0197fd4e-1ec0-7f00-a3a9-aa54a0705086",
+      "title": "XWaysForensics包含报告表标签的使用",
+      "group": "3a53bd81-2317-4043-a139-9279fb43a28b",
+      "url": "https://www.forensics-wiki.com/node/0197fd4e-1ec0-7f00-a3a9-aa54a0705086",
+      "status": "read",
+      "chars": 13934,
+      "sha256": "8da0efe9824156931ba2e2d614d83fee95b1eeab91520fdef45eac742add0608",
+      "cache": "0197fd4e-1ec0-7f00-a3a9-aa54a0705086.txt",
+      "coverage": "curated",
+      "targets": [
+        "tool/forensic-xways"
+      ],
+      "themes": [
+        "报告表标签、标注/分组、创建与导出报告、位置映射"
+      ],
+      "pending": ""
+    },
+    {
+      "site": "Forensics-Wiki",
+      "id": "0198133c-5b8e-769b-9b7f-a4dd0e34f3c9",
+      "title": "商业软件介绍",
+      "group": "3a53bd81-2317-4043-a139-9279fb43a28b",
+      "url": "https://www.forensics-wiki.com/node/0198133c-5b8e-769b-9b7f-a4dd0e34f3c9",
+      "status": "read",
+      "chars": 1058,
+      "sha256": "9f61b7ed77cb85b76bba8021f05793a64014de48bc28fc27a1936cdbe953839f",
+      "cache": "0198133c-5b8e-769b-9b7f-a4dd0e34f3c9.txt",
+      "coverage": "curated",
+      "targets": [
+        "tool/forensic-assist-tools"
+      ],
+      "themes": [
+        "综合/仿真软件能力定位、品牌与实际支持分开"
+      ],
+      "pending": ""
+    },
+    {
+      "site": "Forensics-Wiki",
+      "id": "0198134d-e00b-710d-ab92-a0709a78a3dd",
+      "title": "Passware Kit Forensic",
+      "group": "3a53bd81-2317-4043-a139-9279fb43a28b",
+      "url": "https://www.forensics-wiki.com/node/0198134d-e00b-710d-ab92-a0709a78a3dd",
+      "status": "read",
+      "chars": 61659,
+      "sha256": "1ef684482410396a2034aa5ef4f85f72cce4364bf8846964bc2d4931d955198c",
+      "cache": "0198134d-e00b-710d-ab92-a0709a78a3dd.txt",
+      "coverage": "curated",
+      "targets": [
+        "tool/forensic-assist-tools",
+        "knowledge/forensic-protected-data"
+      ],
+      "themes": [
+        "Passware磁盘/压缩包/内存密钥、候选搜索、任务与结果验证"
+      ],
+      "pending": ""
+    },
+    {
+      "site": "Forensics-Wiki",
+      "id": "01981589-2ebf-7901-b298-5e64d5da0081",
+      "title": "氧气取证操作指南中文",
+      "group": "3a53bd81-2317-4043-a139-9279fb43a28b",
+      "url": "https://www.forensics-wiki.com/node/01981589-2ebf-7901-b298-5e64d5da0081",
+      "status": "read",
+      "chars": 2352,
+      "sha256": "e15a396632f79710780b55217e88c5f5b64c1d89ce12d63ca325117a31be3d3b",
+      "cache": "01981589-2ebf-7901-b298-5e64d5da0081.txt",
+      "coverage": "attachment-curated",
+      "targets": [
+        "tool/forensic-oxygen"
+      ],
+      "themes": [
+        "公开79页PDF：采集/导入、Cloud/KeyScout/KeyDiver、选择/合并、分析/搜索/地图/时间线/SQLite/报告Viewer；旧版界面不作当前支持保证"
+      ],
+      "pending": ""
+    },
+    {
+      "site": "Forensics-Wiki",
+      "id": "01983ffe-e090-72e1-8f69-662d34732d02",
+      "title": "WXjzcccc/ForensicsTool",
+      "group": "3a53bd81-2317-4043-a139-9279fb43a28b",
+      "url": "https://www.forensics-wiki.com/node/01983ffe-e090-72e1-8f69-662d34732d02",
+      "status": "read",
+      "chars": 3268,
+      "sha256": "93a37ec63ecf71c06196f4e50a4688077ac145eeeecfb23d8685f8336f7cf243",
+      "cache": "01983ffe-e090-72e1-8f69-662d34732d02.txt",
+      "coverage": "curated",
+      "targets": [
+        "tool/forensic-assist-tools"
+      ],
+      "themes": [
+        "ForensicsTool输入类型、工具组合、结果交叉核验"
+      ],
+      "pending": ""
+    },
+    {
+      "site": "Forensics-Wiki",
+      "id": "0197f50d-31bc-78da-87d7-3b8d83206283",
+      "title": "野火IM",
+      "group": "d2cca864-4533-4a32-8761-90939149017f",
+      "url": "https://www.forensics-wiki.com/node/0197f50d-31bc-78da-87d7-3b8d83206283",
+      "status": "read",
+      "chars": 15260,
+      "sha256": "81418feeea8a3cd43432a8f62908d28d6afe15ef7ed1a84fae7169bf2ce39acd",
+      "cache": "0197f50d-31bc-78da-87d7-3b8d83206283.txt",
+      "coverage": "curated",
+      "targets": [
+        "knowledge/forensic-mobile-apps",
+        "knowledge/forensic-sqlite"
+      ],
+      "themes": [
+        "野火IM：用户数据库、Token材料、密钥链、SQLCipher、聊天和附件"
+      ],
+      "pending": ""
+    },
+    {
+      "site": "GoodLunatic",
+      "id": "761da51",
+      "title": "取证知识总结",
+      "url": "https://goodlunatic.github.io/posts/761da51/",
+      "status": "read",
+      "coverage": "curated",
+      "cache": "goodlunatic.txt",
+      "targets": [
+        "knowledge/forensic-memory",
+        "knowledge/forensic-memory-unix",
+        "knowledge/disk-evidence",
+        "knowledge/forensic-server-services",
+        "knowledge/forensic-file-recovery",
+        "knowledge/forensic-documents",
+        "knowledge/forensic-protected-data",
+        "tool/forensic-volatility",
+        "tool/forensic-memprocfs",
+        "tool/forensic-disk-tools"
+      ],
+      "themes": [
+        "Vol2/3及常见Windows/Linux/macOS内存命令",
+        "七种练习内核Profile/ISF制作与版本条件",
+        "RAID/Btrfs、计划任务、ext恢复、Foxmail、EncFS/GPG",
+        "图形内存、磁盘/加密工具与勘误"
+      ],
+      "pending": "",
+      "sha256": "2f248ae224602fd674abc4bf2661f238fd84f3107ad0789fac7f591d21d7ef03",
+      "chars": 45370
+    },
+    {
+      "site": "Hello CTF",
+      "id": "memory",
+      "title": "内存与取证",
+      "url": "https://hello-ctf.com/hc-misc/memory/",
+      "status": "read",
+      "coverage": "curated",
+      "cache": "hello.txt",
+      "targets": [
+        "knowledge/forensic-memory",
+        "knowledge/forensic-network-traffic",
+        "knowledge/disk-evidence",
+        "knowledge/forensic-documents",
+        "knowledge/forensic-protected-data",
+        "tool/forensic-volatility",
+        "tool/forensic-disk-tools"
+      ],
+      "themes": [
+        "Windows内存、113个插件任务索引",
+        "进程转储、字符/图像、XOR/GIF案例",
+        "SquashFS/UBIFS/FAT、账户hash、EFS/BitLocker/TrueCrypt",
+        "HTTP/SMTP/ICMP/攻击IP、PDF静态脚本"
+      ],
+      "pending": "",
+      "sha256": "165e8f70ce178fcf1daf77ed05abe0e7808127c140eb5d3b21d848569cf376c4",
+      "chars": 32339
+    }
+  ]
+}

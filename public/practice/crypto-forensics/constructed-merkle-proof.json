@@ -1,0 +1,11 @@
+{
+  "example_kind": "constructed_three_leaf_tree_not_a_real_block",
+  "header_hex": "01000000000000000000000000000000000000000000000000000000000000000000000082c2ca37f2e21208f5c8fb845c673cadfc4c9fc765efb61930eccbd3fc8de3a329ab5f49ffff001d1dac2b7c",
+  "target_txid": "f5e7983196373daf668a3cf50a504228e44c67baacc10c821d3990f9c4d8f026",
+  "transaction_index": 2,
+  "transaction_count": 3,
+  "siblings": [
+    "f5e7983196373daf668a3cf50a504228e44c67baacc10c821d3990f9c4d8f026",
+    "5f15d4acc344217575f773e09c7d89c2cc27a59e4895b5ac3dc9761be51c30c4"
+  ]
+}

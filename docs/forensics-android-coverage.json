@@ -1,0 +1,3446 @@
+{
+  "schema_version": 1,
+  "source_file": "D:\\winoptimizeDir\\Desktop\\Misc学习\\ctf-atlas\\.work\\android-forensics-20261004\\provided-article.txt",
+  "source_sha256": "a5e2a2bf41a3500aeecfde3f18eaf57ebbd529d7e31c1b7180ed22ca60e416a9",
+  "scope": "指定文章全部主题与最终 Android 三篇主线正文的覆盖映射；候选条件化、错误项保留主题并纠正。机器校验与独立内容审阅并用。",
+  "destinations": {
+    "forensic-android-forensics": "新Android核心取证手册",
+    "forensic-android-storage": "已有Android存储页面",
+    "forensic-android-tools": "新Android取证工具流程页"
+  },
+  "item_count": 75,
+  "target_counts": {
+    "forensic-android-forensics": 4,
+    "forensic-android-storage": 45,
+    "forensic-android-tools": 26
+  },
+  "source_heading_count": 73,
+  "uncovered_headings": [],
+  "verification_note": "Root逐项检查最终正文标题与该标题所在章节的全部terms；73个来源标题映射75个处理项。corrected表示改正错误规则；qualified表示补充适用条件；merged表示已有正文继续使用。没有省略或未映射项。",
+  "primary_sources": [
+    {
+      "id": "telegram-storage",
+      "title": "Telegram Android MessagesStorage.java",
+      "url": "https://raw.githubusercontent.com/DrKLO/Telegram/master/TMessagesProj/src/main/java/org/telegram/messenger/MessagesStorage.java",
+      "verified": "filesDir/accountN下cache4.db及-wal/-shm；直接SQLite打开并启用WAL；messages_v2.data为BLOB。"
+    },
+    {
+      "id": "signal-database",
+      "title": "Signal Android SignalDatabase.kt",
+      "url": "https://raw.githubusercontent.com/signalapp/Signal-Android/main/app/src/main/java/org/thoughtcrime/securesms/database/SignalDatabase.kt",
+      "verified": "DATABASE_NAME为signal.db；数据库secret传入SQLCipher SQLiteOpenHelper。"
+    },
+    {
+      "id": "signal-secret",
+      "title": "Signal Android DatabaseSecretProvider.java",
+      "url": "https://github.com/signalapp/Signal-Android/blob/main/app/src/main/java/org/thoughtcrime/securesms/crypto/DatabaseSecretProvider.java",
+      "verified": "数据库secret经KeyStoreHelper.seal/unseal保护并由偏好设置保存序列化封装；非统一files/keystore明文密钥目录。"
+    },
+    {
+      "id": "aosp-telephony",
+      "title": "AOSP MmsSmsDatabaseHelper.java",
+      "url": "https://android.googlesource.com/platform/packages/providers/TelephonyProvider/+/refs/heads/main/src/com/android/providers/telephony/MmsSmsDatabaseHelper.java",
+      "verified": "数据库mmssms.db；SMS为sms；MMS为pdu/part/addr；threads/canonical_addresses；part.mid关联pdu._id。"
+    },
+    {
+      "id": "chromium-cookie",
+      "title": "Chromium SQLitePersistentCookieStore",
+      "url": "https://chromium.googlesource.com/chromium/src/+/main/net/extras/sqlite/sqlite_persistent_cookie_store.cc",
+      "verified": "普通SQLite cookies表同时定义value TEXT和encrypted_value BLOB；加密依crypto delegate并非整表加密或特殊Google协议。"
+    },
+    {
+      "id": "aosp-accounts",
+      "title": "AOSP AccountsDb.java",
+      "url": "https://raw.githubusercontent.com/aosp-mirror/platform_frameworks_base/main/services/core/java/com/android/server/accounts/AccountsDb.java",
+      "verified": "现代CE/DE账户库accounts_ce.db/accounts_de.db；accounts和authtokens/extras等表；老accounts.db迁移，不支持原文通用accounts.xml结构。"
+    },
+    {
+      "id": "aosp-calllog",
+      "title": "AOSP CallLogDatabaseHelper.java",
+      "url": "https://android.googlesource.com/platform/packages/providers/ContactsProvider/+/master/src/com/android/providers/contacts/CallLogDatabaseHelper.java",
+      "verified": "主库calllog.db及calls表；代码留有从历史contacts库calls迁移的LegacyConstants。"
+    },
+    {
+      "id": "aosp-bluetooth",
+      "title": "AOSP Nougat Bluetooth btif_config.cc",
+      "url": "https://android.googlesource.com/platform/system/bt/+/nougat-iot-release/btif/src/btif_config.cc",
+      "verified": "历史AOSP /data/misc/bluedroid/bt_config.conf及.bak；bt_config.xml明确标为legacy。该标签只证明旧路径/格式迁移，不声称现代机型统一路径。"
+    },
+    {
+      "id": "aosp-wifi",
+      "title": "AOSP Android Q preview WifiConfigStore.java",
+      "url": "https://android.googlesource.com/platform/frameworks/opt/net/wifi/+/refs/tags/android-q-preview-6/service/java/com/android/server/wifi/WifiConfigStore.java",
+      "verified": "WifiConfigStore.xml及用户/共享存储；证明wpa_supplicant.conf并非跨版本唯一保存网络配置。该历史标签不声称现代模块路径统一。"
+    },
+    {
+      "id": "mozilla-logins",
+      "title": "Mozilla application-services logins schema",
+      "url": "https://mozilla.github.io/application-services/book/rust-docs/src/logins/schema.rs.html",
+      "verified": "现代logins组件有loginsL/loginsM/loginsSyncMeta及毫秒时间字段；说明Firefox登录存储实现需按组件版本验证，不能全套照搬桌面三文件。"
+    }
+  ],
+  "headings": [
+    {
+      "heading": "1. 完整备份提取方法 (tar/pk8)",
+      "level": 2,
+      "source_lines": [
+        28,
+        55
+      ],
+      "item_ids": [
+        "android-guide-001",
+        "android-guide-002",
+        "android-guide-003"
+      ]
+    },
+    {
+      "heading": "1.1 Android 备份格式 (.ab)",
+      "level": 3,
+      "source_lines": [
+        30,
+        55
+      ],
+      "item_ids": [
+        "android-guide-002",
+        "android-guide-003"
+      ]
+    },
+    {
+      "heading": "方法 A：使用 abe.jar（推荐，最方便）",
+      "level": 4,
+      "source_lines": [
+        53,
+        55
+      ],
+      "item_ids": [
+        "android-guide-003"
+      ]
+    },
+    {
+      "heading": "方法 B：使用 Python 工具",
+      "level": 4,
+      "source_lines": [
+        67,
+        73
+      ],
+      "item_ids": [
+        "android-guide-004"
+      ]
+    },
+    {
+      "heading": "方法 C：手动提取（无加密时）",
+      "level": 4,
+      "source_lines": [
+        74,
+        76
+      ],
+      "item_ids": [
+        "android-guide-005"
+      ]
+    },
+    {
+      "heading": "1.2 Tar 归档结构",
+      "level": 3,
+      "source_lines": [
+        83,
+        100
+      ],
+      "item_ids": [
+        "android-guide-006"
+      ]
+    },
+    {
+      "heading": "1.3 备份标志位说明",
+      "level": 3,
+      "source_lines": [
+        101,
+        114
+      ],
+      "item_ids": [
+        "android-guide-007"
+      ]
+    },
+    {
+      "heading": "2. /data/data/ — 按分类的应用数据",
+      "level": 2,
+      "source_lines": [
+        115,
+        289
+      ],
+      "item_ids": [
+        "android-guide-008",
+        "android-guide-009",
+        "android-guide-010",
+        "android-guide-011",
+        "android-guide-012",
+        "android-guide-013",
+        "android-guide-014",
+        "android-guide-015",
+        "android-guide-016",
+        "android-guide-017",
+        "android-guide-018",
+        "android-guide-019",
+        "android-guide-020",
+        "android-guide-021"
+      ]
+    },
+    {
+      "heading": "2.1 每个应用的标准目录结构",
+      "level": 3,
+      "source_lines": [
+        117,
+        136
+      ],
+      "item_ids": [
+        "android-guide-008",
+        "android-guide-009"
+      ]
+    },
+    {
+      "heading": "2.2 通讯类应用",
+      "level": 3,
+      "source_lines": [
+        137,
+        202
+      ],
+      "item_ids": [
+        "android-guide-010",
+        "android-guide-011",
+        "android-guide-012",
+        "android-guide-013",
+        "android-guide-014"
+      ]
+    },
+    {
+      "heading": "微信 (com.tencent.mm)",
+      "level": 4,
+      "source_lines": [
+        139,
+        153
+      ],
+      "item_ids": [
+        "android-guide-010"
+      ]
+    },
+    {
+      "heading": "WhatsApp (com.whatsapp)",
+      "level": 4,
+      "source_lines": [
+        154,
+        168
+      ],
+      "item_ids": [
+        "android-guide-011"
+      ]
+    },
+    {
+      "heading": "Telegram (org.telegram.messenger)",
+      "level": 4,
+      "source_lines": [
+        169,
+        181
+      ],
+      "item_ids": [
+        "android-guide-012"
+      ]
+    },
+    {
+      "heading": "Signal (org.thoughtcrime.securesms)",
+      "level": 4,
+      "source_lines": [
+        182,
+        191
+      ],
+      "item_ids": [
+        "android-guide-013"
+      ]
+    },
+    {
+      "heading": "Line (jp.naver.line.android)",
+      "level": 4,
+      "source_lines": [
+        192,
+        202
+      ],
+      "item_ids": [
+        "android-guide-014"
+      ]
+    },
+    {
+      "heading": "2.3 社交媒体应用",
+      "level": 3,
+      "source_lines": [
+        203,
+        238
+      ],
+      "item_ids": [
+        "android-guide-015",
+        "android-guide-016",
+        "android-guide-017"
+      ]
+    },
+    {
+      "heading": "Instagram (com.instagram.android)",
+      "level": 4,
+      "source_lines": [
+        205,
+        214
+      ],
+      "item_ids": [
+        "android-guide-015"
+      ]
+    },
+    {
+      "heading": "抖音/TikTok (com.zhiliaoapp.musically)",
+      "level": 4,
+      "source_lines": [
+        215,
+        224
+      ],
+      "item_ids": [
+        "android-guide-016"
+      ]
+    },
+    {
+      "heading": "支付宝 (com.eg.android.AlipayGphone)",
+      "level": 4,
+      "source_lines": [
+        225,
+        238
+      ],
+      "item_ids": [
+        "android-guide-017"
+      ]
+    },
+    {
+      "heading": "2.4 浏览器数据",
+      "level": 3,
+      "source_lines": [
+        239,
+        267
+      ],
+      "item_ids": [
+        "android-guide-018",
+        "android-guide-019"
+      ]
+    },
+    {
+      "heading": "Chrome (com.android.chrome)",
+      "level": 4,
+      "source_lines": [
+        241,
+        255
+      ],
+      "item_ids": [
+        "android-guide-018"
+      ]
+    },
+    {
+      "heading": "Firefox (org.mozilla.firefox)",
+      "level": 4,
+      "source_lines": [
+        256,
+        267
+      ],
+      "item_ids": [
+        "android-guide-019"
+      ]
+    },
+    {
+      "heading": "2.5 系统短信/通讯录",
+      "level": 3,
+      "source_lines": [
+        268,
+        278
+      ],
+      "item_ids": [
+        "android-guide-020"
+      ]
+    },
+    {
+      "heading": "2.6 笔记/生产力应用",
+      "level": 3,
+      "source_lines": [
+        279,
+        289
+      ],
+      "item_ids": [
+        "android-guide-021"
+      ]
+    },
+    {
+      "heading": "谷歌便签/Keep (com.google.android.keep)",
+      "level": 4,
+      "source_lines": [
+        281,
+        289
+      ],
+      "item_ids": [
+        "android-guide-021"
+      ]
+    },
+    {
+      "heading": "3. /data/system/ — 系统级配置文件",
+      "level": 2,
+      "source_lines": [
+        290,
+        356
+      ],
+      "item_ids": [
+        "android-guide-022",
+        "android-guide-023",
+        "android-guide-024",
+        "android-guide-025",
+        "android-guide-026",
+        "android-guide-027"
+      ]
+    },
+    {
+      "heading": "关键文件详解",
+      "level": 3,
+      "source_lines": [
+        309,
+        356
+      ],
+      "item_ids": [
+        "android-guide-023",
+        "android-guide-024",
+        "android-guide-025"
+      ]
+    },
+    {
+      "heading": "wpa_supplicant.conf — WiFi密码（最常用）",
+      "level": 4,
+      "source_lines": [
+        311,
+        334
+      ],
+      "item_ids": [
+        "android-guide-023"
+      ]
+    },
+    {
+      "heading": "accounts.xml — 系统账户",
+      "level": 4,
+      "source_lines": [
+        335,
+        344
+      ],
+      "item_ids": [
+        "android-guide-024"
+      ]
+    },
+    {
+      "heading": "packages.xml — 已安装包信息",
+      "level": 4,
+      "source_lines": [
+        345,
+        356
+      ],
+      "item_ids": [
+        "android-guide-025"
+      ]
+    },
+    {
+      "heading": "4. SDCard /mnt/shell/emulated/0/ — 外部存储",
+      "level": 2,
+      "source_lines": [
+        357,
+        402
+      ],
+      "item_ids": [
+        "android-guide-028",
+        "android-guide-029",
+        "android-guide-030"
+      ]
+    },
+    {
+      "heading": "4.1 标准目录结构",
+      "level": 3,
+      "source_lines": [
+        359,
+        381
+      ],
+      "item_ids": [
+        "android-guide-028"
+      ]
+    },
+    {
+      "heading": "4.2 多用户存储路径",
+      "level": 3,
+      "source_lines": [
+        382,
+        399
+      ],
+      "item_ids": [
+        "android-guide-029"
+      ]
+    },
+    {
+      "heading": "4.3 外部存储取证关键位置",
+      "level": 3,
+      "source_lines": [
+        400,
+        402
+      ],
+      "item_ids": [
+        "android-guide-030"
+      ]
+    },
+    {
+      "heading": "4.4 .thumbnails/ 数据库（恢复已删文件）",
+      "level": 3,
+      "source_lines": [
+        417,
+        435
+      ],
+      "item_ids": [
+        "android-guide-031"
+      ]
+    },
+    {
+      "heading": "5. SQLite 数据库位置和常见表结构",
+      "level": 2,
+      "source_lines": [
+        436,
+        440
+      ],
+      "item_ids": [
+        "android-guide-032"
+      ]
+    },
+    {
+      "heading": "5.1 如何识别 SQLite 文件",
+      "level": 3,
+      "source_lines": [
+        438,
+        440
+      ],
+      "item_ids": [
+        "android-guide-032"
+      ]
+    },
+    {
+      "heading": "5.2 短信/MMS 数据库",
+      "level": 3,
+      "source_lines": [
+        450,
+        475
+      ],
+      "item_ids": [
+        "android-guide-033"
+      ]
+    },
+    {
+      "heading": "5.3 通讯录/通话记录数据库",
+      "level": 3,
+      "source_lines": [
+        476,
+        493
+      ],
+      "item_ids": [
+        "android-guide-034"
+      ]
+    },
+    {
+      "heading": "5.4 常见加密数据库汇总",
+      "level": 3,
+      "source_lines": [
+        494,
+        519
+      ],
+      "item_ids": [
+        "android-guide-035"
+      ]
+    },
+    {
+      "heading": "5.5 Cookie 数据库（Google 协议格式）",
+      "level": 3,
+      "source_lines": [
+        520,
+        531
+      ],
+      "item_ids": [
+        "android-guide-036"
+      ]
+    },
+    {
+      "heading": "6. SharedPreferences XML 格式",
+      "level": 2,
+      "source_lines": [
+        532,
+        586
+      ],
+      "item_ids": [
+        "android-guide-037",
+        "android-guide-038",
+        "android-guide-039",
+        "android-guide-040"
+      ]
+    },
+    {
+      "heading": "6.1 文件位置",
+      "level": 3,
+      "source_lines": [
+        534,
+        538
+      ],
+      "item_ids": [
+        "android-guide-037"
+      ]
+    },
+    {
+      "heading": "6.2 文件格式示例",
+      "level": 3,
+      "source_lines": [
+        539,
+        553
+      ],
+      "item_ids": [
+        "android-guide-038"
+      ]
+    },
+    {
+      "heading": "6.3 常见 SharedPreferences 文件",
+      "level": 3,
+      "source_lines": [
+        554,
+        583
+      ],
+      "item_ids": [
+        "android-guide-039"
+      ]
+    },
+    {
+      "heading": "6.4 提取命令",
+      "level": 3,
+      "source_lines": [
+        584,
+        586
+      ],
+      "item_ids": [
+        "android-guide-040"
+      ]
+    },
+    {
+      "heading": "7. 日志文件及其位置",
+      "level": 2,
+      "source_lines": [
+        599,
+        603
+      ],
+      "item_ids": [
+        "android-guide-041"
+      ]
+    },
+    {
+      "heading": "7.1 Android 系统日志",
+      "level": 3,
+      "source_lines": [
+        601,
+        603
+      ],
+      "item_ids": [
+        "android-guide-041"
+      ]
+    },
+    {
+      "heading": "7.2 日志位置对照表",
+      "level": 3,
+      "source_lines": [
+        610,
+        651
+      ],
+      "item_ids": [
+        "android-guide-042"
+      ]
+    },
+    {
+      "heading": "7.3 取证用 logcat 过滤命令",
+      "level": 3,
+      "source_lines": [
+        652,
+        654
+      ],
+      "item_ids": [
+        "android-guide-043"
+      ]
+    },
+    {
+      "heading": "8. WiFi、蓝牙、蜂窝网络信息",
+      "level": 2,
+      "source_lines": [
+        667,
+        750
+      ],
+      "item_ids": [
+        "android-guide-044",
+        "android-guide-045",
+        "android-guide-046",
+        "android-guide-047",
+        "android-guide-048"
+      ]
+    },
+    {
+      "heading": "8.1 WiFi",
+      "level": 3,
+      "source_lines": [
+        669,
+        681
+      ],
+      "item_ids": [
+        "android-guide-044"
+      ]
+    },
+    {
+      "heading": "8.2 蓝牙",
+      "level": 3,
+      "source_lines": [
+        682,
+        702
+      ],
+      "item_ids": [
+        "android-guide-045"
+      ]
+    },
+    {
+      "heading": "8.3 蜂窝网络/电话",
+      "level": 3,
+      "source_lines": [
+        703,
+        739
+      ],
+      "item_ids": [
+        "android-guide-046",
+        "android-guide-047"
+      ]
+    },
+    {
+      "heading": "8.4 GPS/定位",
+      "level": 3,
+      "source_lines": [
+        740,
+        750
+      ],
+      "item_ids": [
+        "android-guide-048"
+      ]
+    },
+    {
+      "heading": "9. 密码/Token/会话恢复",
+      "level": 2,
+      "source_lines": [
+        751,
+        758
+      ],
+      "item_ids": [
+        "android-guide-049"
+      ]
+    },
+    {
+      "heading": "9.1 浏览器保存的密码",
+      "level": 3,
+      "source_lines": [
+        753,
+        758
+      ],
+      "item_ids": [
+        "android-guide-049"
+      ]
+    },
+    {
+      "heading": "Chrome",
+      "level": 4,
+      "source_lines": [
+        755,
+        758
+      ],
+      "item_ids": [
+        "android-guide-049"
+      ]
+    },
+    {
+      "heading": "Firefox",
+      "level": 4,
+      "source_lines": [
+        763,
+        770
+      ],
+      "item_ids": [
+        "android-guide-050"
+      ]
+    },
+    {
+      "heading": "9.2 会话Token和Cookie",
+      "level": 3,
+      "source_lines": [
+        771,
+        773
+      ],
+      "item_ids": [
+        "android-guide-051"
+      ]
+    },
+    {
+      "heading": "9.3 关键取证线索汇总",
+      "level": 3,
+      "source_lines": [
+        785,
+        818
+      ],
+      "item_ids": [
+        "android-guide-052"
+      ]
+    },
+    {
+      "heading": "9.4 APK 中硬编码的密钥",
+      "level": 3,
+      "source_lines": [
+        819,
+        821
+      ],
+      "item_ids": [
+        "android-guide-053"
+      ]
+    },
+    {
+      "heading": "9.5 常见安卓加密模式",
+      "level": 3,
+      "source_lines": [
+        837,
+        839
+      ],
+      "item_ids": [
+        "android-guide-054"
+      ]
+    },
+    {
+      "heading": "10. 安卓特有注意事项",
+      "level": 2,
+      "source_lines": [
+        855,
+        906
+      ],
+      "item_ids": [
+        "android-guide-055",
+        "android-guide-056",
+        "android-guide-057"
+      ]
+    },
+    {
+      "heading": "10.1 多用户环境",
+      "level": 3,
+      "source_lines": [
+        857,
+        873
+      ],
+      "item_ids": [
+        "android-guide-055"
+      ]
+    },
+    {
+      "heading": "10.2 存储加密",
+      "level": 3,
+      "source_lines": [
+        874,
+        903
+      ],
+      "item_ids": [
+        "android-guide-056"
+      ]
+    },
+    {
+      "heading": "10.3 分区存储（Android 10+）",
+      "level": 3,
+      "source_lines": [
+        904,
+        906
+      ],
+      "item_ids": [
+        "android-guide-057"
+      ]
+    },
+    {
+      "heading": "10.4 ADB和Root权限",
+      "level": 3,
+      "source_lines": [
+        920,
+        922
+      ],
+      "item_ids": [
+        "android-guide-058"
+      ]
+    },
+    {
+      "heading": "10.5 可调试应用",
+      "level": 3,
+      "source_lines": [
+        940,
+        942
+      ],
+      "item_ids": [
+        "android-guide-059"
+      ]
+    },
+    {
+      "heading": "快速参考手册",
+      "level": 2,
+      "source_lines": [
+        953,
+        1052
+      ],
+      "item_ids": [
+        "android-guide-060",
+        "android-guide-061",
+        "android-guide-062",
+        "android-guide-063",
+        "android-guide-064",
+        "android-guide-065",
+        "android-guide-066",
+        "android-guide-067",
+        "android-guide-068",
+        "android-guide-069",
+        "android-guide-070",
+        "android-guide-071",
+        "android-guide-072",
+        "android-guide-073",
+        "android-guide-074",
+        "android-guide-075"
+      ]
+    },
+    {
+      "heading": "取证优先级 — 前10个必须提取的文件",
+      "level": 3,
+      "source_lines": [
+        955,
+        1000
+      ],
+      "item_ids": [
+        "android-guide-060"
+      ]
+    },
+    {
+      "heading": "SharedPreferences 中常见密码格式",
+      "level": 3,
+      "source_lines": [
+        1001,
+        1021
+      ],
+      "item_ids": [
+        "android-guide-061",
+        "android-guide-062",
+        "android-guide-063",
+        "android-guide-064",
+        "android-guide-065"
+      ]
+    },
+    {
+      "heading": "CTF 取证实战技巧",
+      "level": 3,
+      "source_lines": [
+        1022,
+        1052
+      ],
+      "item_ids": [
+        "android-guide-066",
+        "android-guide-067",
+        "android-guide-068",
+        "android-guide-069",
+        "android-guide-070",
+        "android-guide-071",
+        "android-guide-072",
+        "android-guide-073",
+        "android-guide-074",
+        "android-guide-075"
+      ]
+    }
+  ],
+  "items": [
+    {
+      "id": "android-guide-001",
+      "section": "1. 完整备份提取方法 (tar/pk8)",
+      "source_lines": [
+        28,
+        29
+      ],
+      "topics": [
+        "完整备份与逻辑备份的边界",
+        "tar归档",
+        "pk8/PKCS#8扩展名与文件识别"
+      ],
+      "corrections": [
+        ".ab不是完整设备镜像",
+        "标题的pk8无后续说明：PKCS#8通常是私钥格式，不等于Android备份；先判文件签名和ASN.1结构，不靠后缀当tar解包"
+      ],
+      "target": "forensic-android-tools",
+      "secondary_targets": [],
+      "evidence_ids": [],
+      "status": "qualified",
+      "heading": "## 03 AB、tar 与 pk8：先读结构，再谈解包",
+      "terms": [
+        "tar",
+        "PKCS#8"
+      ],
+      "reviewed": true
+    },
+    {
+      "id": "android-guide-002",
+      "section": "1.1 Android 备份格式 (.ab)",
+      "source_lines": [
+        30,
+        52
+      ],
+      "topics": [
+        "ANDROID BACKUP魔术行",
+        "版本行",
+        "压缩行",
+        "none/AES-256加密行",
+        "压缩与加密payload",
+        "adb backup历史和目标SDK限制"
+      ],
+      "corrections": [
+        "删除固定24字节/大端整数/校验和/密钥长度布局；改为ASCII换行字段",
+        "24字节仅可能是特定未加密头的实例长度，不可固定切片",
+        "压缩payload为zlib而非gzip"
+      ],
+      "target": "forensic-android-tools",
+      "secondary_targets": [],
+      "evidence_ids": [],
+      "status": "corrected",
+      "heading": "## 03 AB、tar 与 pk8：先读结构，再谈解包",
+      "terms": [
+        "ASCII",
+        "ANDROID BACKUP",
+        "zlib"
+      ],
+      "reviewed": true
+    },
+    {
+      "id": "android-guide-003",
+      "section": "1.1 方法A abe.jar",
+      "source_lines": [
+        53,
+        66
+      ],
+      "topics": [
+        "Android Backup Extractor",
+        "无密码与已知密码备份",
+        "unpack命令",
+        "tar目录预览与隔离提取"
+      ],
+      "corrections": [
+        "unpack前核验工具版本和格式；备份密码错误不等于文件损坏",
+        "提取前先列成员并核验路径，不能只凭命令成功声称完整备份"
+      ],
+      "target": "forensic-android-tools",
+      "secondary_targets": [],
+      "evidence_ids": [],
+      "status": "qualified",
+      "heading": "## 03 AB、tar 与 pk8：先读结构，再谈解包",
+      "terms": [
+        "abe.jar",
+        "ABE_PASSWD",
+        "tar -tf"
+      ],
+      "reviewed": true
+    },
+    {
+      "id": "android-guide-004",
+      "section": "1.1 方法B Python工具",
+      "source_lines": [
+        67,
+        73
+      ],
+      "topics": [
+        "Python备份解析替代工具",
+        "libab名称与来源核验",
+        "提取后tar验证"
+      ],
+      "corrections": [
+        "原文pip install libab与python -m libab接口未经出处验证，保留替代工具主题但不把该命令当可用事实",
+        "Python自行处理时仍按头行及zlib格式解析"
+      ],
+      "target": "forensic-android-tools",
+      "secondary_targets": [],
+      "evidence_ids": [],
+      "status": "qualified",
+      "heading": "## 03 AB、tar 与 pk8：先读结构，再谈解包",
+      "terms": [
+        "Python",
+        "libab",
+        "逐行"
+      ],
+      "reviewed": true
+    },
+    {
+      "id": "android-guide-005",
+      "section": "1.1 方法C 手动提取",
+      "source_lines": [
+        74,
+        82
+      ],
+      "topics": [
+        "手动读取备份头",
+        "未加密备份payload偏移",
+        "压缩标志",
+        "zlib解压与tar完整性"
+      ],
+      "corrections": [
+        "第8字节0x04判断加密错误；读取第四行加密名",
+        "tail -c +25与tar -xzf通用写法错误；应按读到的头长定位并在compression=1时zlib解压"
+      ],
+      "target": "forensic-android-tools",
+      "secondary_targets": [],
+      "evidence_ids": [],
+      "status": "corrected",
+      "heading": "## 03 AB、tar 与 pk8：先读结构，再谈解包",
+      "terms": [
+        "payload",
+        "none",
+        "zlib"
+      ],
+      "reviewed": true
+    },
+    {
+      "id": "android-guide-006",
+      "section": "1.2 Tar归档结构",
+      "source_lines": [
+        83,
+        100
+      ],
+      "topics": [
+        "apps/<包名>备份命名空间",
+        "f/db/sp/r/a/ef等短domain",
+        "_manifest/_meta",
+        "设备真实路径与备份路径映射"
+      ],
+      "corrections": [
+        "app/com.whatsapp/app_whatsapp树错误；改为apps/com.whatsapp/<domain>/...",
+        "不存在非系统应用统一app_前缀规则",
+        "cache/code_cache等目录通常不在Auto Backup常规范围，归档缺项需记录而非假定提取漏失"
+      ],
+      "target": "forensic-android-tools",
+      "secondary_targets": [
+        "forensic-android-storage"
+      ],
+      "evidence_ids": [],
+      "status": "corrected",
+      "heading": "## 03 AB、tar 与 pk8：先读结构，再谈解包",
+      "terms": [
+        "apps/<package>/<domain>/",
+        "_manifest",
+        "_meta"
+      ],
+      "reviewed": true
+    },
+    {
+      "id": "android-guide-007",
+      "section": "1.3 备份标志位说明",
+      "source_lines": [
+        101,
+        114
+      ],
+      "topics": [
+        "ASCII版本字段",
+        "0/1压缩字段",
+        "none/AES-256算法字段",
+        "加密备份追加盐/迭代/IV/主密钥blob字段"
+      ],
+      "corrections": [
+        "原文第8/9字节位图及0x01/0x02/0x04全错；改为逐行字段表",
+        "AES-256名称不意味着可固定读某个偏移的密钥"
+      ],
+      "target": "forensic-android-tools",
+      "secondary_targets": [],
+      "evidence_ids": [],
+      "status": "corrected",
+      "heading": "## 03 AB、tar 与 pk8：先读结构，再谈解包",
+      "terms": [
+        "user salt",
+        "PBKDF2 rounds",
+        "user IV"
+      ],
+      "reviewed": true
+    },
+    {
+      "id": "android-guide-008",
+      "section": "2.1 标准目录结构",
+      "source_lines": [
+        117,
+        129
+      ],
+      "topics": [
+        "私有沙盒与包名",
+        "databases",
+        "shared_prefs",
+        "files",
+        "cache",
+        "code_cache",
+        "native lib/.so",
+        "app_webview",
+        "/data/data与/data/user/<userId>映射"
+      ],
+      "corrections": [
+        "code_cache不只原生代码缓存，目录内容依运行时和版本变化",
+        "lib可在安装目录/lib或base.apk中，不保证私有目录lib存在",
+        "目录树是候选而非每个应用强制一致"
+      ],
+      "target": "forensic-android-storage",
+      "secondary_targets": [],
+      "evidence_ids": [],
+      "status": "qualified",
+      "heading": "## 08 应用数据路径与版本候选",
+      "terms": [
+        "databases",
+        "code_cache",
+        "shared_prefs",
+        "lib/"
+      ],
+      "reviewed": true
+    },
+    {
+      "id": "android-guide-009",
+      "section": "2.1 WebView具体数据",
+      "source_lines": [
+        130,
+        136
+      ],
+      "topics": [
+        "WebView Cookies",
+        "WebView缓存",
+        "LocalStorage/Web Storage",
+        "History/Bookmarks/Login Data存在性",
+        "WebView配置与Chrome浏览器区别"
+      ],
+      "corrections": [
+        "Cookies为SQLite数据库，不是Google协议封装",
+        "并非全部WebView都产生Login Data/History/Bookmarks",
+        "是否加密与具体版本/实现/字段有关，不能说Cookie整体AES加密"
+      ],
+      "target": "forensic-android-storage",
+      "secondary_targets": [],
+      "evidence_ids": [
+        "chromium-cookie"
+      ],
+      "status": "qualified",
+      "heading": "## 08 应用数据路径与版本候选",
+      "terms": [
+        "app_webview",
+        "Cookies",
+        "Bookmarks",
+        "Web Storage"
+      ],
+      "reviewed": true
+    },
+    {
+      "id": "android-guide-010",
+      "section": "2.2 微信 com.tencent.mm",
+      "source_lines": [
+        139,
+        153
+      ],
+      "topics": [
+        "微信包名",
+        "MicroMsg账户目录",
+        "EnMicroMsg.db",
+        "媒体Msg/Multi/Attach/Emoji",
+        "shared_prefs账户配置",
+        "微信数据库与媒体关联"
+      ],
+      "corrections": [
+        "EnMicroMsg.db常见在MicroMsg/<账户目录>中，不保证在顶层databases",
+        "microMsg.db/pref_login.xml/app_config.xml和MD5用户ID仅作版本候选名",
+        "加密实现及密钥派生必须核验版本，不称专有AES通用解密"
+      ],
+      "target": "forensic-android-storage",
+      "secondary_targets": [],
+      "evidence_ids": [],
+      "status": "qualified",
+      "heading": "## 08 应用数据路径与版本候选",
+      "terms": [
+        "com.tencent.mm",
+        "MicroMsg",
+        "EnMicroMsg.db",
+        "microMsg.db",
+        "pref_login.xml",
+        "app_config.xml"
+      ],
+      "reviewed": true
+    },
+    {
+      "id": "android-guide-011",
+      "section": "2.2 WhatsApp com.whatsapp",
+      "source_lines": [
+        154,
+        168
+      ],
+      "topics": [
+        "msgstore.db",
+        "wa.db",
+        "crypt12/crypt14/crypt15消息备份",
+        "WhatsApp媒体目录",
+        "account.info.xml/WABPrefs.xml候选配置",
+        "数据库/加密备份/密钥材料分离"
+      ],
+      "corrections": [
+        "本地消息数据库和crypt备份不是同一种格式",
+        "私有files/WhatsApp/Databases不能当固定备份路径；检查外存WhatsApp/Databases及Android/media/com.whatsapp/WhatsApp/Databases",
+        "媒体和配置名随版本改变，文件名不保证含可用注册token"
+      ],
+      "target": "forensic-android-storage",
+      "secondary_targets": [],
+      "evidence_ids": [],
+      "status": "qualified",
+      "heading": "## 08 应用数据路径与版本候选",
+      "terms": [
+        "com.whatsapp",
+        "msgstore.db",
+        "wa.db",
+        "crypt15"
+      ],
+      "reviewed": true
+    },
+    {
+      "id": "android-guide-012",
+      "section": "2.2 Telegram org.telegram.messenger",
+      "source_lines": [
+        169,
+        181
+      ],
+      "topics": [
+        "Telegram Android与Desktop格式区分",
+        "files/cache4.db",
+        "files/accountN/cache4.db",
+        "SQLite WAL/SHM",
+        "消息BLOB/TL编码",
+        "账户与网络会话候选材料"
+      ],
+      "corrections": [
+        "Android不是TData/sessions布局；TData/tdata属于桌面实现的路径概念",
+        "官方Android代码使用cache4.db及accountN目录，不是db00",
+        "本地cache4.db不可泛称AES/AES-GCM加密数据库；协议加密不等于磁盘数据库整体加密"
+      ],
+      "target": "forensic-android-storage",
+      "secondary_targets": [],
+      "evidence_ids": [
+        "telegram-storage"
+      ],
+      "status": "corrected",
+      "heading": "## 08 应用数据路径与版本候选",
+      "terms": [
+        "org.telegram.messenger",
+        "cache4.db",
+        "accountN",
+        "TData"
+      ],
+      "reviewed": true
+    },
+    {
+      "id": "android-guide-013",
+      "section": "2.2 Signal org.thoughtcrime.securesms",
+      "source_lines": [
+        182,
+        191
+      ],
+      "topics": [
+        "Signal SQLCipher",
+        "databases/signal.db",
+        "附件数据",
+        "数据库secret与Android Keystore保护",
+        "版本相关路径与密钥获取边界"
+      ],
+      "corrections": [
+        "sqlcipher/不是统一数据库路径；官方代码常量为signal.db",
+        "files/keystore不是可直接复制得到全部密钥的通用目录；secret可能经KeyStoreHelper封装",
+        "保留attachments主题但不把files/attachments作为所有版本固定结构"
+      ],
+      "target": "forensic-android-storage",
+      "secondary_targets": [],
+      "evidence_ids": [
+        "signal-database",
+        "signal-secret"
+      ],
+      "status": "corrected",
+      "heading": "## 08 应用数据路径与版本候选",
+      "terms": [
+        "org.thoughtcrime.securesms",
+        "signal.db",
+        "SQLCipher"
+      ],
+      "reviewed": true
+    },
+    {
+      "id": "android-guide-014",
+      "section": "2.2 LINE jp.naver.line.android",
+      "source_lines": [
+        192,
+        202
+      ],
+      "topics": [
+        "LINE包名",
+        "聊天数据库",
+        "账户与profile",
+        "user_pref.xml等偏好候选",
+        "附件关联"
+      ],
+      "corrections": [
+        "ChatData目录/user_pref.xml/profile路径无固定版本依据；先列实际SQLite及schema",
+        "保留LINE主题，以版本/包名/文件签名定位，不将候选名写成固定目录"
+      ],
+      "target": "forensic-android-storage",
+      "secondary_targets": [],
+      "evidence_ids": [],
+      "status": "qualified",
+      "heading": "## 08 应用数据路径与版本候选",
+      "terms": [
+        "jp.naver.line.android",
+        "LINE",
+        "ChatData",
+        "user_pref.xml"
+      ],
+      "reviewed": true
+    },
+    {
+      "id": "android-guide-015",
+      "section": "2.3 Instagram com.instagram.android",
+      "source_lines": [
+        205,
+        214
+      ],
+      "topics": [
+        "Instagram包名",
+        "本地账户与消息数据库",
+        "故事/媒体缓存",
+        "local.db/main_database.db候选",
+        "WebView Cookie/会话痕迹"
+      ],
+      "corrections": [
+        "files/app_webview并非平台统一路径；app_webview通常在应用数据目录下",
+        "候选数据库名不保证存在或囊括全部消息/故事",
+        "会话痕迹不能证明token仍有效"
+      ],
+      "target": "forensic-android-storage",
+      "secondary_targets": [],
+      "evidence_ids": [],
+      "status": "qualified",
+      "heading": "## 08 应用数据路径与版本候选",
+      "terms": [
+        "com.instagram.android",
+        "local.db",
+        "main_database.db"
+      ],
+      "reviewed": true
+    },
+    {
+      "id": "android-guide-016",
+      "section": "2.3 抖音/TikTok",
+      "source_lines": [
+        215,
+        224
+      ],
+      "topics": [
+        "TikTok com.zhiliaoapp.musically",
+        "抖音包名区别",
+        "视频交互与用户资料",
+        "musically.db候选",
+        "cache/preferences/媒体"
+      ],
+      "corrections": [
+        "TikTok包名不能代表中国版抖音；常见抖音包名com.ss.android.ugc.aweme需与样本安装信息核验",
+        "数据库和cache位置版本相关，files/cache/preferences不是所有版本规范"
+      ],
+      "target": "forensic-android-storage",
+      "secondary_targets": [],
+      "evidence_ids": [],
+      "status": "corrected",
+      "heading": "## 08 应用数据路径与版本候选",
+      "terms": [
+        "com.zhiliaoapp.musically",
+        "com.ss.android.ugc.aweme",
+        "musically.db"
+      ],
+      "reviewed": true
+    },
+    {
+      "id": "android-guide-017",
+      "section": "2.3 支付宝 com.eg.android.AlipayGphone",
+      "source_lines": [
+        225,
+        238
+      ],
+      "topics": [
+        "支付宝包名",
+        "交易/账户/登录痕迹",
+        "AlipayDB/db0候选",
+        "AccountManager.xml/LoginInfo.xml候选",
+        "files内账户和secure候选"
+      ],
+      "corrections": [
+        "Databases/Files大写不是Android平台通用databases/files规范；大小写必须按实际文件确认",
+        "本地数据不能保证有完整交易历史或明文安全token",
+        "所有文件名保留为搜索候选而非真实性保证"
+      ],
+      "target": "forensic-android-storage",
+      "secondary_targets": [],
+      "evidence_ids": [],
+      "status": "qualified",
+      "heading": "## 08 应用数据路径与版本候选",
+      "terms": [
+        "com.eg.android.AlipayGphone",
+        "databases/files",
+        "AlipayPreferences",
+        "AlipayDB",
+        "db0",
+        "AccountManager.xml",
+        "LoginInfo.xml"
+      ],
+      "reviewed": true
+    },
+    {
+      "id": "android-guide-018",
+      "section": "2.4 Chrome com.android.chrome",
+      "source_lines": [
+        241,
+        255
+      ],
+      "topics": [
+        "Chrome浏览器profile与WebView区分",
+        "Cookies",
+        "Login Data",
+        "Web Data",
+        "History",
+        "Bookmarks",
+        "Top Sites",
+        "WebStorage/Local Storage/IndexedDB",
+        "HTTP Cache"
+      ],
+      "corrections": [
+        "Chrome自身profile不能一律写成app_webview/Default；检查app_chrome/Default等实际profile",
+        "Cookies/History等常为SQLite，Bookmarks常为JSON，存储目录还可包含LevelDB",
+        "不能把所有密码/Cookie值断言AES加密或固定33字节主密钥"
+      ],
+      "target": "forensic-android-storage",
+      "secondary_targets": [],
+      "evidence_ids": [
+        "chromium-cookie"
+      ],
+      "status": "corrected",
+      "heading": "## 08 应用数据路径与版本候选",
+      "terms": [
+        "com.android.chrome",
+        "app_chrome/Default",
+        "History",
+        "Top Sites"
+      ],
+      "reviewed": true
+    },
+    {
+      "id": "android-guide-019",
+      "section": "2.4 Firefox org.mozilla.firefox",
+      "source_lines": [
+        256,
+        267
+      ],
+      "topics": [
+        "Firefox Android版本/引擎/profile",
+        "places.sqlite与history/bookmarks",
+        "cookies.sqlite",
+        "logins.json/key4.db",
+        "cert9.db",
+        "formhistory.sqlite",
+        "现代Firefox login存储schema"
+      ],
+      "corrections": [
+        "webappsFolder/firefox不是Android固定profile路径；旧Fennec/Gecko和现代Fenix组件必须区分",
+        "桌面Firefox文件清单不能直接移植为所有Android版本；key4.db存在不保证单文件解密",
+        "Mozilla现代logins组件另有loginsL/loginsM结构，按样本版本/schema查证"
+      ],
+      "target": "forensic-android-storage",
+      "secondary_targets": [],
+      "evidence_ids": [
+        "mozilla-logins"
+      ],
+      "status": "corrected",
+      "heading": "## 08 应用数据路径与版本候选",
+      "terms": [
+        "org.mozilla.firefox",
+        "places.sqlite",
+        "key4.db",
+        "Fenix",
+        "cookies.sqlite",
+        "cert9.db",
+        "formhistory.sqlite",
+        "logins-backup.json"
+      ],
+      "reviewed": true
+    },
+    {
+      "id": "android-guide-020",
+      "section": "2.5 系统短信/通讯录",
+      "source_lines": [
+        268,
+        278
+      ],
+      "topics": [
+        "TelephonyProvider mmssms.db",
+        "短信/彩信",
+        "ContactsProvider contacts2.db",
+        "CallLogProvider calllog.db",
+        "用户0与多用户CE/DE"
+      ],
+      "corrections": [
+        "sms.db/mms.db只能列厂商候选，不是AOSP短信彩信标准另库",
+        "contacts2.db不是现代所有版本通话记录统一载体；还需calllog.db及calls表",
+        "数据库位置受用户/存储域/provider实现影响"
+      ],
+      "target": "forensic-android-storage",
+      "secondary_targets": [],
+      "evidence_ids": [
+        "aosp-telephony",
+        "aosp-calllog"
+      ],
+      "status": "qualified",
+      "heading": "## 08 应用数据路径与版本候选",
+      "terms": [
+        "com.android.providers.telephony",
+        "com.android.providers.contacts"
+      ],
+      "reviewed": true
+    },
+    {
+      "id": "android-guide-021",
+      "section": "2.6 Google Keep com.google.android.keep",
+      "source_lines": [
+        279,
+        289
+      ],
+      "topics": [
+        "Google Keep包名",
+        "便签内容",
+        "KeepOfflineDB.db候选",
+        "附件与图片/录音",
+        "笔记和附件ID关联"
+      ],
+      "corrections": [
+        "数据库/Attachments名称及大小写为版本候选，不保证固定",
+        "生产力应用需要实际schema定位正文、同步状态、删除标记与附件，不能按名称断言完整笔记"
+      ],
+      "target": "forensic-android-storage",
+      "secondary_targets": [],
+      "evidence_ids": [],
+      "status": "qualified",
+      "heading": "## 08 应用数据路径与版本候选",
+      "terms": [
+        "com.google.android.keep",
+        "KeepOfflineDB.db",
+        "attachments"
+      ],
+      "reviewed": true
+    },
+    {
+      "id": "android-guide-022",
+      "section": "3. /data/system 系统级配置索引",
+      "source_lines": [
+        290,
+        308
+      ],
+      "topics": [
+        "accounts.db/accounts_ce.db/accounts_de.db",
+        "packages.xml/packages.list",
+        "用户级系统配置",
+        "锁屏/生物识别元数据",
+        "WiFi/蓝牙/权限的实际目录差异"
+      ],
+      "corrections": [
+        "package.list应为常见packages.list；速查package.xml也应packages.xml",
+        "accounts.xml/pw.db/locksettings.xml/fingerprint.xml不是Android普遍存在的标准列表",
+        "WiFi和蓝牙配置不能都固定在/data/system"
+      ],
+      "target": "forensic-android-storage",
+      "secondary_targets": [],
+      "evidence_ids": [
+        "aosp-accounts"
+      ],
+      "status": "corrected",
+      "heading": "## 09 系统配置、网络与日志",
+      "terms": [
+        "packages.list",
+        "账户库",
+        "locksettings.db",
+        "权限"
+      ],
+      "reviewed": true
+    },
+    {
+      "id": "android-guide-023",
+      "section": "3. wpa_supplicant.conf详解",
+      "source_lines": [
+        311,
+        334
+      ],
+      "topics": [
+        "ssid",
+        "psk字符串与64hex原始PSK/PMK",
+        "key_mgmt",
+        "priority",
+        "scan_ssid",
+        "旧WiFi配置与现代WifiConfigStore.xml"
+      ],
+      "corrections": [
+        "64hex是256bit PSK/PMK，不是一定需要破解的密码哈希；候选口令需要SSID和派生校验且无成功保证",
+        "scan_ssid=1表示主动扫描隐藏SSID的配置行为，不能独自证明网络当时隐藏",
+        "/data/system/wifi不是通用路径，新版本需XML存储检索"
+      ],
+      "target": "forensic-android-storage",
+      "secondary_targets": [],
+      "evidence_ids": [
+        "aosp-wifi"
+      ],
+      "status": "corrected",
+      "heading": "## 09 系统配置、网络与日志",
+      "terms": [
+        "wpa_supplicant.conf",
+        "64 位十六进制",
+        "scan_ssid",
+        "SSID"
+      ],
+      "reviewed": true
+    },
+    {
+      "id": "android-guide-024",
+      "section": "3. accounts.xml系统账户",
+      "source_lines": [
+        335,
+        344
+      ],
+      "topics": [
+        "系统账户类型与名称",
+        "authtokens",
+        "accounts/extras/grants",
+        "CE/DE账户数据库",
+        "账户XML候选识别"
+      ],
+      "corrections": [
+        "原文XML不是AOSP所有版本统一账户token文件；现代AOSP使用accounts_ce.db/accounts_de.db",
+        "账户存在与token存在、token未过期是不同结论"
+      ],
+      "target": "forensic-android-storage",
+      "secondary_targets": [],
+      "evidence_ids": [
+        "aosp-accounts"
+      ],
+      "status": "corrected",
+      "heading": "## 09 系统配置、网络与日志",
+      "terms": [
+        "accounts.xml",
+        "accounts_ce.db",
+        "accounts_de.db"
+      ],
+      "reviewed": true
+    },
+    {
+      "id": "android-guide-025",
+      "section": "3. packages.xml已装应用",
+      "source_lines": [
+        345,
+        356
+      ],
+      "topics": [
+        "包名",
+        "codePath",
+        "nativeLibraryPath",
+        "包安装和更新时间",
+        "签名记录",
+        "权限与用户授予状态",
+        "packages.xml/packages.list对应"
+      ],
+      "corrections": [
+        "XML元素和属性不能固定按原文fingerPrint/grant=granted解释；版本schema需核验",
+        "包清单记录的请求权限、系统安装权限与用户运行时授权需区分"
+      ],
+      "target": "forensic-android-storage",
+      "secondary_targets": [],
+      "evidence_ids": [],
+      "status": "qualified",
+      "heading": "## 09 系统配置、网络与日志",
+      "terms": [
+        "packages.xml",
+        "codePath",
+        "UID",
+        "签名证书"
+      ],
+      "reviewed": true
+    },
+    {
+      "id": "android-guide-026",
+      "section": "3. 锁屏/指纹配置条目",
+      "source_lines": [
+        298,
+        300
+      ],
+      "topics": [
+        "locksettings.db",
+        "锁屏策略元数据",
+        "Gatekeeper/synthetic-password候选",
+        "指纹元数据与硬件保护",
+        "pw.db/fingerprint.xml/locksettings.xml搜索候选"
+      ],
+      "corrections": [
+        "锁屏标准线索常见locksettings.db而非locksettings.xml/pw.db",
+        "指纹XML如果存在也不能当可直接恢复原始生物模板的统一载体",
+        "锁屏元数据不等于可恢复密码或存储解密密钥"
+      ],
+      "target": "forensic-android-storage",
+      "secondary_targets": [],
+      "evidence_ids": [],
+      "status": "corrected",
+      "heading": "## 09 系统配置、网络与日志",
+      "terms": [
+        "fingerprint.xml",
+        "locksettings.xml",
+        "pw.db",
+        "synthetic password"
+      ],
+      "reviewed": true
+    },
+    {
+      "id": "android-guide-027",
+      "section": "3. 权限配置条目",
+      "source_lines": [
+        305,
+        307
+      ],
+      "topics": [
+        "用户级runtime-permissions.xml或版本替代",
+        "packages.xml中的权限记录",
+        "granted_state.xml/denied_state.xml候选",
+        "授权时间与状态解释"
+      ],
+      "corrections": [
+        "granted_state.xml/denied_state.xml不是AOSP普遍固定路径；保留权限状态主题并按用户和版本定位",
+        "运行时授权与manifest声明、AppOps执行状态需交叉核验"
+      ],
+      "target": "forensic-android-storage",
+      "secondary_targets": [],
+      "evidence_ids": [],
+      "status": "corrected",
+      "heading": "## 09 系统配置、网络与日志",
+      "terms": [
+        "granted_state.xml",
+        "denied_state.xml",
+        "runtime-permissions.xml"
+      ],
+      "reviewed": true
+    },
+    {
+      "id": "android-guide-028",
+      "section": "4.1 外部存储标准目录",
+      "source_lines": [
+        359,
+        381
+      ],
+      "topics": [
+        "/sdcard与/storage/emulated/<userId>映射",
+        "/mnt/shell/emulated历史挂载",
+        "DCIM/Camera",
+        "Pictures/Movies/Music/Documents/Download",
+        "Android/data/<pkg>",
+        "Android/media/<pkg>",
+        "Bluetooth",
+        "隐藏缩略图"
+      ],
+      "corrections": [
+        "Android/media/0/不是现代所有共享媒体的统一根，media下通常按包名组织",
+        "Android/data属于外部应用专属目录，不等于完全公共任意应用可读",
+        "DCIM/Download并非仅旧版目录；Android10+仍使用共享媒体集合"
+      ],
+      "target": "forensic-android-storage",
+      "secondary_targets": [],
+      "evidence_ids": [],
+      "status": "qualified",
+      "heading": "## 12 共享存储、缩略图与媒体",
+      "terms": [
+        "DCIM",
+        "Download",
+        "Android/data/<package>",
+        "Android/media/<package>"
+      ],
+      "reviewed": true
+    },
+    {
+      "id": "android-guide-029",
+      "section": "4.2 多用户外部存储",
+      "source_lines": [
+        382,
+        399
+      ],
+      "topics": [
+        "主用户/子用户/工作资料/访客",
+        "emulated用户ID",
+        "存储路径映射",
+        "userId与Linux应用UID区别"
+      ],
+      "corrections": [
+        "路径变量应是userId不是应用UID",
+        "10/99只是示例用户编号，不能单凭编号认定子用户/访客",
+        "user0在headless system user模式不必是当前机主"
+      ],
+      "target": "forensic-android-storage",
+      "secondary_targets": [],
+      "evidence_ids": [],
+      "status": "qualified",
+      "heading": "## 12 共享存储、缩略图与媒体",
+      "terms": [
+        "userId",
+        "共享存储",
+        "多用户"
+      ],
+      "reviewed": true
+    },
+    {
+      "id": "android-guide-030",
+      "section": "4.3 外存关键位置",
+      "source_lines": [
+        400,
+        416
+      ],
+      "topics": [
+        ".thumbnails",
+        "WhatsApp媒体缩略图",
+        "WhatsApp/Databases加密备份",
+        "Android/media/com.whatsapp/WhatsApp",
+        "Download",
+        "Bluetooth"
+      ],
+      "corrections": [
+        "Download不保证包含所有下载；应用私有目录、SAF URI和DownloadProvider也要关联",
+        "不能将/.thumbnails/thumbnails.db或WhatsApp旧路径视为固定结构"
+      ],
+      "target": "forensic-android-storage",
+      "secondary_targets": [],
+      "evidence_ids": [],
+      "status": "qualified",
+      "heading": "## 12 共享存储、缩略图与媒体",
+      "terms": [
+        "Bluetooth",
+        "WhatsApp",
+        "Download"
+      ],
+      "reviewed": true
+    },
+    {
+      "id": "android-guide-031",
+      "section": "4.4 缩略图与删除文件线索",
+      "source_lines": [
+        417,
+        435
+      ],
+      "topics": [
+        "缩略图缓存签名",
+        "SQLite/厂商缓存/历史.thumbdata区分",
+        "path/uri/data候选字段",
+        "date_added/date_modified",
+        "恢复缩略图与恢复原图区分"
+      ],
+      "corrections": [
+        "原文CREATE TABLE不是通用Android缩略图库schema",
+        "DCIM/.thumbnails或MediaProvider数据库等实际位置随版本变化",
+        "缓存可保留已删内容线索但不能保证恢复原始完整文件或可信原始时间"
+      ],
+      "target": "forensic-android-storage",
+      "secondary_targets": [],
+      "evidence_ids": [],
+      "status": "corrected",
+      "heading": "## 12 共享存储、缩略图与媒体",
+      "terms": [
+        "thumbnails.db",
+        "thumbdata",
+        "MediaStore",
+        "缩略图"
+      ],
+      "reviewed": true
+    },
+    {
+      "id": "android-guide-032",
+      "section": "5.1 SQLite识别",
+      "source_lines": [
+        438,
+        449
+      ],
+      "topics": [
+        "SQLite format 3签名",
+        "file识别",
+        "sqlite3 .tables/.schema",
+        "PRAGMA integrity_check",
+        "WAL/SHM/journal同批复制",
+        "只读查询副本"
+      ],
+      "corrections": [
+        "无SQLite魔术不直接等于加密，也可能是压缩、封装、损坏或其他格式",
+        "完整性检查应在副本上且不等于语义真实/恢复成功",
+        "仅.db文件可能遗漏WAL内已提交记录"
+      ],
+      "target": "forensic-android-tools",
+      "secondary_targets": [],
+      "evidence_ids": [],
+      "status": "qualified",
+      "heading": "## 05 数据库、XML 与日志的可操作检查",
+      "terms": [
+        "SQLite format 3",
+        ".tables",
+        ".schema",
+        "PRAGMA integrity_check;",
+        "-wal"
+      ],
+      "reviewed": true
+    },
+    {
+      "id": "android-guide-033",
+      "section": "5.2 SMS/MMS schema",
+      "source_lines": [
+        450,
+        475
+      ],
+      "topics": [
+        "sms",
+        "threads",
+        "canonical_addresses",
+        "pdu",
+        "part",
+        "addr",
+        "SMS type/read/address",
+        "MMS msg_box",
+        "part.mid关联pdu._id",
+        "短信毫秒和彩信常见秒单位差异"
+      ],
+      "corrections": [
+        "messages/mms/mms_parts改为AOSP sms/pdu/part及实际schema",
+        "短信type还包括发件箱/发送失败/队列等，不仅1/2/3",
+        "彩信正文与附件需part/addr关联，不把pdu.body当通用字段"
+      ],
+      "target": "forensic-android-storage",
+      "secondary_targets": [],
+      "evidence_ids": [
+        "aosp-telephony"
+      ],
+      "status": "corrected",
+      "heading": "## 10 SQLite与浏览器数据库",
+      "terms": [
+        "mmssms.db",
+        "pdu",
+        "part",
+        "addr",
+        "canonical_addresses",
+        "read",
+        "毫秒"
+      ],
+      "reviewed": true
+    },
+    {
+      "id": "android-guide-034",
+      "section": "5.3 联系人/通话schema",
+      "source_lines": [
+        476,
+        493
+      ],
+      "topics": [
+        "contacts2.db contacts/raw_contacts/data",
+        "mimetype关联",
+        "calllog.db calls",
+        "number/name/date/duration/type/countryiso",
+        "来电/呼出/未接",
+        "ms与duration秒"
+      ],
+      "corrections": [
+        "contacts2.db中的calls是历史布局，现代通话主库需检查calllog.db",
+        "calls.type还有其他版本枚举，不能把所有非1/2/3都丢弃",
+        "name不是号码归属或实际通话人的确定证明"
+      ],
+      "target": "forensic-android-storage",
+      "secondary_targets": [],
+      "evidence_ids": [
+        "aosp-calllog"
+      ],
+      "status": "corrected",
+      "heading": "## 10 SQLite与浏览器数据库",
+      "terms": [
+        "contacts2.db",
+        "raw_contacts",
+        "mimetypes",
+        "calllog.db",
+        "duration"
+      ],
+      "reviewed": true
+    },
+    {
+      "id": "android-guide-035",
+      "section": "5.4 加密数据库汇总",
+      "source_lines": [
+        494,
+        519
+      ],
+      "topics": [
+        "普通SQLite",
+        "SQLCipher数据库级页加密",
+        "Signal/部分银行App的版本相关加密",
+        "WhatsApp crypt备份封装",
+        "微信EnMicroMsg版本相关加密",
+        "Telegram SQLite与协议加密区别",
+        "密钥材料及解密后schema验证"
+      ],
+      "corrections": [
+        "SQLCipher不是只加密表而是数据库页加密",
+        "Telegram本地cache4.db不能表述AES-GCM统一加密",
+        "微信AES和WhatsAppAES-256标签缺模式/认证/版本，不足以推导解密命令"
+      ],
+      "target": "forensic-android-storage",
+      "secondary_targets": [],
+      "evidence_ids": [
+        "telegram-storage",
+        "signal-database"
+      ],
+      "status": "corrected",
+      "heading": "## 10 SQLite与浏览器数据库",
+      "terms": [
+        "crypt14",
+        "Signal",
+        "Telegram",
+        "SQLCipher"
+      ],
+      "reviewed": true
+    },
+    {
+      "id": "android-guide-036",
+      "section": "5.5 Cookie数据库",
+      "source_lines": [
+        520,
+        531
+      ],
+      "topics": [
+        "标准SQLite cookies表",
+        "host_key/name/path",
+        "value与encrypted_value",
+        "expires_utc/creation_utc",
+        "版本/平台crypto delegate",
+        "WebView与Chrome profile"
+      ],
+      "corrections": [
+        "删除Google协议/非标准SQLite断言",
+        "并非整张cookies表AES加密；值可以明文或字段级密文",
+        "33字节主密钥/DPAPI等效信息不是Android通用事实；DPAPI是Windows机制"
+      ],
+      "target": "forensic-android-storage",
+      "secondary_targets": [],
+      "evidence_ids": [
+        "chromium-cookie"
+      ],
+      "status": "corrected",
+      "heading": "## 10 SQLite与浏览器数据库",
+      "terms": [
+        "Cookies",
+        "value",
+        "encrypted_value",
+        "普通 SQLite"
+      ],
+      "reviewed": true
+    },
+    {
+      "id": "android-guide-037",
+      "section": "6.1 SharedPreferences位置",
+      "source_lines": [
+        534,
+        538
+      ],
+      "topics": [
+        "shared_prefs/<name>.xml",
+        "CE与DE应用目录",
+        "包名/用户映射",
+        "应用其他DataStore或配置格式"
+      ],
+      "corrections": [
+        "XML只是常见SharedPreferences后端；应用也可能迁移DataStore/数据库",
+        "路径应定位用户与存储域，不限/data/data"
+      ],
+      "target": "forensic-android-storage",
+      "secondary_targets": [],
+      "evidence_ids": [],
+      "status": "qualified",
+      "heading": "## 11 SharedPreferences与认证线索",
+      "terms": [
+        "shared_prefs/*.xml",
+        "sp",
+        "DE"
+      ],
+      "reviewed": true
+    },
+    {
+      "id": "android-guide-038",
+      "section": "6.2 SharedPreferences格式",
+      "source_lines": [
+        539,
+        553
+      ],
+      "topics": [
+        "XML map",
+        "string/int/long/boolean/float/set",
+        "token/username/phone_number/session_id",
+        "计数/登录时间/位置候选",
+        "键名与类型保留"
+      ],
+      "corrections": [
+        "示例键名不表示实际应用必然有这些字段",
+        "long型时间必须识别单位/纪元，不能一律毫秒",
+        "JWT样式只表示结构候选，不能当有效认证结果"
+      ],
+      "target": "forensic-android-storage",
+      "secondary_targets": [],
+      "evidence_ids": [],
+      "status": "qualified",
+      "heading": "## 11 SharedPreferences与认证线索",
+      "terms": [
+        "<map>",
+        "boolean",
+        "float",
+        "set",
+        "XML 转义"
+      ],
+      "reviewed": true
+    },
+    {
+      "id": "android-guide-039",
+      "section": "6.3 常见偏好文件",
+      "source_lines": [
+        554,
+        583
+      ],
+      "topics": [
+        "WhatsApp account.info.xml",
+        "微信pref_login.xml",
+        "支付宝LoginInfo.xml",
+        "OAuth auth_token键/文件区别",
+        "PayPal auth_prefs.xml",
+        "Gmail account_pref.xml",
+        "认证状态和用户ID"
+      ],
+      "corrections": [
+        "上述应用文件名均为待确认版本候选，不保证含明文token",
+        "auth_token可能是键名而非XML文件；Gmail可能还依系统账户服务",
+        "保留PayPal/Gmail主题，不为避免路径错误默默移除应用"
+      ],
+      "target": "forensic-android-storage",
+      "secondary_targets": [],
+      "evidence_ids": [],
+      "status": "qualified",
+      "heading": "## 11 SharedPreferences与认证线索",
+      "terms": [
+        "auth_info_key_prefs.xml",
+        "PayPal",
+        "Gmail",
+        "WABPrefs",
+        "auth_prefs.xml",
+        "account_pref.xml"
+      ],
+      "reviewed": true
+    },
+    {
+      "id": "android-guide-040",
+      "section": "6.4 SharedPreferences提取搜索",
+      "source_lines": [
+        584,
+        598
+      ],
+      "topics": [
+        "find XML位置",
+        "已具访问条件时adb pull",
+        "grep token/session/auth",
+        "password/passwd/pwd候选",
+        "离线副本优先",
+        "结构化XML解析"
+      ],
+      "corrections": [
+        "普通ADB不能无条件读取私有目录",
+        "grep命中需区分键名、占位、旧值、密文和有效值；不能凭命中就叫恢复",
+        "搜索需处理文件名空白、二进制和报错"
+      ],
+      "target": "forensic-android-tools",
+      "secondary_targets": [],
+      "evidence_ids": [],
+      "status": "qualified",
+      "heading": "## 05 数据库、XML 与日志的可操作检查",
+      "terms": [
+        "find -P",
+        "rg -n -i",
+        "preferences-typed.json"
+      ],
+      "reviewed": true
+    },
+    {
+      "id": "android-guide-041",
+      "section": "7.1 Android系统日志",
+      "source_lines": [
+        601,
+        609
+      ],
+      "topics": [
+        "logcat -d",
+        "logcat -v long",
+        "main/system/radio/events/crash缓冲区",
+        "主机导出与设备端命令区分",
+        "易失性/覆盖/时间格式"
+      ],
+      "corrections": [
+        "logcat主日志不是所有系统应用日志；采集应记录buffer/格式/采集时间",
+        "有限缓冲区不是历史完整日志，重启/权限/隐私过滤会限制内容"
+      ],
+      "target": "forensic-android-tools",
+      "secondary_targets": [],
+      "evidence_ids": [],
+      "status": "qualified",
+      "heading": "## 05 数据库、XML 与日志的可操作检查",
+      "terms": [
+        "logcat -b all -d -v long",
+        "main/system/radio/events/crash"
+      ],
+      "reviewed": true
+    },
+    {
+      "id": "android-guide-042",
+      "section": "7.2 日志路径对照",
+      "source_lines": [
+        610,
+        651
+      ],
+      "topics": [
+        "logcat缓冲区",
+        "/data/anr历史traces与新anr_*",
+        "/data/tombstones/tombstone_*",
+        "/proc/kmsg/dmesg",
+        "/cache/recovery/log或替代",
+        "厂商radio/modem日志",
+        "WiFi配置与日志区别",
+        "Bluetooth HCI",
+        "GPS/定位厂商日志"
+      ],
+      "corrections": [
+        "anr_traces.txt不是通用默认名，旧版常见traces.txt，新版常见anr_*",
+        "/data/misc/wifi和bluedroid既可能配置又可能日志，不可仅目录名判连接时间线",
+        "/data/misc/location/gps及/data/misc/radio只是厂商候选，不是必有统一GPS/基带历史",
+        "内核/Recovery日志受权限、保留策略、分区布局影响"
+      ],
+      "target": "forensic-android-storage",
+      "secondary_targets": [],
+      "evidence_ids": [],
+      "status": "qualified",
+      "heading": "## 09 系统配置、网络与日志",
+      "terms": [
+        "ANR",
+        "tombstones",
+        "kernel",
+        "recovery",
+        "radio"
+      ],
+      "reviewed": true
+    },
+    {
+      "id": "android-guide-043",
+      "section": "7.3 logcat过滤",
+      "source_lines": [
+        652,
+        666
+      ],
+      "topics": [
+        "password/passwd/pwd/secret/token/auth过滤",
+        "location/lat/lon/gps过滤",
+        "sms/text/message/mms过滤",
+        "wifi/wpa/supplicant/connect过滤",
+        "tag/PID/时间上下文"
+      ],
+      "corrections": [
+        "短词lat/lon和message会有大量误报；保留上下文、PID、tag和时间",
+        "命中认证关键词不等于泄露或可用口令；无命中不等于无行为",
+        "当前导出过滤应保留原始全量日志与过滤副本"
+      ],
+      "target": "forensic-android-tools",
+      "secondary_targets": [],
+      "evidence_ids": [],
+      "status": "qualified",
+      "heading": "## 05 数据库、XML 与日志的可操作检查",
+      "terms": [
+        "password|passwd|pwd",
+        "location|latitude",
+        "sms|mms|wifi",
+        "PID",
+        "tag"
+      ],
+      "reviewed": true
+    },
+    {
+      "id": "android-guide-044",
+      "section": "8.1 WiFi网络与热点",
+      "source_lines": [
+        669,
+        681
+      ],
+      "topics": [
+        "/data/misc/wifi历史配置",
+        "wpa_supplicant.conf/.bak",
+        "WifiConfigStore.xml",
+        "wifi.ini候选",
+        "hostapd.conf/hostapd.accept",
+        "Soft AP热点配置",
+        "SSID/BSSID/认证/保存网络"
+      ],
+      "corrections": [
+        "新版不保证wpa_supplicant.conf且WiFi保存配置不等于连接历史",
+        "wifi.ini/softap/wpa_supplicant.conf不是跨版本标准",
+        "热点配置與客户端配置需分开；现代模块/用户目录也要搜索"
+      ],
+      "target": "forensic-android-storage",
+      "secondary_targets": [],
+      "evidence_ids": [
+        "aosp-wifi"
+      ],
+      "status": "qualified",
+      "heading": "## 09 系统配置、网络与日志",
+      "terms": [
+        "WifiConfigStore.xml",
+        "WifiConfigStoreSoftAp.xml",
+        "wpa_supplicant.conf",
+        "hostapd.accept",
+        "hostapd.conf",
+        "wifi.ini"
+      ],
+      "reviewed": true
+    },
+    {
+      "id": "android-guide-045",
+      "section": "8.2 蓝牙",
+      "source_lines": [
+        682,
+        702
+      ],
+      "topics": [
+        "btsnoop_hci.log与Wireshark",
+        "bt_config.conf/.bak",
+        "历史bt_config.xml",
+        "设备名/MAC地址/配对key",
+        "interface.xml/auth_authcache/bt_stack.log/btif_dm.xml候选"
+      ],
+      "corrections": [
+        "配对配置不能固定写成蓝牙XML；AOSP至少Nougat已有bt_config.conf并兼容旧xml",
+        "btsnoop需启用或由采集机制生成，不保证每台设备自动完整保留",
+        "设备名可修改/MAC可随机化，配对记录不证明持续连接或唯一身份",
+        "其他原文文件名无统一版本依据，保留搜索候选"
+      ],
+      "target": "forensic-android-storage",
+      "secondary_targets": [],
+      "evidence_ids": [
+        "aosp-bluetooth"
+      ],
+      "status": "corrected",
+      "heading": "## 09 系统配置、网络与日志",
+      "terms": [
+        "bt_config.conf",
+        "bt_config.xml",
+        "HCI",
+        "Wireshark",
+        "btsnoop_hci.log",
+        "interface.xml",
+        "auth_authcache",
+        "bt_stack.log",
+        "btif_dm.xml"
+      ],
+      "reviewed": true
+    },
+    {
+      "id": "android-guide-046",
+      "section": "8.3 蜂窝/电话",
+      "source_lines": [
+        703,
+        724
+      ],
+      "topics": [
+        "RIL/radio/modem日志",
+        "imsi.txt/pin.conf候选",
+        "apns-conf.xml静态APN",
+        "TelephonyProvider telephony.db",
+        "SMS/MMS与calls库区分",
+        "通话类型与时长"
+      ],
+      "corrections": [
+        "telephony.db主要涉及运营商/APN/SIM订阅等配置，不是通用通话短信库；calls应去实际CallLogProvider，短信去mmssms.db",
+        "/data/radio和com.android.phone/databases路径不保证通用",
+        "SIM PIN状态不等于PIN明文；静态APN不证明实际连接某小区"
+      ],
+      "target": "forensic-android-storage",
+      "secondary_targets": [],
+      "evidence_ids": [
+        "aosp-telephony",
+        "aosp-calllog"
+      ],
+      "status": "corrected",
+      "heading": "## 09 系统配置、网络与日志",
+      "terms": [
+        "telephony.db",
+        "carriers",
+        "siminfo",
+        "APN"
+      ],
+      "reviewed": true
+    },
+    {
+      "id": "android-guide-047",
+      "section": "8.3 SIM/qcril与小区标识",
+      "source_lines": [
+        725,
+        739
+      ],
+      "topics": [
+        "qcril.db Qualcomm厂商候选",
+        "IMSI",
+        "MSISDN",
+        "SPN",
+        "CID",
+        "LAC",
+        "MCC/MNC",
+        "SIM/运营商/小区字段区分"
+      ],
+      "corrections": [
+        "qcril.db不是所有Android设备通用SIM信息汇总库，也不能保证列出全部这些字段",
+        "MSISDN可能缺失/过时，不由IMSI直接推定号码",
+        "CID/LAC依网络制式变化；MCC/MNC与小区编号需要实际来源和时间证据"
+      ],
+      "target": "forensic-android-storage",
+      "secondary_targets": [],
+      "evidence_ids": [],
+      "status": "qualified",
+      "heading": "## 09 系统配置、网络与日志",
+      "terms": [
+        "IMSI",
+        "MSISDN",
+        "SPN",
+        "CID",
+        "LAC",
+        "MCC/MNC",
+        "qcril",
+        "apns-conf.xml",
+        "imsi.txt",
+        "pin.conf",
+        "ril.log",
+        "qcril.db"
+      ],
+      "reviewed": true
+    },
+    {
+      "id": "android-guide-048",
+      "section": "8.4 GPS/定位",
+      "source_lines": [
+        740,
+        750
+      ],
+      "topics": [
+        "gps.conf",
+        "flp.db/gps.db候选",
+        "gnss_config.xml/gnss_status.xml候选",
+        "融合定位与GNSS区别",
+        "locations实际schema",
+        "坐标/时间/精度/来源关联"
+      ],
+      "corrections": [
+        "这些路径/文件不是AOSP跨设备固定GPS历史数据库；配置/status不等于定位历史",
+        "厂商/Google服务/应用库均可能提供位置线索，需实际schema和时间单位验证",
+        "FLP结果不等于GPS实测且坐标需核验坐标系"
+      ],
+      "target": "forensic-android-storage",
+      "secondary_targets": [],
+      "evidence_ids": [],
+      "status": "qualified",
+      "heading": "## 09 系统配置、网络与日志",
+      "terms": [
+        "flp.db",
+        "gps.conf",
+        "精度",
+        "定位源",
+        "gps.db",
+        "gnss_config.xml",
+        "gnss_status.xml"
+      ],
+      "reviewed": true
+    },
+    {
+      "id": "android-guide-049",
+      "section": "9.1 Chrome保存密码",
+      "source_lines": [
+        753,
+        762
+      ],
+      "topics": [
+        "Chrome Login Data/logins候选",
+        "origin_url/username_value/password_value/date_created",
+        "浏览器版本/profile",
+        "密文字段与设备加密上下文"
+      ],
+      "corrections": [
+        "app_webview不代表Chrome通用profile；原文AES全称与密钥固定假设应取消",
+        "离线库读取不保证能解密密码；日期需辨别Chrome纪元",
+        "保留保存密码恢复主题，但用字段/版本/密钥核验条件限定结果"
+      ],
+      "target": "forensic-android-storage",
+      "secondary_targets": [],
+      "evidence_ids": [
+        "chromium-cookie"
+      ],
+      "status": "corrected",
+      "heading": "## 11 SharedPreferences与认证线索",
+      "terms": [
+        "Login Data",
+        "origin_url",
+        "Firefox",
+        "key4.db"
+      ],
+      "reviewed": true
+    },
+    {
+      "id": "android-guide-050",
+      "section": "9.1 Firefox保存密码",
+      "source_lines": [
+        763,
+        770
+      ],
+      "topics": [
+        "Firefox旧版logins.json/key4.db/logins-backup.json",
+        "profile定位",
+        "现代Android logins组件",
+        "版本相关密钥/加密上下文"
+      ],
+      "corrections": [
+        "不要把包目录根部三文件树写成所有Firefox Android的结构",
+        "key4.db并非独立可读明文主密钥；现代实现需要按组件存储与样本检查"
+      ],
+      "target": "forensic-android-storage",
+      "secondary_targets": [],
+      "evidence_ids": [
+        "mozilla-logins"
+      ],
+      "status": "corrected",
+      "heading": "## 11 SharedPreferences与认证线索",
+      "terms": [
+        "Firefox",
+        "logins.json",
+        "profile"
+      ],
+      "reviewed": true
+    },
+    {
+      "id": "android-guide-051",
+      "section": "9.2 token与Cookie",
+      "source_lines": [
+        771,
+        784
+      ],
+      "topics": [
+        "WebView Cookie字段",
+        "SharedPreferences token/session/auth/jwt",
+        "OAuth访问与刷新token",
+        "Bearer/JWT候选检索",
+        "SQLite与XML结构化抽取",
+        "过期/撤销/作用域与在线有效性区别"
+      ],
+      "corrections": [
+        "Cookie仍是SQLite而非Google协议",
+        "Bearer token不一定是JWT，原文正则不能覆盖所有opaque token",
+        "直接grep二进制数据库可漏检/误判，先列schema再查询",
+        "发现token不等于活跃会话或账户登录恢复成功"
+      ],
+      "target": "forensic-android-storage",
+      "secondary_targets": [],
+      "evidence_ids": [
+        "chromium-cookie"
+      ],
+      "status": "qualified",
+      "heading": "## 11 SharedPreferences与认证线索",
+      "terms": [
+        "Cookie",
+        "JWT",
+        "OAuth",
+        "refresh"
+      ],
+      "reviewed": true
+    },
+    {
+      "id": "android-guide-052",
+      "section": "9.3 认证线索矩阵",
+      "source_lines": [
+        785,
+        818
+      ],
+      "topics": [
+        "浏览器密码",
+        "Cookie",
+        "SharedPreferences用户名与token",
+        "files内OAuth access/refresh token",
+        "APK内API key",
+        "WhatsApp账户凭据候选",
+        "Telegram Android会话材料"
+      ],
+      "corrections": [
+        "API key不等于用户密码/会话身份",
+        "AndroidManifest编译后是AXML，build.gradle通常不在APK",
+        "Telegram会话不能写TData/sessions；改为Android版本实际账户/网络材料",
+        "每种线索区分位置候选、离线识别、可解密与仍有效四种结论"
+      ],
+      "target": "forensic-android-storage",
+      "secondary_targets": [],
+      "evidence_ids": [
+        "telegram-storage"
+      ],
+      "status": "qualified",
+      "heading": "## 11 SharedPreferences与认证线索",
+      "terms": [
+        "API key",
+        "WhatsApp",
+        "Telegram",
+        "会话"
+      ],
+      "reviewed": true
+    },
+    {
+      "id": "android-guide-053",
+      "section": "9.4 APK硬编码密钥",
+      "source_lines": [
+        819,
+        836
+      ],
+      "topics": [
+        "APK zip目录",
+        "二进制AndroidManifest解码",
+        "resources.arsc/res/assets",
+        "DEX反编译",
+        ".so静态分析",
+        "password/secret/api_key/apiKey/token/client_secret字符串线索",
+        "源码build.gradle与APK区别"
+      ],
+      "corrections": [
+        "unzip后grep编译AXML或DEX不是充分检索；需要aapt2/apkanalyzer/apktool/JADX等合适工具",
+        "build.gradle是源码构建配置，通常不随APK发布",
+        "字符串常量可能为测试占位或公开API标识，需引用点和用途验证"
+      ],
+      "target": "forensic-android-tools",
+      "secondary_targets": [],
+      "evidence_ids": [],
+      "status": "corrected",
+      "heading": "## 06 APK 与密码格式：沿使用链验证，不套模板",
+      "terms": [
+        "AndroidManifest",
+        "resources.arsc",
+        "DEX",
+        "build.gradle",
+        "client_secret"
+      ],
+      "reviewed": true
+    },
+    {
+      "id": "android-guide-054",
+      "section": "9.5 常见加密/混淆",
+      "source_lines": [
+        837,
+        854
+      ],
+      "topics": [
+        "AES-CBC与IV/填充",
+        "AES-GCM与nonce/tag",
+        "WhatsApp crypt版本封装",
+        "PBKDF2 salt/PRF/iterations/dkLen",
+        "XOR混淆",
+        "Base64编码与非加密区别"
+      ],
+      "corrections": [
+        "crypt14不是通用AES-CBC前置16字节IV模板，需查实际版本封装和认证标签",
+        "PBKDF2 1000次/SHA1/32字节不是Android通用参数",
+        "XOR密钥不能猜成password或应用名就声称有效；需已知结构和验证",
+        "Base64只编码不提供机密性"
+      ],
+      "target": "forensic-android-tools",
+      "secondary_targets": [
+        "forensic-android-tools"
+      ],
+      "evidence_ids": [],
+      "status": "corrected",
+      "heading": "## 06 APK 与密码格式：沿使用链验证，不套模板",
+      "terms": [
+        "AES-CBC",
+        "AES-GCM",
+        "PBKDF2",
+        "XOR",
+        "Base64"
+      ],
+      "reviewed": true
+    },
+    {
+      "id": "android-guide-055",
+      "section": "10.1 多用户",
+      "source_lines": [
+        857,
+        873
+      ],
+      "topics": [
+        "/data/user/<userId>/<pkg>",
+        "/data/user_de/<userId>/<pkg>",
+        "/data/data别名",
+        "用户0/10/99示例",
+        "工作资料/访客隔离",
+        "用户ID与应用UID"
+      ],
+      "corrections": [
+        "用户0始终机主不适用于headless system user场景",
+        "99不固定表示访客，需用户配置证据",
+        "以root看到目录也不证明CE数据已可解密"
+      ],
+      "target": "forensic-android-storage",
+      "secondary_targets": [],
+      "evidence_ids": [],
+      "status": "merged",
+      "heading": "## 02 数据目录速查",
+      "terms": [
+        "userId",
+        "/data/user/",
+        "/data/user_de/"
+      ],
+      "reviewed": true
+    },
+    {
+      "id": "android-guide-056",
+      "section": "10.2 存储加密",
+      "source_lines": [
+        874,
+        903
+      ],
+      "topics": [
+        "FDE与FBE发展",
+        "Android7支持FBE",
+        "Android10新发布设备FBE要求",
+        "CE/DE与Direct Boot",
+        "硬件/Keystore",
+        "锁定/首次解锁后的可用性"
+      ],
+      "corrections": [
+        "Android4.3-9全部FBE错误；FBE在Android7引入",
+        "10+强制FBE+全盘加密表述错误，应区分FBE和metadata encryption及设备发布时间",
+        "不是每种文件独立任意密钥；策略/用户/存储域和硬件实现有关",
+        "SharedPreferences默认常在CE；DE需应用使用device-protected context，不是按文件类型自动分"
+      ],
+      "target": "forensic-android-forensics",
+      "secondary_targets": [
+        "forensic-android-storage"
+      ],
+      "evidence_ids": [],
+      "status": "corrected",
+      "heading": "## 02 安全原理：加密、权限和设备状态不是一回事",
+      "terms": [
+        "FBE 从 Android 7.0",
+        "Android 10",
+        "CE",
+        "DE"
+      ],
+      "reviewed": true
+    },
+    {
+      "id": "android-guide-057",
+      "section": "10.3 分区存储",
+      "source_lines": [
+        904,
+        919
+      ],
+      "topics": [
+        "Android10 scoped storage引入与兼容开关",
+        "Android11及target SDK影响",
+        "外部app-specific目录",
+        "MediaStore共享媒体",
+        "SAF/Photo Picker",
+        "READ权限与用户选择"
+      ],
+      "corrections": [
+        "10之前任何应用读整个/sdcard不准确，仍受存储权限/访问上下文限制",
+        "Android/data不是公共共享",
+        "共享DCIM/Download/Pictures不代表任意应用无需权限直接遍历全目录"
+      ],
+      "target": "forensic-android-forensics",
+      "secondary_targets": [
+        "forensic-android-storage"
+      ],
+      "evidence_ids": [],
+      "status": "corrected",
+      "heading": "## 02 安全原理：加密、权限和设备状态不是一回事",
+      "terms": [
+        "Scoped Storage",
+        "Android 10",
+        "Android 11",
+        "targetSdk"
+      ],
+      "reviewed": true
+    },
+    {
+      "id": "android-guide-058",
+      "section": "10.4 ADB与root",
+      "source_lines": [
+        920,
+        939
+      ],
+      "topics": [
+        "adb backup",
+        "adb root与user/userdebug/eng",
+        "adb pull",
+        "adb shell/su",
+        "ls应用目录",
+        "packages.xml采集",
+        "dumpsys window/wifi",
+        "读失败记录"
+      ],
+      "corrections": [
+        "adb root不能对量产user build普遍成功；su仅在已root环境存在",
+        "ADB授权/USB调试不等于root，也不等于完整私有数据/解密能力",
+        "dumpsys输出是采集时状态且命令运行有设备状态影响"
+      ],
+      "target": "forensic-android-tools",
+      "secondary_targets": [],
+      "evidence_ids": [],
+      "status": "corrected",
+      "heading": "## 02 ADB：从固定设备到明确权限",
+      "terms": [
+        "adb root",
+        "su",
+        "pull",
+        "dumpsys window",
+        "packages.xml"
+      ],
+      "reviewed": true
+    },
+    {
+      "id": "android-guide-059",
+      "section": "10.5 可调试应用",
+      "source_lines": [
+        940,
+        951
+      ],
+      "topics": [
+        "android:debuggable",
+        "run-as包上下文",
+        "shared_prefs/databases/files访问",
+        "二进制manifest检查",
+        "debuggable与备份策略区别"
+      ],
+      "corrections": [
+        "grep debuggable app.apk不是可靠解析APK方式",
+        "run-as限已安装且允许调试的包上下文，不是无条件任意目录访问",
+        "厂商实现/SELinux/用户/profile会影响读写；勿通过root或重签名替代既有证据状态"
+      ],
+      "target": "forensic-android-tools",
+      "secondary_targets": [],
+      "evidence_ids": [],
+      "status": "corrected",
+      "heading": "## 02 ADB：从固定设备到明确权限",
+      "terms": [
+        "run-as",
+        "debuggable",
+        "shared_prefs/databases/files"
+      ],
+      "reviewed": true
+    },
+    {
+      "id": "android-guide-060",
+      "section": "快速参考：前10个文件",
+      "source_lines": [
+        955,
+        999
+      ],
+      "topics": [
+        "WiFi配置",
+        "shared_prefs",
+        "系统账户数据库",
+        "mmssms.db",
+        "Login Data",
+        "Cookies",
+        "contacts2.db与calllog.db",
+        "packages.xml/packages.list",
+        "WhatsApp msgstore.db/crypt备份",
+        "位置候选数据库"
+      ],
+      "corrections": [
+        "优先级应按取证问题与易失性调整，不是跨设备固定必提十文件",
+        "accounts.xml应改现代账户DB/版本候选",
+        "package.xml应packages.xml",
+        "flp.db/gps.db不是通用定位必有库",
+        "Cookie线索用于离线认证痕迹分析，不把提取得到等同活跃会话"
+      ],
+      "target": "forensic-android-forensics",
+      "secondary_targets": [
+        "forensic-android-storage",
+        "forensic-android-tools"
+      ],
+      "evidence_ids": [],
+      "status": "qualified",
+      "heading": "## 06 易错点与问题驱动的提取优先级",
+      "terms": [
+        "短信彩信",
+        "联系人通话",
+        "账户偏好",
+        "应用数据库",
+        "Wi-Fi/热点",
+        "浏览器历史与下载",
+        "蓝牙",
+        "定位/地图",
+        "照片媒体",
+        "系统包/用户/角色"
+      ],
+      "reviewed": true
+    },
+    {
+      "id": "android-guide-061",
+      "section": "快速参考：SharedPreferences明文",
+      "source_lines": [
+        1004,
+        1006
+      ],
+      "topics": [
+        "明文password字段",
+        "XML实体还原",
+        "键值/来源/引用点记录"
+      ],
+      "corrections": [
+        "CTF构造样本明文实例不证明真实应用常存明文；保留类型识别方法"
+      ],
+      "target": "forensic-android-tools",
+      "secondary_targets": [
+        "forensic-android-storage"
+      ],
+      "evidence_ids": [],
+      "status": "qualified",
+      "heading": "## 06 APK 与密码格式：沿使用链验证，不套模板",
+      "terms": [
+        "password",
+        "XML",
+        "明文"
+      ],
+      "reviewed": true
+    },
+    {
+      "id": "android-guide-062",
+      "section": "快速参考：SharedPreferences MD5",
+      "source_lines": [
+        1007,
+        1010
+      ],
+      "topics": [
+        "MD5候选长度与编码",
+        "32hex原始MD5",
+        "hashcat -m 0类型选择",
+        "字典校验与盐/迭代识别"
+      ],
+      "corrections": [
+        "原文示例经过长度核验为32hex，不存在MD5长度错误",
+        "32hex只提示候选算法，不可直接断言MD5；-m 0限raw MD5且字典不保证命中"
+      ],
+      "target": "forensic-android-tools",
+      "secondary_targets": [],
+      "evidence_ids": [],
+      "status": "qualified",
+      "heading": "## 06 APK 与密码格式：沿使用链验证，不套模板",
+      "terms": [
+        "32 个 hex",
+        "hashcat -m 0 -a 0",
+        "raw MD5"
+      ],
+      "reviewed": true
+    },
+    {
+      "id": "android-guide-063",
+      "section": "快速参考：SharedPreferences Base64",
+      "source_lines": [
+        1011,
+        1014
+      ],
+      "topics": [
+        "Base64编码",
+        "凭据字符串解码",
+        "解码后编码/结构核验"
+      ],
+      "corrections": [
+        "Base64不等于加密或恢复成功；不要因可解码就假定字符串是有效user:password"
+      ],
+      "target": "forensic-android-tools",
+      "secondary_targets": [
+        "forensic-android-storage"
+      ],
+      "evidence_ids": [],
+      "status": "qualified",
+      "heading": "## 06 APK 与密码格式：沿使用链验证，不套模板",
+      "terms": [
+        "Base64",
+        "padding",
+        "编码不是加密"
+      ],
+      "reviewed": true
+    },
+    {
+      "id": "android-guide-064",
+      "section": "快速参考：SharedPreferences JWT",
+      "source_lines": [
+        1015,
+        1018
+      ],
+      "topics": [
+        "JWT header/payload/signature分段",
+        "Base64url字符替换与补齐",
+        "exp/iat/nbf",
+        "签名验证与纯解码区别"
+      ],
+      "corrections": [
+        "直接base64 -d payload不一定可处理Base64url或无padding",
+        "解码不是签名验证；payload时间是常见Unix秒仍需按字段核验"
+      ],
+      "target": "forensic-android-tools",
+      "secondary_targets": [
+        "forensic-android-storage"
+      ],
+      "evidence_ids": [],
+      "status": "corrected",
+      "heading": "## 06 APK 与密码格式：沿使用链验证，不套模板",
+      "terms": [
+        "Base64url",
+        "exp/iat/nbf",
+        "签名验证"
+      ],
+      "reviewed": true
+    },
+    {
+      "id": "android-guide-065",
+      "section": "快速参考：SharedPreferences OAuth",
+      "source_lines": [
+        1019,
+        1021
+      ],
+      "topics": [
+        "opaque OAuth token",
+        "访问token/刷新token",
+        "issuer/expiry/scope候选",
+        "ya29前缀只是线索"
+      ],
+      "corrections": [
+        "OAuth token不一定JWT，前缀不能证明有效或权限",
+        "保留认证线索主题但无在线重放/登录成功承诺"
+      ],
+      "target": "forensic-android-tools",
+      "secondary_targets": [
+        "forensic-android-storage"
+      ],
+      "evidence_ids": [],
+      "status": "qualified",
+      "heading": "## 06 APK 与密码格式：沿使用链验证，不套模板",
+      "terms": [
+        "ya29.",
+        "OAuth",
+        "scope",
+        "opaque"
+      ],
+      "reviewed": true
+    },
+    {
+      "id": "android-guide-066",
+      "section": "CTF技巧：备份文件",
+      "source_lines": [
+        1024,
+        1025
+      ],
+      "topics": [
+        ".bak/.old/备份数据库搜索",
+        "主库与备份版本差异",
+        "哈希/大小/时间排序"
+      ],
+      "corrections": [
+        "备份可能过时/截断/与当前用户无关；保留原文件并只在副本查询"
+      ],
+      "target": "forensic-android-tools",
+      "secondary_targets": [],
+      "evidence_ids": [],
+      "status": "qualified",
+      "heading": "## 05 数据库、XML 与日志的可操作检查",
+      "terms": [
+        ".bak",
+        ".old",
+        "哈希",
+        "归属"
+      ],
+      "reviewed": true
+    },
+    {
+      "id": "android-guide-067",
+      "section": "CTF技巧：SQLite日志",
+      "source_lines": [
+        1026,
+        1027
+      ],
+      "topics": [
+        ".db-journal",
+        "WAL/SHM",
+        "未checkpoint提交记录",
+        "删除记录/页残留",
+        "同批采集与恢复验证"
+      ],
+      "corrections": [
+        "journal可能包含历史页面但不保证已删记录可恢复；WAL同样重要",
+        "不要修改原库执行checkpoint/VACUUM来追求恢复"
+      ],
+      "target": "forensic-android-tools",
+      "secondary_targets": [],
+      "evidence_ids": [],
+      "status": "qualified",
+      "heading": "## 05 数据库、XML 与日志的可操作检查",
+      "terms": [
+        ".db-journal",
+        "WAL",
+        "-shm",
+        "checkpoint"
+      ],
+      "reviewed": true
+    },
+    {
+      "id": "android-guide-068",
+      "section": "CTF技巧：硬编码配置",
+      "source_lines": [
+        1028,
+        1029
+      ],
+      "topics": [
+        "APK res/assets配置",
+        "硬编码常量",
+        "资源解码",
+        "调用关系与使用场景"
+      ],
+      "corrections": [
+        "命中key/secret不是机密性或可用性充分证据；结合DEX引用/算法"
+      ],
+      "target": "forensic-android-tools",
+      "secondary_targets": [],
+      "evidence_ids": [],
+      "status": "qualified",
+      "heading": "## 06 APK 与密码格式：沿使用链验证，不套模板",
+      "terms": [
+        "res/",
+        "assets/",
+        "调用",
+        "常量"
+      ],
+      "reviewed": true
+    },
+    {
+      "id": "android-guide-069",
+      "section": "CTF技巧：时间戳交叉核对",
+      "source_lines": [
+        1030,
+        1031
+      ],
+      "topics": [
+        "数据库/日志/文件系统时间轴",
+        "Unix秒/毫秒/微秒",
+        "Chromium1601纪元",
+        "时区/UTC/设备偏移",
+        "采集时间与事件时间",
+        "原始值及换算记录"
+      ],
+      "corrections": [
+        "不要统一除1000；MMS/SMS/Chromium等要分别查单位纪元",
+        "文件mtime可能由复制/解压产生；至少两种独立事件来源验证"
+      ],
+      "target": "forensic-android-forensics",
+      "secondary_targets": [],
+      "evidence_ids": [],
+      "status": "qualified",
+      "heading": "## 04 常见考点：问题、证据与答题口径",
+      "terms": [
+        "Unix",
+        "1601-01-01",
+        "夏令时",
+        "时区"
+      ],
+      "reviewed": true
+    },
+    {
+      "id": "android-guide-070",
+      "section": "CTF技巧：debuggable",
+      "source_lines": [
+        1032,
+        1033
+      ],
+      "topics": [
+        "可调试标志检查",
+        "run-as既有沙盒访问",
+        "debug构建版本记录"
+      ],
+      "corrections": [
+        "不要以重签/修改APK制造debuggable后声称原设备原状态可访问"
+      ],
+      "target": "forensic-android-tools",
+      "secondary_targets": [],
+      "evidence_ids": [],
+      "status": "qualified",
+      "heading": "## 06 APK 与密码格式：沿使用链验证，不套模板",
+      "terms": [
+        "android:debuggable",
+        "换装",
+        "Manifest"
+      ],
+      "reviewed": true
+    },
+    {
+      "id": "android-guide-071",
+      "section": "CTF技巧：R8/ProGuard混淆",
+      "source_lines": [
+        1034,
+        1035
+      ],
+      "topics": [
+        "R8/ProGuard类方法字段重命名",
+        "代码收缩优化",
+        "mapping.txt候选",
+        "字符串混淆与第三方加固区别"
+      ],
+      "corrections": [
+        "R8/ProGuard通常重命名标识符，并不自动把所有字符串加密或重命名",
+        "原文说重命名字符串需改为追踪调用点、常量与额外字符串保护"
+      ],
+      "target": "forensic-android-tools",
+      "secondary_targets": [],
+      "evidence_ids": [],
+      "status": "corrected",
+      "heading": "## 06 APK 与密码格式：沿使用链验证，不套模板",
+      "terms": [
+        "R8/ProGuard",
+        "mapping.txt",
+        "字符串"
+      ],
+      "reviewed": true
+    },
+    {
+      "id": "android-guide-072",
+      "section": "CTF技巧：原生库",
+      "source_lines": [
+        1036,
+        1037
+      ],
+      "topics": [
+        ".so ELF/ABI",
+        "strings",
+        "JNI调用",
+        "加密常量/嵌入密钥候选",
+        "静态与运行时生成区别"
+      ],
+      "corrections": [
+        "常量/测试向量不等于实际密钥；记录引用位置与匹配数据验证"
+      ],
+      "target": "forensic-android-tools",
+      "secondary_targets": [],
+      "evidence_ids": [],
+      "status": "qualified",
+      "heading": "## 06 APK 与密码格式：沿使用链验证，不套模板",
+      "terms": [
+        ".so",
+        "ELF",
+        "ABI",
+        "JNI"
+      ],
+      "reviewed": true
+    },
+    {
+      "id": "android-guide-073",
+      "section": "CTF技巧：cache",
+      "source_lines": [
+        1038,
+        1039
+      ],
+      "topics": [
+        "/cache系统分区与应用cache区别",
+        "Recovery残留",
+        "应用缓存/崩溃线索",
+        "易失性"
+      ],
+      "corrections": [
+        "新设备不一定存在传统/cache分区",
+        "/cache不代表所有应用cache，后者多在沙盒/外部专属目录"
+      ],
+      "target": "forensic-android-storage",
+      "secondary_targets": [],
+      "evidence_ids": [],
+      "status": "qualified",
+      "heading": "## 12 共享存储、缩略图与媒体",
+      "terms": [
+        "cache",
+        "残留"
+      ],
+      "reviewed": true
+    },
+    {
+      "id": "android-guide-074",
+      "section": "CTF技巧：/data/local/tmp",
+      "source_lines": [
+        1040,
+        1041
+      ],
+      "topics": [
+        "分析工具/ADB临时痕迹",
+        "文件时间/权限/所有者",
+        "工具运行和人为改动记录"
+      ],
+      "corrections": [
+        "工具遗留文件不等于攻击痕迹；要和已知采集/分析操作交叉核对"
+      ],
+      "target": "forensic-android-storage",
+      "secondary_targets": [],
+      "evidence_ids": [],
+      "status": "qualified",
+      "heading": "## 12 共享存储、缩略图与媒体",
+      "terms": [
+        "/data/local/tmp",
+        "调试/采集/测试",
+        "时间"
+      ],
+      "reviewed": true
+    },
+    {
+      "id": "android-guide-075",
+      "section": "CTF技巧：隐藏目录",
+      "source_lines": [
+        1042,
+        1043
+      ],
+      "topics": [
+        "点目录/点文件",
+        "缩略图/配置/缓存",
+        "完整文件清单",
+        "隐藏与加密区别"
+      ],
+      "corrections": [
+        "以点开头不是权限保护或加密；保留隐藏文件主题并结合签名/元数据"
+      ],
+      "target": "forensic-android-storage",
+      "secondary_targets": [],
+      "evidence_ids": [],
+      "status": "qualified",
+      "heading": "## 12 共享存储、缩略图与媒体",
+      "terms": [
+        "点目录",
+        "隐藏",
+        "文件清单"
+      ],
+      "reviewed": true
+    }
+  ],
+  "source": {
+    "url": "https://tqandjdc.github.io/2026/06/08/Android-Forensic-Analysis-Reference-Guide/",
+    "http_status": 200,
+    "html_sha256": "cf89bd83a5949628e48444a7e3329a6c998ea020746a0bef6f795e9ed66ae006",
+    "text_sha256": "a5e2a2bf41a3500aeecfde3f18eaf57ebbd529d7e31c1b7180ed22ca60e416a9",
+    "author": "1t5@l0^e",
+    "license": "CC BY-NC-SA 4.0",
+    "reviewed_at": "2026-10-04"
+  }
+}

@@ -1,0 +1,3074 @@
+{
+  "schemaVersion": 1,
+  "reviewedAt": "2026-10-03",
+  "articleId": "forensic-usb-evidence",
+  "classification": {
+    "module": "Forensics",
+    "track": "计算机取证",
+    "topic": "镜像与文件系统",
+    "displayCluster": "磁盘与文件系统"
+  },
+  "canonicalBody": "src/content-curation/forensic-usb-evidence.md",
+  "headings": [
+    "01 先建立设备、卷、用户与文件四条证据线",
+    "02 设备识别：从设备实例关联到历史卷",
+    "03 主机接入时间：安装、到达与移除分别核对",
+    "04 用户与文件活动：把访问、复制和删除分别互证",
+    "05 NTFS 布局与 MFT 的证据范围",
+    "06 读记录：头部、属性、身份与时间",
+    "07 构造字节实战：常驻记录与 runlist",
+    "08 复核：把一条结论落到可复查的字节与关系上",
+    "09 XFW：从目录条目回到真正的 FILE 记录",
+    "10 MFTECmd：先确认输入和版本，再选择输出",
+    "11 一组可直接调整的命令与输出检查",
+    "12 CSV：把记录身份、名字、数据流和时间分开读",
+    "13 USN关联、恢复边界和练习范围",
+    "14 离线练习：记录解析、驻留内容与改名日志",
+    "15 实战：把接入、复制、打开与删除逐项验证",
+    "16 考点、答题字段与最终复核"
+  ],
+  "supportingSources": [
+    {
+      "id": "web-usb-xways-manual",
+      "url": "https://www.x-ways.net/winhex/manual.pdf",
+      "title": "X-Ways Forensics / WinHex manual",
+      "reviewedAt": "2026-10-03",
+      "scope": "273页手册的相关小节正文：目录列、Details、FS offset、Navigation、模板、注册表报告、深入文件系统结构搜索及恢复。未声称阅读全部手册或实跑GUI。",
+      "facts": [
+        "FILE record定位与数据内容位置不同；FS offset用于结构定位",
+        "ID与Int. ID不是同一命名空间",
+        "模板辅助解释、逻辑恢复与原始记录核对"
+      ],
+      "supportingResearch": [
+        {
+          "file": "root-sources.json",
+          "record": 1
+        }
+      ]
+    },
+    {
+      "id": "web-usb-xways-2012",
+      "url": "https://www.x-ways.net/winhex/mailings/2012.html",
+      "title": "X-Ways 2012 feature announcements",
+      "reviewedAt": "2026-10-03",
+      "scope": "相关功能发布条目正文。",
+      "facts": [
+        "Details对照0x10与0x30时间",
+        "快照是可变分析视图而非原盘扇区修改",
+        "逻辑文件列表与导出"
+      ],
+      "supportingResearch": [
+        {
+          "file": "root-sources.json",
+          "record": 2
+        }
+      ]
+    },
+    {
+      "id": "web-usb-xways-2020",
+      "url": "https://www.x-ways.net/winhex/mailings/2020.html",
+      "title": "X-Ways 20.1 feature announcements",
+      "reviewedAt": "2026-10-03",
+      "scope": "20.1和20.0相关功能、版本条目正文；本地可执行文件VersionInfo=20.1。",
+      "facts": [
+        "工具版本边界",
+        "MFTMirr不足以替代完整MFT",
+        "Registry Viewer案件范围与对象定位"
+      ],
+      "supportingResearch": [
+        {
+          "file": "root-sources.json",
+          "record": 3
+        }
+      ]
+    },
+    {
+      "id": "web-usb-xways-containers",
+      "url": "https://www.x-ways.net/investigator/evidence_file_container.html",
+      "title": "X-Ways evidence file containers",
+      "reviewedAt": "2026-10-03",
+      "scope": "公开正文相关部分。",
+      "facts": [
+        "元数据对象不等于可用内容",
+        "证据容器仅表示选定范围，不代替物理镜像"
+      ],
+      "supportingResearch": [
+        {
+          "file": "root-sources.json",
+          "record": 4
+        }
+      ]
+    },
+    {
+      "id": "web-usb-usb-cases-seed-csdn",
+      "url": "https://blog.csdn.net/m0_37867238/article/details/144836332",
+      "title": "X-ways一把梭2024年美亚杯U盘取证（MFT详解-附工具检材链接）",
+      "author": "小谢取证",
+      "kind": "user-specified-author-writeup",
+      "status": "body-readable",
+      "readScope": "正文中U盘/NTFS、已删文件、MFT非驻留DATA/Runlist、图片元数据段；正文10个题解段可取得",
+      "imageStatus": "image-links-only-not-visually-read",
+      "evidenceReplay": "none",
+      "usedFor": [
+        "U盘介质分析与主机侧证据区分",
+        "已删内容可能提供后续线索",
+        "发现术语错误并要求格式互证"
+      ],
+      "notUsedFor": [
+        "USBSTOR插拔时间",
+        "固定题目答案",
+        "原图片里的真实密钥",
+        "检材下载地址及提取凭据"
+      ],
+      "corrections": [
+        "Runlist属性内起点不等于run数量或LCN",
+        "LCN/簇偏移不等于起始扇区",
+        "不能把首属性起点固定为0x30",
+        "驻留不以1KB作通用阈值，非驻留DATA并非因此变B+树"
+      ],
+      "metadataNote": "网页顶部显示推荐文章日期；不据该推荐日期断言原文发表日期。专栏搜索另可见2024-12-30，但本研究不以此作为正文技术证据。",
+      "supportingResearch": [
+        {
+          "file": "usb-cases-sources.json",
+          "record": 1
+        }
+      ]
+    },
+    {
+      "id": "web-usb-usb-cases-wp-joyooo-2024",
+      "url": "https://www.cnblogs.com/Joyooo/p/19382335",
+      "title": "2024美亚杯个人赛Joyooo",
+      "author": "Joyooo",
+      "kind": "author-writeup",
+      "status": "body-readable",
+      "readScope": "U盘部分正文、Bytes per sector字段描述、Runlist部分借用来源说明",
+      "imageStatus": "image-links-and-alt-text-only-not-visually-read",
+      "evidenceReplay": "none",
+      "usedFor": [
+        "赛事界面答案不能替代底层字段核对"
+      ],
+      "corrections": [
+        "以Bytes per sector回答每簇字节不可作为格式证据"
+      ],
+      "independenceNote": "Runlist部分作者明确借用指定小谢取证WP，不能计作独立底层验证。",
+      "supportingResearch": [
+        {
+          "file": "usb-cases-sources.json",
+          "record": 2
+        }
+      ]
+    },
+    {
+      "id": "web-usb-usb-cases-wp-arttnba3",
+      "url": "https://archive.next.arttnba3.cn/2020/11/08/%E3%80%90%E7%94%B5%E5%AD%90%E5%8F%96%E8%AF%81-0x02%E3%80%91/",
+      "title": "〖电子取证-0x02〗美亚杯第五届全国电子取证竞赛资格赛write up by arttnba3",
+      "author": "arttnba3",
+      "kind": "author-writeup",
+      "status": "body-readable",
+      "readScope": "正文USB使用、挂载盘符、用户痕迹、最近访问文档段",
+      "imageStatus": "image-links-only-not-visually-read",
+      "evidenceReplay": "none",
+      "usedFor": [
+        "挂载盘符与文件痕迹需要时间线联合调查"
+      ],
+      "notUsedFor": [
+        "按题目选项排除设备型号",
+        "固定题号与答案",
+        "未经本次验证的实体设备归属"
+      ],
+      "supportingResearch": [
+        {
+          "file": "usb-cases-sources.json",
+          "record": 3
+        }
+      ]
+    },
+    {
+      "id": "web-usb-usb-cases-wp-xidian-2024",
+      "url": "https://forensics.xidian.edu.cn/wiki/MeiyaCup2024Individual/",
+      "title": "2024美亚杯个人赛 - XDforensics-Wiki",
+      "author": "页面署名参赛作者组",
+      "kind": "participant-community-writeup",
+      "status": "body-readable-relevant-images-unavailable",
+      "readScope": "目录、U盘段与主机设备记录/用户lnk相关文字；未将图片中的设备计数或最后文件名当已核验事实",
+      "imageStatus": "two-relevant-image-fetches-failed-cache-miss",
+      "attemptedImageUrls": [
+        "https://forensics.xidian.edu.cn/wiki/attachments/Pasted%20image%2020250403154516.png",
+        "https://forensics.xidian.edu.cn/wiki/attachments/Pasted%20image%2020250403154900.png"
+      ],
+      "evidenceReplay": "none",
+      "usedFor": [
+        "多检材调查中设备信息与账户LNK关联作为独立能力主题"
+      ],
+      "notUsedFor": [
+        "截图答案",
+        "公开凭据和人物原名"
+      ],
+      "supportingResearch": [
+        {
+          "file": "usb-cases-sources.json",
+          "record": 4
+        }
+      ]
+    },
+    {
+      "id": "web-usb-usb-cases-ms-install-date",
+      "url": "https://learn.microsoft.com/en-us/windows-hardware/drivers/install/devpkey-device-installdate",
+      "title": "DEVPKEY_Device_InstallDate",
+      "author": "Microsoft",
+      "kind": "official-format-property-documentation",
+      "status": "body-readable",
+      "readScope": "属性定义、Remarks、FILETIME类型及Windows7+要求",
+      "imageStatus": "not-required",
+      "usedFor": [
+        "InstallDate是实例最近安装，驱动每次更新会改写该值"
+      ],
+      "limitation": "官方属性定义不提供设备物理插拔者或文件访问结论。",
+      "supportingResearch": [
+        {
+          "file": "usb-cases-sources.json",
+          "record": 5
+        }
+      ]
+    },
+    {
+      "id": "web-usb-usb-cases-ms-first-install-date",
+      "url": "https://learn.microsoft.com/en-us/windows-hardware/drivers/install/devpkey-device-firstinstalldate",
+      "title": "DEVPKEY_Device_FirstInstallDate",
+      "author": "Microsoft",
+      "kind": "official-format-property-documentation",
+      "status": "body-readable",
+      "readScope": "属性定义、Remarks、FILETIME类型及Windows7+要求",
+      "imageStatus": "not-required",
+      "usedFor": [
+        "FirstInstallDate是实例首次安装，不随每次驱动更新变化"
+      ],
+      "limitation": "首次实例安装不等于设备出厂、任何系统上首次使用或某自然人首次接触。",
+      "supportingResearch": [
+        {
+          "file": "usb-cases-sources.json",
+          "record": 6
+        }
+      ]
+    },
+    {
+      "id": "web-usb-usb-cases-khatri-properties",
+      "url": "https://www.swiftforensics.com/2013/11/windows-8-new-registry-artifacts-part-1.html",
+      "title": "Windows 8 New Registry Artifacts Part 1 - New Device Timestamps",
+      "author": "Yogesh Khatri",
+      "kind": "author-original-research",
+      "status": "body-readable",
+      "readScope": "主文属性号表、Win7/Win8值布局差异和作者勘误讨论",
+      "imageStatus": "not-visually-read",
+      "usedFor": [
+        "0064-0067语义和GUID路径",
+        "Win7下一层Data与Win8属性默认值结构差异"
+      ],
+      "validationScope": "原研究Windows7/8，作者SDK映射；本次未实体重放。",
+      "corrections": [
+        "评论指出原截图中64/65图示标签疑似颠倒；最终采用Microsoft定义和主文表，不照抄截图"
+      ],
+      "supportingResearch": [
+        {
+          "file": "usb-cases-sources.json",
+          "record": 7
+        }
+      ]
+    },
+    {
+      "id": "web-usb-usb-cases-khatri-lifecycle",
+      "url": "https://www.swiftforensics.com/2013/12/device-lastremovaldate-lastarrivaldate.html",
+      "title": "Device LastRemovalDate & LastArrivalDate Behavior in Windows 8",
+      "author": "Yogesh Khatri",
+      "kind": "author-original-research",
+      "status": "body-readable",
+      "readScope": "主文完整行为表和时间解释",
+      "imageStatus": "not-required",
+      "usedFor": [
+        "留插重启可更新LastArrivalDate",
+        "带设备关机与缺失LastRemovalDate的解释"
+      ],
+      "validationScope": "Windows8实验，不能声明所有Windows10/11版本遵循完全相同更新规则。",
+      "notUsedFor": [
+        "用关机时间冒充物理拔盘时间",
+        "只凭时间反序断定时钟篡改"
+      ],
+      "supportingResearch": [
+        {
+          "file": "usb-cases-sources.json",
+          "record": 8
+        }
+      ]
+    },
+    {
+      "id": "web-usb-usb-cases-libyal-usb-storage",
+      "url": "https://github.com/libyal/winreg-kb/blob/main/docs/sources/system-keys/USB-storage.md",
+      "title": "Windows Registry knowledge base: USB storage",
+      "author": "libyal/winreg-kb maintainers",
+      "kind": "maintainer-original-format-research",
+      "status": "body-readable",
+      "readScope": "USBSTOR设备/实例层、Service与ContainerID字段、Properties嵌套和类型表",
+      "imageStatus": "not-required",
+      "usedFor": [
+        "USBSTOR路径和层次",
+        "设备属性Data/Type、FILETIME与UTF16类型语境"
+      ],
+      "validationScope": "文档观测结构，不代表本次检材实际包含全部字段。",
+      "supportingResearch": [
+        {
+          "file": "usb-cases-sources.json",
+          "record": 9
+        }
+      ]
+    },
+    {
+      "id": "web-usb-usb-cases-libyal-mountpoints",
+      "url": "https://winreg-kb.readthedocs.io/en/latest/sources/explorer-keys/Mount-points.html",
+      "title": "Moint points — Windows Registry knowledge base",
+      "author": "libyal/winreg-kb maintainers",
+      "kind": "maintainer-original-format-research",
+      "status": "body-readable",
+      "readScope": "MountPoints2路径、观测OS版本、GUID/盘符/UNC三类键名及CPC子键",
+      "imageStatus": "not-required",
+      "usedFor": [
+        "MountPoints2不只记录USB，GUID键不能等同硬件序列号",
+        "用户hive路径"
+      ],
+      "limitation": "键存在不能单独证明主动访问、复制或物理插入者。",
+      "supportingResearch": [
+        {
+          "file": "usb-cases-sources.json",
+          "record": 10
+        }
+      ]
+    },
+    {
+      "id": "web-usb-usb-cases-ms-mount-manager",
+      "url": "https://learn.microsoft.com/en-us/windows-hardware/drivers/storage/supporting-mount-manager-requests-in-a-storage-class-driver",
+      "title": "Supporting Mount Manager requests in a Storage Class Driver",
+      "author": "Microsoft",
+      "kind": "official-storage-format-documentation",
+      "status": "body-readable",
+      "readScope": "主文MountedDevices持久映射、卷名与uniqueID区别、相同ID的多个名称及设备离线后保留数据库",
+      "imageStatus": "not-visually-read-text-sufficient",
+      "usedFor": [
+        "完整二进制uniqueID相同支持卷GUID/盘符映射",
+        "盘符分配可能变化",
+        "MountedDevices不是完整连接历史"
+      ],
+      "limitation": "本片段未实现或调用文中驱动API。",
+      "supportingResearch": [
+        {
+          "file": "usb-cases-sources.json",
+          "record": 11
+        }
+      ]
+    },
+    {
+      "id": "web-usb-usb-cases-ripa-serials",
+      "url": "https://www.computerpi.com/the-truth-about-usb-device-serial-numbers-and-the-lies-your-tools-tell/",
+      "title": "The Truth About USB Device Serial Numbers – (and the lies your tools tell)",
+      "author": "Kevin J. Ripa",
+      "kind": "author-original-hardware-experiments",
+      "status": "body-readable",
+      "readScope": "USB桥接器、外置硬盘盒、标签与不同软件报告编号的实验文字和作者结论",
+      "imageStatus": "not-visually-read",
+      "usedFor": [
+        "设备实例编号、盒子标识、介质厂商序列号不能混同",
+        "同一枚举实例的关联价值"
+      ],
+      "notUsedFor": [
+        "宣称Windows对所有USB设备的序列号都错误",
+        "原设备编号"
+      ],
+      "validationScope": "作者有限硬件/软件组合实验；不是USB全集普遍定律。",
+      "supportingResearch": [
+        {
+          "file": "usb-cases-sources.json",
+          "record": 12
+        }
+      ]
+    },
+    {
+      "id": "web-usb-usb-cases-dfir-review-partition",
+      "url": "https://dfir.pubpub.org/pub/h78di10n/release/2",
+      "title": "USB Forensics – Recover more Volume Serial Numbers (VSNs) with the Windows 10 Partition/Diagnostic Event Log",
+      "authors": [
+        "Alexandros Vasilaras",
+        "Evangelos Dragonas",
+        "Dimitrios Katsoulis"
+      ],
+      "kind": "reviewed-original-research",
+      "status": "body-readable",
+      "readScope": "第2版正文的字段定义、方法、多卷实验与限制段",
+      "imageStatus": "image-links-only-not-visually-read",
+      "usedFor": [
+        "1006中VBR连接设备与卷序号",
+        "历史VSN与LNK/JumpLists互证",
+        "内部磁盘/启动/移除也出现该事件",
+        "多卷需逐卷检查"
+      ],
+      "validationScope": "Windows10 Pro2004 build19041、20H2 build19042；未分区/MBR；有限设备和前三VBR；GPT为未来工作；EXT3未提供有用记录。",
+      "notUsedFor": [
+        "所有系统更新都清空日志的普遍断言",
+        "1006等于全部USB插入历史",
+        "研究工具覆盖所有GPT分区"
+      ],
+      "ntfsSerialNote": "文中NTFS用于LNK匹配的4字节量需结合文件系统完整8字节VSN解释，不把LNK32位字段误当整个NTFS卷序号。",
+      "supportingResearch": [
+        {
+          "file": "usb-cases-sources.json",
+          "record": 13
+        }
+      ]
+    },
+    {
+      "id": "web-usb-usb-cases-ms-shllink-volumeid",
+      "url": "https://learn.microsoft.com/en-us/openspecs/windows_protocols/ms-shllink/b7b3eea7-dbff-4275-bd58-83ba3f12d87a",
+      "title": "[MS-SHLLINK]: VolumeID",
+      "author": "Microsoft",
+      "kind": "official-binary-format-specification",
+      "status": "search-result-full-relevant-definition-readable",
+      "readScope": "VolumeID语义、DriveType表和4字节DriveSerialNumber定义",
+      "imageStatus": "not-required",
+      "usedFor": [
+        "LNK中的DriveSerialNumber是卷号且仅32位",
+        "DRIVE_FIXED也可描述flash drive",
+        "不只保留Removable"
+      ],
+      "limitation": "格式规范不证明某快捷方式一定由该账户打开文件生成。",
+      "supportingResearch": [
+        {
+          "file": "usb-cases-sources.json",
+          "record": 14
+        }
+      ]
+    },
+    {
+      "id": "web-usb-usb-cases-ms-setupapi",
+      "url": "https://learn.microsoft.com/en-us/windows-hardware/drivers/install/setupapi-text-logs",
+      "title": "SetupAPI Text Logs",
+      "author": "Microsoft",
+      "kind": "official-log-format-documentation",
+      "status": "body-readable",
+      "readScope": "Vista+安装日志类型、INF默认位置、ANSI纯文本与按安装操作分section的组织",
+      "imageStatus": "not-required",
+      "usedFor": [
+        "setupapi.dev.log记录安装设备及驱动操作",
+        "需保存完整section，不能以段数作每次插拔统计"
+      ],
+      "limitation": "本文不提供所有插拔事件保证。时间无时区标志应结合原机时区解释。",
+      "supportingResearch": [
+        {
+          "file": "usb-cases-sources.json",
+          "record": 15
+        }
+      ]
+    },
+    {
+      "id": "web-usb-usb-cases-ms-6416",
+      "url": "https://learn.microsoft.com/en-us/previous-versions/windows/it-pro/windows-10/security/threat-protection/auditing/event-6416",
+      "requestedUrl": "https://learn.microsoft.com/en-us/windows/security/threat-protection/auditing/event-6416",
+      "title": "6416(S): A new external device was recognized by the System",
+      "author": "Microsoft",
+      "kind": "official-event-documentation",
+      "status": "body-readable-after-redirect",
+      "readScope": "AuditPNPActivity、识别/启用含义、XML字段、SYSTEM主体说明",
+      "imageStatus": "not-required",
+      "usedFor": [
+        "6416所属审计项不是RemovableStorage",
+        "主体通常为SYSTEM不能视作实际插盘者",
+        "查Provider/设备路径"
+      ],
+      "limitation": "新外部设备识别/启用事件不直接等于每次物理插入，更不证明文件操作。",
+      "supportingResearch": [
+        {
+          "file": "usb-cases-sources.json",
+          "record": 16
+        }
+      ]
+    },
+    {
+      "id": "web-usb-usb-cases-ms-4663",
+      "url": "https://learn.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4663",
+      "title": "4663(S): An attempt was made to access an object",
+      "author": "Microsoft",
+      "kind": "official-event-documentation",
+      "status": "body-readable",
+      "readScope": "操作权限实际使用与4656区别、对象账户进程会话字段及权限掩码表",
+      "imageStatus": "not-required",
+      "usedFor": [
+        "4663描述权限使用而不是只请求句柄",
+        "按ObjectType解释ReadData/WriteData/DELETE",
+        "按位解AccessMask并关联LogonId/ProcessId"
+      ],
+      "limitation": "权限使用不是完整复制事务证明，也不内置源目标方向。",
+      "supportingResearch": [
+        {
+          "file": "usb-cases-sources.json",
+          "record": 17
+        }
+      ]
+    },
+    {
+      "id": "web-usb-usb-cases-ms-removable-audit",
+      "url": "https://learn.microsoft.com/nl-nl/previous-versions/windows/it-pro/windows-10/security/threat-protection/auditing/monitor-the-use-of-removable-storage-devices?view=azurebatch-7.0.0",
+      "title": "Monitor the use of removable storage devices",
+      "author": "Microsoft",
+      "kind": "official-audit-policy-documentation",
+      "status": "search-result-relevant-body-readable",
+      "readScope": "启用策略与核验步骤、4663/4656记录及版本条件说明",
+      "imageStatus": "not-required",
+      "usedFor": [
+        "事先启用审计才有文件操作事件",
+        "读写审计与设备识别是不同能力",
+        "未审计历史不能事后补回"
+      ],
+      "notUsedFor": [
+        "修改检材或分析机审计策略",
+        "运行配置命令"
+      ],
+      "limitation": "特定版本可能需要额外设置；本次未验证任何设备上的审计生效。",
+      "supportingResearch": [
+        {
+          "file": "usb-cases-sources.json",
+          "record": 18
+        }
+      ]
+    },
+    {
+      "id": "web-usb-usb-cases-pullega-shellbags",
+      "url": "https://www.4n6k.com/2013/12/shellbags-forensics-addressing.html",
+      "title": "Shellbags Forensics: Addressing a Misconception (interpretation, step-by-step testing, new findings, and more)",
+      "author": "Dan Pullega",
+      "kind": "author-original-behavior-experiments",
+      "status": "relevant-body-sections-readable",
+      "readScope": "主文概述、BagMRU/MRUListEx时间解释和实测方法前段、顶部2017及2025更新",
+      "imageStatus": "not-visually-read",
+      "usedFor": [
+        "ShellBags支持目录Shell交互而非特定文件复制",
+        "MRU父键时间不能全部赋给子项",
+        "目录元数据时间与键更新时间分开",
+        "单击选择行为随Windows版本变化"
+      ],
+      "validationScope": "主实验Windows7；2017单击测试Windows10；2025-10-01作者提醒Windows11+可能改变，需按版本复核。",
+      "notUsedFor": [
+        "所有ShellBags记录都证明进入目录",
+        "现代Windows统一单击更新规则"
+      ],
+      "supportingResearch": [
+        {
+          "file": "usb-cases-sources.json",
+          "record": 19
+        }
+      ]
+    },
+    {
+      "id": "web-usb-usb-cases-magnet-lnk",
+      "url": "https://www.magnetforensics.com/blog/forensic-analysis-of-lnk-files/",
+      "title": "Forensic analysis of LNK files",
+      "author": "Magnet Forensics",
+      "kind": "vendor-original-technical-article",
+      "status": "body-readable",
+      "readScope": "自动/手建LNK、原路径、目标与链接各自时间、卷信息及Windows11示例说明",
+      "imageStatus": "not-visually-read",
+      "usedFor": [
+        "自动和手建快捷方式需区分",
+        "链接自身时间与目标内嵌时间分列",
+        "文件删除/外部介质缺席后LNK仍可能残留"
+      ],
+      "notUsedFor": [
+        "所有LNK都证明原账户实际打开文件",
+        "MAC地址无条件归属当前调查主机",
+        "用链接时间直接证明文件复制"
+      ],
+      "supportingResearch": [
+        {
+          "file": "usb-cases-sources.json",
+          "record": 20
+        }
+      ]
+    },
+    {
+      "id": "web-usb-usb-cases-magnet-jumplists",
+      "url": "https://www.magnetforensics.com/blog/exploring-the-significance-of-jump-lists-in-digital-forensic-examinations/",
+      "title": "Exploring the significance of jump lists in digital forensic examinations",
+      "author": "Magnet Forensics",
+      "kind": "vendor-original-technical-article",
+      "status": "body-readable",
+      "readScope": "应用/路径关联、固定条目、目标与DestList访问时间字段、关联其它证据的案例",
+      "imageStatus": "not-visually-read",
+      "usedFor": [
+        "JumpLists推进到应用语境",
+        "固定条目和目标内嵌时间不等于每次文件打开",
+        "用户配置文件与其它痕迹联合归属"
+      ],
+      "notUsedFor": [
+        "把JumpList全部字段当作实时系统状态",
+        "按访问计数断言精确总打开次数",
+        "厂商个案视作本次已复现事实"
+      ],
+      "supportingResearch": [
+        {
+          "file": "usb-cases-sources.json",
+          "record": 21
+        }
+      ]
+    },
+    {
+      "title": "Microsoft Master File Table — Developer Notes",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/devnotes/master-file-table",
+      "readScope": "全文，MFT 记录/属性模型、前 16 条保留记录、$MFT/$Bitmap/$BadClus 属性和属性列表",
+      "versionLimit": "原文明确限定 NTFS version 3；相关结构限定 major 3 minor 0/1。页面更新 2021-01-06。",
+      "verifiedFacts": [
+        "一个文件可有多个记录和多个属性",
+        "$MFT 无名 $DATA 是有序 FILE 记录流",
+        "$MFT 无名 $BITMAP 管理记录槽；$Bitmap 元数据文件无名 $DATA 管理卷簇",
+        "属性列表指向属性所属的基础/扩展记录，属性结束码 0xFFFFFFFF"
+      ],
+      "id": "web-usb-mft-01",
+      "supportingResearch": [
+        {
+          "file": "mft-structure-sources.json",
+          "record": 1
+        }
+      ]
+    },
+    {
+      "title": "Microsoft FILE_RECORD_SEGMENT_HEADER",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/devnotes/file-record-segment-header",
+      "readScope": "Syntax、Members 全部、Remarks",
+      "versionLimit": "NTFS 3.0/3.1；2021-01-06。Reserved 字段不声称由该页面完整公开。",
+      "verifiedFacts": [
+        "签名 FILE",
+        "SequenceNumber 在记录释放时递增，引用序列号应匹配",
+        "FirstAttributeOffset 为记录内字节偏移",
+        "flags 0x0001 in use、0x0002 filename index present",
+        "基础记录 BaseFileRecordSegment=0，扩展记录引用基础记录"
+      ],
+      "id": "web-usb-mft-02",
+      "supportingResearch": [
+        {
+          "file": "mft-structure-sources.json",
+          "record": 2
+        }
+      ]
+    },
+    {
+      "title": "Microsoft MULTI_SECTOR_HEADER",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/devnotes/multi-sector-header",
+      "readScope": "Syntax、Members、Remarks 的 512 stride 和保存/替换/校验/恢复算法",
+      "versionLimit": "NTFS 3.0/3.1；2021-01-06。USA Size 成员说明存在单位冲突，见 documentDiscrepancies。",
+      "verifiedFacts": [
+        "USA offset 相对结构起点",
+        "USA 第一字为更新序列值，后续字保存各保护步长尾部原值",
+        "读取先比对尾值，一处不一致即未通过传输一致性检验",
+        "记录保护步长 512，不应无证据用设备物理扇区大小替换"
+      ],
+      "id": "web-usb-mft-03",
+      "supportingResearch": [
+        {
+          "file": "mft-structure-sources.json",
+          "record": 3
+        }
+      ]
+    },
+    {
+      "title": "Microsoft MFT_SEGMENT_REFERENCE",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/devnotes/mft-segment-reference",
+      "readScope": "全文，结构 LowPart/HighPart/SequenceNumber 和版本备注",
+      "versionLimit": "NTFS 3.0/3.1；2021-01-06。",
+      "verifiedFacts": [
+        "文件引用由 32 位低记录号、16 位高记录号、16 位序列号构成",
+        "序列号循环使用、0 为保留值",
+        "FILE_REFERENCE 是该结构别名"
+      ],
+      "id": "web-usb-mft-04",
+      "supportingResearch": [
+        {
+          "file": "mft-structure-sources.json",
+          "record": 4
+        }
+      ]
+    },
+    {
+      "title": "Microsoft ATTRIBUTE_RECORD_HEADER",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/devnotes/attribute-record-header",
+      "readScope": "Syntax、TypeCode 表、Resident/Nonresident 全成员、Remarks mapping pairs 算法",
+      "versionLimit": "NTFS 3.0/3.1；2021-01-06。非驻留头 0x22 处公开为 Reserved[6]，详细指数布局用实现结构核对。mapping-pairs signed VCN 文字不能不加核验地替代盘上普通 run-length 解码。",
+      "verifiedFacts": [
+        "总属性长度含头且按 8 字节边界对齐",
+        "FormCode 0 resident、1 nonresident",
+        "NameOffset/ValueOffset/MappingPairsOffset 均相对属性头",
+        "类型 0x10/0x20/0x30/0x80/0x90/0xA0/0xB0",
+        "LowestVcn 非零时尺寸字段不用于整个流的大小",
+        "LCN 通过顺序映射增量累加"
+      ],
+      "id": "web-usb-mft-05",
+      "supportingResearch": [
+        {
+          "file": "mft-structure-sources.json",
+          "record": 5
+        }
+      ]
+    },
+    {
+      "title": "Microsoft ATTRIBUTE_LIST_ENTRY",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/devnotes/attribute-list-entry",
+      "readScope": "Syntax、LowestVcn/SegmentReference、排列和唯一性 Remarks",
+      "versionLimit": "NTFS 3.0/3.1；2021-01-06。本节不照搬末句对同类型无名多实例的绝对化表述，$FILE_NAME 可重复需结合类型处理。",
+      "verifiedFacts": [
+        "列表条目保存类型、可选名字、LowestVcn 和文件引用",
+        "跨记录同流必须按 VCN 范围装配",
+        "列表 entry 长度与普通 attribute record 头的长度字段宽度不同，不可共用假定"
+      ],
+      "id": "web-usb-mft-06",
+      "supportingResearch": [
+        {
+          "file": "mft-structure-sources.json",
+          "record": 6
+        }
+      ]
+    },
+    {
+      "title": "Microsoft STANDARD_INFORMATION",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/devnotes/standard-information",
+      "readScope": "全文；该页面前 0x30 字节仅标 Reserved，不提供四时间细节",
+      "versionLimit": "NTFS 3.0/3.1；2021-01-06。以正常基础记录描述为范围，不把缺失 $SI 的损坏/特殊记录一律自动修复。",
+      "verifiedFacts": [
+        "$SI 应为常驻属性",
+        "公开 OwnerId、SecurityId 字段；时间具体偏移需另源核查"
+      ],
+      "id": "web-usb-mft-07",
+      "supportingResearch": [
+        {
+          "file": "mft-structure-sources.json",
+          "record": 7
+        }
+      ]
+    },
+    {
+      "title": "Microsoft FILE_NAME",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/devnotes/file-name",
+      "readScope": "全文，ParentDirectory、FileNameLength、Flags 和结构中的保留范围",
+      "versionLimit": "NTFS 3.0/3.1；2021-01-06。四时间/完整 namespace 值由格式项目补充，不宣称来自此公开结构页。",
+      "verifiedFacts": [
+        "父目录是含序列号的完整文件引用",
+        "名字按 Unicode 长度处理",
+        "同文件可有多个目录中的名字关系"
+      ],
+      "id": "web-usb-mft-08",
+      "supportingResearch": [
+        {
+          "file": "mft-structure-sources.json",
+          "record": 8
+        }
+      ]
+    },
+    {
+      "title": "Microsoft Master File Table — Local File Systems",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/fileio/master-file-table",
+      "readScope": "全文，删除、复用、MFT 不缩短与可能碎片化的段落",
+      "versionLimit": "2024-09-05；一般 NTFS 行为，具体残留须检查实际镜像。",
+      "verifiedFacts": [
+        "删除后 MFT 槽标为空闲并可复用",
+        "删除不使 MFT 文件长度按记录数缩短",
+        "MFT 可能碎片化，不可无限从首 LCN 线性定位"
+      ],
+      "id": "web-usb-mft-09",
+      "supportingResearch": [
+        {
+          "file": "mft-structure-sources.json",
+          "record": 9
+        },
+        {
+          "file": "mftecmd-sources.json",
+          "record": 10
+        }
+      ]
+    },
+    {
+      "title": "MS-FSCC Glossary",
+      "url": "https://learn.microsoft.com/en-us/openspecs/windows_protocols/ms-fscc/8ac44452-328c-4d7b-a784-d72afd19bd9f",
+      "readScope": "FAT、file record segment、LCN、MFT、MFTMirr、named stream、sparse file 条目",
+      "versionLimit": "浏览时 MS-FSCC 发布版本 60.0，2025-11-21；术语简化不能作为所有磁盘布局的绝对尺寸规定。",
+      "verifiedFacts": [
+        "LCN 从卷起点编号，首簇为 0",
+        "MFT 为 NTFS 的文件记录/属性数据库",
+        "镜像术语描述前四条记录",
+        "命名流具有各自内容",
+        "FAT/FAT32 的文件分配表与 NTFS MFT 模型不同"
+      ],
+      "id": "web-usb-mft-10",
+      "supportingResearch": [
+        {
+          "file": "mft-structure-sources.json",
+          "record": 10
+        }
+      ]
+    },
+    {
+      "title": "MS-FSCC published versions and introduction",
+      "url": "https://learn.microsoft.com/en-us/openspecs/windows_protocols/ms-fscc/efbfe127-73ad-4140-9967-ec6500e66d5e",
+      "relatedUrl": "https://learn.microsoft.com/en-us/openspecs/windows_protocols/ms-fscc/9c3b6720-aa0d-43cc-bc7d-3afa5c3a9c59",
+      "readScope": "发布版本表、Introduction 的范围及规范性章节说明",
+      "versionLimit": "60.0，2025-11-21；未成功读取该版本 PDF，使用官方 HTML 子页面而非声称完整阅读 PDF。",
+      "verifiedFacts": [
+        "MS-FSCC 规定协议可用的 Windows 本机结构网络格式，不能误称完整 NTFS 盘上格式规范",
+        "1.7 和 2 为 normative，其他章节与示例为 informative"
+      ],
+      "id": "web-usb-mft-11",
+      "supportingResearch": [
+        {
+          "file": "mft-structure-sources.json",
+          "record": 11
+        }
+      ]
+    },
+    {
+      "title": "MS-FSA Appendix A Product Behavior",
+      "url": "https://learn.microsoft.com/en-us/openspecs/windows_protocols/ms-fsa/4e3695bd-7574-4f24-a223-b4679c065b63",
+      "readScope": "时间支持表、注 17/31 的访问时间策略、注 48-50 的 FileId128/FileId64 与 MFT 索引序列号",
+      "versionLimit": "访问时间策略分别涉及 Vista+、Windows 10 v1803+ 与 v2004 前后；不能合并成单一永久默认。",
+      "verifiedFacts": [
+        "NTFS FileId64 是低 48 位 MFT 索引和高 16 位序列号",
+        "NTFS 时间存储 UTC 100ns",
+        "访问时间可以禁用或系统管理；开关含 bitfield 而非仅旧 0/1 模型"
+      ],
+      "id": "web-usb-mft-12",
+      "supportingResearch": [
+        {
+          "file": "mft-structure-sources.json",
+          "record": 12
+        }
+      ]
+    },
+    {
+      "title": "Microsoft NTFS_VOLUME_DATA_BUFFER",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/api/winioctl/ns-winioctl-ntfs_volume_data_buffer",
+      "readScope": "Syntax、BytesPerSector/BytesPerCluster/BytesPerFileRecordSegment/MftStartLcn/Mft2StartLcn、extended version Remarks",
+      "versionLimit": "2023-03-13；这是在线卷查询结构，离线应查证据卷引导区，不查询分析机卷代替。",
+      "verifiedFacts": [
+        "有真实记录字节大小字段",
+        "有 MFT 与 MFTMirr 起始 LCN",
+        "扩展数据提供卷 major/minor 版本"
+      ],
+      "id": "web-usb-mft-13",
+      "supportingResearch": [
+        {
+          "file": "mft-structure-sources.json",
+          "record": 13
+        }
+      ]
+    },
+    {
+      "title": "Microsoft File Streams",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/fileio/file-streams",
+      "readScope": "三尺寸语义、每流状态、流无独立时间、Naming conventions、Stream Types 的 $DATA/$FILE_NAME/$I30",
+      "versionLimit": "2025-07-08；对 bitmap every directory 等概括性表述不照搬为强制盘上存在规则，小目录依实际属性核验。",
+      "verifiedFacts": [
+        "无名 $DATA 为默认流，命名 $DATA 是其他流",
+        "流有 allocation/actual/valid data length 和压缩稀疏加密状态",
+        "$I30 是目录索引流名称",
+        "文件时间随任意流更新，不能当成每条 ADS 各自时间"
+      ],
+      "id": "web-usb-mft-14",
+      "supportingResearch": [
+        {
+          "file": "mft-structure-sources.json",
+          "record": 14
+        }
+      ]
+    },
+    {
+      "title": "Microsoft Hard Links and Junctions",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/fileio/hard-links-and-junctions",
+      "readScope": "Hard links 章节，路径、同卷限制和不同链接的目录元数据展示差异",
+      "versionLimit": "2025-07-08；本节只用 NTFS 普通文件硬链接语义。",
+      "verifiedFacts": [
+        "多个路径引用同一文件",
+        "硬链接只能在同一卷，不能作为目录硬链接",
+        "不同链接的目录项大小/属性展示可能滞后"
+      ],
+      "id": "web-usb-mft-15",
+      "supportingResearch": [
+        {
+          "file": "mft-structure-sources.json",
+          "record": 15
+        }
+      ]
+    },
+    {
+      "title": "MS-FSCC FileStandardLinkInformation",
+      "url": "https://learn.microsoft.com/en-us/openspecs/windows_protocols/ms-fscc/a459c580-db65-4e49-bbb5-562268ae271a",
+      "readScope": "NumberOfAccessibleLinks、TotalNumberOfLinks、DeletePending 定义",
+      "versionLimit": "2025-04-07；本地查询信息类，不是盘上 FILE 记录头。",
+      "verifiedFacts": [
+        "非删除链接数与包含待删除链接总数可不同",
+        "删除请求与最终回收状态须区分"
+      ],
+      "id": "web-usb-mft-16",
+      "supportingResearch": [
+        {
+          "file": "mft-structure-sources.json",
+          "record": 16
+        }
+      ]
+    },
+    {
+      "title": "MS-FSCC FileBasicInformation",
+      "url": "https://learn.microsoft.com/en-us/openspecs/windows_protocols/ms-fscc/16023025-8a78-492f-8b96-c873b042ac50",
+      "readScope": "CreationTime、LastAccessTime、LastWriteTime、ChangeTime 四字段语义及可设置性",
+      "versionLimit": "2025-02-10；网络/native information class 顺序不同于 $SI/$FN 盘上顺序，未将其结构偏移套用到 MFT。",
+      "verifiedFacts": [
+        "四时间语义",
+        "时间可显式设置或抑制更新，不能由单个时间值唯一推断动作"
+      ],
+      "id": "web-usb-mft-17",
+      "supportingResearch": [
+        {
+          "file": "mft-structure-sources.json",
+          "record": 17
+        }
+      ]
+    },
+    {
+      "title": "Microsoft File Times",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/sysinfo/file-times",
+      "readScope": "64 位、1601 UTC 基点、100ns 格式定义及文件系统差异说明",
+      "versionLimit": "Windows FILETIME 通用表示；存储粒度不等于操作行为时间准确度。",
+      "verifiedFacts": [
+        "FILETIME 以 100ns ticks 计数",
+        "整数转换可保留完整七位小数秒",
+        "显示时应显式标时区"
+      ],
+      "id": "web-usb-mft-18",
+      "supportingResearch": [
+        {
+          "file": "mft-structure-sources.json",
+          "record": 18
+        },
+        {
+          "file": "mftecmd-sources.json",
+          "record": 11
+        }
+      ]
+    },
+    {
+      "title": "Microsoft Setting and Getting the Timestamp of a File",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/fileio/setting-and-getting-the-timestamp-of-a-file",
+      "readScope": "全文，NTFS 最多一小时访问时间延迟与 API 可设置时间",
+      "versionLimit": "2021-01-07；更具体较新默认策略使用 MS-FSA 的版本注释。",
+      "verifiedFacts": [
+        "NTFS 访问时间延迟写回",
+        "时间可由应用设置，访问时间不是用户打开证明"
+      ],
+      "id": "web-usb-mft-19",
+      "supportingResearch": [
+        {
+          "file": "mft-structure-sources.json",
+          "record": 19
+        }
+      ]
+    },
+    {
+      "title": "Microsoft format",
+      "url": "https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/format",
+      "readScope": "参数表 /FS、/Q、/L、/A、/NoTrim，不执行格式化命令",
+      "versionLimit": "页面适用于 Windows 10/11、Server 2016-2025 等列出的系统；历史完整格式化行为不外推。",
+      "verifiedFacts": [
+        "快速格式化移除/重建文件表和根目录，不逐扇区扫描坏区",
+        "大/小文件记录格式可配置，1024 不是万能常量",
+        "格式化有跳过释放通知的选项，快速格式化不保证恢复"
+      ],
+      "id": "web-usb-mft-20",
+      "supportingResearch": [
+        {
+          "file": "mft-structure-sources.json",
+          "record": 20
+        }
+      ]
+    },
+    {
+      "title": "Microsoft fsutil behavior",
+      "url": "https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/fsutil-behavior",
+      "readScope": "disablelastaccess、disabledeletenotify 参数与 Remarks；不执行设置命令",
+      "versionLimit": "2023-02-03，适用页面列出的 Windows/Server；USB 控制器结果仍需设备证据。",
+      "verifiedFacts": [
+        "释放通知又称 TRIM/UNMAP，告知底层设备已释放簇",
+        "设备不报告支持时不收到通知",
+        "访问时间可以停用、最多延迟一小时更新盘上值"
+      ],
+      "id": "web-usb-mft-21",
+      "supportingResearch": [
+        {
+          "file": "mft-structure-sources.json",
+          "record": 21
+        }
+      ]
+    },
+    {
+      "title": "Microsoft exFAT File System Specification",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/fileio/exfat-specification",
+      "readScope": "Section 2 Volume Structure，Section 7 Directory Entry Definitions，7.1 Allocation Bitmap",
+      "versionLimit": "exFAT revision 1.00 directory definitions；不是 NTFS 或 FAT32 结构文档。",
+      "verifiedFacts": [
+        "exFAT 由引导区、FAT 区、数据区与目录项体系组织",
+        "exFAT Allocation Bitmap 记录簇占用；不属于 NTFS $BITMAP 属性",
+        "因此不能套用当前 NTFS FILE/MFT 结构解析 exFAT 文件目录"
+      ],
+      "id": "web-usb-mft-22",
+      "supportingResearch": [
+        {
+          "file": "mft-structure-sources.json",
+          "record": 22
+        }
+      ]
+    },
+    {
+      "title": "Linux-NTFS File Record / Fixup / Attribute Header",
+      "url": "https://flatcap.github.io/linux-ntfs/ntfs/concepts/file_record.html",
+      "relatedUrls": [
+        "https://flatcap.github.io/linux-ntfs/ntfs/concepts/fixup.html",
+        "https://flatcap.github.io/linux-ntfs/ntfs/concepts/attribute_header.html"
+      ],
+      "readScope": "FILE 完整偏移表和 notes；fixup 读写算法；四类 named/unnamed resident/nonresident 属性头",
+      "versionLimit": "历史 Linux-NTFS 格式项目，字段说明包含 XP/旧系统标签及未决 notes；不能当成所有现代 Windows 行为实测。",
+      "verifiedFacts": [
+        "record-relative 与 attribute-relative 偏移",
+        "USA count 为 words，包含更新序列字",
+        "NTFS 3.1 +0x2C 记录号",
+        "常驻头 0x18 字节基础长度",
+        "普通非驻留头通常 0x40，压缩/稀疏布局存在扩展"
+      ],
+      "id": "web-usb-mft-23",
+      "supportingResearch": [
+        {
+          "file": "mft-structure-sources.json",
+          "record": 23
+        }
+      ]
+    },
+    {
+      "title": "Linux-NTFS STANDARD_INFORMATION / FILE_NAME / Filename Namespace",
+      "url": "https://flatcap.github.io/linux-ntfs/ntfs/attributes/standard_information.html",
+      "relatedUrls": [
+        "https://flatcap.github.io/linux-ntfs/ntfs/attributes/file_name.html",
+        "https://flatcap.github.io/linux-ntfs/ntfs/concepts/filename_namespace.html"
+      ],
+      "readScope": "两类属性值完整布局；namespace 0/1/2/3；硬链接与重复元数据 notes",
+      "versionLimit": "历史格式项目；$FN 仅改名更新的绝对句不照搬为现代 Windows 通用保证；短名算法及始终生成短名也不照搬。",
+      "verifiedFacts": [
+        "$SI 四时间值内偏移 0/8/16/24",
+        "$FN 父引用 0、四时间 8/16/24/32、name length 0x40、namespace 0x41、name 0x42",
+        "$FN 名字无 NUL 终止要求",
+        "0 POSIX、1 Win32、2 DOS、3 Win32&DOS",
+        "名称与数据大小重复元数据可能不同步"
+      ],
+      "id": "web-usb-mft-24",
+      "supportingResearch": [
+        {
+          "file": "mft-structure-sources.json",
+          "record": 24
+        }
+      ]
+    },
+    {
+      "title": "Linux-NTFS Data Runs",
+      "url": "https://flatcap.github.io/linux-ntfs/ntfs/concepts/data_runs.html",
+      "readScope": "全文算法说明、Example 3 负位移、Example 4 sparse、Example 5 与 Layout 的压缩单元及 notes，特别末段 unsigned length / signed offset",
+      "versionLimit": "历史原始格式项目；文中常用固定 16 簇压缩示例，正文以实际 compression_unit 指数为准。",
+      "verifiedFacts": [
+        "低 nibble 长度字段宽度，高 nibble 位移字段宽度",
+        "run length unsigned，LCN delta signed 并需字段宽度符号扩展",
+        "LCN delta 相对前一物理 run 起始 LCN",
+        "稀疏 run 无位移字段，不映射 LCN 0、不重置累加器",
+        "compressed physical+sparse 填满单元不能直接按普通洞零填"
+      ],
+      "id": "web-usb-mft-25",
+      "supportingResearch": [
+        {
+          "file": "mft-structure-sources.json",
+          "record": 25
+        }
+      ]
+    },
+    {
+      "title": "Linux-NTFS Bitmap / MFTMirr / Index Root / Index Allocation",
+      "url": "https://flatcap.github.io/linux-ntfs/ntfs/attributes/bitmap.html",
+      "relatedUrls": [
+        "https://flatcap.github.io/linux-ntfs/ntfs/files/mftmirr.html",
+        "https://flatcap.github.io/linux-ntfs/ntfs/attributes/index_root.html",
+        "https://flatcap.github.io/linux-ntfs/ntfs/attributes/index_allocation.html"
+      ],
+      "readScope": "四页面全文，位图对象范围、镜像与簇大小关系、索引根和外部索引节点",
+      "versionLimit": "历史格式项目；MFTMirr 大簇规则需与实际 stream size 核对，不硬编码任意盘。",
+      "verifiedFacts": [
+        "MFT 位图管理记录，目录位图管理 index allocation 块",
+        "MFTMirr 至少前四条，在簇大于四记录时有覆盖一个簇的历史规则",
+        "$INDEX_ROOT 常驻，外部节点用 $INDEX_ALLOCATION",
+        "索引块可有残留，需要分当前节点数据与 slack"
+      ],
+      "id": "web-usb-mft-26",
+      "supportingResearch": [
+        {
+          "file": "mft-structure-sources.json",
+          "record": 26
+        }
+      ]
+    },
+    {
+      "title": "Linux v6.5 NTFS packed disk layout definitions",
+      "url": "https://raw.githubusercontent.com/torvalds/linux/v6.5/fs/ntfs/layout.h",
+      "readScope": "NTFS_RECORD usa_count，MFT_RECORD 字段及 NTFS 3.1 扩展，ATTR_RECORD resident/nonresident，STANDARD_INFORMATION，FILE_NAME_ATTR，INDEX_BLOCK/INDEX_ENTRY",
+      "versionLimit": "固定 tag v6.5 原始源代码；注释含 NT4 SP6a 经验与 FIXME，不把其假设提升为现代 Windows API 合约。",
+      "verifiedFacts": [
+        "usa_count 为 16 位元素数并包含 USN",
+        "MFT 内部字段头偏移",
+        "nonresident compression_unit 为 1 字节、reserved[5]，+0x40 compressed_size 为压缩/稀疏附加字段",
+        "$SI/$FN 时间偏移，短长名与 hardlink 注意事项",
+        "INDX 多扇区保护和 $I30 index key"
+      ],
+      "id": "web-usb-mft-27",
+      "supportingResearch": [
+        {
+          "file": "mft-structure-sources.json",
+          "record": 27
+        }
+      ]
+    },
+    {
+      "title": "libfsntfs author format documentation",
+      "url": "https://github.com/libyal/libfsntfs/blob/main/documentation/New%20Technologies%20File%20System%20%28NTFS%29.asciidoc",
+      "readScope": "Document information / revision history；1.1/1.2 版本测试范围；3.1 固定 0~11、12~15 保留及后续对象不全固定；4 volume header；5 MFT/attributes/runlist；6.2/6.3/6.4；8 indexes；9 compression；19 stale name examples",
+      "versionLimit": "页面自述 revision 0.0.28 January 2025；main URL 可变，本次访问 2026-10-03。列出 Windows 11 21H2 等测试版本，包含 unknown/TODO 字段，未照搬未知含义。",
+      "verifiedFacts": [
+        "little endian、FILETIME UTC、UTF-16LE",
+        "NTFS 3.x 基础元数据记录 0~11 用途，9 是 $Secure 而非 NTFS 1.2 的 $Quota；后续系统对象应按路径和引用验证",
+        "引导区 +0x40 signed record-size encoding，负数表示 2^(-value) 字节",
+        "MFT 自身可多 run",
+        "NTFS 3.1 +0x2C record index",
+        "旧或不同链接的 $FN 时间大小可能滞后",
+        "异常 Unicode 码元需保留",
+        "压缩分配区与 sparse 填充、分段映射恢复的边界"
+      ],
+      "id": "web-usb-mft-28",
+      "supportingResearch": [
+        {
+          "file": "mft-structure-sources.json",
+          "record": 28
+        }
+      ]
+    },
+    {
+      "id": "web-usb-mf-readme",
+      "url": "https://github.com/EricZimmerman/MFTECmd/blob/master/README.md",
+      "scope": "Old version reference only",
+      "summary": "README help is 0.5.0.1 and includes old input/option claims; actual installed help and local outputs take precedence.",
+      "title": "mf-readme",
+      "supportingResearch": [
+        {
+          "file": "mftecmd-sources.json",
+          "record": 1
+        }
+      ]
+    },
+    {
+      "id": "web-usb-mf-program",
+      "url": "https://github.com/EricZimmerman/MFTECmd/blob/master/MFTECmd/Program.cs",
+      "scope": "Option definitions; ProcessMft ExportRecord; CSV and JSON serialization; ProcessJ; GetCsvData",
+      "summary": "Public master agrees with local option names. ExportRecord multiplies --do value by allocated record size but reads 1024 bytes; local fixture confirmed this. JSON writes one object per line. Blank FN dates and heuristic flag meanings checked against local outputs.",
+      "version_limit": "Product-version commit raw URLs could not be fetched; public master inspected, not claimed to be immutable source of the exact binary.",
+      "title": "mf-program",
+      "supportingResearch": [
+        {
+          "file": "mftecmd-sources.json",
+          "record": 2
+        }
+      ]
+    },
+    {
+      "id": "web-usb-mf-schema",
+      "url": "https://github.com/EricZimmerman/MFTECmd/blob/master/MFTECmd/MFTRecordOut.cs",
+      "scope": "MFT CSV/JSON data model",
+      "summary": "InUse, ReferenceCount, ADS, SI/FN dates, USN/LSN and resident fields; actual CSV columns confirmed independently.",
+      "title": "mf-schema",
+      "supportingResearch": [
+        {
+          "file": "mftecmd-sources.json",
+          "record": 3
+        }
+      ]
+    },
+    {
+      "id": "web-usb-mf-j-schema",
+      "url": "https://github.com/EricZimmerman/MFTECmd/blob/master/MFTECmd/JEntryOut.cs",
+      "scope": "USN output data model",
+      "summary": "File/parent entry and sequence, ParentPath, UpdateTimestamp/Reasons, offsets and SourceFile; actual CSV confirmed.",
+      "title": "mf-j-schema",
+      "supportingResearch": [
+        {
+          "file": "mftecmd-sources.json",
+          "record": 4
+        }
+      ]
+    },
+    {
+      "id": "web-usb-mft-record",
+      "url": "https://github.com/EricZimmerman/MFT/blob/master/MFT/FileRecord.cs",
+      "scope": "FILE header, fixup, attribute types, slack records",
+      "summary": "Header fields and resident/nonresident attribute dispatch used to design a parser exercise; not a complete NTFS filesystem.",
+      "title": "mft-record",
+      "supportingResearch": [
+        {
+          "file": "mftecmd-sources.json",
+          "record": 5
+        }
+      ]
+    },
+    {
+      "id": "web-usb-mft-maps",
+      "url": "https://github.com/EricZimmerman/MFT/blob/master/MFT/Mft.cs",
+      "scope": "Record stream loading, directory maps and GetFullParentPath",
+      "summary": "Reads record size from first record; root traversal termination uses 5-5; missing directory chains produce PathUnknown. First fixture corrected root reference before successful output verification.",
+      "title": "mft-maps",
+      "supportingResearch": [
+        {
+          "file": "mftecmd-sources.json",
+          "record": 6
+        }
+      ]
+    },
+    {
+      "id": "web-usb-mft-si",
+      "url": "https://github.com/EricZimmerman/MFT/blob/master/MFT/Attributes/StandardInfo.cs",
+      "scope": "SI FILETIME decoding",
+      "summary": "SI timestamp conversion explicitly normalizes UTC; fixture confirmed UTC remains unchanged on UTC+08:00 host.",
+      "title": "mft-si",
+      "supportingResearch": [
+        {
+          "file": "mftecmd-sources.json",
+          "record": 7
+        }
+      ]
+    },
+    {
+      "id": "web-usb-mft-fn",
+      "url": "https://github.com/EricZimmerman/MFT/blob/master/MFT/Attributes/FileInfo.cs",
+      "scope": "FN parent references, names and FILETIME decoding",
+      "summary": "FN references and dates support entry-sequence pairing and same UTC interpretation.",
+      "title": "mft-fn",
+      "supportingResearch": [
+        {
+          "file": "mftecmd-sources.json",
+          "record": 8
+        }
+      ]
+    },
+    {
+      "id": "web-usb-mft-helper",
+      "url": "https://github.com/EricZimmerman/MFT/blob/master/MFT/Other/ExtensionMethods.cs",
+      "scope": "GetKey, IsDeleted, GetReferenceCount, ADS and file size",
+      "summary": "For free records, internal GetKey uses header sequence minus one; independently confirmed using --fls and --de. CSV ReferenceCount is a deduplicated count of non-DOS filename and parent-reference combinations, rather than the raw FILE header reference count.",
+      "title": "mft-helper",
+      "supportingResearch": [
+        {
+          "file": "mftecmd-sources.json",
+          "record": 9
+        }
+      ]
+    },
+    {
+      "id": "web-usb-ms-usn",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/api/winioctl/ns-winioctl-usn_record_v2",
+      "scope": "USN V2 layout, timestamps, reasons and rename pairs",
+      "summary": "Variable record length and Unicode filename offsets; reasons are flags, timestamp is UTC, close and rename pair semantics informed constructed V2 fixture.",
+      "title": "ms-usn",
+      "supportingResearch": [
+        {
+          "file": "mftecmd-sources.json",
+          "record": 12
+        }
+      ]
+    },
+    {
+      "id": "web-usb-tsk-mmls",
+      "url": "https://www.sleuthkit.org/sleuthkit/man/mmls.html",
+      "scope": "Root command check",
+      "summary": "Partition layouts display sectors; device sector size option matters for offsets.",
+      "title": "tsk-mmls",
+      "supportingResearch": [
+        {
+          "file": "mftecmd-sources.json",
+          "record": 13
+        }
+      ]
+    },
+    {
+      "id": "web-usb-tsk-fsstat",
+      "url": "https://www.sleuthkit.org/sleuthkit/man/fsstat.html",
+      "scope": "Root command check",
+      "summary": "-o is filesystem start sector in image; -b defines device sector bytes.",
+      "title": "tsk-fsstat",
+      "supportingResearch": [
+        {
+          "file": "mftecmd-sources.json",
+          "record": 14
+        }
+      ]
+    },
+    {
+      "id": "web-usb-tsk-fls",
+      "url": "https://www.sleuthkit.org/sleuthkit/man/fls.html",
+      "scope": "Root command check",
+      "summary": "-r recursive listing, -p full paths, -o start sector; recursion does not follow deleted directories.",
+      "title": "tsk-fls",
+      "supportingResearch": [
+        {
+          "file": "mftecmd-sources.json",
+          "record": 15
+        }
+      ]
+    },
+    {
+      "id": "web-usb-tsk-icat",
+      "url": "https://www.sleuthkit.org/sleuthkit/man/icat.html",
+      "scope": "Logical file export boundary",
+      "summary": "Copies specified file content from image to stdout; -o sector offset; -h drops sparse holes and -s adds slack, so neither is suitable blindly when preserving exact logical bytes.",
+      "title": "tsk-icat",
+      "supportingResearch": [
+        {
+          "file": "mftecmd-sources.json",
+          "record": 16
+        }
+      ]
+    }
+  ],
+  "researchRecords": {
+    "hostAndCases": {
+      "schemaVersion": 1,
+      "checkedAt": "2026-10-03",
+      "researchScope": "Windows USB设备身份、安装与接入时间、卷与用户关联、访问复制删除证据边界及赛事实战核对",
+      "articleFragment": "usb-cases.md: between BEGIN PUBLIC ARTICLE FRAGMENT and END PUBLIC ARTICLE FRAGMENT",
+      "productionFilesModified": false,
+      "evidenceImagesDownloaded": false,
+      "evidenceImagesReplayed": false,
+      "imagesVisuallyRead": false,
+      "policy": {
+        "renderSourceNamesCompetitionNamesQuestionNumbers": false,
+        "renderOriginalAccountsCredentialsDeviceIdsFixedAnswers": false,
+        "publicFragmentIsOriginalSynthesis": true,
+        "singleSourceAbsorption": "每个来源仅取少量概念、路径和限制，不大量摘录或以翻译替代原创综合",
+        "primaryTechnicalSourcesPreferred": true,
+        "context7": "本分支未查询库或工具CLI文档；通用rg文本定位示例无需外部库文档"
+      },
+      "sources": [
+        {
+          "id": "usb-cases-seed-csdn",
+          "url": "https://blog.csdn.net/m0_37867238/article/details/144836332",
+          "title": "X-ways一把梭2024年美亚杯U盘取证（MFT详解-附工具检材链接）",
+          "author": "小谢取证",
+          "kind": "user-specified-author-writeup",
+          "status": "body-readable",
+          "readScope": "正文中U盘/NTFS、已删文件、MFT非驻留DATA/Runlist、图片元数据段；正文10个题解段可取得",
+          "imageStatus": "image-links-only-not-visually-read",
+          "evidenceReplay": "none",
+          "usedFor": [
+            "U盘介质分析与主机侧证据区分",
+            "已删内容可能提供后续线索",
+            "发现术语错误并要求格式互证"
+          ],
+          "notUsedFor": [
+            "USBSTOR插拔时间",
+            "固定题目答案",
+            "原图片里的真实密钥",
+            "检材下载地址及提取凭据"
+          ],
+          "corrections": [
+            "Runlist属性内起点不等于run数量或LCN",
+            "LCN/簇偏移不等于起始扇区",
+            "不能把首属性起点固定为0x30",
+            "驻留不以1KB作通用阈值，非驻留DATA并非因此变B+树"
+          ],
+          "metadataNote": "网页顶部显示推荐文章日期；不据该推荐日期断言原文发表日期。专栏搜索另可见2024-12-30，但本研究不以此作为正文技术证据。"
+        },
+        {
+          "id": "usb-cases-wp-joyooo-2024",
+          "url": "https://www.cnblogs.com/Joyooo/p/19382335",
+          "title": "2024美亚杯个人赛Joyooo",
+          "author": "Joyooo",
+          "kind": "author-writeup",
+          "status": "body-readable",
+          "readScope": "U盘部分正文、Bytes per sector字段描述、Runlist部分借用来源说明",
+          "imageStatus": "image-links-and-alt-text-only-not-visually-read",
+          "evidenceReplay": "none",
+          "usedFor": [
+            "赛事界面答案不能替代底层字段核对"
+          ],
+          "corrections": [
+            "以Bytes per sector回答每簇字节不可作为格式证据"
+          ],
+          "independenceNote": "Runlist部分作者明确借用指定小谢取证WP，不能计作独立底层验证。"
+        },
+        {
+          "id": "usb-cases-wp-arttnba3",
+          "url": "https://archive.next.arttnba3.cn/2020/11/08/%E3%80%90%E7%94%B5%E5%AD%90%E5%8F%96%E8%AF%81-0x02%E3%80%91/",
+          "title": "〖电子取证-0x02〗美亚杯第五届全国电子取证竞赛资格赛write up by arttnba3",
+          "author": "arttnba3",
+          "kind": "author-writeup",
+          "status": "body-readable",
+          "readScope": "正文USB使用、挂载盘符、用户痕迹、最近访问文档段",
+          "imageStatus": "image-links-only-not-visually-read",
+          "evidenceReplay": "none",
+          "usedFor": [
+            "挂载盘符与文件痕迹需要时间线联合调查"
+          ],
+          "notUsedFor": [
+            "按题目选项排除设备型号",
+            "固定题号与答案",
+            "未经本次验证的实体设备归属"
+          ]
+        },
+        {
+          "id": "usb-cases-wp-xidian-2024",
+          "url": "https://forensics.xidian.edu.cn/wiki/MeiyaCup2024Individual/",
+          "title": "2024美亚杯个人赛 - XDforensics-Wiki",
+          "author": "页面署名参赛作者组",
+          "kind": "participant-community-writeup",
+          "status": "body-readable-relevant-images-unavailable",
+          "readScope": "目录、U盘段与主机设备记录/用户lnk相关文字；未将图片中的设备计数或最后文件名当已核验事实",
+          "imageStatus": "two-relevant-image-fetches-failed-cache-miss",
+          "attemptedImageUrls": [
+            "https://forensics.xidian.edu.cn/wiki/attachments/Pasted%20image%2020250403154516.png",
+            "https://forensics.xidian.edu.cn/wiki/attachments/Pasted%20image%2020250403154900.png"
+          ],
+          "evidenceReplay": "none",
+          "usedFor": [
+            "多检材调查中设备信息与账户LNK关联作为独立能力主题"
+          ],
+          "notUsedFor": [
+            "截图答案",
+            "公开凭据和人物原名"
+          ]
+        },
+        {
+          "id": "usb-cases-ms-install-date",
+          "url": "https://learn.microsoft.com/en-us/windows-hardware/drivers/install/devpkey-device-installdate",
+          "title": "DEVPKEY_Device_InstallDate",
+          "author": "Microsoft",
+          "kind": "official-format-property-documentation",
+          "status": "body-readable",
+          "readScope": "属性定义、Remarks、FILETIME类型及Windows7+要求",
+          "imageStatus": "not-required",
+          "usedFor": [
+            "InstallDate是实例最近安装，驱动每次更新会改写该值"
+          ],
+          "limitation": "官方属性定义不提供设备物理插拔者或文件访问结论。"
+        },
+        {
+          "id": "usb-cases-ms-first-install-date",
+          "url": "https://learn.microsoft.com/en-us/windows-hardware/drivers/install/devpkey-device-firstinstalldate",
+          "title": "DEVPKEY_Device_FirstInstallDate",
+          "author": "Microsoft",
+          "kind": "official-format-property-documentation",
+          "status": "body-readable",
+          "readScope": "属性定义、Remarks、FILETIME类型及Windows7+要求",
+          "imageStatus": "not-required",
+          "usedFor": [
+            "FirstInstallDate是实例首次安装，不随每次驱动更新变化"
+          ],
+          "limitation": "首次实例安装不等于设备出厂、任何系统上首次使用或某自然人首次接触。"
+        },
+        {
+          "id": "usb-cases-khatri-properties",
+          "url": "https://www.swiftforensics.com/2013/11/windows-8-new-registry-artifacts-part-1.html",
+          "title": "Windows 8 New Registry Artifacts Part 1 - New Device Timestamps",
+          "author": "Yogesh Khatri",
+          "kind": "author-original-research",
+          "status": "body-readable",
+          "readScope": "主文属性号表、Win7/Win8值布局差异和作者勘误讨论",
+          "imageStatus": "not-visually-read",
+          "usedFor": [
+            "0064-0067语义和GUID路径",
+            "Win7下一层Data与Win8属性默认值结构差异"
+          ],
+          "validationScope": "原研究Windows7/8，作者SDK映射；本次未实体重放。",
+          "corrections": [
+            "评论指出原截图中64/65图示标签疑似颠倒；最终采用Microsoft定义和主文表，不照抄截图"
+          ]
+        },
+        {
+          "id": "usb-cases-khatri-lifecycle",
+          "url": "https://www.swiftforensics.com/2013/12/device-lastremovaldate-lastarrivaldate.html",
+          "title": "Device LastRemovalDate & LastArrivalDate Behavior in Windows 8",
+          "author": "Yogesh Khatri",
+          "kind": "author-original-research",
+          "status": "body-readable",
+          "readScope": "主文完整行为表和时间解释",
+          "imageStatus": "not-required",
+          "usedFor": [
+            "留插重启可更新LastArrivalDate",
+            "带设备关机与缺失LastRemovalDate的解释"
+          ],
+          "validationScope": "Windows8实验，不能声明所有Windows10/11版本遵循完全相同更新规则。",
+          "notUsedFor": [
+            "用关机时间冒充物理拔盘时间",
+            "只凭时间反序断定时钟篡改"
+          ]
+        },
+        {
+          "id": "usb-cases-libyal-usb-storage",
+          "url": "https://github.com/libyal/winreg-kb/blob/main/docs/sources/system-keys/USB-storage.md",
+          "title": "Windows Registry knowledge base: USB storage",
+          "author": "libyal/winreg-kb maintainers",
+          "kind": "maintainer-original-format-research",
+          "status": "body-readable",
+          "readScope": "USBSTOR设备/实例层、Service与ContainerID字段、Properties嵌套和类型表",
+          "imageStatus": "not-required",
+          "usedFor": [
+            "USBSTOR路径和层次",
+            "设备属性Data/Type、FILETIME与UTF16类型语境"
+          ],
+          "validationScope": "文档观测结构，不代表本次检材实际包含全部字段。"
+        },
+        {
+          "id": "usb-cases-libyal-mountpoints",
+          "url": "https://winreg-kb.readthedocs.io/en/latest/sources/explorer-keys/Mount-points.html",
+          "title": "Moint points — Windows Registry knowledge base",
+          "author": "libyal/winreg-kb maintainers",
+          "kind": "maintainer-original-format-research",
+          "status": "body-readable",
+          "readScope": "MountPoints2路径、观测OS版本、GUID/盘符/UNC三类键名及CPC子键",
+          "imageStatus": "not-required",
+          "usedFor": [
+            "MountPoints2不只记录USB，GUID键不能等同硬件序列号",
+            "用户hive路径"
+          ],
+          "limitation": "键存在不能单独证明主动访问、复制或物理插入者。"
+        },
+        {
+          "id": "usb-cases-ms-mount-manager",
+          "url": "https://learn.microsoft.com/en-us/windows-hardware/drivers/storage/supporting-mount-manager-requests-in-a-storage-class-driver",
+          "title": "Supporting Mount Manager requests in a Storage Class Driver",
+          "author": "Microsoft",
+          "kind": "official-storage-format-documentation",
+          "status": "body-readable",
+          "readScope": "主文MountedDevices持久映射、卷名与uniqueID区别、相同ID的多个名称及设备离线后保留数据库",
+          "imageStatus": "not-visually-read-text-sufficient",
+          "usedFor": [
+            "完整二进制uniqueID相同支持卷GUID/盘符映射",
+            "盘符分配可能变化",
+            "MountedDevices不是完整连接历史"
+          ],
+          "limitation": "本片段未实现或调用文中驱动API。"
+        },
+        {
+          "id": "usb-cases-ripa-serials",
+          "url": "https://www.computerpi.com/the-truth-about-usb-device-serial-numbers-and-the-lies-your-tools-tell/",
+          "title": "The Truth About USB Device Serial Numbers – (and the lies your tools tell)",
+          "author": "Kevin J. Ripa",
+          "kind": "author-original-hardware-experiments",
+          "status": "body-readable",
+          "readScope": "USB桥接器、外置硬盘盒、标签与不同软件报告编号的实验文字和作者结论",
+          "imageStatus": "not-visually-read",
+          "usedFor": [
+            "设备实例编号、盒子标识、介质厂商序列号不能混同",
+            "同一枚举实例的关联价值"
+          ],
+          "notUsedFor": [
+            "宣称Windows对所有USB设备的序列号都错误",
+            "原设备编号"
+          ],
+          "validationScope": "作者有限硬件/软件组合实验；不是USB全集普遍定律。"
+        },
+        {
+          "id": "usb-cases-dfir-review-partition",
+          "url": "https://dfir.pubpub.org/pub/h78di10n/release/2",
+          "title": "USB Forensics – Recover more Volume Serial Numbers (VSNs) with the Windows 10 Partition/Diagnostic Event Log",
+          "authors": [
+            "Alexandros Vasilaras",
+            "Evangelos Dragonas",
+            "Dimitrios Katsoulis"
+          ],
+          "kind": "reviewed-original-research",
+          "status": "body-readable",
+          "readScope": "第2版正文的字段定义、方法、多卷实验与限制段",
+          "imageStatus": "image-links-only-not-visually-read",
+          "usedFor": [
+            "1006中VBR连接设备与卷序号",
+            "历史VSN与LNK/JumpLists互证",
+            "内部磁盘/启动/移除也出现该事件",
+            "多卷需逐卷检查"
+          ],
+          "validationScope": "Windows10 Pro2004 build19041、20H2 build19042；未分区/MBR；有限设备和前三VBR；GPT为未来工作；EXT3未提供有用记录。",
+          "notUsedFor": [
+            "所有系统更新都清空日志的普遍断言",
+            "1006等于全部USB插入历史",
+            "研究工具覆盖所有GPT分区"
+          ],
+          "ntfsSerialNote": "文中NTFS用于LNK匹配的4字节量需结合文件系统完整8字节VSN解释，不把LNK32位字段误当整个NTFS卷序号。"
+        },
+        {
+          "id": "usb-cases-ms-shllink-volumeid",
+          "url": "https://learn.microsoft.com/en-us/openspecs/windows_protocols/ms-shllink/b7b3eea7-dbff-4275-bd58-83ba3f12d87a",
+          "title": "[MS-SHLLINK]: VolumeID",
+          "author": "Microsoft",
+          "kind": "official-binary-format-specification",
+          "status": "search-result-full-relevant-definition-readable",
+          "readScope": "VolumeID语义、DriveType表和4字节DriveSerialNumber定义",
+          "imageStatus": "not-required",
+          "usedFor": [
+            "LNK中的DriveSerialNumber是卷号且仅32位",
+            "DRIVE_FIXED也可描述flash drive",
+            "不只保留Removable"
+          ],
+          "limitation": "格式规范不证明某快捷方式一定由该账户打开文件生成。"
+        },
+        {
+          "id": "usb-cases-ms-setupapi",
+          "url": "https://learn.microsoft.com/en-us/windows-hardware/drivers/install/setupapi-text-logs",
+          "title": "SetupAPI Text Logs",
+          "author": "Microsoft",
+          "kind": "official-log-format-documentation",
+          "status": "body-readable",
+          "readScope": "Vista+安装日志类型、INF默认位置、ANSI纯文本与按安装操作分section的组织",
+          "imageStatus": "not-required",
+          "usedFor": [
+            "setupapi.dev.log记录安装设备及驱动操作",
+            "需保存完整section，不能以段数作每次插拔统计"
+          ],
+          "limitation": "本文不提供所有插拔事件保证。时间无时区标志应结合原机时区解释。"
+        },
+        {
+          "id": "usb-cases-ms-6416",
+          "url": "https://learn.microsoft.com/en-us/previous-versions/windows/it-pro/windows-10/security/threat-protection/auditing/event-6416",
+          "requestedUrl": "https://learn.microsoft.com/en-us/windows/security/threat-protection/auditing/event-6416",
+          "title": "6416(S): A new external device was recognized by the System",
+          "author": "Microsoft",
+          "kind": "official-event-documentation",
+          "status": "body-readable-after-redirect",
+          "readScope": "AuditPNPActivity、识别/启用含义、XML字段、SYSTEM主体说明",
+          "imageStatus": "not-required",
+          "usedFor": [
+            "6416所属审计项不是RemovableStorage",
+            "主体通常为SYSTEM不能视作实际插盘者",
+            "查Provider/设备路径"
+          ],
+          "limitation": "新外部设备识别/启用事件不直接等于每次物理插入，更不证明文件操作。"
+        },
+        {
+          "id": "usb-cases-ms-4663",
+          "url": "https://learn.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4663",
+          "title": "4663(S): An attempt was made to access an object",
+          "author": "Microsoft",
+          "kind": "official-event-documentation",
+          "status": "body-readable",
+          "readScope": "操作权限实际使用与4656区别、对象账户进程会话字段及权限掩码表",
+          "imageStatus": "not-required",
+          "usedFor": [
+            "4663描述权限使用而不是只请求句柄",
+            "按ObjectType解释ReadData/WriteData/DELETE",
+            "按位解AccessMask并关联LogonId/ProcessId"
+          ],
+          "limitation": "权限使用不是完整复制事务证明，也不内置源目标方向。"
+        },
+        {
+          "id": "usb-cases-ms-removable-audit",
+          "url": "https://learn.microsoft.com/nl-nl/previous-versions/windows/it-pro/windows-10/security/threat-protection/auditing/monitor-the-use-of-removable-storage-devices?view=azurebatch-7.0.0",
+          "title": "Monitor the use of removable storage devices",
+          "author": "Microsoft",
+          "kind": "official-audit-policy-documentation",
+          "status": "search-result-relevant-body-readable",
+          "readScope": "启用策略与核验步骤、4663/4656记录及版本条件说明",
+          "imageStatus": "not-required",
+          "usedFor": [
+            "事先启用审计才有文件操作事件",
+            "读写审计与设备识别是不同能力",
+            "未审计历史不能事后补回"
+          ],
+          "notUsedFor": [
+            "修改检材或分析机审计策略",
+            "运行配置命令"
+          ],
+          "limitation": "特定版本可能需要额外设置；本次未验证任何设备上的审计生效。"
+        },
+        {
+          "id": "usb-cases-pullega-shellbags",
+          "url": "https://www.4n6k.com/2013/12/shellbags-forensics-addressing.html",
+          "title": "Shellbags Forensics: Addressing a Misconception (interpretation, step-by-step testing, new findings, and more)",
+          "author": "Dan Pullega",
+          "kind": "author-original-behavior-experiments",
+          "status": "relevant-body-sections-readable",
+          "readScope": "主文概述、BagMRU/MRUListEx时间解释和实测方法前段、顶部2017及2025更新",
+          "imageStatus": "not-visually-read",
+          "usedFor": [
+            "ShellBags支持目录Shell交互而非特定文件复制",
+            "MRU父键时间不能全部赋给子项",
+            "目录元数据时间与键更新时间分开",
+            "单击选择行为随Windows版本变化"
+          ],
+          "validationScope": "主实验Windows7；2017单击测试Windows10；2025-10-01作者提醒Windows11+可能改变，需按版本复核。",
+          "notUsedFor": [
+            "所有ShellBags记录都证明进入目录",
+            "现代Windows统一单击更新规则"
+          ]
+        },
+        {
+          "id": "usb-cases-magnet-lnk",
+          "url": "https://www.magnetforensics.com/blog/forensic-analysis-of-lnk-files/",
+          "title": "Forensic analysis of LNK files",
+          "author": "Magnet Forensics",
+          "kind": "vendor-original-technical-article",
+          "status": "body-readable",
+          "readScope": "自动/手建LNK、原路径、目标与链接各自时间、卷信息及Windows11示例说明",
+          "imageStatus": "not-visually-read",
+          "usedFor": [
+            "自动和手建快捷方式需区分",
+            "链接自身时间与目标内嵌时间分列",
+            "文件删除/外部介质缺席后LNK仍可能残留"
+          ],
+          "notUsedFor": [
+            "所有LNK都证明原账户实际打开文件",
+            "MAC地址无条件归属当前调查主机",
+            "用链接时间直接证明文件复制"
+          ]
+        },
+        {
+          "id": "usb-cases-magnet-jumplists",
+          "url": "https://www.magnetforensics.com/blog/exploring-the-significance-of-jump-lists-in-digital-forensic-examinations/",
+          "title": "Exploring the significance of jump lists in digital forensic examinations",
+          "author": "Magnet Forensics",
+          "kind": "vendor-original-technical-article",
+          "status": "body-readable",
+          "readScope": "应用/路径关联、固定条目、目标与DestList访问时间字段、关联其它证据的案例",
+          "imageStatus": "not-visually-read",
+          "usedFor": [
+            "JumpLists推进到应用语境",
+            "固定条目和目标内嵌时间不等于每次文件打开",
+            "用户配置文件与其它痕迹联合归属"
+          ],
+          "notUsedFor": [
+            "把JumpList全部字段当作实时系统状态",
+            "按访问计数断言精确总打开次数",
+            "厂商个案视作本次已复现事实"
+          ]
+        }
+      ],
+      "consultedButNotReliedOn": [
+        {
+          "url": "https://blog.elcomsoft.com/2026/02/usb-device-forensics-on-windows-10-and-11/",
+          "title": "USB Device Forensics on Windows 10 and 11",
+          "status": "search-result-relevant-excerpts-readable",
+          "reason": "用于发现参考路径，最终属性/事件解释主要回到Microsoft和原作者研究；未将最近Arrival/Removal差值无条件视作物理插拔持续时间。"
+        },
+        {
+          "url": "https://thinkdfir.com/2026/08/20/a-question-about-arbitrary-values-in-usb-registry-keys/",
+          "title": "A question about arbitrary values in USB registry keys",
+          "status": "body-readable",
+          "reason": "帮助找到Microsoft InstallDate/FirstInstallDate定义；文章日期与评论日期语境有混杂，未用于事实时效判定。"
+        },
+        {
+          "url": "https://github.com/SecurityRonin/usb-forensic",
+          "title": "usb-forensic",
+          "status": "search-result-readable",
+          "reason": "仅为UASP/多源事件发现线索，未运行或推荐未经本次检材验证工具；没有采纳其把Amcache当通用执行信号等表述。"
+        },
+        {
+          "url": "https://fightergodnemo.github.io/2026/03/15/Forensic_%E7%94%B5%E5%AD%90%E5%8F%96%E8%AF%81/%E5%8F%96%E8%AF%81write-up/%E7%BE%8E%E4%BA%9A%E6%9D%AF/2025%E7%BE%8E%E4%BA%9A%E6%9D%AF%E8%B5%84%E6%A0%BC%E8%B5%9B/index.html",
+          "title": "2025美亚杯资格赛",
+          "status": "search-result-readable",
+          "reason": "只看到可写挂载/虚拟机启动前段；未按其操作修改或启动检材，不把未读后续作为已研究。"
+        }
+      ],
+      "failedOrLimitedAccess": [
+        {
+          "url": "https://www.swiftforensics.com/2017/05/usb-device-tracking-last-insertion.html",
+          "status": "not-accessible",
+          "resolution": "改为读取作者真实2013原始属性与生命周期研究，不依赖此失效URL。"
+        },
+        {
+          "url": "https://github.com/libyal/winreg-kb/blob/main/documentation/USB%20storage%20device%20keys.asciidoc",
+          "status": "cache-miss-or-stale-path",
+          "resolution": "搜索定位并读到现行docs/sources/system-keys/USB-storage.md。"
+        },
+        {
+          "url": "https://df-stream.com/2018/05/partition-diagnostic-event-log-and-usb-device-tracking-p1/",
+          "status": "http-500",
+          "resolution": "未作为已读来源；采用可完整读取的2021原始多卷研究。"
+        },
+        {
+          "url": "https://df-stream.com/2018/07/partition-diagnostic-event-log-and-usb-device-tracking-p2/",
+          "status": "http-500",
+          "resolution": "未作为已读来源。"
+        },
+        {
+          "url": "https://forensixchange.com/posts/19_08_03_usb_storage_forensics_1/",
+          "status": "not-accessible",
+          "resolution": "未作为已读来源。"
+        },
+        {
+          "url": "https://forensics.xidian.edu.cn/wiki/MeiyaCup2025Individual/",
+          "status": "not-accessible",
+          "resolution": "仅转引链接已被发现，未宣称读取正文或仿真该检材。"
+        },
+        {
+          "url": "https://forensics.xidian.edu.cn/wiki/MeiyaCup2023Team/",
+          "status": "not-accessible",
+          "resolution": "尝试访问未读到正文，不据此补写2023U盘实战细节。"
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/windows/security/threat-protection/auditing/audit-removable-storage",
+          "status": "not-accessible",
+          "resolution": "使用可读Microsoft removable-storage监控文档和4663正式事件定义。"
+        }
+      ],
+      "verificationBoundary": {
+        "performed": [
+          "公开页面正文阅读",
+          "技术概念跨原始来源核对",
+          "研究源错误识别",
+          "读取范围与图片失败记录",
+          "公开片段与内部来源记录分离"
+        ],
+        "notPerformed": [
+          "原检材下载及哈希验证",
+          "原WP截图视觉读取",
+          "实体USB插拔/驱动更新/重启实验",
+          "取证工具安装或CLI执行",
+          "文件复制删除的实证复现",
+          "网站构建或浏览器验证"
+        ],
+        "windowsVersionCaution": "属性体系覆盖Win7部分安装时间与Win8+到达/移除体系；Win10/11记录结构及行为须按检材版本复核。",
+        "negativeEvidenceCaution": "未取得记录与证明未发生行为是不同结论。"
+      }
+    },
+    "mftStructure": {
+      "schemaVersion": 1,
+      "researchDate": "2026-10-03",
+      "purpose": "内部核查账本。供 USB 取证文章中的 MFT 结构片段集成使用，不原样展示为公开正文，不含比赛来源、题号或固定答案。",
+      "scope": {
+        "filesystem": "NTFS 3.0/3.1",
+        "exampleFilesystem": "NTFS 3.1",
+        "exampleRecordBytes": 1024,
+        "exampleProtectionStrideBytes": 512,
+        "rule": "FAT32/exFAT 没有当前 NTFS MFT；主机卷 MFT 与 NTFS U 盘卷 MFT 是不同对象域。旧格式残留单独记录代际和坐标假设。"
+      },
+      "method": "优先 Microsoft 官方结构、协议术语与产品行为；用 Linux-NTFS 格式项目、固定 Linux v6.5 打包结构和 libfsntfs 作者格式文档交叉核对缺失内部字段。事实均独立综合，未大段复制单源；原始偏移、长度和编码规则属于格式事实。",
+      "sources": [
+        {
+          "title": "Microsoft Master File Table — Developer Notes",
+          "url": "https://learn.microsoft.com/en-us/windows/win32/devnotes/master-file-table",
+          "readScope": "全文，MFT 记录/属性模型、前 16 条保留记录、$MFT/$Bitmap/$BadClus 属性和属性列表",
+          "versionLimit": "原文明确限定 NTFS version 3；相关结构限定 major 3 minor 0/1。页面更新 2021-01-06。",
+          "verifiedFacts": [
+            "一个文件可有多个记录和多个属性",
+            "$MFT 无名 $DATA 是有序 FILE 记录流",
+            "$MFT 无名 $BITMAP 管理记录槽；$Bitmap 元数据文件无名 $DATA 管理卷簇",
+            "属性列表指向属性所属的基础/扩展记录，属性结束码 0xFFFFFFFF"
+          ]
+        },
+        {
+          "title": "Microsoft FILE_RECORD_SEGMENT_HEADER",
+          "url": "https://learn.microsoft.com/en-us/windows/win32/devnotes/file-record-segment-header",
+          "readScope": "Syntax、Members 全部、Remarks",
+          "versionLimit": "NTFS 3.0/3.1；2021-01-06。Reserved 字段不声称由该页面完整公开。",
+          "verifiedFacts": [
+            "签名 FILE",
+            "SequenceNumber 在记录释放时递增，引用序列号应匹配",
+            "FirstAttributeOffset 为记录内字节偏移",
+            "flags 0x0001 in use、0x0002 filename index present",
+            "基础记录 BaseFileRecordSegment=0，扩展记录引用基础记录"
+          ]
+        },
+        {
+          "title": "Microsoft MULTI_SECTOR_HEADER",
+          "url": "https://learn.microsoft.com/en-us/windows/win32/devnotes/multi-sector-header",
+          "readScope": "Syntax、Members、Remarks 的 512 stride 和保存/替换/校验/恢复算法",
+          "versionLimit": "NTFS 3.0/3.1；2021-01-06。USA Size 成员说明存在单位冲突，见 documentDiscrepancies。",
+          "verifiedFacts": [
+            "USA offset 相对结构起点",
+            "USA 第一字为更新序列值，后续字保存各保护步长尾部原值",
+            "读取先比对尾值，一处不一致即未通过传输一致性检验",
+            "记录保护步长 512，不应无证据用设备物理扇区大小替换"
+          ]
+        },
+        {
+          "title": "Microsoft MFT_SEGMENT_REFERENCE",
+          "url": "https://learn.microsoft.com/en-us/windows/win32/devnotes/mft-segment-reference",
+          "readScope": "全文，结构 LowPart/HighPart/SequenceNumber 和版本备注",
+          "versionLimit": "NTFS 3.0/3.1；2021-01-06。",
+          "verifiedFacts": [
+            "文件引用由 32 位低记录号、16 位高记录号、16 位序列号构成",
+            "序列号循环使用、0 为保留值",
+            "FILE_REFERENCE 是该结构别名"
+          ]
+        },
+        {
+          "title": "Microsoft ATTRIBUTE_RECORD_HEADER",
+          "url": "https://learn.microsoft.com/en-us/windows/win32/devnotes/attribute-record-header",
+          "readScope": "Syntax、TypeCode 表、Resident/Nonresident 全成员、Remarks mapping pairs 算法",
+          "versionLimit": "NTFS 3.0/3.1；2021-01-06。非驻留头 0x22 处公开为 Reserved[6]，详细指数布局用实现结构核对。mapping-pairs signed VCN 文字不能不加核验地替代盘上普通 run-length 解码。",
+          "verifiedFacts": [
+            "总属性长度含头且按 8 字节边界对齐",
+            "FormCode 0 resident、1 nonresident",
+            "NameOffset/ValueOffset/MappingPairsOffset 均相对属性头",
+            "类型 0x10/0x20/0x30/0x80/0x90/0xA0/0xB0",
+            "LowestVcn 非零时尺寸字段不用于整个流的大小",
+            "LCN 通过顺序映射增量累加"
+          ]
+        },
+        {
+          "title": "Microsoft ATTRIBUTE_LIST_ENTRY",
+          "url": "https://learn.microsoft.com/en-us/windows/win32/devnotes/attribute-list-entry",
+          "readScope": "Syntax、LowestVcn/SegmentReference、排列和唯一性 Remarks",
+          "versionLimit": "NTFS 3.0/3.1；2021-01-06。本节不照搬末句对同类型无名多实例的绝对化表述，$FILE_NAME 可重复需结合类型处理。",
+          "verifiedFacts": [
+            "列表条目保存类型、可选名字、LowestVcn 和文件引用",
+            "跨记录同流必须按 VCN 范围装配",
+            "列表 entry 长度与普通 attribute record 头的长度字段宽度不同，不可共用假定"
+          ]
+        },
+        {
+          "title": "Microsoft STANDARD_INFORMATION",
+          "url": "https://learn.microsoft.com/en-us/windows/win32/devnotes/standard-information",
+          "readScope": "全文；该页面前 0x30 字节仅标 Reserved，不提供四时间细节",
+          "versionLimit": "NTFS 3.0/3.1；2021-01-06。以正常基础记录描述为范围，不把缺失 $SI 的损坏/特殊记录一律自动修复。",
+          "verifiedFacts": [
+            "$SI 应为常驻属性",
+            "公开 OwnerId、SecurityId 字段；时间具体偏移需另源核查"
+          ]
+        },
+        {
+          "title": "Microsoft FILE_NAME",
+          "url": "https://learn.microsoft.com/en-us/windows/win32/devnotes/file-name",
+          "readScope": "全文，ParentDirectory、FileNameLength、Flags 和结构中的保留范围",
+          "versionLimit": "NTFS 3.0/3.1；2021-01-06。四时间/完整 namespace 值由格式项目补充，不宣称来自此公开结构页。",
+          "verifiedFacts": [
+            "父目录是含序列号的完整文件引用",
+            "名字按 Unicode 长度处理",
+            "同文件可有多个目录中的名字关系"
+          ]
+        },
+        {
+          "title": "Microsoft Master File Table — Local File Systems",
+          "url": "https://learn.microsoft.com/en-us/windows/win32/fileio/master-file-table",
+          "readScope": "全文，删除、复用、MFT 不缩短与可能碎片化的段落",
+          "versionLimit": "2024-09-05；一般 NTFS 行为，具体残留须检查实际镜像。",
+          "verifiedFacts": [
+            "删除后 MFT 槽标为空闲并可复用",
+            "删除不使 MFT 文件长度按记录数缩短",
+            "MFT 可能碎片化，不可无限从首 LCN 线性定位"
+          ]
+        },
+        {
+          "title": "MS-FSCC Glossary",
+          "url": "https://learn.microsoft.com/en-us/openspecs/windows_protocols/ms-fscc/8ac44452-328c-4d7b-a784-d72afd19bd9f",
+          "readScope": "FAT、file record segment、LCN、MFT、MFTMirr、named stream、sparse file 条目",
+          "versionLimit": "浏览时 MS-FSCC 发布版本 60.0，2025-11-21；术语简化不能作为所有磁盘布局的绝对尺寸规定。",
+          "verifiedFacts": [
+            "LCN 从卷起点编号，首簇为 0",
+            "MFT 为 NTFS 的文件记录/属性数据库",
+            "镜像术语描述前四条记录",
+            "命名流具有各自内容",
+            "FAT/FAT32 的文件分配表与 NTFS MFT 模型不同"
+          ]
+        },
+        {
+          "title": "MS-FSCC published versions and introduction",
+          "url": "https://learn.microsoft.com/en-us/openspecs/windows_protocols/ms-fscc/efbfe127-73ad-4140-9967-ec6500e66d5e",
+          "relatedUrl": "https://learn.microsoft.com/en-us/openspecs/windows_protocols/ms-fscc/9c3b6720-aa0d-43cc-bc7d-3afa5c3a9c59",
+          "readScope": "发布版本表、Introduction 的范围及规范性章节说明",
+          "versionLimit": "60.0，2025-11-21；未成功读取该版本 PDF，使用官方 HTML 子页面而非声称完整阅读 PDF。",
+          "verifiedFacts": [
+            "MS-FSCC 规定协议可用的 Windows 本机结构网络格式，不能误称完整 NTFS 盘上格式规范",
+            "1.7 和 2 为 normative，其他章节与示例为 informative"
+          ]
+        },
+        {
+          "title": "MS-FSA Appendix A Product Behavior",
+          "url": "https://learn.microsoft.com/en-us/openspecs/windows_protocols/ms-fsa/4e3695bd-7574-4f24-a223-b4679c065b63",
+          "readScope": "时间支持表、注 17/31 的访问时间策略、注 48-50 的 FileId128/FileId64 与 MFT 索引序列号",
+          "versionLimit": "访问时间策略分别涉及 Vista+、Windows 10 v1803+ 与 v2004 前后；不能合并成单一永久默认。",
+          "verifiedFacts": [
+            "NTFS FileId64 是低 48 位 MFT 索引和高 16 位序列号",
+            "NTFS 时间存储 UTC 100ns",
+            "访问时间可以禁用或系统管理；开关含 bitfield 而非仅旧 0/1 模型"
+          ]
+        },
+        {
+          "title": "Microsoft NTFS_VOLUME_DATA_BUFFER",
+          "url": "https://learn.microsoft.com/en-us/windows/win32/api/winioctl/ns-winioctl-ntfs_volume_data_buffer",
+          "readScope": "Syntax、BytesPerSector/BytesPerCluster/BytesPerFileRecordSegment/MftStartLcn/Mft2StartLcn、extended version Remarks",
+          "versionLimit": "2023-03-13；这是在线卷查询结构，离线应查证据卷引导区，不查询分析机卷代替。",
+          "verifiedFacts": [
+            "有真实记录字节大小字段",
+            "有 MFT 与 MFTMirr 起始 LCN",
+            "扩展数据提供卷 major/minor 版本"
+          ]
+        },
+        {
+          "title": "Microsoft File Streams",
+          "url": "https://learn.microsoft.com/en-us/windows/win32/fileio/file-streams",
+          "readScope": "三尺寸语义、每流状态、流无独立时间、Naming conventions、Stream Types 的 $DATA/$FILE_NAME/$I30",
+          "versionLimit": "2025-07-08；对 bitmap every directory 等概括性表述不照搬为强制盘上存在规则，小目录依实际属性核验。",
+          "verifiedFacts": [
+            "无名 $DATA 为默认流，命名 $DATA 是其他流",
+            "流有 allocation/actual/valid data length 和压缩稀疏加密状态",
+            "$I30 是目录索引流名称",
+            "文件时间随任意流更新，不能当成每条 ADS 各自时间"
+          ]
+        },
+        {
+          "title": "Microsoft Hard Links and Junctions",
+          "url": "https://learn.microsoft.com/en-us/windows/win32/fileio/hard-links-and-junctions",
+          "readScope": "Hard links 章节，路径、同卷限制和不同链接的目录元数据展示差异",
+          "versionLimit": "2025-07-08；本节只用 NTFS 普通文件硬链接语义。",
+          "verifiedFacts": [
+            "多个路径引用同一文件",
+            "硬链接只能在同一卷，不能作为目录硬链接",
+            "不同链接的目录项大小/属性展示可能滞后"
+          ]
+        },
+        {
+          "title": "MS-FSCC FileStandardLinkInformation",
+          "url": "https://learn.microsoft.com/en-us/openspecs/windows_protocols/ms-fscc/a459c580-db65-4e49-bbb5-562268ae271a",
+          "readScope": "NumberOfAccessibleLinks、TotalNumberOfLinks、DeletePending 定义",
+          "versionLimit": "2025-04-07；本地查询信息类，不是盘上 FILE 记录头。",
+          "verifiedFacts": [
+            "非删除链接数与包含待删除链接总数可不同",
+            "删除请求与最终回收状态须区分"
+          ]
+        },
+        {
+          "title": "MS-FSCC FileBasicInformation",
+          "url": "https://learn.microsoft.com/en-us/openspecs/windows_protocols/ms-fscc/16023025-8a78-492f-8b96-c873b042ac50",
+          "readScope": "CreationTime、LastAccessTime、LastWriteTime、ChangeTime 四字段语义及可设置性",
+          "versionLimit": "2025-02-10；网络/native information class 顺序不同于 $SI/$FN 盘上顺序，未将其结构偏移套用到 MFT。",
+          "verifiedFacts": [
+            "四时间语义",
+            "时间可显式设置或抑制更新，不能由单个时间值唯一推断动作"
+          ]
+        },
+        {
+          "title": "Microsoft File Times",
+          "url": "https://learn.microsoft.com/en-us/windows/win32/sysinfo/file-times",
+          "readScope": "64 位、1601 UTC 基点、100ns 格式定义及文件系统差异说明",
+          "versionLimit": "Windows FILETIME 通用表示；存储粒度不等于操作行为时间准确度。",
+          "verifiedFacts": [
+            "FILETIME 以 100ns ticks 计数",
+            "整数转换可保留完整七位小数秒",
+            "显示时应显式标时区"
+          ]
+        },
+        {
+          "title": "Microsoft Setting and Getting the Timestamp of a File",
+          "url": "https://learn.microsoft.com/en-us/windows/win32/fileio/setting-and-getting-the-timestamp-of-a-file",
+          "readScope": "全文，NTFS 最多一小时访问时间延迟与 API 可设置时间",
+          "versionLimit": "2021-01-07；更具体较新默认策略使用 MS-FSA 的版本注释。",
+          "verifiedFacts": [
+            "NTFS 访问时间延迟写回",
+            "时间可由应用设置，访问时间不是用户打开证明"
+          ]
+        },
+        {
+          "title": "Microsoft format",
+          "url": "https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/format",
+          "readScope": "参数表 /FS、/Q、/L、/A、/NoTrim，不执行格式化命令",
+          "versionLimit": "页面适用于 Windows 10/11、Server 2016-2025 等列出的系统；历史完整格式化行为不外推。",
+          "verifiedFacts": [
+            "快速格式化移除/重建文件表和根目录，不逐扇区扫描坏区",
+            "大/小文件记录格式可配置，1024 不是万能常量",
+            "格式化有跳过释放通知的选项，快速格式化不保证恢复"
+          ]
+        },
+        {
+          "title": "Microsoft fsutil behavior",
+          "url": "https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/fsutil-behavior",
+          "readScope": "disablelastaccess、disabledeletenotify 参数与 Remarks；不执行设置命令",
+          "versionLimit": "2023-02-03，适用页面列出的 Windows/Server；USB 控制器结果仍需设备证据。",
+          "verifiedFacts": [
+            "释放通知又称 TRIM/UNMAP，告知底层设备已释放簇",
+            "设备不报告支持时不收到通知",
+            "访问时间可以停用、最多延迟一小时更新盘上值"
+          ]
+        },
+        {
+          "title": "Microsoft exFAT File System Specification",
+          "url": "https://learn.microsoft.com/en-us/windows/win32/fileio/exfat-specification",
+          "readScope": "Section 2 Volume Structure，Section 7 Directory Entry Definitions，7.1 Allocation Bitmap",
+          "versionLimit": "exFAT revision 1.00 directory definitions；不是 NTFS 或 FAT32 结构文档。",
+          "verifiedFacts": [
+            "exFAT 由引导区、FAT 区、数据区与目录项体系组织",
+            "exFAT Allocation Bitmap 记录簇占用；不属于 NTFS $BITMAP 属性",
+            "因此不能套用当前 NTFS FILE/MFT 结构解析 exFAT 文件目录"
+          ]
+        },
+        {
+          "title": "Linux-NTFS File Record / Fixup / Attribute Header",
+          "url": "https://flatcap.github.io/linux-ntfs/ntfs/concepts/file_record.html",
+          "relatedUrls": [
+            "https://flatcap.github.io/linux-ntfs/ntfs/concepts/fixup.html",
+            "https://flatcap.github.io/linux-ntfs/ntfs/concepts/attribute_header.html"
+          ],
+          "readScope": "FILE 完整偏移表和 notes；fixup 读写算法；四类 named/unnamed resident/nonresident 属性头",
+          "versionLimit": "历史 Linux-NTFS 格式项目，字段说明包含 XP/旧系统标签及未决 notes；不能当成所有现代 Windows 行为实测。",
+          "verifiedFacts": [
+            "record-relative 与 attribute-relative 偏移",
+            "USA count 为 words，包含更新序列字",
+            "NTFS 3.1 +0x2C 记录号",
+            "常驻头 0x18 字节基础长度",
+            "普通非驻留头通常 0x40，压缩/稀疏布局存在扩展"
+          ]
+        },
+        {
+          "title": "Linux-NTFS STANDARD_INFORMATION / FILE_NAME / Filename Namespace",
+          "url": "https://flatcap.github.io/linux-ntfs/ntfs/attributes/standard_information.html",
+          "relatedUrls": [
+            "https://flatcap.github.io/linux-ntfs/ntfs/attributes/file_name.html",
+            "https://flatcap.github.io/linux-ntfs/ntfs/concepts/filename_namespace.html"
+          ],
+          "readScope": "两类属性值完整布局；namespace 0/1/2/3；硬链接与重复元数据 notes",
+          "versionLimit": "历史格式项目；$FN 仅改名更新的绝对句不照搬为现代 Windows 通用保证；短名算法及始终生成短名也不照搬。",
+          "verifiedFacts": [
+            "$SI 四时间值内偏移 0/8/16/24",
+            "$FN 父引用 0、四时间 8/16/24/32、name length 0x40、namespace 0x41、name 0x42",
+            "$FN 名字无 NUL 终止要求",
+            "0 POSIX、1 Win32、2 DOS、3 Win32&DOS",
+            "名称与数据大小重复元数据可能不同步"
+          ]
+        },
+        {
+          "title": "Linux-NTFS Data Runs",
+          "url": "https://flatcap.github.io/linux-ntfs/ntfs/concepts/data_runs.html",
+          "readScope": "全文算法说明、Example 3 负位移、Example 4 sparse、Example 5 与 Layout 的压缩单元及 notes，特别末段 unsigned length / signed offset",
+          "versionLimit": "历史原始格式项目；文中常用固定 16 簇压缩示例，正文以实际 compression_unit 指数为准。",
+          "verifiedFacts": [
+            "低 nibble 长度字段宽度，高 nibble 位移字段宽度",
+            "run length unsigned，LCN delta signed 并需字段宽度符号扩展",
+            "LCN delta 相对前一物理 run 起始 LCN",
+            "稀疏 run 无位移字段，不映射 LCN 0、不重置累加器",
+            "compressed physical+sparse 填满单元不能直接按普通洞零填"
+          ]
+        },
+        {
+          "title": "Linux-NTFS Bitmap / MFTMirr / Index Root / Index Allocation",
+          "url": "https://flatcap.github.io/linux-ntfs/ntfs/attributes/bitmap.html",
+          "relatedUrls": [
+            "https://flatcap.github.io/linux-ntfs/ntfs/files/mftmirr.html",
+            "https://flatcap.github.io/linux-ntfs/ntfs/attributes/index_root.html",
+            "https://flatcap.github.io/linux-ntfs/ntfs/attributes/index_allocation.html"
+          ],
+          "readScope": "四页面全文，位图对象范围、镜像与簇大小关系、索引根和外部索引节点",
+          "versionLimit": "历史格式项目；MFTMirr 大簇规则需与实际 stream size 核对，不硬编码任意盘。",
+          "verifiedFacts": [
+            "MFT 位图管理记录，目录位图管理 index allocation 块",
+            "MFTMirr 至少前四条，在簇大于四记录时有覆盖一个簇的历史规则",
+            "$INDEX_ROOT 常驻，外部节点用 $INDEX_ALLOCATION",
+            "索引块可有残留，需要分当前节点数据与 slack"
+          ]
+        },
+        {
+          "title": "Linux v6.5 NTFS packed disk layout definitions",
+          "url": "https://raw.githubusercontent.com/torvalds/linux/v6.5/fs/ntfs/layout.h",
+          "readScope": "NTFS_RECORD usa_count，MFT_RECORD 字段及 NTFS 3.1 扩展，ATTR_RECORD resident/nonresident，STANDARD_INFORMATION，FILE_NAME_ATTR，INDEX_BLOCK/INDEX_ENTRY",
+          "versionLimit": "固定 tag v6.5 原始源代码；注释含 NT4 SP6a 经验与 FIXME，不把其假设提升为现代 Windows API 合约。",
+          "verifiedFacts": [
+            "usa_count 为 16 位元素数并包含 USN",
+            "MFT 内部字段头偏移",
+            "nonresident compression_unit 为 1 字节、reserved[5]，+0x40 compressed_size 为压缩/稀疏附加字段",
+            "$SI/$FN 时间偏移，短长名与 hardlink 注意事项",
+            "INDX 多扇区保护和 $I30 index key"
+          ]
+        },
+        {
+          "title": "libfsntfs author format documentation",
+          "url": "https://github.com/libyal/libfsntfs/blob/main/documentation/New%20Technologies%20File%20System%20%28NTFS%29.asciidoc",
+          "readScope": "Document information / revision history；1.1/1.2 版本测试范围；3.1 固定 0~11、12~15 保留及后续对象不全固定；4 volume header；5 MFT/attributes/runlist；6.2/6.3/6.4；8 indexes；9 compression；19 stale name examples",
+          "versionLimit": "页面自述 revision 0.0.28 January 2025；main URL 可变，本次访问 2026-10-03。列出 Windows 11 21H2 等测试版本，包含 unknown/TODO 字段，未照搬未知含义。",
+          "verifiedFacts": [
+            "little endian、FILETIME UTC、UTF-16LE",
+            "NTFS 3.x 基础元数据记录 0~11 用途，9 是 $Secure 而非 NTFS 1.2 的 $Quota；后续系统对象应按路径和引用验证",
+            "引导区 +0x40 signed record-size encoding，负数表示 2^(-value) 字节",
+            "MFT 自身可多 run",
+            "NTFS 3.1 +0x2C record index",
+            "旧或不同链接的 $FN 时间大小可能滞后",
+            "异常 Unicode 码元需保留",
+            "压缩分配区与 sparse 填充、分段映射恢复的边界"
+          ]
+        }
+      ],
+      "documentDiscrepancies": [
+        {
+          "topic": "USA size unit",
+          "officialStatement": "MULTI_SECTOR_HEADER Members 将 UpdateSequenceArraySize 描述为 bytes。",
+          "crossCheck": "Linux-NTFS File Record、固定 Linux v6.5 NTFS_RECORD 与 libfsntfs 都按 16-bit word count；包含 USN。1024/512 标准示例 count=3，占 6 字节。",
+          "resolution": "公开表采用 USA count，并按 record size 和尾字数量复核；文档比较只保留内部账本。"
+        },
+        {
+          "topic": "1024-byte record as absolute",
+          "officialStatement": "MS-FSCC glossary 的 file record segment 条目写 always 1024。",
+          "crossCheck": "官方 format /L 支持不同文件记录尺寸，NTFS_VOLUME_DATA_BUFFER 明确提供 BytesPerFileRecordSegment；盘上引导区也编码实际大小。",
+          "resolution": "1024 仅为常见值及构造示例参数，不硬编码。"
+        },
+        {
+          "topic": "Sequence increment timing",
+          "officialStatement": "FILE_RECORD_SEGMENT_HEADER 明确写 record freed 时递增。",
+          "crossCheck": "Linux 原始记录注释说 reused count 同时注明增量发生于 deleted；FRN 为循环序列。",
+          "resolution": "释放/复用生命周期和陈旧引用检测为重点，公开正文注明释放递增；不把 seq 当精确无上限复用次数。"
+        },
+        {
+          "topic": "Compression-unit and optional size layout",
+          "officialStatement": "Microsoft attribute header +0x22 后公开为 Reserved[6]，TotalAllocated 展示不区分全部盘上变体。",
+          "crossCheck": "Linux packed header +0x22 为 u8 compression_unit 加 reserved[5]；+0x40 compressed_size 只在 compressed/sparse 变体。libfsntfs 此字段宽度表述有历史差异。",
+          "resolution": "公开表按固定实现布局，强调标志和 mapping offset 校验变体，不在普通 0x40 头后强读尺寸。"
+        },
+        {
+          "topic": "$FN update rules",
+          "crossCheck": "旧 Linux-NTFS/NT4 注释写仅 filename change 更新；官方 hardlinks 文档强调目录元数据只在使用链接更新。",
+          "resolution": "只说明 $FN 重复元数据可能滞后，具体操作更新时间按目标版本实测；不写永远不变或仅某动作更新的全版本保证。"
+        },
+        {
+          "topic": "Mapping-pairs length signedness",
+          "officialStatement": "Microsoft mapping-pairs pseudoalgorithm 文字将 v 字节解释为 signed quantity。",
+          "crossCheck": "Linux-NTFS Data Runs 原始文档在末段明确 unsigned length / signed offset，包含 0x80 长度实例。",
+          "resolution": "常规 runlist 使用 unsigned cluster count 与 signed LCN delta，demo 用小正长度并做 VCN coverage 校验，不从官方文字机械生成解码器。"
+        }
+      ],
+      "constructedExamples": {
+        "claimLimit": "独立构造的字段与映射教学样例，不是完整可挂载卷，也不是 Windows 文件操作实验；本子任务未生成程序或二进制演示文件。",
+        "residentRecord": {
+          "recordNumber": 42,
+          "sequence": 7,
+          "recordSize": 1024,
+          "usaOffset": 48,
+          "usaCount": 3,
+          "usaBytes": "AA BB 00 00 00 00",
+          "trailers": {
+            "0x1FE": "AA BB",
+            "0x3FE": "AA BB"
+          },
+          "bytesInUse": "0x138",
+          "attributes": [
+            {
+              "type": "$STANDARD_INFORMATION",
+              "offset": "0x38",
+              "recordLength": "0x60",
+              "valueOffset": "0x18",
+              "valueLength": "0x48"
+            },
+            {
+              "type": "$FILE_NAME",
+              "offset": "0x98",
+              "recordLength": "0x78",
+              "valueOffset": "0x18",
+              "valueLength": "0x5A",
+              "name": "evidence.txt",
+              "nameCodeUnits": 12,
+              "parent": "5-2",
+              "namespace": 1
+            },
+            {
+              "type": "$DATA",
+              "offset": "0x110",
+              "recordLength": "0x20",
+              "valueOffset": "0x18",
+              "valueLength": "0x08",
+              "contentAscii": "USB-DEMO"
+            }
+          ],
+          "endMarker": "0x130",
+          "timeCheck": [
+            {
+              "utc": "2026-09-15T08:00:00Z",
+              "littleEndianHex": "00 00 CE 34 E8 44 DD 01",
+              "ticks": "134339328000000000"
+            },
+            {
+              "utc": "2026-09-15T08:05:00Z",
+              "littleEndianHex": "00 5E 9E E7 E8 44 DD 01"
+            },
+            {
+              "utc": "2026-09-15T08:07:00Z",
+              "littleEndianHex": "00 EA 24 2F E9 44 DD 01"
+            },
+            {
+              "utc": "2026-09-15T08:10:00Z",
+              "littleEndianHex": "00 BC 6E 9A E9 44 DD 01"
+            },
+            {
+              "utc": "2026-09-15T08:00:00.0000007Z",
+              "littleEndianHex": "07 00 CE 34 E8 44 DD 01",
+              "ticks": "134339328000000007"
+            }
+          ],
+          "checked": "属性起点、总长、值偏移、名称长度、EOF marker 与对齐手工推算；四个整秒 FILETIME 用 BigInt 精确换算 little-endian；100ns 尾数用整数余数验证。尚未提供真实卷或解析器端到端实验。"
+        },
+        "runlist": {
+          "bytes": "21 03 20 01 11 02 F0 01 04 00",
+          "flags": "0x8000",
+          "compressed": false,
+          "lowestVcn": 0,
+          "highestVcn": 8,
+          "clusterBytes": 4096,
+          "runs": [
+            {
+              "vcnFirst": 0,
+              "clusters": 3,
+              "lcnFirst": 288
+            },
+            {
+              "vcnFirst": 3,
+              "clusters": 2,
+              "lcnDelta": -16,
+              "lcnFirst": 272
+            },
+            {
+              "vcnFirst": 5,
+              "clusters": 4,
+              "sparse": true
+            }
+          ],
+          "logicalBytes": 36864,
+          "mappedClusters": 5,
+          "volumeByteOffsets": [
+            "0x120000",
+            "0x110000"
+          ],
+          "wholeImageVolumeStart": "0x100000",
+          "imageByteOffsets": [
+            "0x220000",
+            "0x210000"
+          ],
+          "checked": "Nibble widths、signed F0=-16、VCN 总覆盖 9 簇、最高 VCN 8、两段乘簇长与分区起点叠加手工复核。例子只演算映射，不含内容区。"
+        }
+      },
+      "unverifiedOrAvoidedClaims": [
+        "没有声称 MFT 编号/序列号可跨卷全局唯一。",
+        "没有给出用户首次插盘、首次打开或复制动作的固定时间推断规则。",
+        "没有把 $FN attribute count 当作 hardlink count，也没有把 namespace 3 当作第 3 个路径。",
+        "没有声称所有 U 盘支持 TRIM 或所有 U 盘都不支持 TRIM。USB 桥和控制器具体行为未实测。",
+        "没有从快速格式化推断必然完整恢复，也没有声称逻辑镜像包含控制器不可见旧闪存页。",
+        "没有完整读取 File System Behavior Overview PDF；页面抓取失败，搜索结果仅用于发现主源，不作为详细 offset 权威。",
+        "没有执行格式化、修复文件系统、连接真实 U 盘或修改生产文章。"
+      ]
+    },
+    "mftecmd": {
+      "accessed_at": "2026-10-03",
+      "context7": {
+        "mftecmd_resolve": {
+          "libraryName": "MFTECmd",
+          "selected_library_id": "/ericzimmerman/mftecmd",
+          "source_reputation": "High",
+          "query_doc_concepts": [
+            "MFT/J command options, record and resident exports",
+            "CSV columns and timestamp semantics"
+          ],
+          "limitation": "Returned README help version 0.5.0.1, so not treated as current 2026.5.0 help."
+        },
+        "sleuthkit_resolve": [
+          {
+            "libraryName": "The Sleuth Kit",
+            "relevant_result": false,
+            "returned": "Unrelated Kit libraries"
+          },
+          {
+            "libraryName": "sleuthkit",
+            "relevant_result": false,
+            "returned": "/sleuthkit/autopsy_addon_modules (third-party Autopsy add-ons, not TSK CLI)"
+          }
+        ],
+        "sleuthkit_fallback": "Official tool manuals checked; no irrelevant library queried."
+      },
+      "local_tool": {
+        "path": "D:/CTF_MISC_Tools/Forensics/MFTECmd/MFTECmd.exe",
+        "help_version": "2026.5.0",
+        "file_version": "2026.5.0.0",
+        "product_version": "2026.5.0+4fd94a6bd12237e8501baff5fc9e5b1b01c53862",
+        "sha256": "0B6DEDA2F7B147DC8D1EFDFA3AE77F9E6570A91A5D78E5F03D8711BB4273E51B",
+        "signature": {
+          "status": "Valid",
+          "subject": "CN=ZimTech LLC, O=ZimTech LLC, S=Indiana, C=US"
+        },
+        "help_snapshot": "mftecmd-scratch/help-2026.5.0.txt",
+        "machine_timezone_during_validation": "China Standard Time (UTC+08:00)",
+        "changes_to_tool_inventory": "None; installed executable used without installation or update."
+      },
+      "sources": [
+        {
+          "id": "mf-readme",
+          "url": "https://github.com/EricZimmerman/MFTECmd/blob/master/README.md",
+          "scope": "Old version reference only",
+          "summary": "README help is 0.5.0.1 and includes old input/option claims; actual installed help and local outputs take precedence."
+        },
+        {
+          "id": "mf-program",
+          "url": "https://github.com/EricZimmerman/MFTECmd/blob/master/MFTECmd/Program.cs",
+          "scope": "Option definitions; ProcessMft ExportRecord; CSV and JSON serialization; ProcessJ; GetCsvData",
+          "summary": "Public master agrees with local option names. ExportRecord multiplies --do value by allocated record size but reads 1024 bytes; local fixture confirmed this. JSON writes one object per line. Blank FN dates and heuristic flag meanings checked against local outputs.",
+          "version_limit": "Product-version commit raw URLs could not be fetched; public master inspected, not claimed to be immutable source of the exact binary."
+        },
+        {
+          "id": "mf-schema",
+          "url": "https://github.com/EricZimmerman/MFTECmd/blob/master/MFTECmd/MFTRecordOut.cs",
+          "scope": "MFT CSV/JSON data model",
+          "summary": "InUse, ReferenceCount, ADS, SI/FN dates, USN/LSN and resident fields; actual CSV columns confirmed independently."
+        },
+        {
+          "id": "mf-j-schema",
+          "url": "https://github.com/EricZimmerman/MFTECmd/blob/master/MFTECmd/JEntryOut.cs",
+          "scope": "USN output data model",
+          "summary": "File/parent entry and sequence, ParentPath, UpdateTimestamp/Reasons, offsets and SourceFile; actual CSV confirmed."
+        },
+        {
+          "id": "mft-record",
+          "url": "https://github.com/EricZimmerman/MFT/blob/master/MFT/FileRecord.cs",
+          "scope": "FILE header, fixup, attribute types, slack records",
+          "summary": "Header fields and resident/nonresident attribute dispatch used to design a parser exercise; not a complete NTFS filesystem."
+        },
+        {
+          "id": "mft-maps",
+          "url": "https://github.com/EricZimmerman/MFT/blob/master/MFT/Mft.cs",
+          "scope": "Record stream loading, directory maps and GetFullParentPath",
+          "summary": "Reads record size from first record; root traversal termination uses 5-5; missing directory chains produce PathUnknown. First fixture corrected root reference before successful output verification."
+        },
+        {
+          "id": "mft-si",
+          "url": "https://github.com/EricZimmerman/MFT/blob/master/MFT/Attributes/StandardInfo.cs",
+          "scope": "SI FILETIME decoding",
+          "summary": "SI timestamp conversion explicitly normalizes UTC; fixture confirmed UTC remains unchanged on UTC+08:00 host."
+        },
+        {
+          "id": "mft-fn",
+          "url": "https://github.com/EricZimmerman/MFT/blob/master/MFT/Attributes/FileInfo.cs",
+          "scope": "FN parent references, names and FILETIME decoding",
+          "summary": "FN references and dates support entry-sequence pairing and same UTC interpretation."
+        },
+        {
+          "id": "mft-helper",
+          "url": "https://github.com/EricZimmerman/MFT/blob/master/MFT/Other/ExtensionMethods.cs",
+          "scope": "GetKey, IsDeleted, GetReferenceCount, ADS and file size",
+          "summary": "For free records, internal GetKey uses header sequence minus one; independently confirmed using --fls and --de. CSV ReferenceCount is a deduplicated count of non-DOS filename and parent-reference combinations, rather than the raw FILE header reference count."
+        },
+        {
+          "id": "ms-mft",
+          "url": "https://learn.microsoft.com/en-us/windows/win32/fileio/master-file-table",
+          "scope": "MFT/free entry/nonresident and fragmentation boundaries",
+          "summary": "NTFS stores metadata and possibly resident content in records; other data is outside MFT; deleted entries are free/reusable and MFT can fragment."
+        },
+        {
+          "id": "ms-filetime",
+          "url": "https://learn.microsoft.com/en-us/windows/win32/sysinfo/file-times",
+          "scope": "FILETIME and NTFS vs FAT time semantics",
+          "summary": "FILETIME uses 100ns intervals from 1601 UTC; NTFS on-disk times are UTC. Display and separate timezone conversion must remain auditable."
+        },
+        {
+          "id": "ms-usn",
+          "url": "https://learn.microsoft.com/en-us/windows/win32/api/winioctl/ns-winioctl-usn_record_v2",
+          "scope": "USN V2 layout, timestamps, reasons and rename pairs",
+          "summary": "Variable record length and Unicode filename offsets; reasons are flags, timestamp is UTC, close and rename pair semantics informed constructed V2 fixture."
+        },
+        {
+          "id": "tsk-mmls",
+          "url": "https://www.sleuthkit.org/sleuthkit/man/mmls.html",
+          "scope": "Root command check",
+          "summary": "Partition layouts display sectors; device sector size option matters for offsets."
+        },
+        {
+          "id": "tsk-fsstat",
+          "url": "https://www.sleuthkit.org/sleuthkit/man/fsstat.html",
+          "scope": "Root command check",
+          "summary": "-o is filesystem start sector in image; -b defines device sector bytes."
+        },
+        {
+          "id": "tsk-fls",
+          "url": "https://www.sleuthkit.org/sleuthkit/man/fls.html",
+          "scope": "Root command check",
+          "summary": "-r recursive listing, -p full paths, -o start sector; recursion does not follow deleted directories."
+        },
+        {
+          "id": "tsk-icat",
+          "url": "https://www.sleuthkit.org/sleuthkit/man/icat.html",
+          "scope": "Logical file export boundary",
+          "summary": "Copies specified file content from image to stdout; -o sector offset; -h drops sparse holes and -s adds slack, so neither is suitable blindly when preserving exact logical bytes."
+        }
+      ],
+      "verification": {
+        "fixture": "Constructed FILE-record stream and USN V2 stream only, no acquired USB evidence and no complete NTFS volume",
+        "internal_snapshot": "mftecmd-scratch/validation.json",
+        "final_snapshot": "mftecmd-scratch/final-validation.json",
+        "fixture_manifest": "mftecmd-scratch/fixture-manifest.json",
+        "verified_final_summary": {
+          "positive_command_cases": 17,
+          "content_checks": 23,
+          "content_checks_passed": true,
+          "negative_behaviors_confirmed": true,
+          "correct_record_export_verified": true
+        },
+        "renamed_inputs": [
+          {
+            "name": "sample.mft",
+            "bytes": 46080,
+            "sha256": "c51ed3e9ec955fab74db1a33d818b523ca175f2ceca2fa951252b4382f1a4e47"
+          },
+          {
+            "name": "sample.usn",
+            "bytes": 240,
+            "sha256": "36cbe4b6f37eb005fa41e88ea602e23e2005684ae8babac85c4d68023b04ed40"
+          }
+        ],
+        "known_output_facts": [
+          "9 MFT CSV rows from six FILE records",
+          "3 USN V2 CSV rows",
+          "InUse/ReferenceCount actual column names",
+          "resident source bytes and ADS bytes inspected",
+          "UTC+00:00 timestamp preserved on UTC+08:00 host",
+          "--do byte-offset failure observed despite success text and zero exit code; entry-value export separately checked",
+          "--recover rejected despite zero exit code",
+          "deleted CSV header sequence differs from normalized internal --fls key"
+        ],
+        "not_verified": [
+          "Real acquired evidence replay",
+          "Complete NTFS volume directory/index integrity",
+          "Nonresident content recovery",
+          "SDS extraction",
+          "Live locked files",
+          "VSS parsing",
+          "Whole-USB acquisition",
+          "Any external or untrusted executable"
+        ]
+      },
+      "source_handling": "Independent local help/fixture results are primary evidence for the extensive parameter and CSV tables. Web source summaries are short paraphrases split across relevant primary files, with no large quotation. No real credentials or source exercise answers added."
+    },
+    "xways": [
+      {
+        "id": "web-usb-xways-manual",
+        "url": "https://www.x-ways.net/winhex/manual.pdf",
+        "title": "X-Ways Forensics / WinHex manual",
+        "reviewedAt": "2026-10-03",
+        "scope": "273页手册的相关小节正文：目录列、Details、FS offset、Navigation、模板、注册表报告、深入文件系统结构搜索及恢复。未声称阅读全部手册或实跑GUI。",
+        "facts": [
+          "FILE record定位与数据内容位置不同；FS offset用于结构定位",
+          "ID与Int. ID不是同一命名空间",
+          "模板辅助解释、逻辑恢复与原始记录核对"
+        ]
+      },
+      {
+        "id": "web-usb-xways-2012",
+        "url": "https://www.x-ways.net/winhex/mailings/2012.html",
+        "title": "X-Ways 2012 feature announcements",
+        "reviewedAt": "2026-10-03",
+        "scope": "相关功能发布条目正文。",
+        "facts": [
+          "Details对照0x10与0x30时间",
+          "快照是可变分析视图而非原盘扇区修改",
+          "逻辑文件列表与导出"
+        ]
+      },
+      {
+        "id": "web-usb-xways-2020",
+        "url": "https://www.x-ways.net/winhex/mailings/2020.html",
+        "title": "X-Ways 20.1 feature announcements",
+        "reviewedAt": "2026-10-03",
+        "scope": "20.1和20.0相关功能、版本条目正文；本地可执行文件VersionInfo=20.1。",
+        "facts": [
+          "工具版本边界",
+          "MFTMirr不足以替代完整MFT",
+          "Registry Viewer案件范围与对象定位"
+        ]
+      },
+      {
+        "id": "web-usb-xways-containers",
+        "url": "https://www.x-ways.net/investigator/evidence_file_container.html",
+        "title": "X-Ways evidence file containers",
+        "reviewedAt": "2026-10-03",
+        "scope": "公开正文相关部分。",
+        "facts": [
+          "元数据对象不等于可用内容",
+          "证据容器仅表示选定范围，不代替物理镜像"
+        ]
+      }
+    ]
+  },
+  "verification": {
+    "unitTests": {
+      "total": 57,
+      "passed": 56,
+      "failed": 1,
+      "failure": "test_every_catalog_location_exists_and_excludes_project_metadata",
+      "log": ".work/usb-forensics-20261003/unit.log"
+    },
+    "commandDisplayTests": {
+      "total": 5,
+      "passed": 5
+    },
+    "astroCheck": {
+      "files": 18,
+      "errors": 0,
+      "warnings": 0,
+      "hints": 0
+    },
+    "build": {
+      "exitCode": 0,
+      "htmlFiles": 330,
+      "indexedPages": 321
+    },
+    "siteAudit": {
+      "pages": 330,
+      "localLinks": 7410,
+      "knowledgeArticles": 171,
+      "toolGuides": 79,
+      "errors": 0
+    },
+    "existingWebCoverageAudit": {
+      "pages": 117,
+      "standards": 50,
+      "errors": 0
+    },
+    "mftecmdConstructedInputs": {
+      "scope": "Constructed parser inputs only; no real USB evidence and no complete NTFS volume.",
+      "tool_version": "2026.5.0",
+      "tool_sha256": "0b6deda2f7b147dc8d1efdfa3ae77f9e6570a91a5d78e5f03d8711bb4273e51b",
+      "cases_run": 19,
+      "positive_command_cases": {
+        "csv_default": {
+          "exit_code": 0,
+          "stderr_empty": true,
+          "no_processing_exception": true
+        },
+        "csv_all": {
+          "exit_code": 0,
+          "stderr_empty": true,
+          "no_processing_exception": true
+        },
+        "csv_offset": {
+          "exit_code": 0,
+          "stderr_empty": true,
+          "no_processing_exception": true
+        },
+        "body": {
+          "exit_code": 0,
+          "stderr_empty": true,
+          "no_processing_exception": true
+        },
+        "de": {
+          "exit_code": 0,
+          "stderr_empty": true,
+          "no_processing_exception": true
+        },
+        "de_hex": {
+          "exit_code": 0,
+          "stderr_empty": true,
+          "no_processing_exception": true
+        },
+        "de_deleted": {
+          "exit_code": 0,
+          "stderr_empty": true,
+          "no_processing_exception": true
+        },
+        "de_deleted_key": {
+          "exit_code": 0,
+          "stderr_empty": true,
+          "no_processing_exception": true
+        },
+        "fls": {
+          "exit_code": 0,
+          "stderr_empty": true,
+          "no_processing_exception": true
+        },
+        "do_entry": {
+          "exit_code": 0,
+          "stderr_empty": true,
+          "no_processing_exception": true
+        },
+        "rs": {
+          "exit_code": 0,
+          "stderr_empty": true,
+          "no_processing_exception": true
+        },
+        "j": {
+          "exit_code": 0,
+          "stderr_empty": true,
+          "no_processing_exception": true
+        },
+        "j_no_mft": {
+          "exit_code": 0,
+          "stderr_empty": true,
+          "no_processing_exception": true
+        },
+        "renamed_mft": {
+          "exit_code": 0,
+          "stderr_empty": true,
+          "no_processing_exception": true
+        },
+        "renamed_usn": {
+          "exit_code": 0,
+          "stderr_empty": true,
+          "no_processing_exception": true
+        },
+        "ir_filter": {
+          "exit_code": 0,
+          "stderr_empty": true,
+          "no_processing_exception": true
+        },
+        "ir_size": {
+          "exit_code": 0,
+          "stderr_empty": true,
+          "no_processing_exception": true
+        }
+      },
+      "content_checks": {
+        "all_csv_has_nine_rows": true,
+        "default_csv_has_nine_rows": true,
+        "deleted_marked_not_in_use": true,
+        "ads_rows_present": true,
+        "report_referencecount_two": true,
+        "default_equal_fn_timestamp_blank": true,
+        "all_fn_timestamp_equal_si_exported": true,
+        "utc_timestamp_explicit": true,
+        "utc_timestamp_default_no_offset": true,
+        "nonresident_not_exported": true,
+        "resident_bytes_report_match": true,
+        "record_dump_byte_identical": true,
+        "j_has_three_rows": true,
+        "j_parent_path_resolved": true,
+        "unknown_recover_rejected": true,
+        "renamed_mft_nine_rows": true,
+        "renamed_usn_three_rows": true,
+        "ir_extension_filter_excludes_txt": true,
+        "ir_size_eight_excludes_report": true,
+        "ir_size_eight_keeps_gone": true,
+        "body_lf_newlines": true,
+        "json_lines_nine_objects": true,
+        "all_fixture_slots_match_entry": true
+      },
+      "negative_behavior_checks": {
+        "byte_offset_do": {
+          "arguments": "--dd records --do 0xa800",
+          "exit_code": 0,
+          "output_file_bytes": 0,
+          "expected_behavior_observed": true,
+          "interpretation": "Known help/implementation discrepancy; empty output is a failed export, intentionally observed. Success text and zero return code must not be accepted as export proof."
+        },
+        "unknown_recover": {
+          "arguments": "--recover",
+          "exit_code": 0,
+          "stderr": "未识别命令或参数“'--recover'”.",
+          "expected_rejection_observed": true,
+          "interpretation": "Option absent; stderr rejection confirms this despite zero return code."
+        }
+      },
+      "corrected_export_check": {
+        "arguments": "--dd records --do 42",
+        "output_file_bytes": 1024,
+        "byte_identical_to_input_slot_42": true
+      },
+      "fixtures": [
+        {
+          "name": "sample.mft",
+          "bytes": 46080,
+          "sha256": "c51ed3e9ec955fab74db1a33d818b523ca175f2ceca2fa951252b4382f1a4e47"
+        },
+        {
+          "name": "sample.usn",
+          "bytes": 240,
+          "sha256": "36cbe4b6f37eb005fa41e88ea602e23e2005684ae8babac85c4d68023b04ed40"
+        }
+      ],
+      "artifact_integrity_checks": {
+        "fixture_manifest_has_no_machine_paths": true,
+        "record_entry_and_slot_agree": true
+      },
+      "initial_attempt": "Preserved separately in first_attempt. The first root reference was 5-1 instead of required 5-5, corrected before successful CSV verification. Not counted as a successful parse.",
+      "notes": [
+        "MFT 9 CSV rows; USN 3 CSV rows; resident files 5 with inspected bytes.",
+        "CSV ReferenceCount uses deduplicated non-DOS filename/parent combinations in the inspected MFT library, not raw FILE header ReferenceCount.",
+        "Correct do_entry output confirmed separately from intentionally empty byte-offset output.",
+        "SDS/VSS/real acquired evidence/nonresident content recovery not verified."
+      ],
+      "summary": {
+        "positive_command_cases": 17,
+        "positive_log_checks_passed": true,
+        "content_checks": 23,
+        "content_checks_passed": true,
+        "negative_behaviors_confirmed": true,
+        "correct_record_export_verified": true
+      }
+    },
+    "publishedPracticeReplay": {
+      "tool": "MFTECmd 2026.5.0",
+      "source": "Published practice files independently parsed again",
+      "mftRows": 9,
+      "usnRows": 3,
+      "docsEntry": 24,
+      "utcOffsetPreserved": true,
+      "sharedEntryHasFourNameAndStreamRows": true,
+      "boundary": "Synthetic parser exercise, not real USB evidence or XFW GUI replay"
+    },
+    "byteArithmetic": {
+      "filetimeExamples": {
+        "0000CE34E844DD01": "2026-09-15T08:00:00+00:00",
+        "005E9EE7E844DD01": "2026-09-15T08:05:00+00:00",
+        "00EA242FE944DD01": "2026-09-15T08:07:00+00:00",
+        "00BC6E9AE944DD01": "2026-09-15T08:10:00+00:00"
+      },
+      "runlist": [
+        {
+          "vcn": 0,
+          "clusters": 3,
+          "lcn": 288
+        },
+        {
+          "vcn": 3,
+          "clusters": 2,
+          "lcn": 272
+        },
+        {
+          "vcn": 5,
+          "clusters": 4,
+          "lcn": null
+        }
+      ],
+      "logicalSize": 36864,
+      "frnExample": "42-7",
+      "residentValueRange": [
+        "0x128",
+        "0x130"
+      ],
+      "scope": "Independent arithmetic and byte examples; not a real NTFS volume replay"
+    },
+    "reimport": {
+      "verifiedFiles": 405,
+      "changed": [],
+      "added": [],
+      "fullImporterUsed": true,
+      "externalToolInventoryPreserved": true,
+      "canonicalUsbBodyAndAssociationsStable": true
+    },
+    "preservation": {
+      "baselineFiles": 400,
+      "changed": [
+        "README.md",
+        "src/content/knowledge/disk-evidence.md",
+        "src/content/knowledge/forensic-guide-computer.md",
+        "src/content/tools/forensic-xways.md",
+        "src/content-curation/disk-evidence.md",
+        "src/content-curation/forensic-guide-computer.md",
+        "src/data/forensics-supplements.json"
+      ],
+      "unchanged": 393,
+      "originalBodiesAndClassificationsPreserved": true,
+      "knowledgePages": 171,
+      "forensicsPages": 70,
+      "newPageSections": 16,
+      "sourceIndependentBody": true,
+      "practiceHashesVerified": true
+    },
+    "browser": {
+      "checkedAt": "2026-10-03",
+      "pageUrl": "http://127.0.0.1:4321/knowledge/forensic-usb-evidence/",
+      "detail": {
+        "title": "U盘取证：接入痕迹、MFT记录与文件恢复 · CTF Atlas",
+        "h2Count": 16,
+        "literalMarkdownMarkers": 0
+      },
+      "module": {
+        "url": "http://127.0.0.1:4321/module/forensics/#computer",
+        "track": "计算机取证",
+        "cluster": "磁盘与文件系统",
+        "independentEntryVisible": true
+      },
+      "search": {
+        "query": "U盘",
+        "module": "Forensics",
+        "track": "计算机取证",
+        "contentType": "知识点",
+        "articleResultVisible": true
+      },
+      "toc": {
+        "section": "06 读记录：头部、属性、身份与时间",
+        "targetTop": 88.07764434814453,
+        "viewportHeight": 720,
+        "navigationVerified": true
+      },
+      "download": {
+        "file": "sample.mft",
+        "savedPath": "D:\\winoptimizeDir\\Downloads\\sample.mft",
+        "bytes": 46080,
+        "sha256": "c51ed3e9ec955fab74db1a33d818b523ca175f2ceca2fa951252b4382f1a4e47",
+        "matchesPublishedManifest": true
+      },
+      "screenshots": [
+        "usb-page.jpg",
+        "usb-mft-chapter.jpg"
+      ],
+      "consoleErrors": []
+    },
+    "externalInventory": {
+      "unchangedFromTaskBaseline": true,
+      "currentlyMissingDirectories": [
+        {
+          "name": "Inseyets PA",
+          "path": "D:\\CTF_MISC_Tools\\Forensics\\Inseyets PA"
+        },
+        {
+          "name": "X-Ways Forensics",
+          "path": "D:\\CTF_MISC_Tools\\Forensics\\X-Ways Forensics"
+        }
+      ],
+      "earlierXwaysReadVerified": true,
+      "currentXwaysInstalledClaim": false
+    }
+  },
+  "practiceManifest": {
+    "kind": "constructed parser exercise",
+    "created": "2026-10-03",
+    "files": [
+      {
+        "name": "sample.mft",
+        "bytes": 46080,
+        "sha256": "c51ed3e9ec955fab74db1a33d818b523ca175f2ceca2fa951252b4382f1a4e47"
+      },
+      {
+        "name": "sample.usn",
+        "bytes": 240,
+        "sha256": "36cbe4b6f37eb005fa41e88ea602e23e2005684ae8babac85c4d68023b04ed40"
+      }
+    ],
+    "verified_parser_version": "MFTECmd 2026.5.0",
+    "identified_by": "FILE signature or USN V2 record structure, not file suffix",
+    "mft_record_size_bytes": 1024,
+    "mft_slots": 45,
+    "mft_valid_record_slots": [
+      0,
+      5,
+      24,
+      42,
+      43,
+      44
+    ],
+    "mft_uninitialized_slots": 39,
+    "physical_slot_matches_entry_number": true,
+    "root_reference": "5-5",
+    "records": [
+      {
+        "entry": 0,
+        "header_sequence": 1,
+        "role": "synthetic $MFT metadata record",
+        "slot": 0
+      },
+      {
+        "entry": 5,
+        "header_sequence": 5,
+        "role": "root directory",
+        "slot": 5
+      },
+      {
+        "entry": 24,
+        "header_sequence": 1,
+        "role": "Docs directory",
+        "slot": 24,
+        "parent": "5-5"
+      },
+      {
+        "entry": 42,
+        "header_sequence": 2,
+        "role": "resident report.txt and alias.txt hard links, named Zone.Identifier stream",
+        "slot": 42,
+        "parent": "24-1",
+        "reference_count": 2
+      },
+      {
+        "entry": 43,
+        "header_sequence": 3,
+        "internal_deleted_key": "43-2",
+        "role": "free/deleted resident gone.txt",
+        "slot": 43,
+        "parent": "24-1"
+      },
+      {
+        "entry": 44,
+        "header_sequence": 1,
+        "role": "nonresident large.bin metadata only",
+        "slot": 44,
+        "parent": "24-1"
+      }
+    ],
+    "usn_records": [
+      {
+        "entry": 42,
+        "sequence": 2,
+        "name": "old.txt",
+        "usn": 1000,
+        "reason": "RenameOldName",
+        "offset_bytes": 0
+      },
+      {
+        "entry": 42,
+        "sequence": 2,
+        "name": "report.txt",
+        "usn": 1100,
+        "reason": "RenameNewName|Close",
+        "offset_bytes": 80
+      },
+      {
+        "entry": 43,
+        "sequence": 2,
+        "name": "gone.txt",
+        "usn": 1200,
+        "reason": "FileDelete|Close",
+        "offset_bytes": 160
+      }
+    ],
+    "fixture_time_utc": "2026-01-02T03:04:05.1234567+00:00",
+    "report_fn_creation_utc": "2026-01-03T03:04:05.1234567+00:00",
+    "expected": {
+      "mft_csv_rows": 9,
+      "usn_csv_rows": 3,
+      "main_resident_text_base64": "U1lOVEhFVElDIFJFU0lERU5UCg==",
+      "deleted_resident_text_base64": "REVMRVRFRAo=",
+      "resident_dump_files": 5
+    },
+    "scope": "Practice CLI and FILE/attribute/fixup decoding, SI/FN dates, multiple names/ADS, free-record and USN interpretation.",
+    "limits": [
+      "No real USB evidence or personal data.",
+      "Not a complete NTFS volume or disk/partition image.",
+      "Nonresident runlists point to fictional clusters: no recoverable content exists for those runs.",
+      "Does not verify filesystem index/bitmap/allocation consistency or full-volume reconstruction.",
+      "USN entries are constructed, not an acquired chronological history; equal timestamps are deliberate.",
+      "Header sequence for the free record is 3; this parser normalizes its internal historical key to 2, matching the constructed delete event reference.",
+      "Hex editors can inspect records; full-volume NTFS filesystem reconstruction is outside scope."
+    ]
+  },
+  "boundaries": {
+    "competitionEvidenceDownloaded": false,
+    "competitionEvidenceReplayed": false,
+    "writeupScreenshotsVisuallyRead": false,
+    "physicalUsbExperiment": false,
+    "xwaysGuiReplayed": false,
+    "mftecmdRealNtfsVolumeReplayed": false,
+    "constructedMftecmdInputsActuallyParsed": true,
+    "constructedFixtureIsCompleteNtfsVolume": false,
+    "publishedNonresidentDataClustersProvided": false
+  },
+  "productionChanges": {
+    "existingFilesChanged": [
+      "README.md",
+      "src/content/knowledge/disk-evidence.md",
+      "src/content/knowledge/forensic-guide-computer.md",
+      "src/content/tools/forensic-xways.md",
+      "src/content-curation/disk-evidence.md",
+      "src/content-curation/forensic-guide-computer.md",
+      "src/data/forensics-supplements.json"
+    ],
+    "newFiles": [
+      "src/content-curation/forensic-usb-evidence.md",
+      "src/content/knowledge/forensic-usb-evidence.md",
+      "public/practice/usb-forensics/sample.mft",
+      "public/practice/usb-forensics/sample.usn",
+      "public/practice/usb-forensics/README.md",
+      "public/practice/usb-forensics/manifest.json",
+      "docs/forensics-usb-review.md",
+      "docs/forensics-usb-review.json"
+    ]
+  }
+}

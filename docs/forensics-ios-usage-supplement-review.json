@@ -1,0 +1,461 @@
+{
+  "task": "iOS取证使用知识增量补充",
+  "date": "2026-10-04",
+  "requested_source": {
+    "url": "https://tqandjdc.github.io/2026/05/29/ios%E7%9F%A5%E8%AF%86%E7%82%B9/",
+    "status": "正文完整阅读",
+    "scope": "只整理取证使用相关操作主题；独立核对作者代码与官方说明"
+  },
+  "module": "Forensics / 手机取证 / iOS 取证",
+  "pages_added": 0,
+  "articles": [
+    "forensic-ios-forensics",
+    "forensic-ios-backup",
+    "forensic-ios-tools"
+  ],
+  "decisions": [
+    {
+      "theme": "提取层级、加密、Keychain、时间、Plist与哈希",
+      "action": "合并/去重",
+      "target": "现有原理02/04/05、备份05/07与工具01–07",
+      "reason": "原有条目已覆盖，不复制安装目录或通用转换示例"
+    },
+    {
+      "theme": "目录别名、Library层级和真实根前缀",
+      "action": "新增",
+      "target": "原理3.1",
+      "reason": "核对真实链接，逻辑路径去重，不跟随导出绝对链接读取分析机"
+    },
+    {
+      "theme": "应用容器身份",
+      "action": "修订/补充",
+      "target": "原理3.2、工具9.1",
+      "reason": "使用MCMMetadataIdentifier、compatibilityInfo；备份清单不是通用UUID索引，Documents拼写校正"
+    },
+    {
+      "theme": "SMS/iMessage与消息计数",
+      "action": "合并/修订",
+      "target": "原理07、备份8.1",
+      "reason": "同库按service辨别，handle外键关联、群聊参与者和附件去重分别处理"
+    },
+    {
+      "theme": "通话、联系人、日历、Safari、Notes、Photos、Wi-Fi",
+      "action": "修订/补充",
+      "target": "原理07",
+      "reason": "候选路径和实际schema核对，数据库和格式校正，不保证所有采集都有"
+    },
+    {
+      "theme": "日志与既有越狱/SSH/Shell材料",
+      "action": "新增/修订",
+      "target": "原理07/7.1",
+      "reason": "版本条件、rootful/rootless、状态与行为分开；配置或known_hosts不证明成功登录"
+    },
+    {
+      "theme": "SQLite只读检查与恢复",
+      "action": "合并/新增",
+      "target": "原理4.2跳转、工具9.2/9.3",
+      "reason": "重复检查命令归并；恢复使用新派生目录和失败即停，结果不等于完整已删除数据"
+    },
+    {
+      "theme": "目录星级、百分比、Windows类比与无条件工具目录",
+      "action": "不收录",
+      "target": null,
+      "reason": "不提供可核对的iOS使用结果或与目标操作无关"
+    },
+    {
+      "theme": "越狱后全可读、块复制自动解密和恢复保证",
+      "action": "不收录错误结论",
+      "target": "现有原理02与工具9.3明确边界",
+      "reason": "与Apple保护机制和SQLite恢复说明相矛盾"
+    }
+  ],
+  "new_source_count": 22,
+  "new_sources": [
+    {
+      "id": "web-ios-usage-7ada2ca0c7",
+      "url": "https://developer.apple.com/documentation/os/logging/",
+      "title": "iOS 使用知识核对 ",
+      "reviewedAt": "2026-10-04",
+      "articleIds": [
+        "forensic-ios-forensics"
+      ]
+    },
+    {
+      "id": "web-ios-usage-b0bb1c805a",
+      "url": "https://developer.apple.com/documentation/xcode/interpreting-the-json-format-of-a-crash-report",
+      "title": "iOS 使用知识核对 interpreting-the-json-format-of-a-crash-report",
+      "reviewedAt": "2026-10-04",
+      "articleIds": [
+        "forensic-ios-forensics"
+      ]
+    },
+    {
+      "id": "web-ios-usage-09ef9b1cbf",
+      "url": "https://github.com/abrignoni/iLEAPP/blob/cc17f322d9e510931b7f2688bc823ee3b2328c1d/scripts/artifacts/Ph001BasicAssetData.py",
+      "title": "iOS 使用知识核对 Ph001BasicAssetData.py",
+      "reviewedAt": "2026-10-04",
+      "articleIds": [
+        "forensic-ios-forensics"
+      ]
+    },
+    {
+      "id": "web-ios-usage-016f8c816d",
+      "url": "https://github.com/abrignoni/iLEAPP/blob/cc17f322d9e510931b7f2688bc823ee3b2328c1d/scripts/artifacts/addressBook.py",
+      "title": "iOS 使用知识核对 addressBook.py",
+      "reviewedAt": "2026-10-04",
+      "articleIds": [
+        "forensic-ios-forensics"
+      ]
+    },
+    {
+      "id": "web-ios-usage-3f3259a6ed",
+      "url": "https://github.com/abrignoni/iLEAPP/blob/cc17f322d9e510931b7f2688bc823ee3b2328c1d/scripts/artifacts/appGrouplisting.py",
+      "title": "iOS 使用知识核对 appGrouplisting.py",
+      "reviewedAt": "2026-10-04",
+      "articleIds": [
+        "forensic-ios-forensics"
+      ]
+    },
+    {
+      "id": "web-ios-usage-67ccde0137",
+      "url": "https://github.com/abrignoni/iLEAPP/blob/cc17f322d9e510931b7f2688bc823ee3b2328c1d/scripts/artifacts/appleWifiPlist.py",
+      "title": "iOS 使用知识核对 appleWifiPlist.py",
+      "reviewedAt": "2026-10-04",
+      "articleIds": [
+        "forensic-ios-forensics"
+      ]
+    },
+    {
+      "id": "web-ios-usage-8dec4223d1",
+      "url": "https://github.com/abrignoni/iLEAPP/blob/cc17f322d9e510931b7f2688bc823ee3b2328c1d/scripts/artifacts/applicationStateDB.py",
+      "title": "iOS 使用知识核对 applicationStateDB.py",
+      "reviewedAt": "2026-10-04",
+      "articleIds": [
+        "forensic-ios-forensics"
+      ]
+    },
+    {
+      "id": "web-ios-usage-899cad5fb8",
+      "url": "https://github.com/abrignoni/iLEAPP/blob/cc17f322d9e510931b7f2688bc823ee3b2328c1d/scripts/artifacts/calendarAll.py",
+      "title": "iOS 使用知识核对 calendarAll.py",
+      "reviewedAt": "2026-10-04",
+      "articleIds": [
+        "forensic-ios-forensics"
+      ]
+    },
+    {
+      "id": "web-ios-usage-01949cb94c",
+      "url": "https://github.com/abrignoni/iLEAPP/blob/cc17f322d9e510931b7f2688bc823ee3b2328c1d/scripts/artifacts/callHistory.py",
+      "title": "iOS 使用知识核对 callHistory.py",
+      "reviewedAt": "2026-10-04",
+      "articleIds": [
+        "forensic-ios-forensics"
+      ]
+    },
+    {
+      "id": "web-ios-usage-d0bf7cdb96",
+      "url": "https://github.com/abrignoni/iLEAPP/blob/cc17f322d9e510931b7f2688bc823ee3b2328c1d/scripts/artifacts/notes.py",
+      "title": "iOS 使用知识核对 notes.py",
+      "reviewedAt": "2026-10-04",
+      "articleIds": [
+        "forensic-ios-forensics"
+      ]
+    },
+    {
+      "id": "web-ios-usage-9880b65abc",
+      "url": "https://github.com/abrignoni/iLEAPP/blob/cc17f322d9e510931b7f2688bc823ee3b2328c1d/scripts/artifacts/safariBookmarks.py",
+      "title": "iOS 使用知识核对 safariBookmarks.py",
+      "reviewedAt": "2026-10-04",
+      "articleIds": [
+        "forensic-ios-forensics"
+      ]
+    },
+    {
+      "id": "web-ios-usage-6c7b8f2355",
+      "url": "https://github.com/abrignoni/iLEAPP/blob/cc17f322d9e510931b7f2688bc823ee3b2328c1d/scripts/artifacts/sms.py",
+      "title": "iOS 使用知识核对 sms.py",
+      "reviewedAt": "2026-10-04",
+      "articleIds": [
+        "forensic-ios-forensics"
+      ]
+    },
+    {
+      "id": "web-ios-usage-c6e748a3d6",
+      "url": "https://github.com/apple-oss-distributions/files/blob/main/Makefile",
+      "title": "iOS 使用知识核对 Makefile",
+      "reviewedAt": "2026-10-04",
+      "articleIds": [
+        "forensic-ios-forensics"
+      ]
+    },
+    {
+      "id": "web-ios-usage-262208cbbd",
+      "url": "https://github.com/apple-oss-distributions/files/blob/main/hierarchy.not_sim",
+      "title": "iOS 使用知识核对 hierarchy.not_sim",
+      "reviewedAt": "2026-10-04",
+      "articleIds": [
+        "forensic-ios-forensics"
+      ]
+    },
+    {
+      "id": "web-ios-usage-50614f659b",
+      "url": "https://github.com/openssh/openssh-portable/blob/master/sshconnect.c",
+      "title": "iOS 使用知识核对 sshconnect.c",
+      "reviewedAt": "2026-10-04",
+      "articleIds": [
+        "forensic-ios-forensics"
+      ]
+    },
+    {
+      "id": "web-ios-usage-44f73ffcb4",
+      "url": "https://man.openbsd.org/sshd_config",
+      "title": "iOS 使用知识核对 sshd_config",
+      "reviewedAt": "2026-10-04",
+      "articleIds": [
+        "forensic-ios-forensics"
+      ]
+    },
+    {
+      "id": "web-ios-usage-d2a1afda89",
+      "url": "https://theos.dev/docs/rootless",
+      "title": "iOS 使用知识核对 rootless",
+      "reviewedAt": "2026-10-04",
+      "articleIds": [
+        "forensic-ios-forensics"
+      ]
+    },
+    {
+      "id": "web-ios-usage-3445cee28c",
+      "url": "https://tqandjdc.github.io/2026/05/29/ios%E7%9F%A5%E8%AF%86%E7%82%B9/",
+      "title": "iOS 文件树取证操作主题",
+      "reviewedAt": "2026-10-04",
+      "articleIds": [
+        "forensic-ios-forensics"
+      ]
+    },
+    {
+      "id": "web-ios-usage-92da6b019b",
+      "url": "https://www.gnu.org/software/bash/manual/html_node/Bash-History-Facilities.html",
+      "title": "iOS 使用知识核对 Bash-History-Facilities.html",
+      "reviewedAt": "2026-10-04",
+      "articleIds": [
+        "forensic-ios-forensics"
+      ]
+    },
+    {
+      "id": "web-ios-usage-597cbf8ef4",
+      "url": "https://sqlite.org/cli.html",
+      "title": "iOS 使用知识核对 cli.html",
+      "reviewedAt": "2026-10-04",
+      "articleIds": [
+        "forensic-ios-tools"
+      ]
+    },
+    {
+      "id": "web-ios-usage-e5e5df9554",
+      "url": "https://sqlite.org/recovery.html",
+      "title": "iOS 使用知识核对 recovery.html",
+      "reviewedAt": "2026-10-04",
+      "articleIds": [
+        "forensic-ios-tools"
+      ]
+    },
+    {
+      "id": "web-ios-usage-1383e66695",
+      "url": "https://www.gnu.org/software/findutils/manual/html_node/find_html/Symbolic-Links.html",
+      "title": "iOS 使用知识核对 Symbolic-Links.html",
+      "reviewedAt": "2026-10-04",
+      "articleIds": [
+        "forensic-ios-tools"
+      ]
+    }
+  ],
+  "path_validation_commit": "cc17f322d9e510931b7f2688bc823ee3b2328c1d",
+  "source_hashes": {
+    "addressBook.py": "ca2b27f80e42f8fbc069a8df81a53ee49f61fe9e06d054289400af44a30380a5",
+    "appleWifiPlist.py": "19833c3db0719632b2e0b6e994578326edc6f82ee109be96a9605191a6f9e505",
+    "calendarAll.py": "b7a8cf175b3c1e2d8d836567df7f6bd3a23e0469841544e76887d07039b8b70b",
+    "callHistory.py": "0e1eb8f1bc2cdbd82e6d3a11e96a1b15a4e835c21d162069300fca77e94c96a5",
+    "notes.py": "e01a59a8cf9218c577066aa40d1b8e15dcc816f116933cd2d748889ae571a2c6",
+    "Ph001BasicAssetData.py": "0489e1c3f365a447a7922fbad35b62d0649279452bcce0ec838512857be38509",
+    "safariBookmarks.py": "df0927c2ef54fcb9663f5bf43bdec08ca5afacf210af943b835cc86f8b866efe",
+    "sms.py": "cdf5d7c31989b10b0093664aafea8e8dad2d889f004948b4c1472b4c8f134150"
+  },
+  "baseline": {
+    "total": 65,
+    "passed": 64,
+    "failed": 1,
+    "new_checks_against_before": {
+      "total": 4,
+      "failed": 4,
+      "errors": 0
+    }
+  },
+  "verification": [
+    {
+      "name": "python-tests",
+      "command": [
+        "C:\\Users\\23037\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+        "-X",
+        "utf8",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-v"
+      ],
+      "exit": 1,
+      "log": "D:\\winoptimizeDir\\Desktop\\Misc学习\\ctf-atlas\\.work\\ios-usage-supplement-20261004\\python-tests.txt"
+    },
+    {
+      "name": "ui-tests",
+      "command": [
+        "npm.cmd",
+        "run",
+        "test:ui"
+      ],
+      "exit": 0,
+      "log": "D:\\winoptimizeDir\\Desktop\\Misc学习\\ctf-atlas\\.work\\ios-usage-supplement-20261004\\ui-tests.txt"
+    },
+    {
+      "name": "check",
+      "command": [
+        "npm.cmd",
+        "run",
+        "check"
+      ],
+      "exit": 0,
+      "log": "D:\\winoptimizeDir\\Desktop\\Misc学习\\ctf-atlas\\.work\\ios-usage-supplement-20261004\\check.txt"
+    },
+    {
+      "name": "build",
+      "command": [
+        "npm.cmd",
+        "run",
+        "build"
+      ],
+      "exit": 0,
+      "log": "D:\\winoptimizeDir\\Desktop\\Misc学习\\ctf-atlas\\.work\\ios-usage-supplement-20261004\\build.txt"
+    },
+    {
+      "name": "site-audit",
+      "command": [
+        "C:\\Users\\23037\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+        "-X",
+        "utf8",
+        "scripts/audit_site.py"
+      ],
+      "exit": 0,
+      "log": "D:\\winoptimizeDir\\Desktop\\Misc学习\\ctf-atlas\\.work\\ios-usage-supplement-20261004\\site-audit.txt"
+    },
+    {
+      "name": "web-audit",
+      "command": [
+        "C:\\Users\\23037\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+        "-X",
+        "utf8",
+        "scripts/audit_forensics_web.py"
+      ],
+      "exit": 0,
+      "log": "D:\\winoptimizeDir\\Desktop\\Misc学习\\ctf-atlas\\.work\\ios-usage-supplement-20261004\\web-audit.txt"
+    }
+  ],
+  "final_tests": {
+    "total": 69,
+    "passed": 68,
+    "failed": 1,
+    "ios_total": 9,
+    "ios_passed": 9,
+    "ui_passed": 5
+  },
+  "existing_failure": {
+    "test": "test_every_catalog_location_exists_and_excludes_project_metadata",
+    "missing_path": "D:\\CTF_MISC_Tools\\Forensics\\Inseyets PA",
+    "present_before_and_after": true
+  },
+  "preserved_contest_sections": [
+    {
+      "section": 8,
+      "preserved": true
+    },
+    {
+      "section": 9,
+      "preserved": true
+    },
+    {
+      "section": 10,
+      "preserved": true
+    },
+    {
+      "section": 11,
+      "preserved": true
+    },
+    {
+      "section": 12,
+      "preserved": true
+    }
+  ],
+  "reimport": {
+    "exit": 0,
+    "scan_count": 166,
+    "inventory_preserved": true,
+    "production_changed": []
+  },
+  "browser": {
+    "core": {
+      "chapters": 14,
+      "hasDedupLink": true,
+      "hasNewDirectory": true,
+      "hasNewPhotoLimit": true,
+      "heading": "iOS 取证：原理、考点与实战流程",
+      "matrixRows": 15
+    },
+    "tools": {
+      "chapters": 10,
+      "hasFindMode": true,
+      "hasOfflineWorkflow": true,
+      "hasRecoveryStop": true,
+      "heading": "iOS 工具与实战：iLEAPP 与 Plist_Editor"
+    },
+    "backup": {
+      "chapters": 10,
+      "hasDistinctCount": true,
+      "hasMessageJoin": true,
+      "hasOriginalDFU": true,
+      "hasOriginalManifest": true,
+      "heading": "iOS 备份与系统痕迹分析"
+    },
+    "search": {
+      "filters": [
+        "Forensics",
+        "手机取证",
+        "知识点",
+        "不限 WP 状态"
+      ],
+      "query": "known_hosts",
+      "results": [
+        {
+          "href": "/knowledge/forensic-ios-forensics/",
+          "text": "01 / 知识点 / Forensics / 手机取证\niOS 取证：原理、考点与实战流程\n\n.wifi-networks.plist.backup、com.apple.wifi.known-networks.plist，记录实际全路径. 区分版本结构，"
+        }
+      ]
+    }
+  },
+  "counts": {
+    "knowledge": 174,
+    "pages_built": 333,
+    "search_pages": 324,
+    "audited_local_links": 7524
+  },
+  "boundaries": [
+    "查询测试为合成SQLite结构，不是真实比赛题或设备采集",
+    "未运行损坏库.recover，正文已标明",
+    "未改变原设备或启动目标SSH/插件",
+    "旧版本帮助核查不等于新增所有模块已执行验证"
+  ],
+  "independent_review": [
+    "路径研究员复核定位矩阵和消息关联，未发现矛盾",
+    "状态研究员发现恢复目录复用问题，已改为新目录及导入失败即停；建议的SQLite命令去重已落实"
+  ]
+}

@@ -1,0 +1,612 @@
+{
+  "date": "2026-10-03",
+  "scope": "Forensics / 虚拟币取证 / 基础与证据",
+  "pages": [
+    "forensic-crypto-foundations",
+    "fic-case-12"
+  ],
+  "addedCharacters": 11338,
+  "newSections": [
+    {
+      "id": "001-区块链账本与状态先确定对象是什么",
+      "text": "00.1 区块链、账本与状态：先确定对象是什么"
+    },
+    {
+      "id": "002-私钥公钥数字签名地址与keystore",
+      "text": "00.2 私钥、公钥、数字签名、地址与keystore"
+    },
+    {
+      "id": "003-熵助记词种子与恢复口令",
+      "text": "00.3 熵、助记词、种子与恢复口令"
+    },
+    {
+      "id": "004-hd钱包派生路径与扩展密钥",
+      "text": "00.4 HD钱包、派生路径与扩展密钥"
+    },
+    {
+      "id": "005-钱包类型账户与控制权",
+      "text": "00.5 钱包类型、账户与控制权"
+    },
+    {
+      "id": "006-智能合约eoa合约账户与dapp",
+      "text": "00.6 智能合约、EOA、合约账户与DApp"
+    },
+    {
+      "id": "007-交易调用gas与链状态",
+      "text": "00.7 交易、调用、gas与链状态"
+    },
+    {
+      "id": "008-原生币代币nft与链外数据",
+      "text": "00.8 原生币、代币、NFT与链外数据"
+    }
+  ],
+  "registration": {
+    "date": "2026-10-03",
+    "prefixCharacterCount": 11338,
+    "sections": [
+      "00.1",
+      "00.2",
+      "00.3",
+      "00.4",
+      "00.5",
+      "00.6",
+      "00.7",
+      "00.8"
+    ],
+    "evidenceRecords": 29,
+    "uniqueMappedSources": 27,
+    "newRegistrySourceIds": [
+      "web-crypto-concept-70e60310e780",
+      "web-crypto-concept-5462698695c0",
+      "web-crypto-concept-04d04db044d5",
+      "web-crypto-concept-38ff15e10892",
+      "web-crypto-concept-8cf13ef1a77b",
+      "web-crypto-concept-e7a8549d1bba",
+      "web-crypto-concept-4f58c83cb64b",
+      "web-crypto-concept-d6e7c0da2a47",
+      "web-crypto-concept-36335a0d808c",
+      "web-crypto-concept-c49f0eee57af",
+      "web-crypto-concept-30fddc2a4799",
+      "web-crypto-concept-c20fca207add",
+      "web-crypto-concept-84f0a90c3dc3",
+      "web-crypto-concept-3f82b103d806"
+    ],
+    "webSourceCount": 176,
+    "sources": [
+      {
+        "registryId": "web-crypto-research-3543ec2c909c",
+        "evidenceFile": "key-concepts-sources.json",
+        "url": "https://nvlpubs.nist.gov/nistpubs/ir/2018/NIST.IR.8202.pdf",
+        "title": "NISTIR 8202 Blockchain Technology Overview",
+        "reviewedAt": "2026-10-03",
+        "readScope": "Abstract, Executive Summary, section3.3 asymmetrickey cryptography; scope of ledger/block/consensus concepts",
+        "usedIn": [
+          "00.1",
+          "00.2"
+        ],
+        "access": "public PDF text",
+        "limits": "2018 conceptual report. Did not adopt the erroneous private-key encryption analogy in section3.3 or absolute descriptions of every transaction/signature. Signature explanation checked against actual BIP340 algorithm."
+      },
+      {
+        "registryId": "web-crypto-concept-70e60310e780",
+        "evidenceFile": "key-concepts-sources.json",
+        "url": "https://github.com/bitcoin/bips/blob/master/bip-0340.mediawiki",
+        "title": "BIP340 Schnorr Signatures for secp256k1",
+        "reviewedAt": "2026-10-03",
+        "readScope": "Key encodings, implicitY, Public Key Generation and signature Verification",
+        "usedIn": [
+          "00.2"
+        ],
+        "access": "public rendered specification",
+        "limits": "Master document selected sections; no real key or signature generated; public key encodings differ by protocol."
+      },
+      {
+        "registryId": "web-crypto-ethereum-accounts",
+        "evidenceFile": "key-concepts-sources.json",
+        "url": "https://ethereum.org/en/developers/docs/accounts/",
+        "title": "Ethereum accounts",
+        "reviewedAt": "2026-10-03",
+        "readScope": "EOA keypairs, account creation, Keccak-based20-byte addresses, contract creation address distinction",
+        "usedIn": [
+          "00.2"
+        ],
+        "access": "public official documentation",
+        "limits": "Do not generalize simplified EOA no-code statement to EIP7702. No CLI examples used."
+      },
+      {
+        "registryId": "web-crypto-bitcoin-transactions",
+        "evidenceFile": "key-concepts-sources.json",
+        "url": "https://developer.bitcoin.org/devguide/transactions.html",
+        "title": "Bitcoin transactions and P2PKH/P2SH conditions",
+        "reviewedAt": "2026-10-03",
+        "readScope": "P2PKH keypair/address/output/signature distinction and P2SH explanation",
+        "usedIn": [
+          "00.2"
+        ],
+        "access": "public technical guide",
+        "limits": "Contains historical Core0.9/P2PKH-dominance description not adopted as current scope; contemporary x-only form checked separately."
+      },
+      {
+        "registryId": "web-crypto-web3-storage",
+        "evidenceFile": "key-concepts-sources.json",
+        "url": "https://ethereum.org/en/developers/docs/data-structures-and-encoding/web3-secret-storage/",
+        "title": "Web3 Secret Storage V3 definition",
+        "reviewedAt": "2026-10-03",
+        "readScope": "V3 Definition, password/KDF fields, MAC verification, cipher parameters",
+        "usedIn": [
+          "00.2"
+        ],
+        "access": "public official format definition",
+        "limits": "No web3.js/recognizer/API/CLI usage adopted; no real secret, keystore or decryption tested."
+      },
+      {
+        "registryId": "web-crypto-research-ef670f5fab3d",
+        "evidenceFile": "wallet-concepts-sources.json",
+        "url": "https://github.com/bitcoin/bips/blob/master/bip-0039.mediawiki",
+        "title": "BIP39: Mnemonic code for generating deterministic keys",
+        "reviewedAt": "2026-10-03",
+        "readScope": "Abstract; Motivation; Generating the mnemonic; Wordlist; From mnemonic to seed; Shortcomings; Related Work. ENT 128-256, ENT/32 checksum, 11-bit indices, 2048-word list, legal word-count table, PBKDF2-HMAC-SHA512 2048 iterations/512-bit seed, UTF-8 NFKD, empty/nonempty passphrase, translation and checksum limits.",
+        "usedIn": [
+          "00.3"
+        ],
+        "access": "web open, public rendered primary specification text; lines 212-300",
+        "limits": "No real mnemonic or passphrase used; no vectors executed in this subtask. Algorithm descriptions checked, implementation interoperability not tested. Existing registry association web-crypto-research-ef670f5fab3d reused for provenance only, not modified."
+      },
+      {
+        "registryId": "web-crypto-research-c613834a37ca",
+        "evidenceFile": "wallet-concepts-sources.json",
+        "url": "https://github.com/bitcoin/bips/blob/master/bip-0032.mediawiki",
+        "title": "BIP32: Hierarchical Deterministic Wallets",
+        "reviewedAt": "2026-10-03",
+        "readScope": "Abstract; Extended keys; CKDpriv and CKDpub; The key tree; Key identifiers; Serialization format; Master key generation; Compatibility; Security and Implications. Read 32-byte chain code, public derivation boundary, xpub/xprv node scope, metadata/fingerprint limits, parent xpub plus non-hardened descendant private-key leakage warning.",
+        "usedIn": [
+          "00.4",
+          "00.5"
+        ],
+        "access": "web open, public rendered primary specification text; lines 239-392",
+        "limits": "No actual extended key displayed or derived. Child-key arithmetic is schematic and only explains the specified leakage boundary. Existing registry association web-crypto-research-c613834a37ca reused for provenance only, not modified."
+      },
+      {
+        "registryId": "web-crypto-concept-5462698695c0",
+        "evidenceFile": "wallet-concepts-sources.json",
+        "url": "https://raw.githubusercontent.com/bitcoin/bips/master/bip-0044.mediawiki",
+        "title": "BIP44: Multi-Account Hierarchy for Deterministic Wallets",
+        "reviewedAt": "2026-10-03",
+        "readScope": "Path levels, Purpose, Coin type, Account, Change, Index, Account discovery, Address gap limit, Bitcoin mainnet examples. Path roles and apostrophe notation; account/index begin at zero; history rather than current balance; 20-unused-address discovery rule as this specification's rule, not all wallet products.",
+        "usedIn": [
+          "00.4",
+          "00.5"
+        ],
+        "access": "web open, public raw primary specification; GitHub rendered URL first returned Internal Error, raw official repository file read successfully",
+        "limits": "BIP44 is a path/structure convention, not a claim that all products implement it or that every backup auto-discovers every account. No real wallet scan run."
+      },
+      {
+        "registryId": "web-crypto-concept-04d04db044d5",
+        "evidenceFile": "wallet-concepts-sources.json",
+        "url": "https://github.com/satoshilabs/slips/blob/master/slip-0039.md",
+        "title": "SLIP39: Shamir's Secret-Sharing for Mnemonic Codes",
+        "reviewedAt": "2026-10-03",
+        "readScope": "Abstract; Shamir's secret-sharing; Format of the share mnemonic; relevant Compatibility with BIP-0039 paragraphs. Reviewed different backup/share mechanism, 1024-word 10-bit format, threshold reconstruction, distinction from slicing a BIP39 sentence; not used to prescribe recovery operations.",
+        "usedIn": [
+          "00.3",
+          "00.5"
+        ],
+        "access": "web open/find, public rendered primary specification; selected lines 232-291, 536-548",
+        "limits": "Only conceptual non-universality and share/reconstruction distinction used. No SLIP39 recovery, checksum implementation or product compatibility test performed."
+      },
+      {
+        "registryId": "web-crypto-concept-38ff15e10892",
+        "evidenceFile": "wallet-concepts-sources.json",
+        "url": "https://developer.bitcoin.org/devguide/wallets.html",
+        "title": "Bitcoin Developer Guide: Wallets",
+        "reviewedAt": "2026-10-03",
+        "readScope": "Introductions; Wallet Programs; Signing-Only Wallets; Offline Wallets; Hardware Wallets. Reviewed separable public-material distribution, signing and network broadcasting, watching-only workflow and hardware communication with networked device.",
+        "usedIn": [
+          "00.5"
+        ],
+        "access": "web open, public project documentation; lines 36-101",
+        "limits": "The page contains dated product-adoption and wallet-format statements; those were not used. Conceptual role separation used only; no CLI/API syntax adopted or hardware security guarantee made."
+      },
+      {
+        "registryId": "web-crypto-concept-8cf13ef1a77b",
+        "evidenceFile": "wallet-concepts-sources.json",
+        "url": "https://ethereum.org/wallets/",
+        "title": "Ethereum wallets: Buy, Store and Send crypto",
+        "reviewedAt": "2026-10-03",
+        "readScope": "What's an Ethereum wallet; Wallets, accounts, keys and addresses; relevant centralized-exchange custody passage. Wallet as application/interface, multiple accounts in one application, exchange custody distinct from username/password access.",
+        "usedIn": [
+          "00.5"
+        ],
+        "access": "web open/find; official project documentation redirected from /en/wallets/ to /wallets/; lines 75-112",
+        "limits": "Simplified identity, absolute transaction irreversibility and only-recovery phrasing on the page were not adopted. Does not independently establish custody classification for a specific MPC product."
+      },
+      {
+        "registryId": "web-crypto-ethereum-accounts",
+        "evidenceFile": "wallet-concepts-sources.json",
+        "url": "https://ethereum.org/developers/docs/accounts/",
+        "title": "Ethereum accounts",
+        "reviewedAt": "2026-10-03",
+        "readScope": "Account types; Key differences; Externally-owned accounts and key pairs; A note on wallets. Wallet/account distinction and traditional contract-account authorization by code without a direct private key for the contract address.",
+        "usedIn": [
+          "00.5"
+        ],
+        "access": "web open/find; official project documentation redirected from /en/developers/docs/accounts/; selected lines 281-322, 377-379",
+        "limits": "No account creation tool syntax used. Page's simplified no-code EOA statements were not generalized because delegated-code accounts require network and historical rules. No live contract or account checked."
+      },
+      {
+        "registryId": "web-crypto-concept-e7a8549d1bba",
+        "evidenceFile": "wallet-concepts-sources.json",
+        "url": "https://nvlpubs.nist.gov/nistpubs/ir/2019/NIST.IR.8214.pdf",
+        "title": "NISTIR 8214: Threshold Schemes for Cryptographic Primitives",
+        "reviewedAt": "2026-10-03",
+        "readScope": "Executive summary, PDF page 6 (printed iv), lines 117-136; Section 3.1.4, PDF page 22 (printed 13), lines 715-743. Secret sharing versus threshold computation without recombining input key; some threshold schemes output a signature indistinguishable from non-threshold signing.",
+        "usedIn": [
+          "00.5"
+        ],
+        "access": "web open/find, primary government final report text extraction",
+        "limits": "Conceptual threshold-signing facts only. No MPC wallet product, custody claim, scheme implementation, security certification or current standardization status asserted; no PDF layout/table/figure claims relied upon."
+      },
+      {
+        "registryId": "web-crypto-concept-4f58c83cb64b",
+        "evidenceFile": "wallet-concepts-sources.json",
+        "url": "https://csrc.nist.gov/projects/threshold-cryptography",
+        "title": "NIST Multi-Party Threshold Cryptography Project",
+        "reviewedAt": "2026-10-03",
+        "readScope": "Overview lines 69-71 and published-report links lines 89-96; confirmed secure MPC-based threshold cryptography covers signatures and found the final NISTIR 8214 report.",
+        "usedIn": [
+          "00.5"
+        ],
+        "access": "web open, primary government project overview",
+        "limits": "Report discovery and conceptual scope only. No current draft/call treated as wallet implementation standard or validation of a particular product."
+      },
+      {
+        "registryId": "web-crypto-concept-d6e7c0da2a47",
+        "evidenceFile": "wallet-concepts-sources.json",
+        "url": "https://trezor.io/learn/basics/what-is-a-hardware-wallet",
+        "title": "What is a hardware wallet?",
+        "reviewedAt": "2026-10-03",
+        "readScope": "Hardware wallet basics and How do hardware wallets work, selected lines 69-85. Device receives transaction details, signs inside device and returns signature for network broadcast; confirms host-device connection is distinct from raw-secret transfer.",
+        "usedIn": [
+          "00.5"
+        ],
+        "access": "web open; primary manufacturer documentation redirected from /learn/a/what-is-a-hardware-wallet",
+        "limits": "Vendor-specific workflow is corroboration only. Marketing absolutes such as hardware wallets never connect to internet, private key safety on any compromised host, and describing public-key generation as encryption were not adopted. No physical device or firmware tested."
+      },
+      {
+        "registryId": "web-crypto-concept-36335a0d808c",
+        "evidenceFile": "contract-concepts-sources.json",
+        "url": "https://ethereum.org/developers/docs/smart-contracts/",
+        "title": "Ethereum: Introduction to smart contracts",
+        "reviewedAt": "2026-10-03",
+        "usedIn": [
+          "00.6"
+        ],
+        "readScope": "What is a smart contract, Permissionless, Composability, Limitations: code/state at address, deployment as transaction, invocation and off-chain data boundary",
+        "access": "current public primary text; Geth additionally queried through Context7",
+        "limits": "Did not adopt absolutes about user control, immutable behavior, contract size or universally majority-based multisig."
+      },
+      {
+        "registryId": "web-crypto-ethereum-accounts",
+        "evidenceFile": "contract-concepts-sources.json",
+        "url": "https://ethereum.org/developers/docs/accounts/",
+        "title": "Ethereum accounts",
+        "reviewedAt": "2026-10-03",
+        "usedIn": [
+          "00.6"
+        ],
+        "readScope": "Account types, fields, keys and wallets: address/account/interface distinction, traditional contract account versus signing account",
+        "access": "current public primary text; Geth additionally queried through Context7",
+        "limits": "Historical no-code EOA simplification checked against EIP7702; no live account verified."
+      },
+      {
+        "registryId": "web-crypto-research-e925009bccf3",
+        "evidenceFile": "contract-concepts-sources.json",
+        "url": "https://eips.ethereum.org/EIPS/eip-7702",
+        "title": "EIP7702: Set Code for EOAs",
+        "reviewedAt": "2026-10-03",
+        "usedIn": [
+          "00.6",
+          "00.7"
+        ],
+        "readScope": "Abstract; specification Behavior and Transaction origination; lines30-120: persistent delegated code, authority nonce, failed execution does not roll back processed delegation",
+        "access": "current public primary text; Geth additionally queried through Context7",
+        "limits": "Only applicable to networks and historical protocol rules supporting this transaction type. No authorization signed or broadcast."
+      },
+      {
+        "registryId": "web-crypto-concept-c49f0eee57af",
+        "evidenceFile": "contract-concepts-sources.json",
+        "url": "https://ethereum.org/developers/docs/dapps/",
+        "title": "Ethereum: Technical introduction to dapps",
+        "reviewedAt": "2026-10-03",
+        "usedIn": [
+          "00.6"
+        ],
+        "readScope": "Definition and On smart contracts, lines281-297: application/frontend/contract roles",
+        "access": "current public primary text; Geth additionally queried through Context7",
+        "limits": "Did not adopt claims that all contracts cannot change behavior, all frontends are decentralized, environment never matters or DApps have guaranteed uptime."
+      },
+      {
+        "registryId": "web-crypto-research-d9e2a740147d",
+        "evidenceFile": "contract-concepts-sources.json",
+        "url": "https://eips.ethereum.org/EIPS/eip-1967",
+        "title": "ERC1967: Proxy Storage Slots",
+        "reviewedAt": "2026-10-03",
+        "usedIn": [
+          "00.6"
+        ],
+        "readScope": "Abstract/Simple Summary and proxy reference-description paragraphs: implementation address and upgradeable delegation",
+        "access": "current public primary text; Geth additionally queried through Context7",
+        "limits": "Conceptual corroboration only; no current library code copied, proxy storage read or deployed code tested."
+      },
+      {
+        "registryId": "web-crypto-research-0e847c918b5d",
+        "evidenceFile": "contract-concepts-sources.json",
+        "url": "https://ethereum.org/developers/docs/transactions/",
+        "title": "Ethereum transactions",
+        "reviewedAt": "2026-10-03",
+        "usedIn": [
+          "00.7"
+        ],
+        "readScope": "Transaction fields, lifecycle, gas and contract interaction: request versus inclusion; view/pure simulation versus transaction-path gas",
+        "access": "current public primary text; Geth additionally queried through Context7",
+        "limits": "Did not equate block inclusion with successful execution, assume universally fixed gas, or adopt simplified fee-bound formulas."
+      },
+      {
+        "registryId": "web-crypto-ethereum-gas",
+        "evidenceFile": "contract-concepts-sources.json",
+        "url": "https://ethereum.org/developers/docs/gas/",
+        "title": "Ethereum gas and fees",
+        "reviewedAt": "2026-10-03",
+        "usedIn": [
+          "00.7",
+          "00.8"
+        ],
+        "readScope": "What is gas, lines286-304: resource unit, actual used gas times unit price, fee for failed transactions, native ETH versus gwei",
+        "access": "current public primary text; Geth additionally queried through Context7",
+        "limits": "Execution fee formula explicitly separated from blob and L2 other fee components; no fee or price recommendation."
+      },
+      {
+        "registryId": "web-crypto-concept-30fddc2a4799",
+        "evidenceFile": "contract-concepts-sources.json",
+        "url": "https://geth.ethereum.org/docs/interacting-with-geth/rpc/ns-eth",
+        "title": "Geth eth namespace: eth_call",
+        "reviewedAt": "2026-10-03",
+        "usedIn": [
+          "00.7"
+        ],
+        "readScope": "Context7 resolve Geth -> /websites/geth_ethereum, query eth_call only; official page eth_call and ephemeral state/block overrides; root direct primary-page read lines533-552",
+        "access": "current public primary text; Geth additionally queried through Context7",
+        "limits": "Conceptual simulation distinction only; no request syntax, CLI flags, live node queries, real transactions or simulation runs added. ethereum.org JSONRPC route was inaccessible; not claimed read. Context7 mandatory-block-selector wording, deprecated Rinkeby example and fixed historical retention statement were not adopted."
+      },
+      {
+        "registryId": "web-crypto-erc20",
+        "evidenceFile": "contract-concepts-sources.json",
+        "url": "https://eips.ethereum.org/EIPS/eip-20",
+        "title": "ERC20: Token Standard",
+        "reviewedAt": "2026-10-03",
+        "usedIn": [
+          "00.8"
+        ],
+        "readScope": "Abstract; optional name/symbol/decimals; balance, transfer and authorization meanings, lines25-102",
+        "access": "current public primary text; Geth additionally queried through Context7",
+        "limits": "Historical Solidity signatures not adopted as implementation guidance; decimals is optional and asset identity is not name/symbol."
+      },
+      {
+        "registryId": "web-crypto-research-b08b9aae11ea",
+        "evidenceFile": "contract-concepts-sources.json",
+        "url": "https://eips.ethereum.org/EIPS/eip-721",
+        "title": "ERC721: Non-Fungible Token Standard",
+        "reviewedAt": "2026-10-03",
+        "usedIn": [
+          "00.8"
+        ],
+        "readScope": "Abstract; unique token identifiers; ownership interface; optional metadata extension and tokenURI JSON image resource, lines177-215",
+        "access": "current public primary text; Geth additionally queried through Context7",
+        "limits": "No claim that metadata/file is always on-chain, permanently immutable or sufficient to establish copyright."
+      },
+      {
+        "registryId": "web-crypto-research-a8902fec2ff6",
+        "evidenceFile": "contract-concepts-sources.json",
+        "url": "https://eips.ethereum.org/EIPS/eip-1155",
+        "title": "ERC1155: Multi Token Standard",
+        "reviewedAt": "2026-10-03",
+        "usedIn": [
+          "00.8"
+        ],
+        "readScope": "Simple Summary/Abstract and token ID/value distinctions, lines37-69",
+        "access": "current public primary text; Geth additionally queried through Context7",
+        "limits": "One contract/id identity separated from quantities; no interface implementation or ERC165-based authenticity assertion."
+      },
+      {
+        "registryId": "web-crypto-concept-c20fca207add",
+        "evidenceFile": "contract-concepts-sources.json",
+        "url": "https://ethereum.org/developers/docs/oracles/",
+        "title": "Ethereum oracles",
+        "reviewedAt": "2026-10-03",
+        "usedIn": [
+          "00.8"
+        ],
+        "readScope": "Introduction, What is a blockchain oracle, Why needed, oracle problem, lines281-318: off-chain feeds and correctness/availability",
+        "access": "current public primary text; Geth additionally queried through Context7",
+        "limits": "Consensus acceptance of program input is not proof of real-world truth; no particular oracle product evaluated."
+      },
+      {
+        "registryId": "web-crypto-concept-84f0a90c3dc3",
+        "evidenceFile": "contract-concepts-sources.json",
+        "url": "https://docs.ipfs.tech/concepts/content-addressing/",
+        "title": "IPFS: Content Identifiers",
+        "reviewedAt": "2026-10-03",
+        "usedIn": [
+          "00.8"
+        ],
+        "readScope": "CID structure, hash/codec/multibase, CIDs are not file hashes, lines49-80",
+        "access": "current public primary text; Geth additionally queried through Context7",
+        "limits": "No CLI syntax adopted; CID verification not claimed performed. Integrity is distinct from availability and rights."
+      },
+      {
+        "registryId": "web-crypto-concept-3f82b103d806",
+        "evidenceFile": "contract-concepts-sources.json",
+        "url": "https://docs.ipfs.tech/concepts/persistence/",
+        "title": "IPFS: Persistence, permanence and pinning",
+        "reviewedAt": "2026-10-03",
+        "usedIn": [
+          "00.8"
+        ],
+        "readScope": "Persistence versus permanence, garbage collection, pinning and long-term storage, lines48-86",
+        "access": "current public primary text; Geth additionally queried through Context7",
+        "limits": "Pinning retention does not guarantee perpetual service; no pin provider recommendation or availability promise."
+      }
+    ],
+    "preservation": "Existing foundation body after first ##01 and entry funds body after first ##01 retained exactly as UTF8 text; baseline covers 341 prior files."
+  },
+  "preservation": {
+    "baselineFiles": 341,
+    "changed": [
+      "README.md",
+      "src/content/knowledge/fic-case-12.md",
+      "src/content/knowledge/forensic-crypto-foundations.md",
+      "src/content-curation/fic-case-12.md",
+      "src/content-curation/forensic-crypto-foundations.md",
+      "src/data/forensics-supplements.json"
+    ],
+    "unchanged": 335,
+    "originalFoundationBytesPreserved": true,
+    "originalEntryBodyBytesPreserved": true,
+    "classificationsAndLinksPreserved": true,
+    "newSectionCount": 8,
+    "knowledgePages": 170,
+    "curationPages": 71,
+    "newWebSources": 14
+  },
+  "reimport": {
+    "verifiedFiles": 341,
+    "changed": [],
+    "added": [],
+    "fullImporterUsed": true,
+    "externalInventorySideEffectRestored": true,
+    "generatorModified": false,
+    "allContentAndAssociationsStable": true
+  },
+  "validation": {
+    "dataTests": {
+      "total": 57,
+      "passed": 56,
+      "failed": 1,
+      "existingFailure": {
+        "test": "test_every_catalog_location_exists_and_excludes_project_metadata",
+        "unchangedBaselineInventory": true,
+        "missingPaths": [
+          "D:\\CTF_MISC_Tools\\Forensics\\Inseyets PA"
+        ]
+      }
+    },
+    "finalContentCurationTest": "passed",
+    "uiTests": {
+      "total": 5,
+      "passed": 5
+    },
+    "astroCheck": {
+      "files": 18,
+      "errors": 0,
+      "warnings": 0,
+      "hints": 0
+    },
+    "build": {
+      "pages": 329,
+      "indexed": 320
+    },
+    "localLinkAudit": {
+      "links": 7368,
+      "errors": 0
+    },
+    "cachedWebCoverageErrors": []
+  },
+  "browser": {
+    "foundation": {
+      "boldRendering": true,
+      "conceptHeadings": [
+        {
+          "id": "001-区块链账本与状态先确定对象是什么",
+          "text": "00.1 区块链、账本与状态：先确定对象是什么"
+        },
+        {
+          "id": "002-私钥公钥数字签名地址与keystore",
+          "text": "00.2 私钥、公钥、数字签名、地址与keystore"
+        },
+        {
+          "id": "003-熵助记词种子与恢复口令",
+          "text": "00.3 熵、助记词、种子与恢复口令"
+        },
+        {
+          "id": "004-hd钱包派生路径与扩展密钥",
+          "text": "00.4 HD钱包、派生路径与扩展密钥"
+        },
+        {
+          "id": "005-钱包类型账户与控制权",
+          "text": "00.5 钱包类型、账户与控制权"
+        },
+        {
+          "id": "006-智能合约eoa合约账户与dapp",
+          "text": "00.6 智能合约、EOA、合约账户与DApp"
+        },
+        {
+          "id": "007-交易调用gas与链状态",
+          "text": "00.7 交易、调用、gas与链状态"
+        },
+        {
+          "id": "008-原生币代币nft与链外数据",
+          "text": "00.8 原生币、代币、NFT与链外数据"
+        }
+      ],
+      "h2": [
+        "区块链核心概念",
+        "01 先确定题目问的是哪一层事实",
+        "02 理论：账本、资产与钱包",
+        "03 第一轮取证顺序与最小记录",
+        "04 实战：从二维码和聊天定位交易",
+        "05 实战：问题驱动的考点表",
+        "06 结果与验证边界"
+      ],
+      "title": "区块链与虚拟币取证基础：结构、共识与证据流程",
+      "tocLink": "#区块链核心概念"
+    },
+    "searches": [
+      {
+        "query": "助记词",
+        "filters": [
+          "Forensics",
+          "虚拟币取证",
+          "知识点"
+        ],
+        "resultCount": 7,
+        "foundationFound": true,
+        "newSectionExcerptVisible": true
+      },
+      {
+        "query": "预言机",
+        "filters": [
+          "Forensics",
+          "虚拟币取证",
+          "知识点"
+        ],
+        "resultCount": 1,
+        "foundationFound": true,
+        "newSectionExcerptVisible": true
+      }
+    ],
+    "entry": {
+      "foundationLink": [
+        "基础概念：助记词、密钥、钱包、智能合约；区块链原理与证据流程"
+      ],
+      "intro": "Forensics\n/\n虚拟币取证\n/\n基础与证据\n虚拟货币与资金流\n\n从助记词、密钥、钱包与合约概念进入区块链原理，再串联设备、链上交易和平台资金流的证据。\n\n基础与证据\n专题导航\n\n虚拟币取证先理清助记词、密钥、钱包、账户与智能合约，再掌握区块、共识和账本模型，从设备线索核对钱包与网络，分析链上有效移动、平台记录和资金关系。本页保留聊天、配置、截图、本地账本与笔记历史的资金流核对流程；下列六篇按理论、操作与场景展开。\n\n阅读方向\t知识点与考点\n基础与证据\t基础概念：助记词、密钥、钱包、智能合约；区块链原理与证据流程\n钱包与控制权\t本地痕迹、派生条件、助记词载体与钱包类型\n链上交易\tBitcoin：UTXO、手续费、找零与只读复核；EVM/TRON：回执、代币事件、调用与分页\n资金追踪与实战\t平台账本、交易图、归因模型、跨链与归属边界；离线账本、区块头与 Merkle 验证、场景考点与报告复核\n01 把地址、交易与账本分开验证\n\n资金流取证需要先确认记录的网络、资产、对象和时间范围，再讨论方向与总额。聊天里出现地址支持交流内容，截图支持当时保存的界面图像，本地账本支持应用或人员登记的流水；实际链上交易还需对应网络的交易结构与状态核对。地址存在、交易成功、地址控制权和自然人身份是不同层次的结论。\n\n01.1 常见载体与提取字段\n载体\t可以提取\t交叉材料\n聊天记录\t地址、转账约定、金额、交易哈希、双方账号与时间\t聊天数据库记录 ID、目标网络交易及账户关联\n转账截图\t界面显示的状态",
+      "title": "虚拟货币与资金流"
+    }
+  },
+  "screenshot": {
+    "path": ".work/crypto-concepts-20261003/concepts-page.jpg",
+    "format": "JPEG",
+    "sha256": "d00b6869d0c811f3459f6840eb5e5144c3913fb928486afdb94b91bff6688fa0"
+  },
+  "reviewMethod": "Wallet and contract draft assistance; root completed protocol, preservation and browser review. Independent editor agent did not complete; no independent-editor pass asserted.",
+  "verificationBoundary": "Primary documentation and website checks; constructed scenarios. No real mnemonic/key restoration, device signing, live chain/node requests, transaction submission, contract execution or competition exhibit replay."
+}

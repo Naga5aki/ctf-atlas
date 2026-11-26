@@ -1,0 +1,120 @@
+{
+  "kind": "constructed parser exercise",
+  "created": "2026-10-03",
+  "files": [
+    {
+      "name": "sample.mft",
+      "bytes": 46080,
+      "sha256": "c51ed3e9ec955fab74db1a33d818b523ca175f2ceca2fa951252b4382f1a4e47"
+    },
+    {
+      "name": "sample.usn",
+      "bytes": 240,
+      "sha256": "36cbe4b6f37eb005fa41e88ea602e23e2005684ae8babac85c4d68023b04ed40"
+    }
+  ],
+  "verified_parser_version": "MFTECmd 2026.5.0",
+  "identified_by": "FILE signature or USN V2 record structure, not file suffix",
+  "mft_record_size_bytes": 1024,
+  "mft_slots": 45,
+  "mft_valid_record_slots": [
+    0,
+    5,
+    24,
+    42,
+    43,
+    44
+  ],
+  "mft_uninitialized_slots": 39,
+  "physical_slot_matches_entry_number": true,
+  "root_reference": "5-5",
+  "records": [
+    {
+      "entry": 0,
+      "header_sequence": 1,
+      "role": "synthetic $MFT metadata record",
+      "slot": 0
+    },
+    {
+      "entry": 5,
+      "header_sequence": 5,
+      "role": "root directory",
+      "slot": 5
+    },
+    {
+      "entry": 24,
+      "header_sequence": 1,
+      "role": "Docs directory",
+      "slot": 24,
+      "parent": "5-5"
+    },
+    {
+      "entry": 42,
+      "header_sequence": 2,
+      "role": "resident report.txt and alias.txt hard links, named Zone.Identifier stream",
+      "slot": 42,
+      "parent": "24-1",
+      "reference_count": 2
+    },
+    {
+      "entry": 43,
+      "header_sequence": 3,
+      "internal_deleted_key": "43-2",
+      "role": "free/deleted resident gone.txt",
+      "slot": 43,
+      "parent": "24-1"
+    },
+    {
+      "entry": 44,
+      "header_sequence": 1,
+      "role": "nonresident large.bin metadata only",
+      "slot": 44,
+      "parent": "24-1"
+    }
+  ],
+  "usn_records": [
+    {
+      "entry": 42,
+      "sequence": 2,
+      "name": "old.txt",
+      "usn": 1000,
+      "reason": "RenameOldName",
+      "offset_bytes": 0
+    },
+    {
+      "entry": 42,
+      "sequence": 2,
+      "name": "report.txt",
+      "usn": 1100,
+      "reason": "RenameNewName|Close",
+      "offset_bytes": 80
+    },
+    {
+      "entry": 43,
+      "sequence": 2,
+      "name": "gone.txt",
+      "usn": 1200,
+      "reason": "FileDelete|Close",
+      "offset_bytes": 160
+    }
+  ],
+  "fixture_time_utc": "2026-01-02T03:04:05.1234567+00:00",
+  "report_fn_creation_utc": "2026-01-03T03:04:05.1234567+00:00",
+  "expected": {
+    "mft_csv_rows": 9,
+    "usn_csv_rows": 3,
+    "main_resident_text_base64": "U1lOVEhFVElDIFJFU0lERU5UCg==",
+    "deleted_resident_text_base64": "REVMRVRFRAo=",
+    "resident_dump_files": 5
+  },
+  "scope": "Practice CLI and FILE/attribute/fixup decoding, SI/FN dates, multiple names/ADS, free-record and USN interpretation.",
+  "limits": [
+    "No real USB evidence or personal data.",
+    "Not a complete NTFS volume or disk/partition image.",
+    "Nonresident runlists point to fictional clusters: no recoverable content exists for those runs.",
+    "Does not verify filesystem index/bitmap/allocation consistency or full-volume reconstruction.",
+    "USN entries are constructed, not an acquired chronological history; equal timestamps are deliberate.",
+    "Header sequence for the free record is 3; this parser normalizes its internal historical key to 2, matching the constructed delete event reference.",
+    "Hex editors can inspect records; full-volume NTFS filesystem reconstruction is outside scope."
+  ]
+}

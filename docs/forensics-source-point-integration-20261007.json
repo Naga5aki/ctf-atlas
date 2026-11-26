@@ -1,0 +1,1014 @@
+{
+  "source_url": "https://blog.csdn.net/m0_37867238/article/details/151725686",
+  "source_html_path": "D:\\winoptimizeDir\\Desktop\\Misc学习\\ctf-atlas\\.work\\source-point-integration-20261007\\source-csdn.html",
+  "source_html_sha256": "27a3a098224cbd51e2f30aa222c56455d5d562c4a0513e81ecbcaa78e05ba03c",
+  "read_scope": "#content_views完整正文已读，含21题面、全部基础列举和恢复段落；47张不同技术图已实际观察，遮挡数值单列。",
+  "explicit_exam_points": [
+    {
+      "number": 1,
+      "point": "云服务平台来源",
+      "baseline_status": "已存在",
+      "existing_article": "forensic-server-services",
+      "existing_section": "06.1",
+      "existing_evidence": "yum.repos.d仅支持仓库线索；cloud-init、资源调证共同判断",
+      "incremental_action": "不照搬单凭仓库品牌定云厂商",
+      "final_status": "已覆盖",
+      "final_path": "src/content-curation/forensic-server-services.md",
+      "final_section": "06.1",
+      "final_action": "保留已有准确内容，不重复"
+    },
+    {
+      "number": 2,
+      "point": "站点数据库密码",
+      "baseline_status": "已存在",
+      "existing_article": "fic-case-04",
+      "existing_section": "06.3",
+      "existing_evidence": "活动profile、JDBC用户/密码、外部覆盖、受控证据路径",
+      "incremental_action": "完整配置值与历史有效口令区分",
+      "final_status": "已覆盖",
+      "final_path": "src/content-curation/fic-case-04.md",
+      "final_section": "06.3",
+      "final_action": "保留已有准确内容，不重复"
+    },
+    {
+      "number": 3,
+      "point": "服务发现工具名",
+      "baseline_status": "已存在",
+      "existing_article": "fic-case-04",
+      "existing_section": "06.4",
+      "existing_evidence": "Consul应用引用、启动定义、配置和日志",
+      "incremental_action": "history命中名称不证明运行",
+      "final_status": "已覆盖",
+      "final_path": "src/content-curation/fic-case-04.md",
+      "final_section": "06.4",
+      "final_action": "保留已有准确内容，不重复"
+    },
+    {
+      "number": 4,
+      "point": "数据库配置文件名",
+      "baseline_status": "已存在",
+      "existing_article": "fic-case-04",
+      "existing_section": "06.2–06.3",
+      "existing_evidence": "JAR成员路径、application-profile文件及加载条件",
+      "incremental_action": "先默认配置再活动profile，不只答首个yml",
+      "final_status": "已覆盖",
+      "final_path": "src/content-curation/fic-case-04.md",
+      "final_section": "06.2–06.3",
+      "final_action": "保留已有准确内容，不重复"
+    },
+    {
+      "number": 5,
+      "point": "涉及APP名称",
+      "baseline_status": "部分存在",
+      "existing_article": "fic-case-04",
+      "existing_section": "06.3/06.5",
+      "existing_evidence": "仅通用品牌/业务字段，未给Java APP名称定位操作",
+      "incremental_action": "补APP显示名、应用ID/包名、框架application.name不同字段；配置/页面/代码互证",
+      "draft_status": "已原位补充；正文不贴题号/固定答案",
+      "draft_location": "fic-case-04 06.3",
+      "final_status": "已覆盖",
+      "final_path": "src/content-curation/fic-case-04.md",
+      "final_section": "06.3/06.5",
+      "final_action": "原位补充/整合"
+    },
+    {
+      "number": 6,
+      "point": "身份证照OSS AccessKeyID末8位",
+      "baseline_status": "部分存在",
+      "existing_article": "fic-case-04",
+      "existing_section": "06.4",
+      "existing_evidence": "已有endpoint/bucket/AccessKeyID定义，缺末位提取与附件用途",
+      "incremental_action": "补keyId与secret区分、末8位文本提取、证件对象路径证据；不请求真实OSS",
+      "draft_status": "已原位补充；正文不贴题号/固定答案",
+      "draft_location": "fic-case-04 06.4",
+      "final_status": "已覆盖",
+      "final_path": "src/content-curation/fic-case-04.md",
+      "final_section": "06.4",
+      "final_action": "原位补充/整合"
+    },
+    {
+      "number": 7,
+      "point": "消息代理工具端口",
+      "baseline_status": "已存在",
+      "existing_article": "fic-case-04",
+      "existing_section": "06.4",
+      "existing_evidence": "RabbitMQ协议监听、管理端口与节点名分开",
+      "incremental_action": "从实际配置/进程对应，非默认端口答题",
+      "final_status": "已覆盖",
+      "final_path": "src/content-curation/fic-case-04.md",
+      "final_section": "06.4",
+      "final_action": "保留已有准确内容，不重复"
+    },
+    {
+      "number": 8,
+      "point": "启动定时任务的类文件",
+      "baseline_status": "部分存在",
+      "existing_article": "fic-case-04",
+      "existing_section": "06.5",
+      "existing_evidence": "有搜索任务和调用者条件，缺具体搜索式与类文件还原步骤",
+      "incremental_action": "补JAR→类→方法→初始化/调度入口链；非仅注解命中",
+      "draft_status": "已原位补充；正文不贴题号/固定答案",
+      "draft_location": "fic-case-04 06.5",
+      "final_status": "已覆盖",
+      "final_path": "src/content-curation/fic-case-04.md",
+      "final_section": "06.5",
+      "final_action": "原位补充/整合"
+    },
+    {
+      "number": 9,
+      "point": "验证码比对代码所在类文件",
+      "baseline_status": "部分存在",
+      "existing_article": "fic-case-04",
+      "existing_section": "06.5",
+      "existing_evidence": "有验证码比较、Redis/远端依赖，缺实操搜索和请求到类路径链",
+      "incremental_action": "补控制器入参→键构造/DB→取值→比较→失效/会话分支",
+      "draft_status": "已原位补充；正文不贴题号/固定答案",
+      "draft_location": "fic-case-04 06.5",
+      "final_status": "已覆盖",
+      "final_path": "src/content-curation/fic-case-04.md",
+      "final_section": "06.5",
+      "final_action": "原位补充/整合"
+    },
+    {
+      "number": 10,
+      "point": "MySQL镜像ID前6位",
+      "baseline_status": "部分存在",
+      "existing_article": "docker-evidence-03",
+      "existing_section": "02.2/09",
+      "existing_evidence": "完整容器Image与镜像Id、Config.Image区分已有",
+      "incremental_action": "完整sha256 ID保存后再移除sha256:并截前6位；短ID仅题目展示",
+      "final_status": "已覆盖",
+      "final_path": "src/content-curation/docker-evidence-03.md",
+      "final_section": "02.2/09",
+      "final_action": "原位补充/整合"
+    },
+    {
+      "number": 11,
+      "point": "Docker Compose版本",
+      "baseline_status": "部分存在",
+      "existing_article": "docker-evidence-01",
+      "existing_section": "08.2",
+      "existing_evidence": "有docker compose version表；旧docker-compose未给版本命令",
+      "incremental_action": "补v1/v2两种检查并记录实际可执行路径/插件路径，离线不查分析机版本",
+      "final_status": "已覆盖",
+      "final_path": "src/content-curation/docker-evidence-01.md",
+      "final_section": "08.2",
+      "final_action": "原位补充/整合"
+    },
+    {
+      "number": 12,
+      "point": "后台登录账号表",
+      "baseline_status": "部分存在",
+      "existing_article": "fic-case-05",
+      "existing_section": "03.1/03.4",
+      "existing_evidence": "通用schema/候选记录已有，缺Java登录SQL/ORM定位",
+      "incremental_action": "补由登录mapper/实体回找真实表，再DDL与账号记录验证，非只全库关键词",
+      "draft_status": "已原位补充；正文不贴题号/固定答案",
+      "draft_location": "fic-case-05 03.4",
+      "final_status": "已覆盖",
+      "final_path": "src/content-curation/fic-case-05.md",
+      "final_section": "03.4",
+      "final_action": "原位补充/整合"
+    },
+    {
+      "number": 13,
+      "point": "指定管理员绑定手机号",
+      "baseline_status": "部分存在",
+      "existing_article": "fic-case-05",
+      "existing_section": "05.4",
+      "existing_evidence": "仅fic-case-04末段提及，需要实用查询",
+      "incremental_action": "补精确匹配账号、确认唯一/租户/软删，保留主键与手机号原值，不按like首条",
+      "draft_status": "已原位补充；正文不贴题号/固定答案",
+      "draft_location": "fic-case-05 03.4",
+      "final_status": "已覆盖",
+      "final_path": "src/content-curation/fic-case-05.md",
+      "final_section": "03.4",
+      "final_action": "原位补充/整合"
+    },
+    {
+      "number": 14,
+      "point": "首次借款初始额度",
+      "baseline_status": "缺失",
+      "existing_article": "fic-case-05",
+      "existing_section": "05.4",
+      "existing_evidence": "现有额度仅在fic-case-04列名无查找方法",
+      "incremental_action": "补默认额度规则/配置/首次申请业务逻辑；默认上限不等于首笔实借金额",
+      "draft_status": "已原位补充；正文不贴题号/固定答案",
+      "draft_location": "fic-case-05 05.4",
+      "final_status": "已覆盖",
+      "final_path": "src/content-curation/fic-case-05.md",
+      "final_section": "05.4",
+      "final_action": "原位补充/整合"
+    },
+    {
+      "number": 15,
+      "point": "指定受害者结款次数",
+      "baseline_status": "部分存在",
+      "existing_article": "fic-case-05",
+      "existing_section": "05.4",
+      "existing_evidence": "人数/申请/放款/还款语义已有，无对应SQL",
+      "incremental_action": "截图明确结款事件后按唯一订单/流水统计；同人多笔与回调去重",
+      "draft_status": "已原位补充；正文不贴题号/固定答案",
+      "draft_location": "fic-case-05 05.4",
+      "final_status": "已覆盖",
+      "final_path": "src/content-curation/fic-case-05.md",
+      "final_section": "05.4",
+      "final_action": "原位补充/整合"
+    },
+    {
+      "number": 16,
+      "point": "所有下单用户成功完成订单总金额",
+      "baseline_status": "部分存在",
+      "existing_article": "fic-case-05",
+      "existing_section": "05.3–05.4",
+      "existing_evidence": "paid构造订单SUM已有，但借贷成功完成状态另需映射",
+      "incremental_action": "补借贷已确认completed基表SUM、币种、NULL与明细复核，不套paid",
+      "draft_status": "已原位补充；正文不贴题号/固定答案",
+      "draft_location": "fic-case-05 05.4",
+      "final_status": "已覆盖",
+      "final_path": "src/content-curation/fic-case-05.md",
+      "final_section": "05.3–05.4",
+      "final_action": "原位补充/整合"
+    },
+    {
+      "number": 17,
+      "point": "逾期费率",
+      "baseline_status": "缺失",
+      "existing_article": "fic-case-05",
+      "existing_section": "05.4",
+      "existing_evidence": "仅泛化费用规则，无逾期费率与单位",
+      "incremental_action": "补日/月/一次性比例、百分数/小数/万分数、生效期与上限、配置非实收",
+      "draft_status": "已原位补充；正文不贴题号/固定答案",
+      "draft_location": "fic-case-05 05.4",
+      "final_status": "已覆盖",
+      "final_path": "src/content-curation/fic-case-05.md",
+      "final_section": "05.4",
+      "final_action": "原位补充/整合"
+    },
+    {
+      "number": 18,
+      "point": "累计还款总额",
+      "baseline_status": "部分存在",
+      "existing_article": "fic-case-05",
+      "existing_section": "05.4",
+      "existing_evidence": "还款分期、冲正与分别聚合已有，缺可执行SQL",
+      "incremental_action": "补成功还款基表SUM、唯一流水、退款/冲正单列及币种",
+      "draft_status": "已原位补充；正文不贴题号/固定答案",
+      "draft_location": "fic-case-05 05.4",
+      "final_status": "已覆盖",
+      "final_path": "src/content-curation/fic-case-05.md",
+      "final_section": "05.4",
+      "final_action": "原位补充/整合"
+    },
+    {
+      "number": 19,
+      "point": "设置借款额度种类总数",
+      "baseline_status": "缺失",
+      "existing_article": "fic-case-05",
+      "existing_section": "05.4",
+      "existing_evidence": "无额度字典查询/停用项计数",
+      "incremental_action": "补配置条目数/不同数值数/启用条目数三类，停用仍属于已设置候选",
+      "draft_status": "已原位补充；正文不贴题号/固定答案",
+      "draft_location": "fic-case-05 05.4",
+      "final_status": "已覆盖",
+      "final_path": "src/content-curation/fic-case-05.md",
+      "final_section": "05.4",
+      "final_action": "原位补充/整合"
+    },
+    {
+      "number": 20,
+      "point": "借款渠道总数",
+      "baseline_status": "缺失",
+      "existing_article": "fic-case-05",
+      "existing_section": "05.4",
+      "existing_evidence": "仅泛称渠道，未给借贷渠道字典与统计",
+      "incremental_action": "补渠道主键清单、配置总数/启用数/历史使用数分别统计",
+      "draft_status": "已原位补充；正文不贴题号/固定答案",
+      "draft_location": "fic-case-05 05.4",
+      "final_status": "已覆盖",
+      "final_path": "src/content-curation/fic-case-05.md",
+      "final_section": "05.4",
+      "final_action": "原位补充/整合"
+    },
+    {
+      "number": 21,
+      "point": "已完成用户服务费合计精确整数",
+      "baseline_status": "部分存在",
+      "existing_article": "fic-case-05",
+      "existing_section": "05.4",
+      "existing_evidence": "应收实收/舍入原则已有，无完成对象服务费SQL",
+      "incremental_action": "补目标完成订单费用明细、应收/实收、退款、SUM后ROUND或逐笔ROUND依据代码",
+      "draft_status": "已原位补充；正文不贴题号/固定答案",
+      "draft_location": "fic-case-05 05.4",
+      "final_status": "已覆盖",
+      "final_path": "src/content-curation/fic-case-05.md",
+      "final_section": "05.4",
+      "final_action": "原位补充/整合"
+    }
+  ],
+  "all_other_explicit_points": [
+    {
+      "point": "两镜像分别仿真或系统盘+数据盘挂载",
+      "existing_article": "fic-case-04",
+      "existing_section": "06.1",
+      "baseline_status": "已存在",
+      "judgment": "完整根树不是站库分离充分证据，核对身份/UUID/fstab/依赖连接",
+      "final_status": "已覆盖",
+      "final_path": "src/content-curation/fic-case-04.md",
+      "final_section": "06.1",
+      "final_action": "保留已有准确内容，不重复"
+    },
+    {
+      "point": "发行版版本、主机名",
+      "existing_article": "fic-case-03",
+      "existing_section": "02.1–02.2",
+      "baseline_status": "已存在",
+      "judgment": "检材os-release/hostname；与内核和容器身份区分",
+      "final_status": "已覆盖",
+      "final_path": "src/content-curation/fic-case-03.md",
+      "final_section": "02.1–02.2",
+      "final_action": "保留已有准确内容，不重复"
+    },
+    {
+      "point": "可用用户数量、Linux账户盐",
+      "existing_article": "forensic-server-services",
+      "existing_section": "06.2",
+      "baseline_status": "已存在",
+      "judgment": "passwd计数口径、shell/shadow策略、crypt算法/参数/盐",
+      "final_status": "已覆盖",
+      "final_path": "src/content-curation/forensic-server-services.md",
+      "final_section": "06.2",
+      "final_action": "保留已有准确内容，不重复"
+    },
+    {
+      "point": "最早成功登录用户/时间/IP",
+      "existing_article": "forensic-server-services",
+      "existing_section": "14.7",
+      "baseline_status": "部分存在",
+      "judgment": "已有完整日志/轮转/last互证；需补覆盖范围内最早成功事件提取排序",
+      "final_status": "已覆盖",
+      "final_path": "src/content-curation/forensic-server-services.md",
+      "final_section": "14.7",
+      "final_action": "原位补充/整合"
+    },
+    {
+      "point": "当前时区",
+      "existing_article": "fic-case-03",
+      "existing_section": "02.2",
+      "baseline_status": "已存在",
+      "judgment": "localtime软链/普通文件、timezone、应用独立时区",
+      "final_status": "已覆盖",
+      "final_path": "src/content-curation/fic-case-03.md",
+      "final_section": "02.2",
+      "final_action": "保留已有准确内容，不重复"
+    },
+    {
+      "point": "Shell历史与宝塔history.pl",
+      "existing_article": "forensic-server-services",
+      "existing_section": "15.2",
+      "baseline_status": "部分存在",
+      "judgment": "Shell已全；宝塔具体history.pl文件名需补候选查找，不硬设单一版本路径",
+      "final_status": "已覆盖",
+      "final_path": "src/content-curation/forensic-server-services.md",
+      "final_section": "15.2",
+      "final_action": "原位补充/整合"
+    },
+    {
+      "point": "磁盘分区、文件系统、挂载点",
+      "existing_article": "forensic-server-services",
+      "existing_section": "15.1",
+      "baseline_status": "已存在",
+      "judgment": "lsblk/fstab/findmnt和实体对应，不由目录名推断",
+      "final_status": "已覆盖",
+      "final_path": "src/content-curation/forensic-server-services.md",
+      "final_section": "15.1",
+      "final_action": "保留已有准确内容，不重复"
+    },
+    {
+      "point": "网站源码/运行目录、访问端口、日志、后台地址",
+      "existing_article": "fic-case-04",
+      "existing_section": "01/04/06",
+      "baseline_status": "已存在",
+      "judgment": "中间件入口/代理后端与Java工作目录区分",
+      "final_status": "已覆盖",
+      "final_path": "src/content-curation/fic-case-04.md",
+      "final_section": "01/04/06",
+      "final_action": "保留已有准确内容，不重复"
+    },
+    {
+      "point": "数据库配置、后台加密方式与口令判定",
+      "existing_article": "forensic-website-reconstruction",
+      "existing_section": "06.1–06.7",
+      "baseline_status": "已存在",
+      "judgment": "摘要算法/盐/字节链和恢复口令非历史明文区分",
+      "final_status": "已覆盖",
+      "final_path": "src/content-curation/forensic-website-reconstruction.md",
+      "final_section": "06.1–06.7",
+      "final_action": "保留已有准确内容，不重复"
+    },
+    {
+      "point": "ss -lntp定位监听与nginx -T读取配置",
+      "existing_article": "fic-case-04",
+      "existing_section": "01/06.1",
+      "baseline_status": "已存在",
+      "judgment": "ss非全部应用清单；listen→proxy_pass方向正确，拼写proxy_pass",
+      "final_status": "已覆盖",
+      "final_path": "src/content-curation/fic-case-04.md",
+      "final_section": "01/06.1",
+      "final_action": "保留已有准确内容，不重复"
+    },
+    {
+      "point": "find/history定位JAR与排除JDK误判",
+      "existing_article": "fic-case-04",
+      "existing_section": "06.1",
+      "baseline_status": "已存在",
+      "judgment": "业务启动引用、工作目录、外部参数，不一律删/排运行时目录",
+      "final_status": "已覆盖",
+      "final_path": "src/content-curation/fic-case-04.md",
+      "final_section": "06.1",
+      "final_action": "保留已有准确内容，不重复"
+    },
+    {
+      "point": "容器ID/镜像ID/创建时间/时区",
+      "existing_article": "docker-evidence-03",
+      "existing_section": "01.1–01.3/02.2",
+      "baseline_status": "已存在",
+      "judgment": "完整ID及Created/Z时区，镜像创建非容器/拉取时间",
+      "final_status": "已覆盖",
+      "final_path": "src/content-curation/docker-evidence-03.md",
+      "final_section": "01.1–01.3/02.2",
+      "final_action": "保留已有准确内容，不重复"
+    },
+    {
+      "point": "镜像/容器/仓库数量与仓库地址",
+      "existing_article": "docker-evidence-03",
+      "existing_section": "01.1/02.1–02.2",
+      "baseline_status": "部分存在",
+      "judgment": "有列表，需imageID去重 vsRepoTags仓库标签数及Registry地址口径",
+      "final_status": "已覆盖",
+      "final_path": "src/content-curation/docker-evidence-03.md",
+      "final_section": "01.1/02.1–02.2",
+      "final_action": "原位补充/整合"
+    },
+    {
+      "point": "Docker映射目录、映射端口、MySQL root凭据",
+      "existing_article": "docker-evidence-03",
+      "existing_section": "01.4–01.6/09",
+      "baseline_status": "已存在",
+      "judgment": "Mounts Source/Destination、当前发布项、初始化变量非必然有效口令",
+      "final_status": "已覆盖",
+      "final_path": "src/content-curation/docker-evidence-03.md",
+      "final_section": "01.4–01.6/09",
+      "final_action": "保留已有准确内容，不重复"
+    },
+    {
+      "point": "Docker日志、Compose配置",
+      "existing_article": "docker-evidence-05",
+      "existing_section": "03/05.4",
+      "baseline_status": "已存在",
+      "judgment": "项目/覆盖文件/环境/实际容器匹配，日志驱动由Docker02维护",
+      "final_status": "已覆盖",
+      "final_path": "src/content-curation/docker-evidence-05.md",
+      "final_section": "03/05.4",
+      "final_action": "保留已有准确内容，不重复"
+    },
+    {
+      "point": "静态IP、VMnet隔离网络、NAT/Host-only",
+      "existing_article": "forensic-website-reconstruction",
+      "existing_section": "07.3",
+      "baseline_status": "部分存在",
+      "judgment": "补源流程网络前提：/24为子网非网关，静态IP避DHCP冲突、两端同VMnet",
+      "final_status": "已覆盖",
+      "final_path": "src/content-curation/forensic-website-reconstruction.md",
+      "final_section": "07.3",
+      "final_action": "原位补充/整合"
+    },
+    {
+      "point": "systemctl restart network旧发行版差异",
+      "existing_article": "forensic-server-services",
+      "existing_section": "14.3",
+      "baseline_status": "部分存在",
+      "judgment": "不能所有发行版通用；按实际NetworkManager/systemd-networkd/network单元检查，只副本",
+      "final_status": "已覆盖",
+      "final_path": "src/content-curation/forensic-server-services.md",
+      "final_section": "14.3",
+      "final_action": "原位补充/整合"
+    },
+    {
+      "point": "Docker MySQL8临时skip-grant-tables恢复认证",
+      "existing_article": "forensic-database-recovery",
+      "existing_section": "11",
+      "baseline_status": "已存在",
+      "judgment": "匹配版本、仅本地socket隔离、FLUSH→ALTER→移除参数→正常认证验证",
+      "final_status": "已覆盖",
+      "final_path": "src/content-curation/forensic-database-recovery.md",
+      "final_section": "11",
+      "final_action": "保留已有准确内容，不重复"
+    },
+    {
+      "point": "Java修改活动数据库连接配置",
+      "existing_article": "forensic-website-reconstruction",
+      "existing_section": "04.3/07.3",
+      "baseline_status": "已存在",
+      "judgment": "外部覆写优先，逐字段，不批量sed整个目录",
+      "final_status": "已覆盖",
+      "final_path": "src/content-curation/forensic-website-reconstruction.md",
+      "final_section": "04.3/07.3",
+      "final_action": "保留已有准确内容，不重复"
+    },
+    {
+      "point": "Consul/RabbitMQ依赖启动与hosts映射",
+      "existing_article": "forensic-website-reconstruction",
+      "existing_section": "07.3",
+      "baseline_status": "部分存在",
+      "judgment": "补源顺序的具体输入/检查；RabbitMQ节点主机名与数据路径不任意改",
+      "final_status": "已覆盖",
+      "final_path": "src/content-curation/forensic-website-reconstruction.md",
+      "final_section": "07.3",
+      "final_action": "原位补充/整合"
+    },
+    {
+      "point": "history恢复java -jar前台观察启动错误",
+      "existing_article": "forensic-website-reconstruction",
+      "existing_section": "04.3/07.3",
+      "baseline_status": "部分存在",
+      "judgment": "补-D在-jar前应用参数在JAR后，前台断终端影响仅测试",
+      "final_status": "已覆盖",
+      "final_path": "src/content-curation/forensic-website-reconstruction.md",
+      "final_section": "04.3/07.3",
+      "final_action": "原位补充/整合"
+    },
+    {
+      "point": "短信/验证码远端IP替换",
+      "existing_article": "forensic-website-reconstruction",
+      "existing_section": "07.3",
+      "baseline_status": "部分存在",
+      "judgment": "只修改已确认文本配置/测试接口、不find全目录sed二进制",
+      "final_status": "已覆盖",
+      "final_path": "src/content-curation/forensic-website-reconstruction.md",
+      "final_section": "07.3",
+      "final_action": "原位补充/整合"
+    },
+    {
+      "point": "Redis手机验证码键/值手工构造",
+      "existing_article": "forensic-website-reconstruction",
+      "existing_section": "07.3",
+      "baseline_status": "部分存在",
+      "judgment": "补从实际键构造/DB/类型/TTL设定测试键，真实证据不写",
+      "final_status": "已覆盖",
+      "final_path": "src/content-curation/forensic-website-reconstruction.md",
+      "final_section": "07.3",
+      "final_action": "原位补充/整合"
+    },
+    {
+      "point": "管理员state字段与登录限制解除",
+      "existing_article": "forensic-website-reconstruction",
+      "existing_section": "06.3/07.3",
+      "baseline_status": "部分存在",
+      "judgment": "源state=0非通用；程序枚举确认后只实验身份更新、回滚原值",
+      "final_status": "已覆盖",
+      "final_path": "src/content-curation/forensic-website-reconstruction.md",
+      "final_section": "06.3/07.3",
+      "final_action": "原位补充/整合"
+    },
+    {
+      "point": "业务页面验收与历史记录统计区分",
+      "existing_article": "forensic-website-reconstruction",
+      "existing_section": "08",
+      "baseline_status": "已存在",
+      "judgment": "仿真验证码/登录/测试订单不计历史统计；原快照SQL核验",
+      "final_status": "已覆盖",
+      "final_path": "src/content-curation/forensic-website-reconstruction.md",
+      "final_section": "08",
+      "final_action": "保留已有准确内容，不重复"
+    }
+  ],
+  "source_text_corrections": [
+    "两套完整Linux根树→候选多实例，不等于已证明站库分离",
+    "ss -lntp→监听端口/PID，非全部应用程序",
+    "peoxy_pass→proxy_pass；入口listen→后端proxy_pass不可反写",
+    "反向代理域名入口不自动提升安全性，核对后端暴露",
+    "192.168.160.0/24为子网，非网关；静态IP避开DHCP池冲突",
+    "systemctl restart network仅特定旧服务，不通用",
+    "sxy_prod/sxj_prod有文本混写，按JDBC/DDL截图真实值核对",
+    "root@localhost与root@%不同账号，不创建或假定root@%",
+    "不要全目录sed替换可能含JAR/二进制/签名的文件",
+    "state=0与某UID是该应用特定规则，不作跨应用固定结论",
+    "验证码测试键与TTL/DB/类型需按代码，不能称历史验证码恢复"
+  ],
+  "production_modified": true,
+  "image_read_scope": "技术图3–50全部实际观察；图22与19重复，47张不同图；46费率值和49渠道总数被遮挡，不猜固定答案。正文21考点的方法均已覆盖。",
+  "current_draft_paths": [
+    "D:\\winoptimizeDir\\Desktop\\Misc学习\\ctf-atlas\\.work\\source-point-integration-20261007\\working\\src\\content-curation\\fic-case-04.md",
+    "D:\\winoptimizeDir\\Desktop\\Misc学习\\ctf-atlas\\.work\\source-point-integration-20261007\\working\\src\\content-curation\\fic-case-05.md"
+  ],
+  "uncovered_exam_points": [],
+  "uncovered_additional_points": [],
+  "semantic_dedup": {
+    "new_articles": 0,
+    "new_headings": 0,
+    "removed_valid_content": 0,
+    "source_corrections": [
+      "两套完整Linux根树→候选多实例，不等于已证明站库分离",
+      "ss -lntp→监听端口/PID，非全部应用程序",
+      "peoxy_pass→proxy_pass；入口listen→后端proxy_pass不可反写",
+      "反向代理域名入口不自动提升安全性，核对后端暴露",
+      "192.168.160.0/24为子网，非网关；静态IP避开DHCP池冲突",
+      "systemctl restart network仅特定旧服务，不通用",
+      "sxy_prod/sxj_prod有文本混写，按JDBC/DDL截图真实值核对",
+      "root@localhost与root@%不同账号，不创建或假定root@%",
+      "不要全目录sed替换可能含JAR/二进制/签名的文件",
+      "state=0与某UID是该应用特定规则，不作跨应用固定结论",
+      "验证码测试键与TTL/DB/类型需按代码，不能称历史验证码恢复"
+    ],
+    "new_internal_references": 0,
+    "note": "重复定义与旧完整命令不复制；07.3四步概览合入一套七步恢复流程，原步骤信息保留；速查/恢复节点只保留场景必要命令。"
+  },
+  "document_coverage": {
+    "source": {
+      "kind": "human-provided-markdown",
+      "path": "D:\\winoptimizeDir\\Desktop\\案例剖析：解决宝塔强制手机绑定问题的取证技巧与方法.md",
+      "sha256": "2a74712ea0924394c47e4b272c86a2babd7800bd00309c86838d3fd86fcccce7",
+      "read_status": "full_markdown_text_read_current_turn",
+      "embedded_source_url": "https://mp.weixin.qq.com/s/7dqpcQJSRWBJD7Z3BLLQaw",
+      "embedded_images": "Markdown references were read; referenced sibling image directory not present, no screenshot details inferred"
+    },
+    "target": {
+      "curation_path": "D:\\winoptimizeDir\\Desktop\\Misc学习\\ctf-atlas\\src\\content-curation\\forensic-server-panel.md",
+      "sha256_before": "28707a4a096004f2520233a2cd919293e845da6cc5b445eb68ae001253d25b6d",
+      "article_id": "forensic-server-panel",
+      "track": "服务器取证",
+      "topic": "Web 与数据库",
+      "headings": 24
+    },
+    "coverage": [
+      {
+        "id": "doc-01",
+        "point": "Linux服务器宝塔面板绑定提示妨碍界面取证",
+        "status": "已有",
+        "section": "10 开头",
+        "assessment": "明确Linux副本、不出网、登录后绑定提示；不是网站和SSH认证问题",
+        "article_id": "forensic-server-panel"
+      },
+      {
+        "id": "doc-02",
+        "point": "7.4.5开始强制绑定的版本说法",
+        "status": "需纠错",
+        "section": "10.1",
+        "assessment": "版本仅辅助定位；未读对应构建不能把历史版本点写成通用规则，不另写固定版本结论",
+        "article_id": "forensic-server-panel"
+      },
+      {
+        "id": "doc-03",
+        "point": "离线包LinuxPanel-7.7.0.zip或8.0.0",
+        "status": "已有",
+        "section": "10.6.1",
+        "assessment": "已保留包名例子、官方包来源核对、快照和兼容性检查",
+        "article_id": "forensic-server-panel"
+      },
+      {
+        "id": "doc-04",
+        "point": "scp上传包到/tmp",
+        "status": "已有",
+        "section": "10.6.1",
+        "assessment": "已有scp -P 2222、实验主机和路径；明确大写P为SSH端口",
+        "article_id": "forensic-server-panel"
+      },
+      {
+        "id": "doc-05",
+        "point": "ls确认上传",
+        "status": "已有",
+        "section": "10.6.1",
+        "assessment": "已有更强的sha256sum -c和包成员核对，不重复添加ls流程",
+        "article_id": "forensic-server-panel"
+      },
+      {
+        "id": "doc-06",
+        "point": "unzip解包",
+        "status": "已有",
+        "section": "10.6.1",
+        "assessment": "已有独立临时目录解包，不覆盖面板树",
+        "article_id": "forensic-server-panel"
+      },
+      {
+        "id": "doc-07",
+        "point": "进入panel/执行bash update.sh",
+        "status": "已有",
+        "section": "10.6.1",
+        "assessment": "已有子Shell进入panel并执行update.sh、输出和退出码记录",
+        "article_id": "forensic-server-panel"
+      },
+      {
+        "id": "doc-08",
+        "point": "升级后仍可能强制绑定",
+        "status": "已有",
+        "section": "10.6.1",
+        "assessment": "升级完成不等于提示消失；复查版本、路由、登录和站点数据库",
+        "article_id": "forensic-server-panel"
+      },
+      {
+        "id": "doc-09",
+        "point": "删除bind.pl解决旧分支提示",
+        "status": "已有",
+        "section": "10.3",
+        "assessment": "保留备份后移走，比直接rm -f更可逆；实际引用满足才选用",
+        "article_id": "forensic-server-panel"
+      },
+      {
+        "id": "doc-10",
+        "point": "bind.pl被描述为DNS/BIND管理脚本",
+        "status": "需纠错",
+        "section": "10.3",
+        "assessment": "此处是绑定状态标志，不是DNS/BIND脚本；纠错已存在，不重复",
+        "article_id": "forensic-server-panel"
+      },
+      {
+        "id": "doc-11",
+        "point": "7.7以下、7.7以上、7.8失效的笼统分界",
+        "status": "需纠错",
+        "section": "10.1、10.6",
+        "assessment": "读实际is_bind调用者，不按版本字符串盲选；现有内容已纠正",
+        "article_id": "forensic-server-panel"
+      },
+      {
+        "id": "doc-12",
+        "point": "新建data/userInfo.json",
+        "status": "已有",
+        "section": "10.4",
+        "assessment": "只在原来缺失的实验副本建文件；已存在内容受保护",
+        "article_id": "forensic-server-panel"
+      },
+      {
+        "id": "doc-13",
+        "point": "JSON包含id/uid/state/username/secret_key/access_key/address/addtime/idc_code/area/serverid/ukey",
+        "status": "已有",
+        "section": "10.4",
+        "assessment": "构造例子包含12个键，并区分格式、非空、长度、签名和云校验",
+        "article_id": "forensic-server-panel"
+      },
+      {
+        "id": "doc-14",
+        "point": "JSON值随便填写就可以",
+        "status": "需纠错",
+        "section": "10.4",
+        "assessment": "不能由键齐全推出绑定通过；构造值不是历史账号、令牌或时间",
+        "article_id": "forensic-server-panel"
+      },
+      {
+        "id": "doc-15",
+        "point": "修改class/public.py中is_bind返回True",
+        "status": "已有",
+        "section": "10.4.1",
+        "assessment": "已有唯一顶层函数AST定位、保留其他函数、语法检查、差异与整文件恢复",
+        "article_id": "forensic-server-panel"
+      },
+      {
+        "id": "doc-16",
+        "point": "userInfo.json与is_bind改动之间的关系",
+        "status": "部分存在",
+        "section": "10.4、10.4.1",
+        "assessment": "两者均有；建议明确函数外读取JSON仍可能缺键报错，不能把两步当任意构建固定组合",
+        "article_id": "forensic-server-panel"
+      },
+      {
+        "id": "doc-17",
+        "point": "错误框关闭后不影响功能",
+        "status": "需纠错",
+        "section": "10.5、10.7",
+        "assessment": "已要求错误定位与本地页面/列表逐项验收；建议在10.4.1直接点明关闭弹窗不等于错误解决",
+        "article_id": "forensic-server-panel"
+      },
+      {
+        "id": "doc-18",
+        "point": "宝塔面板主库SQLite default.db",
+        "status": "已有",
+        "section": "02、08.2、10.8",
+        "assessment": "路径含旧版与新版候选，按实体和schema确认",
+        "article_id": "forensic-server-panel"
+      },
+      {
+        "id": "doc-19",
+        "point": "scp下载default.db",
+        "status": "已有",
+        "section": "10.8",
+        "assessment": "已经改为传一致快照及其哈希；避免运行库只取主文件漏WAL",
+        "article_id": "forensic-server-panel"
+      },
+      {
+        "id": "doc-20",
+        "point": "用Navicat Premium打开SQLite数据库文件",
+        "status": "已有",
+        "section": "10.8",
+        "assessment": "打开已有查询副本，不新建空库；CLI也有表结构检查",
+        "article_id": "forensic-server-panel"
+      },
+      {
+        "id": "doc-21",
+        "point": "users表用户名与密码",
+        "status": "已有",
+        "section": "10.8",
+        "assessment": "表候选已覆盖；password未必明文，也不等于Linux或业务账户",
+        "article_id": "forensic-server-panel"
+      },
+      {
+        "id": "doc-22",
+        "point": "sites表网站信息",
+        "status": "已有",
+        "section": "10.8",
+        "assessment": "已关联name/path/status与vhost、挂载和文件",
+        "article_id": "forensic-server-panel"
+      },
+      {
+        "id": "doc-23",
+        "point": "database表网站数据库配置",
+        "status": "已有",
+        "section": "10.8",
+        "assessment": "已兼容database/databases候选，实际schema为准；不把面板配置当业务库正文",
+        "article_id": "forensic-server-panel"
+      },
+      {
+        "id": "doc-24",
+        "point": "按案件需求导出所需表字段分析",
+        "status": "部分存在",
+        "section": "08.2、10.8",
+        "assessment": "已有schema CSV和三组业务SELECT，但缺少将选定业务查询保存为CSV的直接操作落点",
+        "article_id": "forensic-server-panel"
+      },
+      {
+        "id": "doc-25",
+        "point": "仅拿面板数据库时是否必须先绕绑定",
+        "status": "部分存在",
+        "section": "10.8",
+        "assessment": "已有离线解析，但标题顺序易造成必须先绕提示的印象；建议增加直接查库优先的明确说明",
+        "article_id": "forensic-server-panel"
+      },
+      {
+        "id": "doc-26",
+        "point": "源码阅读Python/JavaScript帮助定位实际逻辑",
+        "status": "已有",
+        "section": "10.1至10.5",
+        "assessment": "rg后继续读函数与调用者，不只依赖命中或固定行号",
+        "article_id": "forensic-server-panel"
+      },
+      {
+        "id": "doc-27",
+        "point": "升级、改代码、启动服务改变证据状态",
+        "status": "已有",
+        "section": "01、10.1、10.6.1、10.7",
+        "assessment": "已有副本标记、文件基线、存在/缺失状态与整机快照回滚",
+        "article_id": "forensic-server-panel"
+      }
+    ],
+    "status_counts": {
+      "已有": 19,
+      "部分存在": 3,
+      "缺失": 0,
+      "需纠错": 5
+    },
+    "semantic_dedupe": {
+      "new_article_needed": false,
+      "new_bypass_method_needed": false,
+      "source_specific_errors_already_corrected": true,
+      "retain_existing_commands_tables_examples": true
+    },
+    "documentation_verification": {
+      "method": "Context7 resolve-library-id then query-docs",
+      "library_id": "/websites/sqlite_docs",
+      "concept": "SQLite CLI CSV query output with headers; separate backup file",
+      "result": "headers on / mode csv / output commands documented; existing -readonly form retained"
+    },
+    "suggested_changes": [
+      "10.4.1加一句JSON后续读取与弹窗验收，不新增第五种方法",
+      "10.8加直接离线查库优先，不重复重构流程",
+      "10.8在现有SQL后加单条查询CSV导出命令和行数/时间/账号判读"
+    ],
+    "production_modified": false,
+    "source_modified": false,
+    "programs_or_updates_executed": false
+  },
+  "changed_articles": [
+    {
+      "id": "forensic-server-panel",
+      "curation": "src/content-curation/forensic-server-panel.md",
+      "changed_sections": [
+        "#### 10.4.1 另一分支：精确修改 `public.is_bind()` 的本地判断",
+        "### 10.8 绕过提示后，继续导出和解释面板数据库"
+      ],
+      "old_code_preserved": 19,
+      "old_tables_preserved": 5,
+      "new_code": 20,
+      "new_tables": 5,
+      "references_before": 6,
+      "references_after": 6,
+      "headings": 24
+    },
+    {
+      "id": "forensic-website-reconstruction",
+      "curation": "src/content-curation/forensic-website-reconstruction.md",
+      "changed_sections": [
+        "### 07.3 Java 站库分离：恢复入口、应用与依赖网络"
+      ],
+      "old_code_preserved": 56,
+      "old_tables_preserved": 16,
+      "new_code": 57,
+      "new_tables": 16,
+      "references_before": 20,
+      "references_after": 20,
+      "headings": 26
+    },
+    {
+      "id": "fic-case-04",
+      "curation": "src/content-curation/fic-case-04.md",
+      "changed_sections": [
+        "### 06.3 生效配置要连到启动条件",
+        "### 06.4 服务发现、消息、缓存和对象存储分别查",
+        "### 06.5 从题目要求回到具体代码与业务"
+      ],
+      "old_code_preserved": 24,
+      "old_tables_preserved": 8,
+      "new_code": 27,
+      "new_tables": 8,
+      "references_before": 11,
+      "references_after": 11,
+      "headings": 34
+    },
+    {
+      "id": "fic-case-05",
+      "curation": "src/content-curation/fic-case-05.md",
+      "changed_sections": [
+        "### 03.4 实战：从未知业务库找到候选人员记录",
+        "### 05.4 借贷业务：人数、放款、还款与服务费分别统计"
+      ],
+      "old_code_preserved": 14,
+      "old_tables_preserved": 5,
+      "new_code": 17,
+      "new_tables": 5,
+      "references_before": 7,
+      "references_after": 7,
+      "headings": 23
+    },
+    {
+      "id": "docker-evidence-01",
+      "curation": "src/content-curation/docker-evidence-01.md",
+      "changed_sections": [
+        "### 08.2 环境检查"
+      ],
+      "old_code_preserved": 46,
+      "old_tables_preserved": 20,
+      "new_code": 47,
+      "new_tables": 20,
+      "references_before": 5,
+      "references_after": 5,
+      "headings": 37
+    },
+    {
+      "id": "docker-evidence-03",
+      "curation": "src/content-curation/docker-evidence-03.md",
+      "changed_sections": [
+        "### 02.1 列出镜像",
+        "## 09 实战：把数据库容器配置对应到业务数据"
+      ],
+      "old_code_preserved": 38,
+      "old_tables_preserved": 13,
+      "new_code": 39,
+      "new_tables": 13,
+      "references_before": 1,
+      "references_after": 1,
+      "headings": 32
+    },
+    {
+      "id": "forensic-server-services",
+      "curation": "src/content-curation/forensic-server-services.md",
+      "changed_sections": [
+        "### 14.3 SSH端口与网络",
+        "### 14.7 SSH日志取证",
+        "### 15.2 历史文件是线索，计划任务按来源解释"
+      ],
+      "old_code_preserved": 37,
+      "old_tables_preserved": 15,
+      "new_code": 38,
+      "new_tables": 15,
+      "references_before": 8,
+      "references_after": 8,
+      "headings": 44
+    }
+  ],
+  "final_acceptance": {
+    "date": "2026-10-08",
+    "actual_browser_pages": 7,
+    "search_target_hits": [
+      "AccessKeyID -> fic-case-04",
+      "service_fee_whole_units -> fic-case-05"
+    ],
+    "pending_search": [
+      "首次额度 did not return fic-case-05"
+    ],
+    "original_attachment_path_available_now": false,
+    "saved_document_matches_initial_hash": true,
+    "source_fixed_values_obscured": [
+      "overdue rate",
+      "channel count"
+    ],
+    "original_server_replay": false
+  }
+}

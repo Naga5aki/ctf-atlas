@@ -1,0 +1,2606 @@
+{
+  "date": "2026-10-03",
+  "track": "虚拟币取证",
+  "focus": "区块链原理与协议对象的取证应用",
+  "pages": [
+    "fic-case-12",
+    "forensic-crypto-foundations",
+    "forensic-crypto-wallets",
+    "forensic-crypto-bitcoin",
+    "forensic-crypto-account-chains",
+    "forensic-crypto-tracing",
+    "forensic-crypto-practice"
+  ],
+  "newCharacterCount": 36542,
+  "sourceEvidenceRecords": 83,
+  "uniqueMappedSources": 77,
+  "registration": {
+    "date": "2026-10-03",
+    "registeredEvidenceRecords": 83,
+    "webSourceCount": 162,
+    "records": [
+      {
+        "registryId": "web-crypto-research-190b9fe0eec9",
+        "url": "https://developer.bitcoin.org/devguide/block_chain.html",
+        "articleIds": [
+          "forensic-crypto-foundations"
+        ],
+        "evidenceFile": "foundations-sources.json",
+        "evidenceId": "foundations-bitcoin-blockchain"
+      },
+      {
+        "registryId": "web-crypto-bitcoin-transactions",
+        "url": "https://developer.bitcoin.org/devguide/transactions.html",
+        "articleIds": [
+          "forensic-crypto-foundations"
+        ],
+        "evidenceFile": "foundations-sources.json",
+        "evidenceId": "foundations-bitcoin-transactions"
+      },
+      {
+        "registryId": "web-crypto-research-be8ff88d23b6",
+        "url": "https://developer.bitcoin.org/devguide/operating_modes.html",
+        "articleIds": [
+          "forensic-crypto-foundations"
+        ],
+        "evidenceFile": "foundations-sources.json",
+        "evidenceId": "foundations-bitcoin-operating-modes"
+      },
+      {
+        "registryId": "web-crypto-research-37b2d756abab",
+        "url": "https://developer.bitcoin.org/devguide/p2p_network.html",
+        "articleIds": [
+          "forensic-crypto-foundations"
+        ],
+        "evidenceFile": "foundations-sources.json",
+        "evidenceId": "foundations-bitcoin-p2p"
+      },
+      {
+        "registryId": "web-crypto-research-1f428f4e78a3",
+        "url": "https://developer.bitcoin.org/reference/block_chain.html",
+        "articleIds": [
+          "forensic-crypto-foundations"
+        ],
+        "evidenceFile": "foundations-sources.json",
+        "evidenceId": "foundations-bitcoin-block-reference"
+      },
+      {
+        "registryId": "web-crypto-research-0e46aca4dbc5",
+        "url": "https://bitcoin.org/bitcoin.pdf",
+        "articleIds": [
+          "forensic-crypto-foundations"
+        ],
+        "evidenceFile": "foundations-sources.json",
+        "evidenceId": "foundations-bitcoin-whitepaper"
+      },
+      {
+        "registryId": "web-crypto-research-3543ec2c909c",
+        "url": "https://nvlpubs.nist.gov/nistpubs/ir/2018/NIST.IR.8202.pdf",
+        "articleIds": [
+          "forensic-crypto-foundations"
+        ],
+        "evidenceFile": "foundations-sources.json",
+        "evidenceId": "foundations-nistir-8202"
+      },
+      {
+        "registryId": "web-crypto-research-46c0c5acffbe",
+        "url": "https://ethereum.org/en/developers/docs/blocks/",
+        "articleIds": [
+          "forensic-crypto-foundations"
+        ],
+        "evidenceFile": "foundations-sources.json",
+        "evidenceId": "foundations-ethereum-blocks"
+      },
+      {
+        "registryId": "web-crypto-research-0e847c918b5d",
+        "url": "https://ethereum.org/en/developers/docs/transactions/",
+        "articleIds": [
+          "forensic-crypto-foundations"
+        ],
+        "evidenceFile": "foundations-sources.json",
+        "evidenceId": "foundations-ethereum-transactions"
+      },
+      {
+        "registryId": "web-crypto-ethereum-accounts",
+        "url": "https://ethereum.org/en/developers/docs/accounts/",
+        "articleIds": [
+          "forensic-crypto-foundations"
+        ],
+        "evidenceFile": "foundations-sources.json",
+        "evidenceId": "foundations-ethereum-accounts"
+      },
+      {
+        "registryId": "web-crypto-research-39051d541bc0",
+        "url": "https://ethereum.org/en/developers/docs/nodes-and-clients/",
+        "articleIds": [
+          "forensic-crypto-foundations"
+        ],
+        "evidenceFile": "foundations-sources.json",
+        "evidenceId": "foundations-ethereum-nodes"
+      },
+      {
+        "registryId": "web-crypto-research-1aa341d45dc1",
+        "url": "https://ethereum.org/en/developers/docs/nodes-and-clients/archive-nodes/",
+        "articleIds": [
+          "forensic-crypto-foundations"
+        ],
+        "evidenceFile": "foundations-sources.json",
+        "evidenceId": "foundations-ethereum-archive"
+      },
+      {
+        "registryId": "web-crypto-research-43efda7b9b54",
+        "url": "https://ethereum.org/en/developers/docs/data-structures-and-encoding/patricia-merkle-trie/",
+        "articleIds": [
+          "forensic-crypto-foundations"
+        ],
+        "evidenceFile": "foundations-sources.json",
+        "evidenceId": "foundations-ethereum-merkle"
+      },
+      {
+        "registryId": "web-crypto-research-ebed8c285394",
+        "url": "https://ethereum.org/en/developers/docs/consensus-mechanisms/pos/",
+        "articleIds": [
+          "forensic-crypto-foundations"
+        ],
+        "evidenceFile": "foundations-sources.json",
+        "evidenceId": "foundations-ethereum-pos"
+      },
+      {
+        "registryId": "web-crypto-research-8295c9a5b65d",
+        "url": "https://ethereum.org/en/developers/docs/consensus-mechanisms/pos/gasper/",
+        "articleIds": [
+          "forensic-crypto-foundations"
+        ],
+        "evidenceFile": "foundations-sources.json",
+        "evidenceId": "foundations-ethereum-gasper"
+      },
+      {
+        "registryId": "web-crypto-research-ab6a879d69e2",
+        "url": "https://arxiv.org/pdf/1710.09437",
+        "articleIds": [
+          "forensic-crypto-foundations"
+        ],
+        "evidenceFile": "foundations-sources.json",
+        "evidenceId": "foundations-casper-paper"
+      },
+      {
+        "registryId": "web-crypto-research-fc3b7cce0edd",
+        "url": "https://eips.ethereum.org/EIPS/eip-658",
+        "articleIds": [
+          "forensic-crypto-foundations"
+        ],
+        "evidenceFile": "foundations-sources.json",
+        "evidenceId": "foundations-eip-658"
+      },
+      {
+        "registryId": "web-crypto-research-ccab9c4be966",
+        "url": "https://eips.ethereum.org/EIPS/eip-140",
+        "articleIds": [
+          "forensic-crypto-foundations"
+        ],
+        "evidenceFile": "foundations-sources.json",
+        "evidenceId": "foundations-eip-140"
+      },
+      {
+        "registryId": "web-crypto-erc20",
+        "url": "https://eips.ethereum.org/EIPS/eip-20",
+        "articleIds": [
+          "forensic-crypto-foundations"
+        ],
+        "evidenceFile": "foundations-sources.json",
+        "evidenceId": "foundations-erc-20"
+      },
+      {
+        "registryId": "web-crypto-research-03162a7ab6be",
+        "url": "https://ethereum.org/en/developers/docs/scaling/",
+        "articleIds": [
+          "forensic-crypto-foundations"
+        ],
+        "evidenceFile": "foundations-sources.json",
+        "evidenceId": "foundations-ethereum-scaling"
+      },
+      {
+        "registryId": "web-crypto-research-31ce27832a8b",
+        "url": "https://ethereum.org/en/developers/docs/bridges/",
+        "articleIds": [
+          "forensic-crypto-foundations"
+        ],
+        "evidenceFile": "foundations-sources.json",
+        "evidenceId": "foundations-ethereum-bridges"
+      },
+      {
+        "registryId": "web-crypto-research-35a2cd3e5ea6",
+        "url": "https://raw.githubusercontent.com/ethereum/consensus-specs/master/specs/bellatrix/beacon-chain.md",
+        "articleIds": [
+          "forensic-crypto-foundations"
+        ],
+        "evidenceFile": "foundations-sources.json",
+        "evidenceId": "foundations-ethereum-consensus-time"
+      },
+      {
+        "registryId": "web-crypto-research-c613834a37ca",
+        "url": "https://github.com/bitcoin/bips/blob/master/bip-0032.mediawiki",
+        "articleIds": [
+          "forensic-crypto-wallets"
+        ],
+        "evidenceFile": "wallet-sources.json",
+        "evidenceId": "wallet-bip32"
+      },
+      {
+        "registryId": "web-crypto-research-ef670f5fab3d",
+        "url": "https://github.com/bitcoin/bips/blob/master/bip-0039.mediawiki",
+        "articleIds": [
+          "forensic-crypto-wallets"
+        ],
+        "evidenceFile": "wallet-sources.json",
+        "evidenceId": "wallet-bip39"
+      },
+      {
+        "registryId": "web-crypto-research-f085cce41a61",
+        "url": "https://github.com/bitcoin/bips/blob/master/bip-0383.mediawiki",
+        "articleIds": [
+          "forensic-crypto-wallets"
+        ],
+        "evidenceFile": "wallet-sources.json",
+        "evidenceId": "wallet-bip383"
+      },
+      {
+        "registryId": "web-crypto-ethereum-accounts",
+        "url": "https://ethereum.org/developers/docs/accounts/",
+        "articleIds": [
+          "forensic-crypto-wallets"
+        ],
+        "evidenceFile": "wallet-sources.json",
+        "evidenceId": "wallet-ethereum-accounts"
+      },
+      {
+        "registryId": "web-crypto-research-0778b6b5eb0a",
+        "url": "https://docs.safe.global/advanced/smart-account-overview",
+        "articleIds": [
+          "forensic-crypto-wallets"
+        ],
+        "evidenceFile": "wallet-sources.json",
+        "evidenceId": "wallet-safe-overview"
+      },
+      {
+        "registryId": "web-crypto-research-9c6865410dbe",
+        "url": "https://eips.ethereum.org/EIPS/eip-1271",
+        "articleIds": [
+          "forensic-crypto-wallets"
+        ],
+        "evidenceFile": "wallet-sources.json",
+        "evidenceId": "wallet-erc1271"
+      },
+      {
+        "registryId": "web-crypto-research-e925009bccf3",
+        "url": "https://eips.ethereum.org/EIPS/eip-7702",
+        "articleIds": [
+          "forensic-crypto-wallets"
+        ],
+        "evidenceFile": "wallet-sources.json",
+        "evidenceId": "wallet-eip7702"
+      },
+      {
+        "registryId": "web-crypto-research-2d0c755b29bf",
+        "url": "https://github.com/metamask/metamask-docs/blob/main/metamask-connect/evm/reference/json-rpc-api/personal_sign.mdx",
+        "articleIds": [
+          "forensic-crypto-wallets"
+        ],
+        "evidenceFile": "wallet-sources.json",
+        "evidenceId": "wallet-metamask-personal-sign"
+      },
+      {
+        "registryId": "web-crypto-research-65470fa353a6",
+        "url": "https://github.com/metamask/metamask-docs/blob/main/metamask-connect/evm/guides/sign-data/index.md",
+        "articleIds": [
+          "forensic-crypto-wallets"
+        ],
+        "evidenceFile": "wallet-sources.json",
+        "evidenceId": "wallet-metamask-sign-data"
+      },
+      {
+        "registryId": "web-crypto-research-bd56c2d50d15",
+        "url": "https://eips.ethereum.org/EIPS/eip-191",
+        "articleIds": [
+          "forensic-crypto-wallets"
+        ],
+        "evidenceFile": "wallet-sources.json",
+        "evidenceId": "wallet-erc191"
+      },
+      {
+        "registryId": "web-crypto-research-c78d0f0c60a4",
+        "url": "https://eips.ethereum.org/EIPS/eip-712",
+        "articleIds": [
+          "forensic-crypto-wallets"
+        ],
+        "evidenceFile": "wallet-sources.json",
+        "evidenceId": "wallet-eip712"
+      },
+      {
+        "registryId": "web-crypto-research-1f53bb744ddd",
+        "url": "https://eips.ethereum.org/EIPS/eip-2612",
+        "articleIds": [
+          "forensic-crypto-wallets"
+        ],
+        "evidenceFile": "wallet-sources.json",
+        "evidenceId": "wallet-erc2612"
+      },
+      {
+        "registryId": "web-crypto-research-814581643761",
+        "url": "https://help.onekey.so/zh-CN/articles/11461344-软件钱包与硬件钱包的区别",
+        "articleIds": [
+          "forensic-crypto-wallets"
+        ],
+        "evidenceFile": "wallet-sources.json",
+        "evidenceId": "wallet-onekey-hardware"
+      },
+      {
+        "registryId": "web-crypto-research-d6fd00db521f",
+        "url": "https://support.token.im/hc/zh-cn/articles/24514201591577-如何通过二维码连接-设置-imToken-观察钱包",
+        "articleIds": [
+          "forensic-crypto-wallets"
+        ],
+        "evidenceFile": "wallet-sources.json",
+        "evidenceId": "wallet-imtoken-observation"
+      },
+      {
+        "registryId": "web-crypto-research-ec373a577fd1",
+        "url": "https://bitcoincore.org/en/doc/30.0.0/rpc/rawtransactions/decoderawtransaction/",
+        "articleIds": [
+          "forensic-crypto-bitcoin"
+        ],
+        "evidenceFile": "chain-sources.json",
+        "evidenceId": "btc-raw"
+      },
+      {
+        "registryId": "web-crypto-research-26fc928b4956",
+        "url": "https://developer.bitcoin.org/reference/transactions.html",
+        "articleIds": [
+          "forensic-crypto-bitcoin"
+        ],
+        "evidenceFile": "chain-sources.json",
+        "evidenceId": "btc-format"
+      },
+      {
+        "registryId": "web-crypto-research-fd0712d22a84",
+        "url": "https://github.com/bitcoin/bips/blob/master/bip-0141.mediawiki",
+        "articleIds": [
+          "forensic-crypto-bitcoin"
+        ],
+        "evidenceFile": "chain-sources.json",
+        "evidenceId": "btc-segwit"
+      },
+      {
+        "registryId": "web-crypto-research-1fd4ee79ccd8",
+        "url": "https://github.com/bitcoin/bips/blob/master/bip-0016.mediawiki",
+        "articleIds": [
+          "forensic-crypto-bitcoin"
+        ],
+        "evidenceFile": "chain-sources.json",
+        "evidenceId": "btc-p2sh"
+      },
+      {
+        "registryId": "web-crypto-research-0ef6df7e7660",
+        "url": "https://github.com/bitcoin/bips/blob/master/bip-0341.mediawiki",
+        "articleIds": [
+          "forensic-crypto-bitcoin"
+        ],
+        "evidenceFile": "chain-sources.json",
+        "evidenceId": "btc-taproot"
+      },
+      {
+        "registryId": "web-crypto-research-41b721ea8779",
+        "url": "https://bitcoincore.org/en/doc/30.0.0/rpc/rawtransactions/decodepsbt/",
+        "articleIds": [
+          "forensic-crypto-bitcoin"
+        ],
+        "evidenceFile": "chain-sources.json",
+        "evidenceId": "btc-psbt-rpc"
+      },
+      {
+        "registryId": "web-crypto-research-a319b9a2e9b0",
+        "url": "https://github.com/bitcoin/bips/blob/master/bip-0174.mediawiki",
+        "articleIds": [
+          "forensic-crypto-bitcoin"
+        ],
+        "evidenceFile": "chain-sources.json",
+        "evidenceId": "btc-psbt"
+      },
+      {
+        "registryId": "web-crypto-research-c3131bf3ad55",
+        "url": "https://github.com/bitcoin/bips/blob/master/bip-0125.mediawiki",
+        "articleIds": [
+          "forensic-crypto-bitcoin"
+        ],
+        "evidenceFile": "chain-sources.json",
+        "evidenceId": "btc-rbf"
+      },
+      {
+        "registryId": "web-crypto-research-1d82151c90db",
+        "url": "https://bitcoincore.org/en/releases/28.0/",
+        "articleIds": [
+          "forensic-crypto-bitcoin"
+        ],
+        "evidenceFile": "chain-sources.json",
+        "evidenceId": "btc-fullrbf"
+      },
+      {
+        "registryId": "web-crypto-research-4240b65cd31d",
+        "url": "https://bitcoincore.org/en/doc/30.0.0/rpc/blockchain/getmempoolentry/",
+        "articleIds": [
+          "forensic-crypto-bitcoin"
+        ],
+        "evidenceFile": "chain-sources.json",
+        "evidenceId": "btc-mempool"
+      },
+      {
+        "registryId": "web-crypto-research-7e9b7e638775",
+        "url": "https://github.com/bitcoin/bitcoin/blob/v30.2/doc/policy/packages.md",
+        "articleIds": [
+          "forensic-crypto-bitcoin"
+        ],
+        "evidenceFile": "chain-sources.json",
+        "evidenceId": "btc-packages"
+      },
+      {
+        "registryId": "web-crypto-research-ede64406b4b2",
+        "url": "https://github.com/bitcoin/bitcoin/blob/v30.2/src/consensus/consensus.h",
+        "articleIds": [
+          "forensic-crypto-bitcoin"
+        ],
+        "evidenceFile": "chain-sources.json",
+        "evidenceId": "btc-maturity"
+      },
+      {
+        "registryId": "web-crypto-research-cd1dbf1eb986",
+        "url": "https://github.com/bitcoin/bitcoin/blob/v30.2/src/consensus/tx_verify.cpp",
+        "articleIds": [
+          "forensic-crypto-bitcoin"
+        ],
+        "evidenceFile": "chain-sources.json",
+        "evidenceId": "btc-input-validation"
+      },
+      {
+        "registryId": "web-crypto-research-417cf6567e80",
+        "url": "https://github.com/bitcoin/bitcoin/blob/v30.2/src/script/script.h",
+        "articleIds": [
+          "forensic-crypto-bitcoin"
+        ],
+        "evidenceFile": "chain-sources.json",
+        "evidenceId": "btc-locktime"
+      },
+      {
+        "registryId": "web-crypto-research-e25db2f6b456",
+        "url": "https://github.com/bitcoin/bips/blob/master/bip-0068.mediawiki",
+        "articleIds": [
+          "forensic-crypto-bitcoin"
+        ],
+        "evidenceFile": "chain-sources.json",
+        "evidenceId": "btc-relative"
+      },
+      {
+        "registryId": "web-crypto-research-8f470b2b7055",
+        "url": "https://github.com/bitcoin/bips/blob/master/bip-0113.mediawiki",
+        "articleIds": [
+          "forensic-crypto-bitcoin"
+        ],
+        "evidenceFile": "chain-sources.json",
+        "evidenceId": "btc-mtp"
+      },
+      {
+        "registryId": "web-crypto-research-6078ad7d67c6",
+        "url": "https://github.com/bitcoin/bips/blob/master/bip-0065.mediawiki",
+        "articleIds": [
+          "forensic-crypto-bitcoin"
+        ],
+        "evidenceFile": "chain-sources.json",
+        "evidenceId": "btc-cltv"
+      },
+      {
+        "registryId": "web-crypto-ethereum-rpc",
+        "url": "https://ethereum.org/developers/docs/apis/json-rpc/",
+        "articleIds": [
+          "forensic-crypto-account-chains"
+        ],
+        "evidenceFile": "chain-sources.json",
+        "evidenceId": "eth-rpc"
+      },
+      {
+        "registryId": "web-crypto-research-563c09c27582",
+        "url": "https://github.com/ethereum/go-ethereum/blob/master/core/txpool/legacypool/legacypool.go",
+        "articleIds": [
+          "forensic-crypto-account-chains"
+        ],
+        "evidenceFile": "chain-sources.json",
+        "evidenceId": "eth-pool"
+      },
+      {
+        "registryId": "web-crypto-research-2f288e98b2a7",
+        "url": "https://docs.soliditylang.org/en/latest/abi-spec.html",
+        "articleIds": [
+          "forensic-crypto-account-chains"
+        ],
+        "evidenceFile": "chain-sources.json",
+        "evidenceId": "eth-abi"
+      },
+      {
+        "registryId": "web-crypto-erc20",
+        "url": "https://eips.ethereum.org/EIPS/eip-20",
+        "articleIds": [
+          "forensic-crypto-account-chains"
+        ],
+        "evidenceFile": "chain-sources.json",
+        "evidenceId": "erc20"
+      },
+      {
+        "registryId": "web-crypto-research-b08b9aae11ea",
+        "url": "https://eips.ethereum.org/EIPS/eip-721",
+        "articleIds": [
+          "forensic-crypto-account-chains"
+        ],
+        "evidenceFile": "chain-sources.json",
+        "evidenceId": "erc721"
+      },
+      {
+        "registryId": "web-crypto-research-a8902fec2ff6",
+        "url": "https://eips.ethereum.org/EIPS/eip-1155",
+        "articleIds": [
+          "forensic-crypto-account-chains"
+        ],
+        "evidenceFile": "chain-sources.json",
+        "evidenceId": "erc1155"
+      },
+      {
+        "registryId": "web-crypto-research-1f53bb744ddd",
+        "url": "https://eips.ethereum.org/EIPS/eip-2612",
+        "articleIds": [
+          "forensic-crypto-account-chains"
+        ],
+        "evidenceFile": "chain-sources.json",
+        "evidenceId": "erc2612"
+      },
+      {
+        "registryId": "web-crypto-research-c78d0f0c60a4",
+        "url": "https://eips.ethereum.org/EIPS/eip-712",
+        "articleIds": [
+          "forensic-crypto-account-chains"
+        ],
+        "evidenceFile": "chain-sources.json",
+        "evidenceId": "eip712"
+      },
+      {
+        "registryId": "web-crypto-research-1975773eb9db",
+        "url": "https://eips.ethereum.org/EIPS/eip-155",
+        "articleIds": [
+          "forensic-crypto-account-chains"
+        ],
+        "evidenceFile": "chain-sources.json",
+        "evidenceId": "eip155"
+      },
+      {
+        "registryId": "web-crypto-research-9d6e8c178ca9",
+        "url": "https://eips.ethereum.org/EIPS/eip-1014",
+        "articleIds": [
+          "forensic-crypto-account-chains"
+        ],
+        "evidenceFile": "chain-sources.json",
+        "evidenceId": "eip1014"
+      },
+      {
+        "registryId": "web-crypto-research-d9e2a740147d",
+        "url": "https://eips.ethereum.org/EIPS/eip-1967",
+        "articleIds": [
+          "forensic-crypto-account-chains"
+        ],
+        "evidenceFile": "chain-sources.json",
+        "evidenceId": "erc1967"
+      },
+      {
+        "registryId": "web-crypto-research-0bc8df50fb6b",
+        "url": "https://eips.ethereum.org/EIPS/eip-4337",
+        "articleIds": [
+          "forensic-crypto-account-chains"
+        ],
+        "evidenceFile": "chain-sources.json",
+        "evidenceId": "erc4337"
+      },
+      {
+        "registryId": "web-crypto-research-e925009bccf3",
+        "url": "https://eips.ethereum.org/EIPS/eip-7702",
+        "articleIds": [
+          "forensic-crypto-account-chains"
+        ],
+        "evidenceFile": "chain-sources.json",
+        "evidenceId": "eip7702"
+      },
+      {
+        "registryId": "web-crypto-research-535911e9d6f4",
+        "url": "https://docs.optimism.io/op-stack/transactions/transaction-finality",
+        "articleIds": [
+          "forensic-crypto-account-chains"
+        ],
+        "evidenceFile": "chain-sources.json",
+        "evidenceId": "op-finality"
+      },
+      {
+        "registryId": "web-crypto-research-9defa6a789b4",
+        "url": "https://docs.optimism.io/op-stack/bridging/deposit-flow",
+        "articleIds": [
+          "forensic-crypto-account-chains"
+        ],
+        "evidenceFile": "chain-sources.json",
+        "evidenceId": "op-deposit"
+      },
+      {
+        "registryId": "web-crypto-research-9d01c3b2fc57",
+        "url": "https://docs.optimism.io/op-stack/bridging/withdrawal-flow",
+        "articleIds": [
+          "forensic-crypto-account-chains"
+        ],
+        "evidenceFile": "chain-sources.json",
+        "evidenceId": "op-withdrawal"
+      },
+      {
+        "registryId": "web-crypto-research-9b7ad331d3d7",
+        "url": "https://specs.optimism.io/protocol/withdrawals.html",
+        "articleIds": [
+          "forensic-crypto-account-chains"
+        ],
+        "evidenceFile": "chain-sources.json",
+        "evidenceId": "op-withdrawal-spec"
+      },
+      {
+        "registryId": "web-crypto-research-f8f55ea8fe5a",
+        "url": "https://eips.ethereum.org/EIPS/eip-4844",
+        "articleIds": [
+          "forensic-crypto-account-chains"
+        ],
+        "evidenceFile": "chain-sources.json",
+        "evidenceId": "eip4844"
+      },
+      {
+        "registryId": "web-crypto-research-fe50b7f68ab4",
+        "url": "https://developers.tron.network/docs/api-signature-and-broadcast-flow",
+        "articleIds": [
+          "forensic-crypto-account-chains"
+        ],
+        "evidenceFile": "chain-sources.json",
+        "evidenceId": "tron-raw"
+      },
+      {
+        "registryId": "web-crypto-tron-transactions",
+        "url": "https://developers.tron.network/docs/tron-protocol-transaction",
+        "articleIds": [
+          "forensic-crypto-account-chains"
+        ],
+        "evidenceFile": "chain-sources.json",
+        "evidenceId": "tron-tapos"
+      },
+      {
+        "registryId": "web-crypto-research-70437aafe5d4",
+        "url": "https://developers.tron.network/docs/multi-signature",
+        "articleIds": [
+          "forensic-crypto-account-chains"
+        ],
+        "evidenceFile": "chain-sources.json",
+        "evidenceId": "tron-permissions"
+      },
+      {
+        "registryId": "web-crypto-research-e0477a23a1fa",
+        "url": "https://developers.tron.network/docs/transaction-signature-validation",
+        "articleIds": [
+          "forensic-crypto-account-chains"
+        ],
+        "evidenceFile": "chain-sources.json",
+        "evidenceId": "tron-signatures"
+      },
+      {
+        "registryId": "web-crypto-research-05ac2083572c",
+        "url": "https://cloud.tencent.com/developer/article/2589187",
+        "articleIds": [
+          "forensic-crypto-foundations",
+          "forensic-crypto-account-chains",
+          "forensic-crypto-tracing",
+          "forensic-crypto-practice"
+        ],
+        "evidenceFile": "root-sources.json",
+        "evidenceId": "user-tencent-blockchain"
+      },
+      {
+        "registryId": "web-crypto-research-6c35ae2abb1b",
+        "url": "https://blog.csdn.net/HUIBUR/article/details/137952996",
+        "articleIds": [
+          "forensic-crypto-foundations"
+        ],
+        "evidenceFile": "root-sources.json",
+        "evidenceId": "user-csdn-blockchain"
+      },
+      {
+        "registryId": "web-crypto-zhihu-14425551337",
+        "url": "https://zhuanlan.zhihu.com/p/14425551337",
+        "articleIds": [
+          "fic-case-12",
+          "forensic-crypto-foundations",
+          "forensic-crypto-wallets",
+          "forensic-crypto-bitcoin"
+        ],
+        "evidenceFile": "root-sources.json",
+        "evidenceId": "user-zhihu-crypto"
+      },
+      {
+        "registryId": "web-crypto-research-1f428f4e78a3",
+        "url": "https://developer.bitcoin.org/reference/block_chain.html",
+        "articleIds": [
+          "forensic-crypto-foundations",
+          "forensic-crypto-practice"
+        ],
+        "evidenceFile": "root-sources.json",
+        "evidenceId": "root-bitcoin-block-format"
+      },
+      {
+        "registryId": "web-crypto-research-59ef57f2b1c8",
+        "url": "https://raw.githubusercontent.com/bitcoin/bitcoin/v30.2/src/kernel/chainparams.cpp",
+        "articleIds": [
+          "forensic-crypto-practice",
+          "forensic-crypto-bitcoin"
+        ],
+        "evidenceFile": "root-sources.json",
+        "evidenceId": "root-bitcoin-genesis"
+      },
+      {
+        "registryId": "web-crypto-research-a93a74c37f47",
+        "url": "https://arxiv.org/html/1906.05754v3",
+        "articleIds": [
+          "forensic-crypto-tracing"
+        ],
+        "evidenceFile": "root-sources.json",
+        "evidenceId": "root-taint-models"
+      },
+      {
+        "registryId": "web-crypto-research-bab8c9249088",
+        "url": "https://specs.optimism.io/protocol/deposits.html",
+        "articleIds": [
+          "forensic-crypto-account-chains"
+        ],
+        "evidenceFile": "root-sources.json",
+        "evidenceId": "root-op-deposit-execution"
+      },
+      {
+        "registryId": "web-crypto-research-1c011520f36c",
+        "url": "https://raw.githubusercontent.com/ethereum-optimism/optimism/develop/packages/contracts-bedrock/src/universal/CrossDomainMessenger.sol",
+        "articleIds": [
+          "forensic-crypto-account-chains"
+        ],
+        "evidenceFile": "root-sources.json",
+        "evidenceId": "root-op-message-replay"
+      }
+    ]
+  },
+  "sourceEvidence": {
+    "root-sources.json": {
+      "checkedAt": "2026-10-03",
+      "sources": [
+        {
+          "id": "user-tencent-blockchain",
+          "title": "095_数字取证高级技术：区块链取证与加密货币追踪实战指南",
+          "url": "https://cloud.tencent.com/developer/article/2589187",
+          "articleIds": [
+            "forensic-crypto-foundations",
+            "forensic-crypto-account-chains",
+            "forensic-crypto-tracing",
+            "forensic-crypto-practice"
+          ],
+          "publishedAt": "2025-11-16",
+          "access": "public rendered text",
+          "cache": "tencent-visible.txt",
+          "readScope": "第1—8章公开正文；提取结构与追踪思路，未复用占位API或推断性代码",
+          "corrections": [
+            "未采用固定Bitcoin块大小、Monero固定块大小/简单UTXO论断",
+            "未采用把CoinJoin钱包统一称为中心化混币器",
+            "未采用无独立验证的价格、吞吐、市场占比或工具能力",
+            "重入需要历史调用/状态证据，递归或闪电贷只是调查信号"
+          ],
+          "reviewedAt": "2026-10-03",
+          "cacheSha256": "ec22f736f2e8f198dbdf156587665d915ed1625b5e597587f309783f20244cc5",
+          "cacheCharacters": 44920
+        },
+        {
+          "id": "user-csdn-blockchain",
+          "title": "一文读懂：区块链的原理、技术、应用领域",
+          "url": "https://blog.csdn.net/HUIBUR/article/details/137952996",
+          "articleIds": [
+            "forensic-crypto-foundations"
+          ],
+          "publishedAt": "2024-04-19",
+          "access": "public article element text",
+          "cache": "csdn-visible.txt",
+          "readScope": "公开正文整体；概念引导，协议结论由一手资料另行核对",
+          "corrections": [
+            "不可篡改受有效性、共识和重组条件约束",
+            "不把每个节点视为永久保存全部历史",
+            "签名与地址不直接证明自然人身份"
+          ],
+          "reviewedAt": "2026-10-03",
+          "cacheSha256": "5b93bb66d899bd99ca1dc862d9da705e4da5f29c68da4925868f3f210a9c9a87",
+          "cacheCharacters": 8366
+        },
+        {
+          "id": "user-zhihu-crypto",
+          "title": "虚拟货币分析技术",
+          "url": "https://zhuanlan.zhihu.com/p/14425551337",
+          "articleIds": [
+            "fic-case-12",
+            "forensic-crypto-foundations",
+            "forensic-crypto-wallets",
+            "forensic-crypto-bitcoin"
+          ],
+          "publishedAt": "2024-12-24",
+          "access": "public rendered text without login",
+          "cache": "zhihu-visible.txt",
+          "readScope": "公开正文整体；钱包材料、地址与资金核对思路；图中细节未独立核对",
+          "corrections": [
+            "未采用输入减输出累计即地址余额",
+            "共同输入只作条件性聚类线索",
+            "未采用向网页提交真实私钥或助记词",
+            "未采用固定块大小/吞吐的绝对表述"
+          ],
+          "reviewedAt": "2026-10-03",
+          "cacheSha256": "57a07df466812724a061de3fb2c04dcbaff0a3ac3e4b42737ecb04505a2347df",
+          "cacheCharacters": 4521
+        },
+        {
+          "id": "root-bitcoin-block-format",
+          "title": "Bitcoin block header and Merkle tree reference",
+          "url": "https://developer.bitcoin.org/reference/block_chain.html",
+          "articleIds": [
+            "forensic-crypto-foundations",
+            "forensic-crypto-practice"
+          ],
+          "access": "primary documentation selected sections",
+          "readScope": "80-byte header, field byte order, Merkle pair/odd-node rule；未采用页面旧块大小和补贴数值",
+          "reviewedAt": "2026-10-03"
+        },
+        {
+          "id": "root-bitcoin-genesis",
+          "title": "Bitcoin Core v30.2 chainparams genesis constants",
+          "url": "https://raw.githubusercontent.com/bitcoin/bitcoin/v30.2/src/kernel/chainparams.cpp",
+          "articleIds": [
+            "forensic-crypto-practice",
+            "forensic-crypto-bitcoin"
+          ],
+          "access": "primary source code",
+          "readScope": "CreateGenesisBlock、mainnet genesis timestamp/bits/nonce、expected hash/root及创世输出不可花费说明",
+          "reviewedAt": "2026-10-03"
+        },
+        {
+          "id": "root-taint-models",
+          "title": "Probing the Mystery of Cryptocurrency Taint Analysis",
+          "url": "https://arxiv.org/html/1906.05754v3",
+          "articleIds": [
+            "forensic-crypto-tracing"
+          ],
+          "access": "primary author research paper",
+          "readScope": "Section II Poison/Haircut/FIFO模型；页面金额案例独立构造，不是研究或真实检材复跑",
+          "reviewedAt": "2026-10-03"
+        },
+        {
+          "id": "root-op-deposit-execution",
+          "title": "OP Stack deposits execution specification",
+          "url": "https://specs.optimism.io/protocol/deposits.html",
+          "articleIds": [
+            "forensic-crypto-account-chains"
+          ],
+          "access": "primary protocol specification",
+          "readScope": "Execution与Nonce Handling；mint增加from余额在执行失败时保留，value与目标调用另核对",
+          "reviewedAt": "2026-10-03"
+        },
+        {
+          "id": "root-op-message-replay",
+          "title": "OP CrossDomainMessenger relayMessage implementation",
+          "url": "https://raw.githubusercontent.com/ethereum-optimism/optimism/develop/packages/contracts-bedrock/src/universal/CrossDomainMessenger.sol",
+          "articleIds": [
+            "forensic-crypto-account-chains"
+          ],
+          "access": "primary source code selected lines",
+          "readScope": "relayMessage failedMessages/successfulMessages guards与失败事件；默认分支不是固定历史部署，未调用真实链",
+          "reviewedAt": "2026-10-03"
+        }
+      ],
+      "boundary": "公开正文与所列一手范围已阅读；未登录、未复跑真实钱包或链服务；图片细节不声称完整核对。"
+    },
+    "foundations-sources.json": {
+      "checkedAt": "2026-10-03",
+      "target": "src/content-curation/forensic-crypto-foundations.md",
+      "sourcePolicy": "Primary project documentation, standards, author-published research, and NIST final report only",
+      "verificationBoundary": "Documentation and constructed examples only; no real wallet, live chain, or original attachment replay",
+      "sources": [
+        {
+          "id": "foundations-bitcoin-blockchain",
+          "title": "Bitcoin Developer Guide - Block Chain",
+          "url": "https://developer.bitcoin.org/devguide/block_chain.html",
+          "type": "project-documentation",
+          "readScope": [
+            "Introduction",
+            "Proof Of Work",
+            "Block Height And Forking",
+            "Transaction Data"
+          ],
+          "usedIn": [
+            "02.4",
+            "02.6",
+            "02.8"
+          ],
+          "corrections": [
+            "区块父哈希与交易前序输出分开",
+            "高度不能唯一定位区块",
+            "累计工作量最多的有效链"
+          ]
+        },
+        {
+          "id": "foundations-bitcoin-transactions",
+          "title": "Bitcoin Developer Guide - Transactions",
+          "url": "https://developer.bitcoin.org/devguide/transactions.html",
+          "type": "project-documentation",
+          "readScope": [
+            "Introduction",
+            "P2PKH key/address/spending examples"
+          ],
+          "usedIn": [
+            "02.5",
+            "02.10"
+          ],
+          "corrections": [
+            "输出由txid及索引定位",
+            "花费条件不等于自然人身份",
+            "未将旧页签名算法描述泛化至全部交易类型"
+          ]
+        },
+        {
+          "id": "foundations-bitcoin-operating-modes",
+          "title": "Bitcoin Developer Guide - Operating Modes",
+          "url": "https://developer.bitcoin.org/devguide/operating_modes.html",
+          "type": "project-documentation",
+          "readScope": [
+            "Full Node",
+            "Simplified Payment Verification",
+            "Potential SPV Weaknesses"
+          ],
+          "usedIn": [
+            "02.6",
+            "02.9"
+          ],
+          "corrections": [
+            "包含proof不等于完整交易验证",
+            "服务遗漏不能证明交易未发生"
+          ]
+        },
+        {
+          "id": "foundations-bitcoin-p2p",
+          "title": "Bitcoin Developer Guide - P2P Network",
+          "url": "https://developer.bitcoin.org/devguide/p2p_network.html",
+          "type": "project-documentation",
+          "readScope": [
+            "Introduction",
+            "Memory Pool"
+          ],
+          "usedIn": [
+            "02.7",
+            "02.9"
+          ],
+          "corrections": [
+            "归档与裁剪全节点区分",
+            "重组可改变交易状态",
+            "未采用旧版mempool重启行为表述"
+          ]
+        },
+        {
+          "id": "foundations-bitcoin-block-reference",
+          "title": "Bitcoin Developer Reference - Block Chain",
+          "url": "https://developer.bitcoin.org/reference/block_chain.html",
+          "type": "project-documentation",
+          "readScope": [
+            "Block Headers field table"
+          ],
+          "usedIn": [
+            "02.4",
+            "02.13"
+          ],
+          "corrections": [
+            "区块时间不是用户操作精确时间",
+            "相邻区块时间不要求严格递增"
+          ]
+        },
+        {
+          "id": "foundations-bitcoin-whitepaper",
+          "title": "Bitcoin: A Peer-to-Peer Electronic Cash System",
+          "url": "https://bitcoin.org/bitcoin.pdf",
+          "type": "author-paper",
+          "readScope": [
+            "7 Reclaiming Disk Space",
+            "8 Simplified Payment Verification",
+            "10 Privacy",
+            "11 Calculations relevant paragraphs"
+          ],
+          "usedIn": [
+            "02.6",
+            "02.8",
+            "02.13"
+          ],
+          "corrections": [
+            "SPV安全假设",
+            "公开交易可与链外身份关联",
+            "出块资源不自动允许任意花费",
+            "未复制最多两个输出及共同输入绝对归属概括"
+          ]
+        },
+        {
+          "id": "foundations-nistir-8202",
+          "title": "NISTIR 8202 - Blockchain Technology Overview (final)",
+          "url": "https://nvlpubs.nist.gov/nistpubs/ir/2018/NIST.IR.8202.pdf",
+          "type": "government-final-report",
+          "readScope": [
+            "2.2 Permissioned",
+            "3.1 Cryptographic Hash Functions",
+            "3.4 Addresses and Address Derivation excerpt",
+            "7.3 Oracle Problem excerpt",
+            "7.10 Public Key Infrastructure and Identity excerpt",
+            "8.1 Additional Blockchain Considerations excerpt"
+          ],
+          "usedIn": [
+            "02.5",
+            "02.8",
+            "02.13"
+          ],
+          "corrections": [
+            "授权出块与读写权限区分",
+            "哈希不保证输入真实性",
+            "验签不自动提供自然人身份",
+            "链外事件需额外材料"
+          ]
+        },
+        {
+          "id": "foundations-ethereum-blocks",
+          "title": "ethereum.org - Blocks",
+          "url": "https://ethereum.org/en/developers/docs/blocks/",
+          "canonicalUrl": "https://ethereum.org/developers/docs/blocks/",
+          "type": "project-documentation",
+          "readScope": [
+            "How blocks work",
+            "Execution payload fields"
+          ],
+          "usedIn": [
+            "02.4",
+            "02.13"
+          ],
+          "corrections": [
+            "交易顺序不同于广播顺序",
+            "parent/state/receipts承诺区分"
+          ]
+        },
+        {
+          "id": "foundations-ethereum-transactions",
+          "title": "ethereum.org - Transactions",
+          "url": "https://ethereum.org/en/developers/docs/transactions/",
+          "canonicalUrl": "https://ethereum.org/developers/docs/transactions/",
+          "type": "project-documentation",
+          "readScope": [
+            "Transaction lifecycle",
+            "Smart contract interactions"
+          ],
+          "usedIn": [
+            "02.7"
+          ],
+          "corrections": [
+            "提交/pool/包含/最终性分开",
+            "包含不等于执行成功；结合EIP-658校正简化说明"
+          ]
+        },
+        {
+          "id": "foundations-ethereum-accounts",
+          "title": "ethereum.org - Ethereum Accounts",
+          "url": "https://ethereum.org/en/developers/docs/accounts/",
+          "canonicalUrl": "https://ethereum.org/developers/docs/accounts/",
+          "type": "project-documentation",
+          "readScope": [
+            "Account types",
+            "An account examined",
+            "Contract accounts"
+          ],
+          "usedIn": [
+            "02.5",
+            "02.10",
+            "02.11"
+          ],
+          "corrections": [
+            "账户余额与nonce",
+            "合约代码/权限语义",
+            "不以EOA无代码作跨版本永久身份推断"
+          ]
+        },
+        {
+          "id": "foundations-ethereum-nodes",
+          "title": "ethereum.org - Nodes and clients",
+          "url": "https://ethereum.org/en/developers/docs/nodes-and-clients/",
+          "canonicalUrl": "https://ethereum.org/developers/docs/nodes-and-clients/",
+          "type": "project-documentation",
+          "readScope": [
+            "Node types",
+            "Full node",
+            "Archive node",
+            "Light node"
+          ],
+          "usedIn": [
+            "02.9"
+          ],
+          "corrections": [
+            "全节点不等于永久保存每个历史状态",
+            "轻客户端能力按实现说明"
+          ]
+        },
+        {
+          "id": "foundations-ethereum-archive",
+          "title": "ethereum.org - Ethereum Archive Node",
+          "url": "https://ethereum.org/en/developers/docs/nodes-and-clients/archive-nodes/",
+          "canonicalUrl": "https://ethereum.org/developers/docs/nodes-and-clients/archive-nodes/",
+          "type": "project-documentation",
+          "readScope": [
+            "What is an archive node",
+            "Use cases"
+          ],
+          "usedIn": [
+            "02.9"
+          ],
+          "corrections": [
+            "历史状态与历史交易数据区分",
+            "归档范围/服务能力需核对",
+            "不固定保留128区块或磁盘大小"
+          ]
+        },
+        {
+          "id": "foundations-ethereum-merkle",
+          "title": "ethereum.org - Merkle Patricia Trie",
+          "url": "https://ethereum.org/en/developers/docs/data-structures-and-encoding/patricia-merkle-trie/",
+          "canonicalUrl": "https://ethereum.org/developers/docs/data-structures-and-encoding/patricia-merkle-trie/",
+          "type": "project-documentation",
+          "readScope": [
+            "State Trie",
+            "Storage Trie",
+            "Transactions Trie",
+            "Receipts Trie"
+          ],
+          "usedIn": [
+            "02.6",
+            "02.11"
+          ],
+          "corrections": [
+            "状态/交易/回执证明目标区分",
+            "不能套用Bitcoin二叉树算法"
+          ]
+        },
+        {
+          "id": "foundations-ethereum-pos",
+          "title": "ethereum.org - Proof-of-stake",
+          "url": "https://ethereum.org/en/developers/docs/consensus-mechanisms/pos/",
+          "canonicalUrl": "https://ethereum.org/developers/docs/consensus-mechanisms/pos/",
+          "type": "project-documentation",
+          "readScope": [
+            "How a Transaction Gets Executed in Ethereum PoS",
+            "Finality",
+            "Fork choice"
+          ],
+          "usedIn": [
+            "02.7",
+            "02.8"
+          ],
+          "corrections": [
+            "mempool是本地集合",
+            "checkpoint最终性不同于分支选择",
+            "投票按质押权重"
+          ]
+        },
+        {
+          "id": "foundations-ethereum-gasper",
+          "title": "ethereum.org - Gasper",
+          "url": "https://ethereum.org/en/developers/docs/consensus-mechanisms/pos/gasper/",
+          "canonicalUrl": "https://ethereum.org/developers/docs/consensus-mechanisms/pos/gasper/",
+          "type": "project-documentation",
+          "readScope": [
+            "What is finality",
+            "Fork choice"
+          ],
+          "usedIn": [
+            "02.8"
+          ],
+          "corrections": [
+            "justified/finalized不同",
+            "最终性具有共识故障边界",
+            "未采用旧罚金/价格数值"
+          ]
+        },
+        {
+          "id": "foundations-casper-paper",
+          "title": "Casper the Friendly Finality Gadget, v4",
+          "url": "https://arxiv.org/pdf/1710.09437",
+          "landingUrl": "https://arxiv.org/abs/1710.09437",
+          "type": "author-paper",
+          "readScope": [
+            "1.1 Our Work",
+            "2 The Casper Protocol",
+            "2.1 Proving Safety and Plausible Liveness"
+          ],
+          "usedIn": [
+            "02.8"
+          ],
+          "corrections": [
+            "安全与活性不同",
+            "存款权重不同于机器数",
+            "历史理论论文不作为当前Ethereum完整实施规格"
+          ]
+        },
+        {
+          "id": "foundations-eip-658",
+          "title": "EIP-658: Embedding transaction status code in receipts",
+          "url": "https://eips.ethereum.org/EIPS/eip-658",
+          "type": "protocol-standard",
+          "readScope": [
+            "Abstract",
+            "Motivation",
+            "Specification"
+          ],
+          "usedIn": [
+            "02.7",
+            "02.11"
+          ],
+          "corrections": [
+            "交易包含与顶层执行成功不同",
+            "失败回执仍可属于链上交易",
+            "适用升级时期需核对"
+          ]
+        },
+        {
+          "id": "foundations-eip-140",
+          "title": "EIP-140: REVERT instruction",
+          "url": "https://eips.ethereum.org/EIPS/eip-140",
+          "type": "protocol-standard",
+          "readScope": [
+            "Specification"
+          ],
+          "usedIn": [
+            "02.11"
+          ],
+          "corrections": [
+            "调用revert与调用方处理结果分开",
+            "费用与业务状态变化分开"
+          ]
+        },
+        {
+          "id": "foundations-erc-20",
+          "title": "ERC-20: Token Standard",
+          "url": "https://eips.ethereum.org/EIPS/eip-20",
+          "type": "protocol-standard",
+          "readScope": [
+            "Methods",
+            "Events - Transfer",
+            "Events - Approval"
+          ],
+          "usedIn": [
+            "02.2",
+            "02.11"
+          ],
+          "corrections": [
+            "展示接口可选",
+            "false返回值需处理",
+            "Approval不等于付款",
+            "事件需核对发出合约与资产身份"
+          ]
+        },
+        {
+          "id": "foundations-ethereum-scaling",
+          "title": "ethereum.org - Scaling",
+          "url": "https://ethereum.org/en/developers/docs/scaling/",
+          "canonicalUrl": "https://ethereum.org/developers/docs/scaling/",
+          "type": "project-documentation",
+          "readScope": [
+            "Offchain scaling",
+            "Layer 2 scaling",
+            "Rollups",
+            "Sidechains"
+          ],
+          "usedIn": [
+            "02.12"
+          ],
+          "corrections": [
+            "独立共识侧链不是默认继承L1最终性的L2",
+            "本地处理/L1提交/退出条件分开"
+          ]
+        },
+        {
+          "id": "foundations-ethereum-bridges",
+          "title": "ethereum.org - Bridges",
+          "url": "https://ethereum.org/en/developers/docs/bridges/",
+          "canonicalUrl": "https://ethereum.org/developers/docs/bridges/",
+          "type": "project-documentation",
+          "readScope": [
+            "Need for bridges",
+            "How do bridges work",
+            "Risk with bridges"
+          ],
+          "usedIn": [
+            "02.12"
+          ],
+          "corrections": [
+            "两端动作与消息映射独立核验",
+            "源链成功不自动证明目标链到账"
+          ]
+        },
+        {
+          "id": "foundations-ethereum-consensus-time",
+          "title": "Ethereum consensus-specs - Bellatrix Beacon Chain",
+          "url": "https://raw.githubusercontent.com/ethereum/consensus-specs/master/specs/bellatrix/beacon-chain.md",
+          "repositoryUrl": "https://github.com/ethereum/consensus-specs/blob/master/specs/bellatrix/beacon-chain.md",
+          "type": "project-protocol-specification",
+          "readScope": [
+            "ExecutionPayload",
+            "process_execution_payload timestamp check"
+          ],
+          "usedIn": [
+            "02.13"
+          ],
+          "corrections": [
+            "执行载荷时间按slot核验",
+            "slot时间不等于用户操作时间"
+          ],
+          "versionBoundary": "Mutable master branch content read on 2026-10-03; do not treat as a pinned implementation snapshot"
+        }
+      ]
+    },
+    "wallet-sources.json": {
+      "checked_at": "2026-10-03",
+      "target": "src/content-curation/forensic-crypto-wallets.md",
+      "scope": "HD派生范围、密钥和签名、EOA/硬件/多签/智能合约钱包控制条件、DApp授权痕迹",
+      "context7": {
+        "resolve_calls": 1,
+        "query_calls": 1,
+        "library_id": "/metamask/metamask-docs",
+        "query": "How MetaMask account access via eth_requestAccounts differs from personal_sign and eth_signTypedData_v4 message signing; whether a signature or connected account by itself proves an on-chain transaction",
+        "limitations": "只读取返回的文档片段；未固定仓库提交；未运行签名接口；返回的GitHub路径直接web打开失败"
+      },
+      "sources": [
+        {
+          "key": "wallet-bip32",
+          "title": "BIP32 Hierarchical Deterministic Wallets",
+          "url": "https://github.com/bitcoin/bips/blob/master/bip-0032.mediawiki",
+          "supporting_url": "https://bips.dev/32/",
+          "publisher": "bitcoin/bips",
+          "published_at": "2012-02-11",
+          "date_kind": "Assigned / specification creation",
+          "checked_at": "2026-10-03",
+          "read_scope": "key tree、CKDpub非强化限制、key identifiers、serialization format；GitHub渲染正文约239-374行",
+          "knowledge": [
+            "HD密钥树",
+            "xpub节点及公开派生范围",
+            "深度与分支",
+            "短指纹可能碰撞"
+          ],
+          "applied_to": [
+            "05.3"
+          ],
+          "limitations": "主分支渲染页未固定提交；未派生真实地址"
+        },
+        {
+          "key": "wallet-bip39",
+          "title": "BIP39 Mnemonic code for generating deterministic keys",
+          "url": "https://github.com/bitcoin/bips/blob/master/bip-0039.mediawiki",
+          "supporting_url": "https://bips.dev/39/",
+          "publisher": "bitcoin/bips",
+          "published_at": "2013-09-10",
+          "date_kind": "Assigned / specification creation",
+          "checked_at": "2026-10-03",
+          "read_scope": "Wordlist、From mnemonic to seed、Shortcomings；GitHub渲染正文约264-297行",
+          "knowledge": [
+            "UTF-8 NFKD",
+            "passphrase参与seed",
+            "词表翻译会改变seed",
+            "checksum与目标地址匹配不同"
+          ],
+          "applied_to": [
+            "05.3"
+          ],
+          "limitations": "本次只核对规范；不重复原文的公开向量实验或对真实助记词做验证"
+        },
+        {
+          "key": "wallet-bip383",
+          "title": "BIP383 Multisig Output Script Descriptors",
+          "url": "https://github.com/bitcoin/bips/blob/master/bip-0383.mediawiki",
+          "supporting_url": "https://bips.dev/383/",
+          "publisher": "bitcoin/bips",
+          "published_at": "2021-06-27",
+          "date_kind": "Assigned / specification creation",
+          "checked_at": "2026-10-03",
+          "read_scope": "Abstract、Specification、sortedmulti；GitHub渲染正文约210-237行",
+          "knowledge": [
+            "多签门限k",
+            "参与公钥和脚本完整性",
+            "单个参与密钥不是整个多签授权"
+          ],
+          "applied_to": [
+            "09"
+          ],
+          "limitations": "只使用阈值脚本的一般概念；没有特定UTXO或钱包descriptor可复跑"
+        },
+        {
+          "key": "wallet-ethereum-accounts",
+          "title": "Ethereum accounts",
+          "url": "https://ethereum.org/developers/docs/accounts/",
+          "publisher": "ethereum.org",
+          "published_at": null,
+          "last_updated_at": "2026-10-01",
+          "date_kind": "页面last updated；原始发表日期未给出",
+          "checked_at": "2026-10-03",
+          "read_scope": "Account types、Externally-owned accounts and key pairs、A note on wallets；约286-379行",
+          "knowledge": [
+            "EOA私钥签名",
+            "账户与钱包界面不同",
+            "合约账户由代码决定行为"
+          ],
+          "applied_to": [
+            "09"
+          ],
+          "limitations": "传统EOA codeHash和code不可变表述未用于当前分类判据，以EIP7702补充"
+        },
+        {
+          "key": "wallet-safe-overview",
+          "title": "How do Safe Smart Accounts work?",
+          "url": "https://docs.safe.global/advanced/smart-account-overview",
+          "publisher": "Safe",
+          "published_at": null,
+          "date_kind": "页面未显示明确发布日期",
+          "checked_at": "2026-10-03",
+          "read_scope": "Smart Accounts、features、Owner Management、Module Management、Guard Management；约105-182行",
+          "knowledge": [
+            "owners与threshold可变",
+            "modules提供额外执行模式",
+            "guards检查执行",
+            "owner存在不等于单独控制"
+          ],
+          "applied_to": [
+            "09"
+          ],
+          "limitations": "概览适用性须按真实部署和版本核对；未检查任何地址的存储或执行trace"
+        },
+        {
+          "key": "wallet-erc1271",
+          "title": "ERC1271 Standard Signature Validation Method for Contracts",
+          "url": "https://eips.ethereum.org/EIPS/eip-1271",
+          "publisher": "Ethereum Improvement Proposals",
+          "published_at": "2018-07-25",
+          "date_kind": "Created",
+          "checked_at": "2026-10-03",
+          "read_scope": "Abstract、Specification、context dependent validation；约21-63行",
+          "knowledge": [
+            "合约签名由isValidSignature认可",
+            "结果可依赖时间和链上状态",
+            "当前状态验证不能代替历史状态"
+          ],
+          "applied_to": [
+            "09"
+          ],
+          "limitations": "未调用合约或RPC；不能保证每个合约实现合规"
+        },
+        {
+          "key": "wallet-eip7702",
+          "title": "EIP7702 Set Code for EOAs",
+          "url": "https://eips.ethereum.org/EIPS/eip-7702",
+          "publisher": "Ethereum Improvement Proposals",
+          "published_at": "2024-05-07",
+          "date_kind": "Created",
+          "checked_at": "2026-10-03",
+          "read_scope": "Abstract、authorization list、Delegation indicator、Transaction origination；约30-120行",
+          "knowledge": [
+            "EOA可委托代码执行",
+            "有代码不是普通合约账户的充分证据",
+            "核对网络区块委托目标"
+          ],
+          "applied_to": [
+            "09"
+          ],
+          "limitations": "只讲标准能力；不预设所有EVM网络或历史区块都启用此功能"
+        },
+        {
+          "key": "wallet-metamask-personal-sign",
+          "title": "MetaMask personal_sign reference",
+          "url": "https://github.com/metamask/metamask-docs/blob/main/metamask-connect/evm/reference/json-rpc-api/personal_sign.mdx",
+          "publisher": "MetaMask",
+          "published_at": null,
+          "date_kind": "Context7片段未提供发布日期",
+          "checked_at": "2026-10-03",
+          "read_scope": "Context7返回Description、Parameters及调用前账户权限段",
+          "knowledge": [
+            "personal_sign消息前缀",
+            "签名前账户权限与签名本身不同",
+            "签名消息不是普通交易报文"
+          ],
+          "applied_to": [
+            "10"
+          ],
+          "limitations": "GitHub路径直接web打开Internal Error；仅依据Context7片段，不声称完整源码已读或签名已实测"
+        },
+        {
+          "key": "wallet-metamask-sign-data",
+          "title": "MetaMask Sign data / EIP712 typed data",
+          "url": "https://github.com/metamask/metamask-docs/blob/main/metamask-connect/evm/guides/sign-data/index.md",
+          "publisher": "MetaMask",
+          "published_at": null,
+          "date_kind": "Context7片段未提供发布日期",
+          "checked_at": "2026-10-03",
+          "read_scope": "Context7返回Sign data描述、eth_signTypedData_v4示例的domain/types/primaryType/message；相关connect返回账户和chainId片段",
+          "knowledge": [
+            "结构化签名数据的四类对象",
+            "personal_sign与typed data用途",
+            "连接记录不能直接当链上支付"
+          ],
+          "applied_to": [
+            "10"
+          ],
+          "limitations": "GitHub路径直接web打开Internal Error；没有运行SDK示例；组合connectAndSign需按原始method而非界面名称判读"
+        },
+        {
+          "key": "wallet-erc191",
+          "title": "ERC191 Signed Data Standard",
+          "url": "https://eips.ethereum.org/EIPS/eip-191",
+          "publisher": "Ethereum Improvement Proposals",
+          "published_at": "2016-01-20",
+          "date_kind": "Created",
+          "checked_at": "2026-10-03",
+          "read_scope": "Specification、Registry of version bytes、Version 0x45；约33-74行",
+          "knowledge": [
+            "personal_sign的带前缀消息编码",
+            "签名数据和标准Ethereum交易编码不同"
+          ],
+          "applied_to": [
+            "10"
+          ],
+          "limitations": "没有真实原消息字节及签名，不验证具体签名者"
+        },
+        {
+          "key": "wallet-eip712",
+          "title": "EIP712 Typed structured data hashing and signing",
+          "url": "https://eips.ethereum.org/EIPS/eip-712",
+          "publisher": "Ethereum Improvement Proposals",
+          "published_at": "2017-09-12",
+          "date_kind": "Created",
+          "checked_at": "2026-10-03",
+          "read_scope": "Created元数据、Specification、hashStruct、encodeType、encodeData、domainSeparator和JSON schema；约6-157行",
+          "knowledge": [
+            "结构化数据按类型编码而非JSON文本直接哈希",
+            "domain的chainId/verifyingContract按实际出现保留",
+            "域字段不是全部强制"
+          ],
+          "applied_to": [
+            "10"
+          ],
+          "limitations": "未执行签名或验签；标准不自动提供完整重放保护"
+        },
+        {
+          "key": "wallet-erc2612",
+          "title": "ERC2612 Permit Extension for EIP20 Signed Approvals",
+          "url": "https://eips.ethereum.org/EIPS/eip-2612",
+          "publisher": "Ethereum Improvement Proposals",
+          "published_at": "2020-04-13",
+          "date_kind": "Created",
+          "checked_at": "2026-10-03",
+          "read_scope": "Abstract、Specification、permit参数与约束、typed Permit字段；约22-69及106-140行",
+          "knowledge": [
+            "签名可设置allowance",
+            "owner/spender/value/nonce/deadline核对",
+            "授权与实际付款不同"
+          ],
+          "applied_to": [
+            "10"
+          ],
+          "limitations": "permit变体须单独识别；没有消费任何真实签名，也未发送链上交易"
+        },
+        {
+          "key": "wallet-onekey-hardware",
+          "title": "软件钱包与硬件钱包的区别",
+          "url": "https://help.onekey.so/zh-CN/articles/11461344-软件钱包与硬件钱包的区别",
+          "publisher": "OneKey官方帮助中心",
+          "published_at": "2025-05-27",
+          "date_kind": "页面显示日期",
+          "checked_at": "2026-10-03",
+          "read_scope": "软件钱包和硬件钱包的分离、硬件内签名、应用不接触私钥；约23-46行",
+          "knowledge": [
+            "软件与硬件账户不能按一个界面混为同一来源",
+            "硬件内签名与主机公开记录不同"
+          ],
+          "applied_to": [
+            "09"
+          ],
+          "limitations": "未采用产品页关于所有权与无限公钥派生的泛化表述；未实测设备"
+        },
+        {
+          "key": "wallet-imtoken-observation",
+          "title": "如何通过二维码连接，设置imToken观察钱包",
+          "url": "https://support.token.im/hc/zh-cn/articles/24514201591577-如何通过二维码连接-设置-imToken-观察钱包",
+          "publisher": "imToken官方客服中心",
+          "published_at": null,
+          "last_updated_at": "2026-07-30",
+          "date_kind": "页面显示更新日期",
+          "checked_at": "2026-10-03",
+          "read_scope": "冷钱包/观察钱包定义与离线二维码构建、签名、广播流程；约26-79行",
+          "knowledge": [
+            "观察端不保存私钥",
+            "可构建交易并接受外部签名",
+            "广播设备和签名设备可不同"
+          ],
+          "applied_to": [
+            "09"
+          ],
+          "limitations": "官方示例针对特定版本与EVM支持范围；本文只概括角色区别，不扩大到所有观察钱包"
+        }
+      ],
+      "validation_limits": [
+        "只做文档和文本核对，未使用真实钱包附件",
+        "未运行钱包CLI/API、签名、导入、广播或转币",
+        "未验证任何实际账户控制权、真实身份或支付结果",
+        "整站导入、检查与浏览器验证由根代理统一执行"
+      ]
+    },
+    "chain-sources.json": {
+      "verified_on": "2026-10-03",
+      "owner": "crypto_chain_expansion",
+      "public_files": [
+        "src/content-curation/forensic-crypto-bitcoin.md",
+        "src/content-curation/forensic-crypto-account-chains.md"
+      ],
+      "context7": {
+        "resolve_calls": 2,
+        "query_calls": 2,
+        "bitcoin_id": "/bitcoin/bitcoin/v30.2",
+        "ethereum_id": "/ethereum/ethereum-org-website",
+        "note": "Selected primary Bitcoin repository and Ethereum official website over a third-party copied JSON-RPC document. Context7 generated APIDOC-style wrappers with non-existent HTTP RPC path/query layouts; none copied. CLI and JSON-RPC syntax rechecked against official RPC pages."
+      },
+      "sources": [
+        {
+          "id": "btc-raw",
+          "url": "https://bitcoincore.org/en/doc/30.0.0/rpc/rawtransactions/decoderawtransaction/",
+          "title": "Bitcoin Core decoderawtransaction 30.0",
+          "verified_on": "2026-10-03",
+          "authority": "primary official specification/documentation/source",
+          "access": "web open/find",
+          "read_scope": "Arguments; TxDoc structure; txid/hash/vin/vout script hex/type/address",
+          "used_in": [
+            "bitcoin:11.1-11.3"
+          ],
+          "validation_boundary": "Documentation/reference checked; no live node or real evidence replay."
+        },
+        {
+          "id": "btc-format",
+          "url": "https://developer.bitcoin.org/reference/transactions.html",
+          "title": "Bitcoin Developer Reference Transactions",
+          "verified_on": "2026-10-03",
+          "authority": "primary official specification/documentation/source",
+          "access": "web open/find",
+          "read_scope": "Raw transaction/input/output/Coinbase and CompactSize sections; current extensions checked in BIPs",
+          "used_in": [
+            "bitcoin:11.1",
+            "14.1"
+          ],
+          "validation_boundary": "Documentation/reference checked; no live node or real evidence replay."
+        },
+        {
+          "id": "btc-segwit",
+          "url": "https://github.com/bitcoin/bips/blob/master/bip-0141.mediawiki",
+          "title": "BIP141",
+          "verified_on": "2026-10-03",
+          "authority": "primary official specification/documentation/source",
+          "access": "web open/find",
+          "read_scope": "Transaction ID; witness program and P2WPKH/P2WSH/nested examples",
+          "used_in": [
+            "bitcoin:11.2-11.3"
+          ],
+          "validation_boundary": "Documentation/reference checked; no live node or real evidence replay."
+        },
+        {
+          "id": "btc-p2sh",
+          "url": "https://github.com/bitcoin/bips/blob/master/bip-0016.mediawiki",
+          "title": "BIP16",
+          "verified_on": "2026-10-03",
+          "authority": "primary official specification/documentation/source",
+          "access": "web open/find",
+          "read_scope": "Specification: scriptPubKey and redeemScript disclosure at spend",
+          "used_in": [
+            "bitcoin:11.3"
+          ],
+          "validation_boundary": "Documentation/reference checked; no live node or real evidence replay."
+        },
+        {
+          "id": "btc-taproot",
+          "url": "https://github.com/bitcoin/bips/blob/master/bip-0341.mediawiki",
+          "title": "BIP341",
+          "verified_on": "2026-10-03",
+          "authority": "primary official specification/documentation/source",
+          "access": "web open/find",
+          "read_scope": "Script validation annex/key path/script path; signatures; Security disclosure limitations",
+          "used_in": [
+            "bitcoin:11.3"
+          ],
+          "validation_boundary": "Documentation/reference checked; no live node or real evidence replay."
+        },
+        {
+          "id": "btc-psbt-rpc",
+          "url": "https://bitcoincore.org/en/doc/30.0.0/rpc/rawtransactions/decodepsbt/",
+          "title": "Bitcoin Core decodepsbt 30.0",
+          "verified_on": "2026-10-03",
+          "authority": "primary official specification/documentation/source",
+          "access": "web open/find",
+          "read_scope": "Input base64; tx/UTXO/partial signatures/final scripts/derivation data/version fields",
+          "used_in": [
+            "bitcoin:12.1"
+          ],
+          "validation_boundary": "Documentation/reference checked; no live node or real evidence replay."
+        },
+        {
+          "id": "btc-psbt",
+          "url": "https://github.com/bitcoin/bips/blob/master/bip-0174.mediawiki",
+          "title": "BIP174",
+          "verified_on": "2026-10-03",
+          "authority": "primary official specification/documentation/source",
+          "access": "web open/find",
+          "read_scope": "Magic bytes; version 0 unsigned transaction; Creator/Updater/Signer/Finalizer/Extractor roles",
+          "used_in": [
+            "bitcoin:12.1-12.2"
+          ],
+          "validation_boundary": "Documentation/reference checked; no live node or real evidence replay."
+        },
+        {
+          "id": "btc-rbf",
+          "url": "https://github.com/bitcoin/bips/blob/master/bip-0125.mediawiki",
+          "title": "BIP125",
+          "verified_on": "2026-10-03",
+          "authority": "primary official specification/documentation/source",
+          "access": "web open/find",
+          "read_scope": "Summary explicit/inherited sequence signaling; replacement policy and history",
+          "used_in": [
+            "bitcoin:13.1-13.2"
+          ],
+          "validation_boundary": "Documentation/reference checked; no live node or real evidence replay."
+        },
+        {
+          "id": "btc-fullrbf",
+          "url": "https://bitcoincore.org/en/releases/28.0/",
+          "title": "Bitcoin Core 28.0 Release Notes",
+          "verified_on": "2026-10-03",
+          "authority": "primary official specification/documentation/source",
+          "access": "web open/find",
+          "read_scope": "Mempool Policy Changes full-RBF default 0 to 1; package RBF; wallet conflicts",
+          "used_in": [
+            "bitcoin:13.1"
+          ],
+          "validation_boundary": "Documentation/reference checked; no live node or real evidence replay."
+        },
+        {
+          "id": "btc-mempool",
+          "url": "https://bitcoincore.org/en/doc/30.0.0/rpc/blockchain/getmempoolentry/",
+          "title": "Bitcoin Core getmempoolentry 30.0",
+          "verified_on": "2026-10-03",
+          "authority": "primary official specification/documentation/source",
+          "access": "web open/find",
+          "read_scope": "txid input; time/depends/spentby/fees; deprecated bip125-replaceable semantics",
+          "used_in": [
+            "bitcoin:13.1"
+          ],
+          "validation_boundary": "Documentation/reference checked; no live node or real evidence replay."
+        },
+        {
+          "id": "btc-packages",
+          "url": "https://github.com/bitcoin/bitcoin/blob/v30.2/doc/policy/packages.md",
+          "title": "Bitcoin Core v30.2 Packages policy",
+          "verified_on": "2026-10-03",
+          "authority": "primary official specification/documentation/source",
+          "access": "web open/find",
+          "read_scope": "Package Fees and Feerate; child-with-parents; CPFP fee bump and dependency limitations",
+          "used_in": [
+            "bitcoin:13.1"
+          ],
+          "validation_boundary": "Documentation/reference checked; no live node or real evidence replay."
+        },
+        {
+          "id": "btc-maturity",
+          "url": "https://github.com/bitcoin/bitcoin/blob/v30.2/src/consensus/consensus.h",
+          "title": "Bitcoin Core v30.2 Consensus constants",
+          "verified_on": "2026-10-03",
+          "authority": "primary official specification/documentation/source",
+          "access": "web open/find",
+          "read_scope": "COINBASE_MATURITY=100",
+          "used_in": [
+            "bitcoin:14.1"
+          ],
+          "validation_boundary": "Documentation/reference checked; no live node or real evidence replay."
+        },
+        {
+          "id": "btc-input-validation",
+          "url": "https://github.com/bitcoin/bitcoin/blob/v30.2/src/consensus/tx_verify.cpp",
+          "title": "Bitcoin Core v30.2 CheckTxInputs",
+          "verified_on": "2026-10-03",
+          "authority": "primary official specification/documentation/source",
+          "access": "web open/find",
+          "read_scope": "IsFinalTx and CheckTxInputs Coinbase nSpendHeight-coin.nHeight comparison; value-in/out fees",
+          "used_in": [
+            "bitcoin:14.1-14.3"
+          ],
+          "validation_boundary": "Documentation/reference checked; no live node or real evidence replay."
+        },
+        {
+          "id": "btc-locktime",
+          "url": "https://github.com/bitcoin/bitcoin/blob/v30.2/src/script/script.h",
+          "title": "Bitcoin Core v30.2 Script constants",
+          "verified_on": "2026-10-03",
+          "authority": "primary official specification/documentation/source",
+          "access": "web open/find",
+          "read_scope": "LOCKTIME_THRESHOLD=500000000; final sequence disabling comment; annex constant",
+          "used_in": [
+            "bitcoin:11.3",
+            "14.3"
+          ],
+          "validation_boundary": "Documentation/reference checked; no live node or real evidence replay."
+        },
+        {
+          "id": "btc-relative",
+          "url": "https://github.com/bitcoin/bips/blob/master/bip-0068.mediawiki",
+          "title": "BIP68",
+          "verified_on": "2026-10-03",
+          "authority": "primary official specification/documentation/source",
+          "access": "web open/find",
+          "read_scope": "Specification version >=2, disable bit31, type bit22, low16 mask, 512-second granularity, previous-block MTP bases",
+          "used_in": [
+            "bitcoin:14.3"
+          ],
+          "validation_boundary": "Documentation/reference checked; no live node or real evidence replay."
+        },
+        {
+          "id": "btc-mtp",
+          "url": "https://github.com/bitcoin/bips/blob/master/bip-0113.mediawiki",
+          "title": "BIP113",
+          "verified_on": "2026-10-03",
+          "authority": "primary official specification/documentation/source",
+          "access": "web open/find",
+          "read_scope": "Median of recent 11 blocks; GetMedianTimePast(pindexPrev) applied to IsFinalTx after activation",
+          "used_in": [
+            "bitcoin:14.3"
+          ],
+          "validation_boundary": "Documentation/reference checked; no live node or real evidence replay."
+        },
+        {
+          "id": "btc-cltv",
+          "url": "https://github.com/bitcoin/bips/blob/master/bip-0065.mediawiki",
+          "title": "BIP65",
+          "verified_on": "2026-10-03",
+          "authority": "primary official specification/documentation/source",
+          "access": "web open/find",
+          "read_scope": "CHECKLOCKTIMEVERIFY rationale and reference implementation; threshold and sequence requirement",
+          "used_in": [
+            "bitcoin:14.3"
+          ],
+          "validation_boundary": "Documentation/reference checked; no live node or real evidence replay."
+        },
+        {
+          "id": "eth-rpc",
+          "url": "https://ethereum.org/developers/docs/apis/json-rpc/",
+          "title": "Ethereum JSON-RPC API",
+          "verified_on": "2026-10-03",
+          "authority": "primary official specification/documentation/source",
+          "access": "web open/find",
+          "read_scope": "Block parameter; eth_getTransactionCount/eth_getCode/eth_getStorageAt/eth_getLogs/tx/receipt/block objects; parameter and result syntax",
+          "used_in": [
+            "account:15.1",
+            "16.3",
+            "17.1-17.2"
+          ],
+          "validation_boundary": "Documentation/reference checked; no live node or real evidence replay."
+        },
+        {
+          "id": "eth-pool",
+          "url": "https://github.com/ethereum/go-ethereum/blob/master/core/txpool/legacypool/legacypool.go",
+          "title": "Geth legacy transaction pool",
+          "verified_on": "2026-10-03",
+          "authority": "primary official specification/documentation/source",
+          "access": "web open/find",
+          "read_scope": "PriceBump configurable policy; same nonce replacement checks; pending authorization interactions",
+          "used_in": [
+            "account:15.2"
+          ],
+          "validation_boundary": "Documentation/reference checked; no live node or real evidence replay."
+        },
+        {
+          "id": "eth-abi",
+          "url": "https://docs.soliditylang.org/en/latest/abi-spec.html",
+          "title": "Solidity Contract ABI Specification",
+          "verified_on": "2026-10-03",
+          "authority": "primary official specification/documentation/source",
+          "access": "web open/find",
+          "read_scope": "Function Selector; Types; Argument Encoding; Events; indexed dynamic hash; anonymous event topic layout",
+          "used_in": [
+            "account:16.1-16.3"
+          ],
+          "validation_boundary": "Documentation/reference checked; no live node or real evidence replay."
+        },
+        {
+          "id": "erc20",
+          "url": "https://eips.ethereum.org/EIPS/eip-20",
+          "title": "ERC20",
+          "verified_on": "2026-10-03",
+          "authority": "primary official specification/documentation/source",
+          "access": "web open/find",
+          "read_scope": "Transfer/Approval signatures and allowance/approve/transferFrom semantics",
+          "used_in": [
+            "account:16.2",
+            "16.4"
+          ],
+          "validation_boundary": "Documentation/reference checked; no live node or real evidence replay."
+        },
+        {
+          "id": "erc721",
+          "url": "https://eips.ethereum.org/EIPS/eip-721",
+          "title": "ERC721",
+          "verified_on": "2026-10-03",
+          "authority": "primary official specification/documentation/source",
+          "access": "web open/find",
+          "read_scope": "Indexed tokenId Transfer/Approval; ApprovalForAll; ownerOf; deployment Transfer exception; approval reset",
+          "used_in": [
+            "account:16.2",
+            "16.4"
+          ],
+          "validation_boundary": "Documentation/reference checked; no live node or real evidence replay."
+        },
+        {
+          "id": "erc1155",
+          "url": "https://eips.ethereum.org/EIPS/eip-1155",
+          "title": "ERC1155",
+          "verified_on": "2026-10-03",
+          "authority": "primary official specification/documentation/source",
+          "access": "web open/find",
+          "read_scope": "TransferSingle/TransferBatch operator/from/to indexed; id/value data arrays; batch balance and event semantics",
+          "used_in": [
+            "account:16.2"
+          ],
+          "validation_boundary": "Documentation/reference checked; no live node or real evidence replay."
+        },
+        {
+          "id": "erc2612",
+          "url": "https://eips.ethereum.org/EIPS/eip-2612",
+          "title": "ERC2612",
+          "verified_on": "2026-10-03",
+          "authority": "primary official specification/documentation/source",
+          "access": "web open/find",
+          "read_scope": "Permit inputs; allowance and nonces update; Approval; arbitrary msg.sender; domain constraints",
+          "used_in": [
+            "account:15.1",
+            "16.4"
+          ],
+          "validation_boundary": "Documentation/reference checked; no live node or real evidence replay."
+        },
+        {
+          "id": "eip712",
+          "url": "https://eips.ethereum.org/EIPS/eip-712",
+          "title": "EIP712",
+          "verified_on": "2026-10-03",
+          "authority": "primary official specification/documentation/source",
+          "access": "web open/find",
+          "read_scope": "Typed structured data hash; domain separator and chainId/verifyingContract fields; replay responsibility",
+          "used_in": [
+            "account:16.4"
+          ],
+          "validation_boundary": "Documentation/reference checked; no live node or real evidence replay."
+        },
+        {
+          "id": "eip155",
+          "url": "https://eips.ethereum.org/EIPS/eip-155",
+          "title": "EIP155",
+          "verified_on": "2026-10-03",
+          "authority": "primary official specification/documentation/source",
+          "access": "web open/find",
+          "read_scope": "Simple replay attack protection signing fields; old v27/v28 compatibility",
+          "used_in": [
+            "account:18.1"
+          ],
+          "validation_boundary": "Documentation/reference checked; no live node or real evidence replay."
+        },
+        {
+          "id": "eip1014",
+          "url": "https://eips.ethereum.org/EIPS/eip-1014",
+          "title": "EIP1014",
+          "verified_on": "2026-10-03",
+          "authority": "primary official specification/documentation/source",
+          "access": "web open/find",
+          "read_scope": "CREATE2 address formula deployer/salt/keccak256(init_code) and rationale",
+          "used_in": [
+            "account:17.1"
+          ],
+          "validation_boundary": "Documentation/reference checked; no live node or real evidence replay."
+        },
+        {
+          "id": "erc1967",
+          "url": "https://eips.ethereum.org/EIPS/eip-1967",
+          "title": "ERC1967",
+          "verified_on": "2026-10-03",
+          "authority": "primary official specification/documentation/source",
+          "access": "web open/find",
+          "read_scope": "Implementation/beacon/admin slots; Upgraded/BeaconUpgraded; DELEGATECALL proxy example",
+          "used_in": [
+            "account:17.2"
+          ],
+          "validation_boundary": "Documentation/reference checked; no live node or real evidence replay."
+        },
+        {
+          "id": "erc4337",
+          "url": "https://eips.ethereum.org/EIPS/eip-4337",
+          "title": "ERC4337",
+          "verified_on": "2026-10-03",
+          "authority": "primary official specification/documentation/source",
+          "access": "web open/find",
+          "read_scope": "Abstract; UserOperation, bundler, handleOps/EntryPoint model; operation hash and nonce contexts",
+          "used_in": [
+            "account:15.1",
+            "17.3"
+          ],
+          "validation_boundary": "Documentation/reference checked; no live node or real evidence replay."
+        },
+        {
+          "id": "eip7702",
+          "url": "https://eips.ethereum.org/EIPS/eip-7702",
+          "title": "EIP7702",
+          "verified_on": "2026-10-03",
+          "authority": "primary official specification/documentation/source",
+          "access": "web open/find",
+          "read_scope": "Authorization tuple processing, nonce increment, 0xef0100 delegation indicator, no rollback on outer execution failure, permitted transaction origination",
+          "used_in": [
+            "account:15.1",
+            "17.1",
+            "17.3"
+          ],
+          "validation_boundary": "Documentation/reference checked; no live node or real evidence replay."
+        },
+        {
+          "id": "op-finality",
+          "url": "https://docs.optimism.io/op-stack/transactions/transaction-finality",
+          "title": "OP Stack Transaction Finality",
+          "verified_on": "2026-10-03",
+          "authority": "primary official specification/documentation/source",
+          "access": "web open/find",
+          "read_scope": "unsafe/latest, safe and finalized mappings; batch data L1 calldata/blob; finality dependency",
+          "used_in": [
+            "account:18.2"
+          ],
+          "validation_boundary": "Documentation/reference checked; no live node or real evidence replay."
+        },
+        {
+          "id": "op-deposit",
+          "url": "https://docs.optimism.io/op-stack/bridging/deposit-flow",
+          "title": "OP Stack Deposit Flow",
+          "verified_on": "2026-10-03",
+          "authority": "primary official specification/documentation/source",
+          "access": "web open/find",
+          "read_scope": "L1 TransactionDeposited to L2 deposit derivation; relayed target calls; failed deposit replay",
+          "used_in": [
+            "account:18.1-18.2"
+          ],
+          "validation_boundary": "Documentation/reference checked; no live node or real evidence replay."
+        },
+        {
+          "id": "op-withdrawal",
+          "url": "https://docs.optimism.io/op-stack/bridging/withdrawal-flow",
+          "title": "OP Stack Withdrawal Flow",
+          "verified_on": "2026-10-03",
+          "authority": "primary official specification/documentation/source",
+          "access": "web open/find",
+          "read_scope": "Withdrawal initiating/proving/finalization phases; current dispute-game and proof-maturity checks; message records",
+          "used_in": [
+            "account:18.1-18.2"
+          ],
+          "validation_boundary": "Documentation/reference checked; no live node or real evidence replay."
+        },
+        {
+          "id": "op-withdrawal-spec",
+          "url": "https://specs.optimism.io/protocol/withdrawals.html",
+          "title": "OP Stack Withdrawals Specification",
+          "verified_on": "2026-10-03",
+          "authority": "primary official specification/documentation/source",
+          "access": "web open/find",
+          "read_scope": "WithdrawalFinalized(withdrawalHash,bool success), MessagePassed hash/link fields, target-call failure boundary; legacy proof interface not copied",
+          "used_in": [
+            "account:18.2"
+          ],
+          "validation_boundary": "Documentation/reference checked; no live node or real evidence replay."
+        },
+        {
+          "id": "eip4844",
+          "url": "https://eips.ethereum.org/EIPS/eip-4844",
+          "title": "EIP4844",
+          "verified_on": "2026-10-03",
+          "authority": "primary official specification/documentation/source",
+          "access": "web open/find",
+          "read_scope": "Abstract and consensus sidecar/data persistence separation; rollup data availability versus permanence",
+          "used_in": [
+            "account:18.2"
+          ],
+          "validation_boundary": "Documentation/reference checked; no live node or real evidence replay."
+        },
+        {
+          "id": "tron-raw",
+          "url": "https://developers.tron.network/docs/api-signature-and-broadcast-flow",
+          "title": "TRON Sign and Broadcast API Workflow",
+          "verified_on": "2026-10-03",
+          "authority": "primary official specification/documentation/source",
+          "access": "web open/find",
+          "read_scope": "Structured raw_data versus protobuf raw_data_hex; SHA256 txID; separate signature list. No signing/broadcast calls copied",
+          "used_in": [
+            "account:19.1"
+          ],
+          "validation_boundary": "Documentation/reference checked; no live node or real evidence replay."
+        },
+        {
+          "id": "tron-tapos",
+          "url": "https://developers.tron.network/docs/tron-protocol-transaction",
+          "title": "TRON Transactions",
+          "verified_on": "2026-10-03",
+          "authority": "primary official specification/documentation/source",
+          "access": "web open/find",
+          "read_scope": "Transaction structure and raw_data/signature payload; TAPOS byte slices; timestamps and expiration; lifecycle",
+          "used_in": [
+            "account:19.1"
+          ],
+          "validation_boundary": "Documentation/reference checked; no live node or real evidence replay."
+        },
+        {
+          "id": "tron-permissions",
+          "url": "https://developers.tron.network/docs/multi-signature",
+          "title": "TRON Account Permission Management",
+          "verified_on": "2026-10-03",
+          "authority": "primary official specification/documentation/source",
+          "access": "web open/find",
+          "read_scope": "Owner/Witness/Active; threshold and weights; permission update and operations bitmap semantics",
+          "used_in": [
+            "account:19.2"
+          ],
+          "validation_boundary": "Documentation/reference checked; no live node or real evidence replay."
+        },
+        {
+          "id": "tron-signatures",
+          "url": "https://developers.tron.network/docs/transaction-signature-validation",
+          "title": "TRON Signature Validation",
+          "verified_on": "2026-10-03",
+          "authority": "primary official specification/documentation/source",
+          "access": "web open/find",
+          "read_scope": "Permission_id selection; recovery and weighted threshold; no native cancellation/replacement",
+          "used_in": [
+            "account:19.1-19.2"
+          ],
+          "validation_boundary": "Documentation/reference checked; no live node or real evidence replay."
+        }
+      ],
+      "failed_attempts": [
+        {
+          "url": "https://developers.tron.network/docs/transaction",
+          "resolution": "Replaced with official /docs/tron-protocol-transaction."
+        },
+        {
+          "url": "https://github.com/bitcoin/bitcoin/blob/v30.2/doc/release-notes/release-notes-28.0.md",
+          "resolution": "Read official release /en/releases/28.0/ instead."
+        }
+      ],
+      "limits": [
+        "All sources were read in the stated scopes, not every linked repository file.",
+        "No private keys, signatures of live operations, external wallet uploads, or chain mutations.",
+        "Live APIs, finality, identity, proxy replays and bridge linkage not tested.",
+        "Local syntax and synthetic data verification recorded in chain-verification.json."
+      ]
+    }
+  },
+  "checks": {
+    "dataTests": {
+      "passed": 57,
+      "log": ".work/crypto-expansion-20261003/unit-tests.log"
+    },
+    "uiTests": {
+      "passed": 5,
+      "log": ".work/crypto-expansion-20261003/ui-tests.log"
+    },
+    "astroCheck": {
+      "errors": 0,
+      "warnings": 0,
+      "hints": 0,
+      "log": ".work/crypto-expansion-20261003/check.log"
+    },
+    "build": {
+      "pages": 329,
+      "searchIndexedPages": 320,
+      "log": ".work/crypto-expansion-20261003/build.log"
+    },
+    "siteAudit": {
+      "pages": 329,
+      "localLinks": 7363,
+      "errors": 0,
+      "log": ".work/crypto-expansion-20261003/site-audit.log"
+    },
+    "historicalWebCoverageAudit": {
+      "records": 117,
+      "standards": 50,
+      "errors": 0,
+      "log": ".work/crypto-expansion-20261003/web-audit.log"
+    },
+    "newHeaderTests": {
+      "passed": 12,
+      "includedInDataTests": true
+    },
+    "chainSnippetChecks": {
+      "preservation": [
+        {
+          "file": "forensic-crypto-bitcoin.md",
+          "old_content_preserved": true,
+          "old_headings": 25,
+          "added_utf8_bytes": 17413,
+          "new_total_bytes": 38005
+        },
+        {
+          "file": "forensic-crypto-account-chains.md",
+          "old_content_preserved": true,
+          "old_headings": 40,
+          "added_utf8_bytes": 25542,
+          "new_total_bytes": 63282
+        }
+      ],
+      "bash_syntax": [
+        {
+          "snippet": "forensic-crypto-bitcoin-1",
+          "passed": true
+        },
+        {
+          "snippet": "forensic-crypto-bitcoin-2",
+          "passed": true
+        },
+        {
+          "snippet": "forensic-crypto-bitcoin-3",
+          "passed": true
+        },
+        {
+          "snippet": "forensic-crypto-account-chains-1",
+          "passed": true
+        },
+        {
+          "snippet": "forensic-crypto-account-chains-2",
+          "passed": true
+        },
+        {
+          "snippet": "forensic-crypto-account-chains-3",
+          "passed": true
+        },
+        {
+          "snippet": "forensic-crypto-account-chains-4",
+          "passed": true
+        },
+        {
+          "snippet": "forensic-crypto-account-chains-6",
+          "passed": true
+        }
+      ],
+      "python_syntax": [
+        {
+          "snippet": "forensic-crypto-account-chains-5",
+          "passed": true
+        }
+      ],
+      "tron_txid_cases": [
+        {
+          "case": "self_consistent_synthetic_bytes",
+          "expected_success": true,
+          "exit_code": 0,
+          "passed": true,
+          "stdout": "{\"txID\": \"3834c193e3a2e4e867746b1af30df7a63134a1d4963a8e0e47ef0a166c20efeb\", \"raw_byte_length\": 4, \"check\": \"保存的原始字节与标识一致\"}",
+          "stderr": ""
+        },
+        {
+          "case": "mismatched_hash",
+          "expected_success": false,
+          "exit_code": 1,
+          "passed": true,
+          "stdout": "",
+          "stderr": "txID与保存的raw_data_hex不一致，检查材料和响应对象"
+        },
+        {
+          "case": "missing_raw_hex",
+          "expected_success": false,
+          "exit_code": 1,
+          "passed": true,
+          "stdout": "",
+          "stderr": "缺少有效raw_data_hex，不能用JSON文本替代原始字节"
+        },
+        {
+          "case": "invalid_hex",
+          "expected_success": false,
+          "exit_code": 1,
+          "passed": true,
+          "stdout": "",
+          "stderr": "缺少有效raw_data_hex，不能用JSON文本替代原始字节"
+        },
+        {
+          "case": "rpc_error",
+          "expected_success": false,
+          "exit_code": 1,
+          "passed": true,
+          "stdout": "",
+          "stderr": "接口错误，不能当作交易对象"
+        },
+        {
+          "case": "null_result",
+          "expected_success": false,
+          "exit_code": 1,
+          "passed": true,
+          "stdout": "",
+          "stderr": "没有交易对象"
+        },
+        {
+          "case": "null_document",
+          "expected_success": false,
+          "exit_code": 1,
+          "passed": true,
+          "stdout": "",
+          "stderr": "预期保存的交易JSON对象"
+        },
+        {
+          "case": "array_document",
+          "expected_success": false,
+          "exit_code": 1,
+          "passed": true,
+          "stdout": "",
+          "stderr": "预期保存的交易JSON对象"
+        }
+      ],
+      "limitations": [
+        "No live chain or RPC calls were made.",
+        "Git Bash syntax checking is not a Kali execution or transaction validation."
+      ]
+    },
+    "preservation": {
+      "date": "2026-10-03",
+      "baselineFiles": 330,
+      "unchangedBaselineFiles": 314,
+      "changedBaselineFiles": [
+        "README.md",
+        "src/content/knowledge/fic-case-12.md",
+        "src/content/knowledge/forensic-crypto-account-chains.md",
+        "src/content/knowledge/forensic-crypto-bitcoin.md",
+        "src/content/knowledge/forensic-crypto-foundations.md",
+        "src/content/knowledge/forensic-crypto-practice.md",
+        "src/content/knowledge/forensic-crypto-tracing.md",
+        "src/content/knowledge/forensic-crypto-wallets.md",
+        "src/content-curation/fic-case-12.md",
+        "src/content-curation/forensic-crypto-account-chains.md",
+        "src/content-curation/forensic-crypto-bitcoin.md",
+        "src/content-curation/forensic-crypto-foundations.md",
+        "src/content-curation/forensic-crypto-practice.md",
+        "src/content-curation/forensic-crypto-tracing.md",
+        "src/content-curation/forensic-crypto-wallets.md",
+        "src/data/forensics-supplements.json"
+      ],
+      "articleChecks": [
+        {
+          "id": "fic-case-12",
+          "beforeCharacters": 7464,
+          "afterCharacters": 7505,
+          "newCharacters": 41,
+          "oldHeadingsRetained": 17,
+          "oldCodeBlocksRetained": 3,
+          "originalPrefixRetained": null
+        },
+        {
+          "id": "forensic-crypto-foundations",
+          "beforeCharacters": 4647,
+          "afterCharacters": 12392,
+          "newCharacters": 7745,
+          "oldHeadingsRetained": 10,
+          "oldCodeBlocksRetained": 1,
+          "originalPrefixRetained": null
+        },
+        {
+          "id": "forensic-crypto-wallets",
+          "beforeCharacters": 13217,
+          "afterCharacters": 14771,
+          "newCharacters": 1554,
+          "oldHeadingsRetained": 21,
+          "oldCodeBlocksRetained": 7,
+          "originalPrefixRetained": null
+        },
+        {
+          "id": "forensic-crypto-bitcoin",
+          "beforeCharacters": 10547,
+          "afterCharacters": 18929,
+          "newCharacters": 8382,
+          "oldHeadingsRetained": 25,
+          "oldCodeBlocksRetained": 10,
+          "originalPrefixRetained": true
+        },
+        {
+          "id": "forensic-crypto-account-chains",
+          "beforeCharacters": 22686,
+          "afterCharacters": 36232,
+          "newCharacters": 13546,
+          "oldHeadingsRetained": 40,
+          "oldCodeBlocksRetained": 17,
+          "originalPrefixRetained": true
+        },
+        {
+          "id": "forensic-crypto-tracing",
+          "beforeCharacters": 6090,
+          "afterCharacters": 7869,
+          "newCharacters": 1779,
+          "oldHeadingsRetained": 11,
+          "oldCodeBlocksRetained": 2,
+          "originalPrefixRetained": true
+        },
+        {
+          "id": "forensic-crypto-practice",
+          "beforeCharacters": 8731,
+          "afterCharacters": 12226,
+          "newCharacters": 3495,
+          "oldHeadingsRetained": 14,
+          "oldCodeBlocksRetained": 3,
+          "originalPrefixRetained": true
+        }
+      ],
+      "collectionCounts": {
+        "knowledge": 170,
+        "tools": 79,
+        "curation": 71
+      },
+      "proofRuns": [
+        {
+          "input": "genesis-proof.json",
+          "sha256": "7d5ed99140777ecc9b06a98f12e13706230173e0c5ac8fb2425967c8321d8f34",
+          "expectedExit": 0,
+          "actualExit": 0,
+          "powMatchesClaimedTarget": true,
+          "merkleMatchesHeader": true,
+          "activeChainChecked": false,
+          "ownershipChecked": false
+        },
+        {
+          "input": "constructed-merkle-proof.json",
+          "sha256": "5458cad9237dc7bf2c27cc33035b10dee5e63ef43d2d535cb4d06bf53c9ee761",
+          "expectedExit": 1,
+          "actualExit": 1,
+          "powMatchesClaimedTarget": false,
+          "merkleMatchesHeader": true,
+          "activeChainChecked": false,
+          "ownershipChecked": false
+        }
+      ],
+      "errors": []
+    },
+    "reimport": {
+      "date": "2026-10-03",
+      "filesChecked": 339,
+      "changedFiles": [],
+      "addedFiles": [],
+      "removedFiles": [],
+      "pathNormalization": "All Windows and POSIX separators normalized before comparing inventory sets."
+    },
+    "browserSearch": {
+      "checkedAt": "2026-10-03",
+      "filters": {
+        "module": "Forensics",
+        "track": "虚拟币取证",
+        "type": "知识点"
+      },
+      "checks": [
+        {
+          "query": "Merkle",
+          "results": [
+            {
+              "href": "/knowledge/forensic-crypto-practice/",
+              "text": "01 / 知识点 / Forensics / 虚拟币取证\n虚拟币取证实战：账本复核、考点与报告\n\n一次练习流程当成所有场景的法定操作要求。 10 区块头与 Merkle 证明的离线实战. 10.1 从真实格式理解哈希、"
+            },
+            {
+              "href": "/knowledge/forensic-crypto-foundations/",
+              "text": "02 / 知识点 / Forensics / 虚拟币取证\n区块链与虚拟币取证基础：结构、共识与证据流程\n\n痕迹或平台记录补足。 02.6 Merkle树与proof：包含证明不是万能真实性证明. Merkle树像一套层层汇总的目录"
+            },
+            {
+              "href": "/knowledge/fic-case-12/",
+              "text": "03 / 知识点 / Forensics / 虚拟币取证\n虚拟货币与资金流\n\n归因模型、跨链与归属边界；离线账本、区块头与 Merkle 验证、场景考点与报告复核. 01 把地址、交易与"
+            }
+          ]
+        },
+        {
+          "query": "Taproot",
+          "results": [
+            {
+              "href": "/knowledge/forensic-crypto-bitcoin/",
+              "text": "01 / 知识点 / Forensics / 虚拟币取证\nBitcoin 取证：UTXO、手续费与花费路径\n\n的栈. 哈希承诺不等于已披露脚本全文. Taproot / witness_v1_taproot. 32 字节输出公钥. 区分 key path 与"
+            },
+            {
+              "href": "/knowledge/forensic-crypto-wallets/",
+              "text": "02 / 知识点 / Forensics / 虚拟币取证\n钱包取证：本地痕迹、派生与控制权\n\ntype、其他币种、硬件产品、账户索引、自定义路径、Taproot 或 multisig 都可能不同。地址前缀不能独立证明完整路径；"
+            }
+          ]
+        },
+        {
+          "query": "ERC1155",
+          "results": [
+            {
+              "href": "/knowledge/forensic-crypto-account-chains/",
+              "text": "01 / 知识点 / Forensics / 虚拟币取证\nEVM 与 TRON 取证：回执、代币事件与调用\n\n、ERC721 与 ERC1155 的布局不同. ERC20 通常是一种按整数余额计量的代币；ERC721 为每个独立 tokenId 表示一个 NFT；ERC1155 在"
+            }
+          ]
+        }
+      ]
+    },
+    "browserDownloads": {
+      "date": "2026-10-03",
+      "files": [
+        {
+          "name": "genesis-proof.json",
+          "sha256": "7d5ed99140777ecc9b06a98f12e13706230173e0c5ac8fb2425967c8321d8f34",
+          "matchesPublishedFile": true
+        },
+        {
+          "name": "blockchain_header.py",
+          "sha256": "db927d34ff9916b5639fe6eaf1bc80c939b1601fba14cf54d0d5b15e5267a9ea",
+          "matchesPublishedFile": true
+        },
+        {
+          "name": "constructed-merkle-proof.json",
+          "sha256": "5458cad9237dc7bf2c27cc33035b10dee5e63ef43d2d535cb4d06bf53c9ee761",
+          "matchesPublishedFile": true
+        }
+      ],
+      "replayExits": [
+        0,
+        1
+      ]
+    },
+    "screenshots": [
+      {
+        "file": ".work/crypto-expansion-20261003/blockchain-foundations.jpg",
+        "sha256": "082d79255e30881387b654f943117302c7f90acaecc3d484a62f608d0a024886",
+        "format": "JPEG"
+      },
+      {
+        "file": ".work/crypto-expansion-20261003/blockchain-practice.jpg",
+        "sha256": "e1513387bf588bffc9b5436e377868f8edd73cb10e129003fc47b30bcac2a12e",
+        "format": "JPEG"
+      }
+    ]
+  },
+  "practiceAssets": [
+    {
+      "file": "public/practice/crypto-forensics/blockchain_header.py",
+      "sha256": "db927d34ff9916b5639fe6eaf1bc80c939b1601fba14cf54d0d5b15e5267a9ea"
+    },
+    {
+      "file": "public/practice/crypto-forensics/genesis-proof.json",
+      "sha256": "7d5ed99140777ecc9b06a98f12e13706230173e0c5ac8fb2425967c8321d8f34"
+    },
+    {
+      "file": "public/practice/crypto-forensics/constructed-merkle-proof.json",
+      "sha256": "5458cad9237dc7bf2c27cc33035b10dee5e63ef43d2d535cb4d06bf53c9ee761"
+    },
+    {
+      "file": "public/practice/crypto-forensics/blockchain-header-README.txt",
+      "sha256": "9b6ed1b499bb6988a5ae09949924626bbfaa4f3309b7d7e67d56c8d6ad0d66b8"
+    }
+  ],
+  "reviewCorrections": [
+    "包含proof不能单独推出当前分支，基础篇02.7收紧表达。",
+    "OP deposit mint保留与value/目标调用分开；只把满足条件的Messenger失败消息称为可重放。",
+    "基础篇06区分构造账本与公开创世固定向量，避免沿用“所有练习均合成”的旧范围。"
+  ],
+  "verificationBoundary": [
+    "三个指定网址的公开正文已实际读取；未登录或突破访问限制，图中细节不声称全部独立核对。",
+    "来源记录标明阅读范围与访问方式；MetaMask两条页面仅以Context7官方片段核对，完整网页未成功读取。",
+    "Context7对Bitcoin部分生成伪HTTP包装；未采用，RPC以官方位置参数和原文复核。",
+    "只读节点命令通过文档与Bash语法核对，未运行真实链请求或历史状态重放。",
+    "创世区块向量是公开固定数据；三叶Merkle树、账本和场景是构造材料，不是有效付款或真实竞赛检材。",
+    "区块头工具只复算80字节头、声明target和指定Merkle路径；不独立证明叶数、交易有效性、网络难度、当前主链、确认数或身份。",
+    "数据/UI测试完成后仅补正文边界与内部来源；最终稿重新导入、构建、审计，浏览器核对最终显示。"
+  ]
+}

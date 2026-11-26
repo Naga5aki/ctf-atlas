@@ -1,0 +1,109 @@
+---
+import '../styles/site.css';
+import '../styles/light.css';
+
+interface Props {
+  title: string;
+  description?: string;
+  active?: string;
+  pageType?: string;
+  pageModule?: string;
+  pageTrack?: string;
+  wpFilter?: string;
+}
+
+const {
+  title,
+  description = '本地 CTF 知识库：知识点、题目、WP 与工具。',
+  active = '',
+  pageType,
+  pageModule,
+  pageTrack,
+  wpFilter,
+} = Astro.props;
+const modules = [
+  { key: 'Web', label: 'Web', mark: 'W' },
+  { key: 'Misc', label: 'Misc', mark: 'M' },
+  { key: 'Reverse', label: 'Reverse', mark: 'R' },
+  { key: 'Crypto', label: 'Crypto', mark: 'C' },
+  { key: 'Forensics', label: 'Forensics', mark: 'F' },
+];
+---
+
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#f7f6f2" />
+    <title>{title} · CTF Atlas</title>
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar" id="sidebar" data-pagefind-ignore>
+        <a class="brand" href="/" aria-label="CTF Atlas 首页">
+          <span class="brand-symbol">⌘</span>
+          <span><strong>CTF Atlas</strong><small>PERSONAL KNOWLEDGE BASE</small></span>
+        </a>
+        <div class="sidebar-scroll">
+          <div class="nav-label">工作区 <span>01 / 05</span></div>
+          <nav aria-label="主要导航">
+            <a class:list={['nav-link', { active: active === 'home' }]} href="/"><span class="nav-icon">⌂</span>总览</a>
+            <a class:list={['nav-link', { active: active === 'search' }]} href="/search/"><span class="nav-icon">⌕</span>全站搜索 <kbd>⌃ K</kbd></a>
+          </nav>
+          <div class="nav-label section-label">知识模块 <span>05</span></div>
+          <nav aria-label="知识模块">
+            {modules.map((item) => (
+              <a class:list={['nav-link', { active: active === item.key }]} href={`/module/${item.key.toLowerCase()}/`}>
+                <span class="nav-icon module-icon">{item.mark}</span>{item.label}
+              </a>
+            ))}
+          </nav>
+          <div class="nav-label section-label">资料库</div>
+          <nav aria-label="资料库">
+            <a class:list={['nav-link', { active: active === 'tools' }]} href="/tools/"><span class="nav-icon">⌘</span>工具索引</a>
+            <a class:list={['nav-link', { active: active === 'challenges' }]} href="/challenges/"><span class="nav-icon">▣</span>题目索引</a>
+            <a class:list={['nav-link', { active: active === 'archive' }]} href="/archive/"><span class="nav-icon">◇</span>待归档</a>
+          </nav>
+        </div>
+        <div class="sidebar-bottom">
+          <div class="local-indicator"><span class="live-dot"></span>本地知识库</div>
+          <p>本地整理 · 持续更新</p>
+        </div>
+      </aside>
+      <div class="main-shell">
+        <header class="topbar" data-pagefind-ignore>
+          <button class="mobile-menu icon-button" id="menu-toggle" aria-label="打开导航" aria-expanded="false">☰</button>
+          <div class="topbar-location"><span class="topbar-prompt">~/</span> {active === 'home' ? 'overview' : active || 'atlas'}</div>
+          <div class="topbar-actions">
+            <a class="topbar-search" href="/search/" aria-label="搜索所有内容"><span>⌕</span>搜索所有内容 <kbd>Ctrl K</kbd></a>
+            <span class="topbar-version">v0.1</span>
+          </div>
+        </header>
+        <main id="main-content" data-pagefind-ignore={pageType ? undefined : ''}>
+          {pageType && <span class="search-meta" data-pagefind-filter="type" data-pagefind-meta="type">{pageType}</span>}
+          {pageModule && <span class="search-meta" data-pagefind-filter="module" data-pagefind-meta="module">{pageModule}</span>}
+          {pageTrack && <span class="search-meta" data-pagefind-filter="track" data-pagefind-meta="track">{pageTrack}</span>}
+          {wpFilter && <span class="search-meta" data-pagefind-filter="wp">{wpFilter}</span>}
+          <slot />
+        </main>
+        <footer class="site-footer" data-pagefind-ignore><span>CTF Atlas / local-first</span><span>知识点 · 工具 · 题目 · WP</span></footer>
+      </div>
+    </div>
+    <script>
+      document.getElementById('menu-toggle')?.addEventListener('click', () => {
+        const sidebar = document.getElementById('sidebar');
+        const button = document.getElementById('menu-toggle');
+        const open = sidebar?.classList.toggle('sidebar-open') ?? false;
+        button?.setAttribute('aria-expanded', String(open));
+      });
+      document.addEventListener('keydown', (event) => {
+        if ((event.ctrlKey || event.metaKey) && event.key.toLowerCase() === 'k') {
+          event.preventDefault();
+          window.location.href = '/search/';
+        }
+      });
+    </script>
+  </body>
+</html>

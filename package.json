@@ -1,0 +1,23 @@
+{
+  "name": "ctf-atlas",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev --host 127.0.0.1",
+    "build": "astro build && pagefind --site dist",
+    "preview": "astro preview --host 127.0.0.1",
+    "check": "astro check",
+    "test:ui": "node --test tests/command-display.test.mjs",
+    "test:data": "python -m unittest discover -s tests -v"
+  },
+  "dependencies": {
+    "astro": "7.3.5"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.9.0",
+    "@astrojs/markdown-satteri": "0.4.2",
+    "pagefind": "^1.4.0",
+    "typescript": "^5.9.0"
+  }
+}

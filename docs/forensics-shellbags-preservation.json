@@ -1,0 +1,33 @@
+{
+  "baseline_files": 448,
+  "old_pages": {
+    "forensic-registry": {
+      "path": "src/content-curation/forensic-registry.md",
+      "old_bytes": 11462,
+      "old_sha256": "84a4cb8467ce495b2ef8ab8eba490d5a574470676664dde0abebab6b92c16cf0"
+    },
+    "forensic-usb-evidence": {
+      "path": "src/content-curation/forensic-usb-evidence.md",
+      "old_bytes": 81024,
+      "old_sha256": "930284f0898d410742cbda3f7f7195575637fd3cc8882e724f6a00c744c29bd1"
+    }
+  },
+  "protected_files": {
+    "src/content-curation/fic-case-06.md": "6e7f3c066acd9c2f136a11a5df0718aaf74be697af30fac5ee680b2935953329",
+    "src/content-curation/forensic-android-forensics.md": "eda0346697dbeac2f66636cd1312c76b29d28cc439742aadc30034ed83dd332b",
+    "src/content-curation/forensic-android-storage.md": "bc1ad6a5db04e25557b39b962782c99ab70abef735124c11577136d69d5a074a",
+    "src/content-curation/forensic-android-tools.md": "ea6d9926dddbe08f3efd41d4f386619e91f8ebc69a658abb61efd526ba423b92",
+    "src/content-curation/forensic-ios-backup.md": "5ea9ae6ff03f72c9bfe9ae6ce25d8dda91c1bf587fbd49a6254e27c24c54a003",
+    "src/content-curation/forensic-ios-forensics.md": "fcf620152fc542c864bf700c0738ca6591f0532bdeeea1bbad1dcdb856315d5d",
+    "src/content-curation/forensic-ios-tools.md": "0387fe043bc1335375172181e73e08dbb71dc6bb517de754884a9e9ddf6cd9e1",
+    "src/content-curation/forensic-memory-volatility.md": "0b75a4fb36a7e87810f0da32be75932062aa59ef0cfbef586d8a7d9013ec34f3",
+    "src/content/knowledge/fic-case-06.md": "c9547817c98965e70662466e704f9cdcb1117e85394a467771d1badbf8da49ea",
+    "src/content/knowledge/forensic-android-forensics.md": "a11c742323195a9fb92fb954ce67bc53c3ad36c38f424fa025ac5b4b20476461",
+    "src/content/knowledge/forensic-android-storage.md": "cd324b0adcf7810ba808f354c4beae529c80ed55e00954d67470591864a6100b",
+    "src/content/knowledge/forensic-android-tools.md": "9306ed7bb186113a3fd696790d7b26c8e3f43429055184cb34f8eff81efb71e1",
+    "src/content/knowledge/forensic-ios-backup.md": "4f0f766d625d112fcf713d24586790b26b6ba2a448a423d6fdf117fbe586a5a9",
+    "src/content/knowledge/forensic-ios-forensics.md": "8d36868f9a2ab769b94b32b7dbe330a6b8603dcdc7407ca901b12693706c35ee",
+    "src/content/knowledge/forensic-ios-tools.md": "096dbd66141857f2947ca8e0a0945c9452139c89f81f9575606d1993b247fa62",
+    "src/content/knowledge/forensic-memory-volatility.md": "49f7cac10caace0eb59854aa6c44934570c0961cb80d9ac2e7b61c2b83ceb7e9"
+  }
+}

@@ -1,0 +1,49 @@
+---
+import Layout from '../components/Layout.astro';
+import ItemCard from '../components/ItemCard.astro';
+import { getCollection } from 'astro:content';
+
+const knowledge = await getCollection('knowledge');
+const writeups = await getCollection('writeups');
+const modules = [
+  { id: 'Web', label: 'Web', desc: '仓库泄露、应用分析与攻击痕迹', mark: '01' },
+  { id: 'Misc', label: 'Misc', desc: '文件格式、隐写、编码与杂项题', mark: '02' },
+  { id: 'Reverse', label: 'Reverse', desc: '程序结构、校验逻辑与算法还原', mark: '03' },
+  { id: 'Crypto', label: 'Crypto', desc: '密码学参数、攻击条件与验证', mark: '04' },
+  { id: 'Forensics', label: 'Forensics', desc: '介质、主机、容器与证据链', mark: '05' },
+];
+const featured = [
+  ...writeups.slice(0, 2).map((item) => ({ ...item.data, href: `/writeup/${item.id}/`, kind: 'WP' })),
+  ...knowledge.filter((item) => item.data.module === 'Forensics').slice(0, 2).map((item) => ({ ...item.data, href: `/knowledge/${item.id}/`, kind: '知识点' })),
+];
+---
+
+<Layout title="总览" active="home">
+  <div class="content-wrap home-wrap">
+    <section class="hero" data-pagefind-ignore>
+      <div class="eyebrow"><span class="live-dot"></span> CTF KNOWLEDGE ATLAS <span class="eyebrow-line"></span> 为长期学习而建</div>
+      <h1>让知识有序，<br /><em>让解题有据。</em></h1>
+      <p class="hero-intro">汇集知识笔记、题目与解题记录，在清晰的脉络中检索、复盘与延展。</p>
+      <a class="hero-search" href="/search/"><span>⌕</span><span>搜索知识点、题目或 WP...</span><kbd>Ctrl K</kbd></a>
+    </section>
+
+    <section class="section-block" data-pagefind-ignore>
+      <div class="section-heading"><div><span class="section-kicker">01 / EXPLORE</span><h2>五个知识模块</h2></div><p>按领域进入，再沿着题目与 WP 深入。</p></div>
+      <div class="module-grid">
+        {modules.map((item) => (
+          <a class="module-card" href={`/module/${item.id.toLowerCase()}/`}>
+            <span class="module-num">{item.mark} / 05</span><span class="module-arrow">↗</span>
+            <h3>{item.label}</h3><p>{item.desc}</p>
+          </a>
+        ))}
+      </div>
+    </section>
+
+    <section class="section-block" data-pagefind-ignore>
+      <div class="section-heading"><div><span class="section-kicker">02 / CONTINUE</span><h2>从这些内容开始</h2></div><a class="text-link" href="/search/">检索全部内容 ↗</a></div>
+      <div class="item-grid">
+        {featured.map((item) => <ItemCard title={item.title} summary={item.summary} href={item.href} kind={item.kind} module={item.module} tags={item.tags} />)}
+      </div>
+    </section>
+  </div>
+</Layout>

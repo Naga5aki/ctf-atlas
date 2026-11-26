@@ -1,0 +1,172 @@
+{
+  "folders": [
+    {
+      "name": "CTF Atlas 知识库管理",
+      "path": "."
+    }
+  ],
+  "settings": {
+    "files.encoding": "utf8",
+    "files.autoSave": "off",
+    "editor.wordWrap": "on",
+    "editor.formatOnSave": false,
+    "python.defaultInterpreterPath": "C:/Users/TWK/AppData/Local/Programs/Python/Python312/python.exe",
+    "window.title": "CTF Atlas 知识库管理 — ${activeEditorShort}${separator}${appName}",
+    "search.exclude": {
+      "**/node_modules/**": true,
+      "**/dist/**": true,
+      "**/.astro/**": true,
+      "**/.work/**": true,
+      "**/.npm-cache/**": true
+    },
+    "files.exclude": {
+      "**/.astro": true,
+      "**/node_modules": true,
+      "**/dist": true
+    }
+  },
+  "tasks": {
+    "version": "2.0.0",
+    "tasks": [
+      {
+        "label": "知识库：项目与正文一致性",
+        "type": "process",
+        "command": "C:/Users/TWK/AppData/Local/Programs/Python/Python312/python.exe",
+        "args": [
+          "-X",
+          "utf8",
+          "scripts/cursor_project_check.py"
+        ],
+        "options": {
+          "cwd": "${workspaceFolder}"
+        },
+        "problemMatcher": []
+      },
+      {
+        "label": "知识库：服务器保全检查",
+        "type": "process",
+        "command": "C:/Users/TWK/AppData/Local/Programs/Python/Python312/python.exe",
+        "args": [
+          "-X",
+          "utf8",
+          "-m",
+          "unittest",
+          "discover",
+          "-s",
+          "tests",
+          "-p",
+          "test_server_practical_review.py",
+          "-v"
+        ],
+        "options": {
+          "cwd": "${workspaceFolder}"
+        },
+        "problemMatcher": []
+      },
+      {
+        "label": "知识库：完整数据测试",
+        "type": "process",
+        "command": "C:/Users/TWK/AppData/Local/Programs/Python/Python312/python.exe",
+        "args": [
+          "-X",
+          "utf8",
+          "-m",
+          "unittest",
+          "discover",
+          "-s",
+          "tests",
+          "-v"
+        ],
+        "options": {
+          "cwd": "${workspaceFolder}"
+        },
+        "problemMatcher": []
+      },
+      {
+        "label": "知识库：UI单元测试",
+        "type": "shell",
+        "command": "npm.cmd",
+        "args": [
+          "run",
+          "test:ui"
+        ],
+        "options": {
+          "cwd": "${workspaceFolder}"
+        },
+        "problemMatcher": []
+      },
+      {
+        "label": "知识库：Astro检查",
+        "type": "shell",
+        "command": "npm.cmd",
+        "args": [
+          "run",
+          "check"
+        ],
+        "options": {
+          "cwd": "${workspaceFolder}"
+        },
+        "problemMatcher": []
+      },
+      {
+        "label": "知识库：构建网站与搜索",
+        "type": "shell",
+        "command": "npm.cmd",
+        "args": [
+          "run",
+          "build"
+        ],
+        "options": {
+          "cwd": "${workspaceFolder}"
+        },
+        "problemMatcher": []
+      },
+      {
+        "label": "知识库：站点链接审计",
+        "type": "process",
+        "command": "C:/Users/TWK/AppData/Local/Programs/Python/Python312/python.exe",
+        "args": [
+          "-X",
+          "utf8",
+          "scripts/audit_site.py"
+        ],
+        "options": {
+          "cwd": "${workspaceFolder}"
+        },
+        "problemMatcher": []
+      },
+      {
+        "label": "知识库：来源缓存审计",
+        "type": "process",
+        "command": "C:/Users/TWK/AppData/Local/Programs/Python/Python312/python.exe",
+        "args": [
+          "-X",
+          "utf8",
+          "scripts/audit_forensics_web.py",
+          "--cached"
+        ],
+        "options": {
+          "cwd": "${workspaceFolder}"
+        },
+        "problemMatcher": []
+      },
+      {
+        "label": "知识库：本地预览4329",
+        "type": "shell",
+        "command": "npm.cmd",
+        "args": [
+          "run",
+          "preview",
+          "--",
+          "--port",
+          "4329"
+        ],
+        "options": {
+          "cwd": "${workspaceFolder}"
+        },
+        "problemMatcher": [],
+        "isBackground": true
+      }
+    ]
+  }
+}

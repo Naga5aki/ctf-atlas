@@ -1,0 +1,51 @@
+---
+import Layout from '../../components/Layout.astro';
+import { getCollection, render } from 'astro:content';
+import inventory from '../../data/inventory.json';
+import { forensicsTaxonomy, forensicsMethods } from '../../data/forensics-taxonomy';
+
+export async function getStaticPaths() {
+  const items = await getCollection('knowledge');
+  return items.map((entry) => ({ params: { id: entry.id }, props: { entry } }));
+}
+const { entry } = Astro.props;
+const { Content, headings } = await render(entry);
+const challenges = inventory.filter((item) => entry.data.challengeIds.includes(item.id));
+const pageHeadings = headings.filter((heading) => heading.depth === 2);
+const tableOfContents = pageHeadings.length ? pageHeadings : headings.filter((heading) => heading.depth === 3);
+const isManual = entry.id.startsWith('misc-note-');
+const forensicTrack = entry.data.module === 'Forensics'
+  ? forensicsTaxonomy.find((track) => track.name === entry.data.track)
+    ?? (entry.data.track === forensicsMethods.sourceTrack ? forensicsMethods : undefined)
+  : undefined;
+---
+
+<Layout title={entry.data.title} description={entry.data.summary} active={entry.data.module} pageType="知识点" pageModule={entry.data.module} pageTrack={forensicTrack?.name}>
+  <div class="content-wrap">
+    <header class="page-head" data-pagefind-body><div class="page-topline" data-pagefind-ignore><a href={`/module/${entry.data.module.toLowerCase()}/`}>{entry.data.module}</a><span>/</span>{forensicTrack ? <><a href={`/module/forensics/#${forensicTrack.id}`}>{forensicTrack.name}</a><span>/</span>{entry.data.topic}</> : '知识点'}</div>
+      <h1 data-pagefind-meta="title">{entry.data.title}</h1><p>{entry.data.summary}</p>
+      <div class="tag-row">{entry.data.topic && <span class="tag">{entry.data.topic}</span>}{entry.data.tags.map((tag) => <span class="tag">{tag}</span>)}</div>
+    </header>
+    <div class="article-layout"><div class="article-main"><article class:list={['article-prose', 'structured-article', { 'manual-article': isManual }]} data-pagefind-body><Content /></article>
+      {challenges.length > 0 && <div class="article-links"><h2>相关题目</h2><div class="related-list">
+        {challenges.map((item) => <a href={`/challenge/${item.id}/`}>题目 · {item.title} ↗</a>)}
+      </div></div>}
+      <div class="notice">{entry.data.module === 'Forensics' ? '操作步骤与命令请在样本副本上核对实际结果，并记录分析环境、证据位置与验证结论。' : '操作步骤与命令请在样本副本上核对实际结果；页面内容不等于题目已复现。'}</div>
+    </div><aside class="article-aside" data-pagefind-ignore>{tableOfContents.length > 0 && <><div class="aside-label">本页目录</div>{tableOfContents.map((heading) => <a href={`#${heading.slug}`}>{heading.text}</a>)}</>}{challenges.length > 0 && <><div class="aside-divider"></div><div class="aside-label">关联题目</div>{challenges.map((item) => <a href={`/challenge/${item.id}/`}>{item.title}</a>)}</>}</aside></div>
+  </div>
+</Layout>
+<script>
+  import { isStandaloneCommand, commandCaption, normalizeCommandText } from '../../lib/command-display.mjs';
+  const manual = document.querySelector<HTMLElement>('.manual-article');
+  manual?.querySelectorAll<HTMLParagraphElement>('p').forEach((paragraph) => {
+    if (paragraph.children.length !== 0) return;
+    const caption = commandCaption(paragraph.textContent || '');
+    if (caption !== null) {
+      paragraph.textContent = caption;
+      paragraph.classList.add('command-caption');
+    } else if (isStandaloneCommand(paragraph.textContent || '')) {
+      paragraph.textContent = normalizeCommandText(paragraph.textContent || '');
+      paragraph.classList.add('command-example');
+    }
+  });
+</script>

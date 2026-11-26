@@ -1,0 +1,87 @@
+---
+import Layout from '../../components/Layout.astro';
+import ItemCard from '../../components/ItemCard.astro';
+import { getCollection } from 'astro:content';
+import inventory from '../../data/inventory.json';
+import toolInventory from '../../data/tool-inventory.json';
+import { forensicsTaxonomy, forensicsMethods, websiteRecoveryRoutes } from '../../data/forensics-taxonomy';
+
+export function getStaticPaths() {
+  const modules = ['Web', 'Misc', 'Reverse', 'Crypto', 'Forensics'] as const;
+  return modules.map((module) => ({ params: { module: module.toLowerCase() }, props: { module } }));
+}
+const { module } = Astro.props;
+const knowledge = (await getCollection('knowledge')).filter((item) => item.data.module === module);
+const writeups = (await getCollection('writeups')).filter((item) => item.data.module === module);
+const manualTools = (await getCollection('tools')).filter((item) => item.data.module === module);
+const installedTools = toolInventory.filter((item) => item.module === module);
+const challenges = inventory.filter((item) => item.kind === 'challenge' && item.module === module);
+const preferredTopics: Record<string, string[]> = {
+  Web: ['协议与抓包', 'Web漏洞', '源码与环境'],
+  Misc: ['文件结构与提取', '图像与视觉', '压缩与口令', '文本与编码', '音频与信号', '流量与网络', '文档与取证'],
+  Reverse: ['程序结构', '逻辑逆推', '验证与复现'],
+  Crypto: ['参数与表示', '公钥密码', '对称与实现'],
+};
+const topicOrder = preferredTopics[module] ?? [];
+const groups = topicOrder.map((topic) => ({ topic, items: knowledge.filter((item) => (item.data.topic || '其他') === topic) })).filter((group) => group.items.length);
+const forensicSections = forensicsTaxonomy.map((track) => ({
+  ...track,
+  guide: knowledge.find((item) => item.id === track.lead),
+  clusters: track.clusters.map((cluster) => ({
+    ...cluster,
+    topics: cluster.topics.map((topic) => ({
+      name: topic,
+      items: knowledge.filter((item) => item.data.track === track.name && item.data.topic === topic && item.id !== track.lead)
+        .sort((a, b) => a.data.title.localeCompare(b.data.title, 'zh-CN')),
+    })).filter((topic) => topic.items.length),
+  })).filter((cluster) => cluster.topics.length),
+}));
+const forensicMethods = {
+  ...forensicsMethods,
+  clusters: forensicsMethods.clusters.map((cluster) => ({
+    ...cluster,
+    topics: cluster.topics.map((topic) => ({
+      name: topic,
+      items: knowledge.filter((item) => item.data.track === forensicsMethods.sourceTrack && item.data.topic === topic)
+        .sort((a, b) => a.data.title.localeCompare(b.data.title, 'zh-CN')),
+    })).filter((topic) => topic.items.length),
+  })).filter((cluster) => cluster.topics.length),
+};
+const descriptions: Record<string, string> = {
+  Web: '从报文和源码判断漏洞落点，只在本地题目或授权环境里核对。',
+  Misc: '文件结构、压缩包、编码、流量与多阶段线索。',
+  Reverse: '读懂程序如何处理输入，再把变换逐步逆推。',
+  Crypto: '先辨认参数和前提，再选择合适的密码学方法。',
+  Forensics: '保全检材，定位证据，并重建可核验的过程。',
+};
+---
+
+<Layout title={module} active={module}>
+  <div class="content-wrap">
+    <header class="page-head"><div class="page-kicker">KNOWLEDGE / {module.toUpperCase()}</div><h1>{module}</h1><p>{descriptions[module]}</p>
+      <div class="stat-line"><span>{knowledge.length} 个知识点</span>{manualTools.length > 0 && <span>{manualTools.length} 篇工具指南</span>}{installedTools.length > 0 && <span>{installedTools.length} 个本机工具条目</span>}{writeups.length > 0 && <span>{writeups.length} 篇 WP</span>}{challenges.length > 0 && <span>{challenges.length} 个题目附件</span>}</div>
+    </header>
+    <section class="section-block"><div class="section-heading"><div><span class="section-kicker">01 / LEARN</span><h2>{module === 'Forensics' ? '取证题型' : '知识点'}</h2></div>{module === 'Forensics' && <a class="text-link" href="/search/?module=Forensics">按题型搜索 ↗</a>}</div>
+      {module === 'Forensics' ? <>
+        <nav class="forensics-jumps" aria-label="取证题型" id="forensic-types">{forensicSections.map((track, index) => <a href={`#${track.id}`}><span>{String(index + 1).padStart(2, '0')}</span><strong>{track.name}</strong><small>{track.summary}</small><b aria-hidden="true">↗</b></a>)}</nav>
+        {forensicSections.map((track, index) => <section class="forensics-track" id={track.id}>
+          <div class="forensics-track-head"><span>{String(index + 1).padStart(2, '0')}</span><div><h3>{track.name}</h3><p>{track.summary}</p></div><a href="#forensic-types">返回题型 ↑</a></div>
+          <div class="forensics-route"><div><span class="route-kicker">分析路线</span><ol>{track.route.map((step) => <li>{step}</li>)}</ol></div>{track.guide && <a class="forensics-guide" href={`/knowledge/${track.guide.id}/`}><span>从这里开始</span><strong>{track.guide.data.title}</strong><small>{track.guide.data.summary}</small><b>阅读指南 ↗</b></a>}</div>
+          <div class="forensics-details"><h4>按证据深入</h4>{track.clusters.map((cluster, clusterIndex) => <details class="forensics-cluster"><summary><span>{String(index + 1).padStart(2, '0')}.{String(clusterIndex + 1).padStart(2, '0')}</span><strong>{cluster.name}</strong><small>{cluster.name === '网站重构' && cluster.topics.some((topic) => topic.items.some((item) => item.id === 'forensic-website-reconstruction')) ? `${websiteRecoveryRoutes.length} 类流程` : `${cluster.topics.reduce((total, topic) => total + topic.items.length, 0)} 篇`}</small><b aria-hidden="true">⌄</b></summary><div class="forensics-cluster-body">{cluster.topics.map((topic) => <div class="forensics-subtopic">{topic.name !== cluster.name && <h5>{topic.name}</h5>}<div class="compact-list">{topic.items.map((item) => item.id === 'forensic-website-reconstruction' ? websiteRecoveryRoutes.map((route) => <a href={`/knowledge/${item.id}/#${route.anchor}`}><strong>{route.label}</strong><span>↗</span></a>) : <a href={`/knowledge/${item.id}/`}><strong>{item.data.title}</strong><span>↗</span></a>)}</div></div>)}</div></details>)}</div>
+        </section>)}
+        <section class="forensics-track forensics-methods" id={forensicMethods.id}><div class="forensics-track-head"><div><h3>{forensicMethods.name}</h3><p>{forensicMethods.summary}</p></div><a href="#forensic-types">返回题型 ↑</a></div><div class="forensics-details">{forensicMethods.clusters.map((cluster, index) => <details class="forensics-cluster"><summary><span>{String(index + 1).padStart(2, '0')}</span><strong>{cluster.name}</strong><small>{cluster.topics.reduce((total, topic) => total + topic.items.length, 0)} 篇</small><b aria-hidden="true">⌄</b></summary><div class="forensics-cluster-body">{cluster.topics.map((topic) => <div class="forensics-subtopic">{topic.name !== cluster.name && <h5>{topic.name}</h5>}<div class="compact-list">{topic.items.map((item) => <a href={`/knowledge/${item.id}/`}><strong>{item.data.title}</strong><span>↗</span></a>)}</div></div>)}</div></details>)}</div></section>
+      </> : groups.length ? groups.map((group) => <div class="topic-group"><div class="topic-heading"><h3>{group.topic}</h3><span>{group.items.length} 篇</span></div><div class="compact-list">{group.items.map((item) => <a href={`/knowledge/${item.id}/`}><strong>{item.data.title}</strong><span>↗</span></a>)}</div></div>) : <p class="empty-state">这个模块的知识点正在整理。题目索引已经可以检索。</p>}
+    </section>
+    <section class="section-block"><div class="section-heading"><div><span class="section-kicker">02 / TOOLS</span><h2>对应工具</h2></div><a class="text-link" href={`/tools/?module=${module}`}>查看工具索引 ↗</a></div>
+      <p class="section-note">选择工具可查看使用方法或复制本机路径。</p>
+      {manualTools.length > 0 && <><h3 class="tool-preview-label">使用指南</h3><div class="compact-list tool-preview">{(module === 'Forensics' ? manualTools : manualTools.slice(0, 6)).map((item) => <a href={`/tool/${item.id}/`}><strong>{item.data.title}</strong><span>阅读 ↗</span></a>)}</div></>}
+      {installedTools.length > 0 && <><h3 class="tool-preview-label">本机工具</h3><div class="compact-list tool-preview">{installedTools.slice(0, 8).map((item) => <a href={`/tools/?module=${module}#${item.id}`}><strong>{item.name}</strong><span>查看位置 ↗</span></a>)}</div></>}
+    </section>
+    {writeups.length > 0 && <section class="section-block"><div class="section-heading"><div><span class="section-kicker">03 / SOLVE</span><h2>已整理 WP</h2></div></div>
+      <div class="item-grid">{writeups.map((item) => <ItemCard title={item.data.title} summary={item.data.summary} href={`/writeup/${item.id}/`} kind="WP" module={module} tags={item.data.tags} />)}</div>
+    </section>}
+    {challenges.length > 0 && <section class="section-block"><div class="section-heading"><div><span class="section-kicker">04 / PRACTICE</span><h2>题目附件</h2></div><a class="text-link" href={`/challenges/?module=${module}`}>查看全部 ↗</a></div>
+      <div class="list-stack">{challenges.slice(0, 8).map((item, index) => <a class="list-row" href={`/challenge/${item.id}/`}><span class="list-row-index">{String(index + 1).padStart(2, '0')}</span><span class="list-row-body"><h3>{item.title}</h3><p>{item.contest}</p></span><span class="list-row-tail"><span class="module-pill">{item.wpStatus === 'local' ? '本地 WP' : item.wpStatus === 'external' ? '外部参考' : '待解'}</span><span>↗</span></span></a>)}</div>
+    </section>}
+  </div>
+</Layout>

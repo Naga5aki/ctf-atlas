@@ -1,0 +1,46 @@
+---
+import Layout from '../../components/Layout.astro';
+import { getCollection, render } from 'astro:content';
+
+export async function getStaticPaths() {
+  const items = await getCollection('tools');
+  return items.map((entry) => ({ params: { id: entry.id }, props: { entry } }));
+}
+const { entry } = Astro.props;
+const { Content, headings } = await render(entry);
+---
+
+<Layout title={entry.data.title} description={entry.data.summary} active="tools" pageType="工具" pageModule={entry.data.module}>
+  <div class="content-wrap">
+    <header class="page-head" data-pagefind-body>
+      <div class="page-topline"><a href="/tools/">工具索引</a><span>/</span>{entry.data.topic}</div>
+      <h1 data-pagefind-meta="title">{entry.data.title}</h1><p>{entry.data.summary}</p>
+      <div class="tag-row"><span class="tag">{entry.data.module}</span><span class="tag">{entry.data.topic}</span></div>
+    </header>
+    <div class="article-layout"><div class="article-main">
+      <div class="tool-location-block"><h2>本机工具目录</h2>
+        {entry.data.locationPaths.length ? entry.data.locationPaths.map((path) => <div class="path-box"><small>已在 D:\CTF_MISC_Tools 中定位</small><code>{path}</code><button class="copy-path" data-path={path}>复制路径</button></div>) : <p class="section-note">D:\CTF_MISC_Tools 中未定位到该工具的独立入口；它也可能由系统环境提供。</p>}
+      </div>
+      <article class="article-prose structured-article manual-article" data-pagefind-body><Content /></article>
+      <div class="notice">操作命令未逐条在当前机器运行；执行前请结合实际版本，并在样本副本上核对参数与输出。</div>
+    </div><aside class="article-aside" data-pagefind-ignore><div class="aside-label">本页目录</div>{headings.filter((heading) => heading.depth === 2).map((heading) => <a href={`#${heading.slug}`}>{heading.text}</a>)}</aside></div>
+  </div>
+  <script>
+    import { isStandaloneCommand, isRepeatedSummary, commandCaption, normalizeCommandText } from '../../lib/command-display.mjs';
+    document.querySelectorAll<HTMLButtonElement>('.copy-path').forEach((button) => button.addEventListener('click', async () => { await navigator.clipboard.writeText(button.dataset.path || ''); button.textContent = '已复制'; }));
+    const summary = document.querySelector('.page-head > p')?.textContent || '';
+    const lead = document.querySelector<HTMLElement>('.manual-article > p:first-child');
+    if (lead && isRepeatedSummary(summary, lead.textContent || '')) lead.remove();
+    document.querySelectorAll<HTMLElement>('.manual-article p').forEach((paragraph) => {
+      if (paragraph.children.length !== 0) return;
+      const caption = commandCaption(paragraph.textContent || '');
+      if (caption !== null) {
+        paragraph.textContent = caption;
+        paragraph.classList.add('command-caption');
+      } else if (isStandaloneCommand(paragraph.textContent || '')) {
+        paragraph.textContent = normalizeCommandText(paragraph.textContent || '');
+        paragraph.classList.add('command-example');
+      }
+    });
+  </script>
+</Layout>

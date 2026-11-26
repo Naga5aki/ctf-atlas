@@ -1,0 +1,517 @@
+{
+  "schemaVersion": 1,
+  "reviewedAt": "2026-10-02",
+  "purpose": "两篇用户指定公开文章的内部知识覆盖映射；不生成网站页面，不扩大既有117条网页采集任务。",
+  "scope": {
+    "publicBodiesRead": true,
+    "selectedKeyImagesRead": true,
+    "exhaustiveImageOcrPerformed": false,
+    "actualAttachmentsReplayed": false,
+    "actualServicesReplayed": false,
+    "rewriteBasis": "按公开正文和关键配图提炼方法，复用并扩充现有知识点；题名、题号、人名、地址、账号及凭据改为独立构造场景。",
+    "taxonomy": "沿用Forensics五类题型与通用方法，不新增题型或按工具名分类；Kubernetes详细内容仍唯一归入服务器集群。",
+    "maintenanceBodies": "src/content-curation/<articleId>.md",
+    "durableSourceAssociations": "src/data/forensics-supplements.json:webSources",
+    "unchangedPreviousManifest": "docs/forensics-web-coverage.json"
+  },
+  "verification": {
+    "date": "2026-10-02",
+    "coverageThemes": 29,
+    "extendedBodies": 8,
+    "changedKnowledgePagesIncludingMetadata": 9,
+    "unchangedKnowledgePages": 149,
+    "newOrRemovedKnowledgePages": 0,
+    "curationMatchesPublishedForensicsPages": 57,
+    "repeatImportByteIdenticalPages": 158,
+    "kubernetesPageByteIdentical": true,
+    "newBashBlocksSyntaxChecked": 16,
+    "configDiscoveryFixtureKinds": 7,
+    "portableSqlPredicatesValidatedInSqlite": 3,
+    "pythonTestsPassed": 29,
+    "uiTestsPassed": 5,
+    "codeCheckFiles": 18,
+    "codeDiagnostics": 0,
+    "builtPages": 317,
+    "indexedPages": 308,
+    "localLinksAudited": 6914,
+    "localLinkErrors": 0,
+    "previousWebCoveragePagesAudited": 117,
+    "previousStandardsAudited": 50,
+    "previousWebCoverageErrors": 0,
+    "browserPagesChecked": [
+      "fic-case-04",
+      "forensic-server-services",
+      "fic-case-05",
+      "forensic-method-index",
+      "docker-evidence-03",
+      "docker-evidence-05",
+      "forensic-mobile-apps"
+    ],
+    "browserSearch": {
+      "query": "vsftpd",
+      "forensicsResults": 2,
+      "serverResults": 1,
+      "resultNavigationConfirmed": true
+    },
+    "forensicAttachmentsOrServicesReplayed": false,
+    "mysqlInstanceOrJqCommandsExecuted": false,
+    "evidenceDirectory": ".work/forensics-2024-links"
+  },
+  "sources": [
+    {
+      "id": "web-zhihu-712211191",
+      "url": "https://zhuanlan.zhihu.com/p/712211191",
+      "title": "服务器网站重构基础知识",
+      "coverage": "public-body-and-selected-key-images",
+      "articleIds": [
+        "fic-case-04",
+        "forensic-server-panel",
+        "forensic-website-reconstruction"
+      ],
+      "items": [
+        {
+          "id": "Z01",
+          "theme": "物理机、云主机、单机与站库或文件分离的部署范围",
+          "mode": "expanded",
+          "destinations": [
+            {
+              "articleId": "fic-case-04",
+              "section": "01.1",
+              "heading": "先确定部署边界与技术栈"
+            }
+          ],
+          "boundary": "磁盘快照不自动包含远端数据库、独立云盘或对象存储；平台和技术栈由实际配置核对。"
+        },
+        {
+          "id": "Z02",
+          "theme": "Apache安装配置、网站根、虚拟主机与日志",
+          "mode": "expanded",
+          "destinations": [
+            {
+              "articleId": "fic-case-04",
+              "section": "01.5",
+              "heading": "实战：从 Apache 配置定位站点"
+            }
+          ],
+          "boundary": "区分ServerRoot与DocumentRoot，沿Include和启动参数定位实际配置；存在配置不证明历史运行。"
+        },
+        {
+          "id": "Z03",
+          "theme": "Nginx主配置、包含关系、站点目录、路由和日志",
+          "mode": "expanded",
+          "destinations": [
+            {
+              "articleId": "fic-case-04",
+              "section": "01.2",
+              "heading": "Nginx 配置体系与包含关系"
+            },
+            {
+              "articleId": "fic-case-04",
+              "section": "01.3",
+              "heading": "实战：定位网站目录与伪静态规则"
+            }
+          ],
+          "boundary": "启用目录名不等于配置生效；离线绝对软链重定位到检材根；nginx -T不是查询历史已加载配置。"
+        },
+        {
+          "id": "Z04",
+          "theme": "Tomcat端口、部署应用、Context和访问日志",
+          "mode": "expanded",
+          "destinations": [
+            {
+              "articleId": "fic-case-04",
+              "section": "01.6",
+              "heading": "实战：串联 Tomcat 的端口、应用与日志"
+            }
+          ],
+          "boundary": "核对CATALINA_BASE、Connector、Host和Context；redirectPort不等于监听；访问日志按Valve与实例路径判断。"
+        },
+        {
+          "id": "Z05",
+          "theme": "IIS站点绑定、程序路径与站点日志",
+          "mode": "expanded",
+          "destinations": [
+            {
+              "articleId": "fic-case-04",
+              "section": "01.7",
+              "heading": "实战：从 IIS 绑定定位程序与日志"
+            }
+          ],
+          "boundary": "按同一site上下文关联ID、binding、application和physicalPath；W3C字段和UTC时间不能按目录名猜测。"
+        },
+        {
+          "id": "Z06",
+          "theme": "访问日志中筛选后台路径和重定向候选",
+          "mode": "expanded",
+          "destinations": [
+            {
+              "articleId": "fic-case-04",
+              "section": "04.3",
+              "heading": "实战：从请求筛选候选后台入口"
+            }
+          ],
+          "boundary": "路径关键词、200或301/302不能单独证明后台登录；继续核对路由、Location、会话与业务记录。"
+        },
+        {
+          "id": "Z07",
+          "theme": "PHP网站的数据库连接配置",
+          "mode": "expanded",
+          "destinations": [
+            {
+              "articleId": "fic-case-04",
+              "section": "02.3",
+              "heading": "按应用类型定位连接配置"
+            }
+          ],
+          "boundary": "配置名只是候选，沿require/include、环境、缓存和初始化读取链核对；不执行未知PHP。"
+        },
+        {
+          "id": "Z08",
+          "theme": "ASP.NET与经典ASP连接信息",
+          "mode": "expanded",
+          "destinations": [
+            {
+              "articleId": "fic-case-04",
+              "section": "02.3",
+              "heading": "按应用类型定位连接配置"
+            }
+          ],
+          "boundary": "ASP.NET核对connectionStrings/configSource；经典ASP沿连接代码和include追踪，不能混为同一配置体系。"
+        },
+        {
+          "id": "Z09",
+          "theme": "Java应用中的数据库配置与部署入口",
+          "mode": "expanded",
+          "destinations": [
+            {
+              "articleId": "fic-case-04",
+              "section": "02.3",
+              "heading": "按应用类型定位连接配置"
+            }
+          ],
+          "boundary": "读取JAR/WAR配置、profile、外部配置、环境与启动参数；静态提取不执行java -jar。"
+        },
+        {
+          "id": "Z10",
+          "theme": "网站重构的材料、恢复顺序与范围核验",
+          "mode": "consolidated-and-linked",
+          "destinations": [
+            {
+              "articleId": "forensic-website-reconstruction",
+              "section": "01-08",
+              "heading": "网站重构完整流程"
+            },
+            {
+              "articleId": "fic-case-04",
+              "section": "05.4",
+              "heading": "隔离重构的独立入口"
+            },
+            {
+              "articleId": "forensic-server-panel",
+              "section": "05",
+              "heading": "网站重构的独立入口"
+            }
+          ],
+          "boundary": "重构操作迁入用户授权的独立知识点，旧页保留入口；静态配置与历史取证仍保留原页。当前页面可用不证明完整历史环境恢复。"
+        }
+      ]
+    },
+    {
+      "id": "web-csdn-140823396",
+      "url": "https://blog.csdn.net/m0_37867238/article/details/140823396",
+      "title": "2022年美亚杯资格赛林俊熙服务器题解",
+      "coverage": "public-body-and-selected-key-images",
+      "articleIds": [
+        "fic-case-03",
+        "fic-case-04",
+        "fic-case-05",
+        "forensic-server-services",
+        "docker-evidence-03",
+        "docker-evidence-05",
+        "forensic-method-index",
+        "forensic-mobile-apps"
+      ],
+      "items": [
+        {
+          "id": "C01",
+          "theme": "服务器操作系统与版本识别",
+          "mode": "retained-existing",
+          "destinations": [
+            {
+              "articleId": "fic-case-03",
+              "section": "02.1",
+              "heading": "实战：识别发行版与版本"
+            }
+          ],
+          "boundary": "复用已有os-release与版本字段核对，不复制特定检材版本或固定答案。"
+        },
+        {
+          "id": "C02",
+          "theme": "vsftpd名单、FTP账户候选与账户来源",
+          "mode": "expanded",
+          "destinations": [
+            {
+              "articleId": "forensic-server-services",
+              "section": "13.1",
+              "heading": "首轮保全与只读配置定位"
+            },
+            {
+              "articleId": "forensic-server-services",
+              "section": "13.2",
+              "heading": "chroot 名单、登录控制与账户来源分别判读"
+            }
+          ],
+          "boundary": "chroot名单不是登录成功名单；按chroot_local_user、userlist及PAM区分策略、候选与映射身份。"
+        },
+        {
+          "id": "C03",
+          "theme": "vsftpd成功登录、失败事件与成功传输",
+          "mode": "expanded",
+          "destinations": [
+            {
+              "articleId": "forensic-server-services",
+              "section": "13.3",
+              "heading": "按日志模式查完整时段"
+            },
+            {
+              "articleId": "forensic-server-services",
+              "section": "13.4",
+              "heading": "构造日志的正反例与输出边界"
+            }
+          ],
+          "boundary": "读取轮转与syslog/journal范围；CONNECT、FAIL LOGIN、OK LOGIN、OK/FAIL UPLOAD分别统计，认证不等于传输。"
+        },
+        {
+          "id": "C04",
+          "theme": "宿主Apache、容器Nginx和多网站的归属",
+          "mode": "expanded",
+          "destinations": [
+            {
+              "articleId": "fic-case-04",
+              "section": "01.8",
+              "heading": "实战：区分宿主 Apache 与容器 Nginx"
+            }
+          ],
+          "boundary": "分别核对虚拟主机、代理、容器、挂载、端口与日志，不用软件目录或同一IP决定网站归属。"
+        },
+        {
+          "id": "C05",
+          "theme": "首页业务字段与网站声明",
+          "mode": "expanded",
+          "destinations": [
+            {
+              "articleId": "fic-case-04",
+              "section": "02.4",
+              "heading": "实战：验证首页字段、图片目录与 Logo"
+            }
+          ],
+          "boundary": "页面声明与实际业务、经营主体及后台行为分开；恢复副本中的显示只解释副本。"
+        },
+        {
+          "id": "C06",
+          "theme": "图片目录、CSS引用与网站Logo定位",
+          "mode": "expanded",
+          "destinations": [
+            {
+              "articleId": "fic-case-04",
+              "section": "02.4",
+              "heading": "实战：验证首页字段、图片目录与 Logo"
+            }
+          ],
+          "boundary": "沿HTML/CSS/模板引用定位真实资源，核对格式、哈希、缓存和实际加载；目录名不替代引用证据。"
+        },
+        {
+          "id": "C07",
+          "theme": "网页表单、PHP处理入口与提交字段",
+          "mode": "expanded",
+          "destinations": [
+            {
+              "articleId": "fic-case-04",
+              "section": "05.2",
+              "heading": "实战：从 PHP 表单追到文件落盘"
+            }
+          ],
+          "boundary": "method、action、input name与代码读取逐项核对；字段存在不证明历史实际提交。"
+        },
+        {
+          "id": "C08",
+          "theme": "PHP中User-Agent和时区的判读",
+          "mode": "expanded",
+          "destinations": [
+            {
+              "articleId": "fic-case-04",
+              "section": "05.2",
+              "heading": "实战：从 PHP 表单追到文件落盘"
+            }
+          ],
+          "boundary": "User-Agent可伪造且不等于GPS；脚本默认时区不证明客户端位置或服务器时钟准确。"
+        },
+        {
+          "id": "C09",
+          "theme": "PHP追加写文件与记录目录定位",
+          "mode": "expanded",
+          "destinations": [
+            {
+              "articleId": "fic-case-04",
+              "section": "05.2",
+              "heading": "实战：从 PHP 表单追到文件落盘"
+            }
+          ],
+          "boundary": "结合工作目录、chdir、__DIR__和include上下文解析路径；fopen/fwrite存在不等于落盘成功。"
+        },
+        {
+          "id": "C10",
+          "theme": "邮件认证、硬编码凭据及发件收件设置",
+          "mode": "expanded",
+          "destinations": [
+            {
+              "articleId": "fic-case-04",
+              "section": "05.3",
+              "heading": "实战：区分邮件配置、调用与发送结果"
+            }
+          ],
+          "boundary": "仅记录受控凭据位置，区分认证账户、From、To、授权码与普通口令，不公开实际凭据或连接真实邮箱。"
+        },
+        {
+          "id": "C11",
+          "theme": "表单数据的邮件去向与发送结果",
+          "mode": "expanded",
+          "destinations": [
+            {
+              "articleId": "fic-case-04",
+              "section": "05.3",
+              "heading": "实战：区分邮件配置、调用与发送结果"
+            }
+          ],
+          "boundary": "静态send调用、应用执行、SMTP接受、队列和最终送达分别核验；无历史记录时只报告发送逻辑。"
+        },
+        {
+          "id": "C12",
+          "theme": "Docker镜像、容器身份与部署状态",
+          "mode": "expanded",
+          "destinations": [
+            {
+              "articleId": "docker-evidence-03",
+              "section": "09",
+              "heading": "实战：把数据库容器配置对应到业务数据"
+            }
+          ],
+          "boundary": "完整容器ID、镜像内容ID、创建引用、标签和摘要分开；镜像存在或Running不等于业务正常。"
+        },
+        {
+          "id": "C13",
+          "theme": "宿主与容器端口、数据库客户端连接目标",
+          "mode": "expanded",
+          "destinations": [
+            {
+              "articleId": "docker-evidence-05",
+              "section": "05.3",
+              "heading": "实战：宿主机与容器并存时定位数据库入口"
+            }
+          ],
+          "boundary": "区分ExposedPorts、PortBindings、NetworkSettings与HostIp；目标宿主localhost不等于分析机localhost。"
+        },
+        {
+          "id": "C14",
+          "theme": "MySQL容器环境变量、凭据与持久数据",
+          "mode": "expanded",
+          "destinations": [
+            {
+              "articleId": "docker-evidence-03",
+              "section": "09",
+              "heading": "实战：把数据库容器配置对应到业务数据"
+            }
+          ],
+          "boundary": "初始化变量不保证是当前有效口令；核对入口脚本、首次初始化、复用数据卷、*_FILE与实际schema。"
+        },
+        {
+          "id": "C15",
+          "theme": "Navicat连接、库表结构与可见范围",
+          "mode": "expanded",
+          "destinations": [
+            {
+              "articleId": "fic-case-05",
+              "section": "03.4",
+              "heading": "实战：从未知业务库找到候选人员记录"
+            }
+          ],
+          "boundary": "连接类型、主机、数据库端口、SSH隧道及实例身份分别记录；可见库受权限影响。"
+        },
+        {
+          "id": "C16",
+          "theme": "SQL模糊搜索、姓名片段与个人日期字段",
+          "mode": "expanded",
+          "destinations": [
+            {
+              "articleId": "fic-case-05",
+              "section": "03.4",
+              "heading": "实战：从未知业务库找到候选人员记录"
+            }
+          ],
+          "boundary": "区分包含与后缀匹配、通配符与字面字符、排序规则和主键；保留全部候选，不复制真实姓名或生日答案。"
+        },
+        {
+          "id": "C17",
+          "theme": "手机WhatsApp账户、消息、附件与状态",
+          "mode": "expanded",
+          "destinations": [
+            {
+              "articleId": "forensic-mobile-apps",
+              "section": "13",
+              "heading": "实战：WhatsApp 记录判读与跨设备关联入口"
+            }
+          ],
+          "boundary": "按设备、版本、账号、提取范围、消息原生键、方向、状态与实体哈希判读；不编造通用密钥或固定版本路径。"
+        },
+        {
+          "id": "C18",
+          "theme": "计算机Signal Desktop的数据归属和关联",
+          "mode": "expanded",
+          "destinations": [
+            {
+              "articleId": "forensic-method-index",
+              "section": "08.1",
+              "heading": "先确定设备与应用的归属"
+            },
+            {
+              "articleId": "forensic-method-index",
+              "section": "08.2",
+              "heading": "建立能够回到原始对象的关联表"
+            }
+          ],
+          "boundary": "桌面数据归计算机用户应用，不混入手机；不同应用的账户ID和消息ID不共用命名空间。"
+        },
+        {
+          "id": "C19",
+          "theme": "手机、计算机聊天与服务器业务的跨检材关联",
+          "mode": "expanded",
+          "destinations": [
+            {
+              "articleId": "forensic-method-index",
+              "section": "08.3",
+              "heading": "按步骤验证一条关联链"
+            },
+            {
+              "articleId": "forensic-method-index",
+              "section": "08.4",
+              "heading": "构造样本：相同附件、不同消息 ID 与时区"
+            },
+            {
+              "articleId": "forensic-mobile-apps",
+              "section": "13.3",
+              "heading": "先形成手机内部证据链，再连接计算机和服务器"
+            }
+          ],
+          "boundary": "分别核对来源、账户映射、附件哈希、UTC时间、请求会话与业务行；聊天自述、昵称或时间接近不证明自然人实施行为。"
+        }
+      ]
+    }
+  ],
+  "subsequentConsolidation": {
+    "date": "2026-10-02",
+    "articleId": "forensic-website-reconstruction",
+    "theme": "Z10",
+    "review": "docs/server-website-review.md",
+    "note": "Earlier verification figures describe the earlier expansion; current validation is recorded separately."
+  }
+}

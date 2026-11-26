@@ -1,0 +1,26 @@
+---
+import Layout from '../../components/Layout.astro';
+import { getCollection, render } from 'astro:content';
+import inventory from '../../data/inventory.json';
+
+export async function getStaticPaths() {
+  const items = await getCollection('writeups');
+  return items.map((entry) => ({ params: { id: entry.id }, props: { entry } }));
+}
+const { entry } = Astro.props;
+const { Content, headings } = await render(entry);
+const challenges = inventory.filter((item) => entry.data.challengeIds.includes(item.id));
+---
+
+<Layout title={`${entry.data.title} WP`} description={entry.data.summary} active={entry.data.module} pageType="WP" pageModule={entry.data.module}>
+  <div class="content-wrap">
+    <header class="page-head" data-pagefind-body><div class="page-topline"><a href={`/module/${entry.data.module.toLowerCase()}/`}>{entry.data.module}</a><span>/</span>WP</div>
+      <h1 data-pagefind-meta="title">{entry.data.title}</h1><p>{entry.data.summary}</p>
+      <div class="tag-row">{entry.data.tags.map((tag) => <span class="tag">{tag}</span>)}</div>
+    </header>
+    <div class="article-layout"><div class="article-main"><article class="article-prose structured-article" data-pagefind-body><Content /></article>
+      <div class="article-links"><h2>关联题目</h2><div class="related-list">{challenges.map((item) => <a href={`/challenge/${item.id}/`}>题目附件 · {item.title} ↗</a>)}</div></div>
+      <div class="notice">解题步骤尚未在当前环境逐题复现；关键字节、偏移与中间结果请结合题目附件再次核对。</div>
+    </div><aside class="article-aside" data-pagefind-ignore><div class="aside-label">本页目录</div>{headings.filter((heading) => heading.depth <= 3).map((heading) => <a href={`#${heading.slug}`}>{heading.text}</a>)}</aside></div>
+  </div>
+</Layout>

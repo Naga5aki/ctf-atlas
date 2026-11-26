@@ -1,0 +1,9 @@
+---
+import Layout from '../../components/Layout.astro';
+import inventory from '../../data/inventory.json';
+const items = inventory.filter((item) => item.kind === 'challenge' && item.module === 'Archive');
+---
+
+<Layout title="待归档" active="archive"><div class="content-wrap"><header class="page-head"><div class="page-kicker">LIBRARY / INBOX</div><h1>待归档</h1><p>现有 Pwn / Binary Exploitation 附件保留在这里，五大知识模块仍保持清晰。</p><div class="stat-line"><span>{items.length} 个附件</span></div></header><div class="archive-callout">这里记录暂未纳入五大模块的题目附件。未来如果扩展新模块，再按实际内容迁移。</div>
+    <div class="list-stack">{items.map((item, index) => <a class="list-row" href={`/challenge/${item.id}/`}><span class="list-row-index">{String(index + 1).padStart(2, '0')}</span><span class="list-row-body"><h3>{item.title}</h3><p>{item.contest} · {item.name}</p></span><span class="list-row-tail"><span>↗</span></span></a>)}</div>
+  </div></Layout>

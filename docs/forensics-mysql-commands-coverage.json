@@ -1,0 +1,470 @@
+{
+  "reviewed_at": "2026-10-04",
+  "article_id": "forensic-database-recovery",
+  "contest_cases": [
+    {
+      "id": "contest-meiya-2022-individual-mysql",
+      "contest": "2022 年美亚杯个人赛",
+      "url": "https://www.cnblogs.com/zzpu213/p/18652791",
+      "source_title": "2022美亚杯个人赛wp(纯文字思路)",
+      "source_type": "作者自述复现记录，公开全文",
+      "visible_question_intent": "要求识别 Docker 中 MySQL 对外端口、root 访问线索，以及保存大量个人资料的业务库。",
+      "visible_reference": "页内服务器部分，MySQL 容器端口、口令和数据库三项连续问题；浏览页面行 481 起。",
+      "public_object_or_command": {
+        "tables_public": false,
+        "schema_public": true,
+        "data_directory_public": false,
+        "commands_public": [
+          "docker ps -a",
+          "history | grep mysql",
+          "mysql -u root -p"
+        ],
+        "details": "公开数据库名与固定口令，但整理正文不复用；原文进入容器后连接 MySQL。"
+      },
+      "derived_operational_topic": [
+        "区分宿主机发布端口与容器端口",
+        "把运行端点、账号线索和业务库对应",
+        "连接后 SHOW DATABASES/SHOW TABLES/DESCRIBE/SHOW CREATE TABLE 确认对象"
+      ],
+      "derived_is_not_original_wp": "docker inspect 只读端口/卷映射及 INFORMATION_SCHEMA 清单是补充命令，不声称原 WP 使用。",
+      "limits_and_corrections": [
+        "history 是当前仿真 shell 的视图，不等于原始历史文件全部记录；优先保全 .bash_history 与 Docker 元数据。",
+        "搜到初始化环境变量或历史口令不证明当前密码未变；以副本实际认证结果与账户属性核对。",
+        "不引用具体端口、库名、口令或答案。"
+      ],
+      "verified_status": "题意和命令均可见，未复跑",
+      "target_heading": "13 定位数据目录、配置、版本与日志"
+    },
+    {
+      "id": "contest-shuzheng-2024-server-mysql",
+      "contest": "2024 年数证杯电子数据取证分析大赛服务器部分",
+      "url": "https://damodev.csdn.net/682416faa5baf817cf4b99f2.html",
+      "source_title": "2024数证杯电子数据取证分析大赛 服务器部分 Writeup",
+      "source_type": "DIDCTF 作者署名公开解析（DAMO 站点发布）",
+      "published_at": "2024-11-22",
+      "visible_question_intent": "从活动 Java 配置定位数据库连接材料；识别数据库 Docker 镜像；分析后台管理员资料、业务状态和已完成用户服务费总和。",
+      "public_object_or_command": {
+        "tables_public": "多数业务库截图；不得补猜未显示表名",
+        "schema_public": true,
+        "data_directory_public": false,
+        "commands_public": [
+          "FLUSH PRIVILEGES;",
+          "ALTER USER",
+          "CREATE USER",
+          "GRANT",
+          "docker exec",
+          "docker restart"
+        ],
+        "details": "原 WP 展示在仿真副本添加 skip-grant-tables、重置 root、为网站用户授权和移除跳过授权配置的过程。"
+      },
+      "derived_operational_topic": [
+        "活动 profile 与数据库连接配置不能只看默认 application.yaml",
+        "先识别版本和副本状态再选账户恢复分支",
+        "SHOW CREATE USER / SHOW GRANTS / CURRENT_USER 核对实际认证账户",
+        "业务状态和费用字段回查代码，再进行 SUM"
+      ],
+      "derived_is_not_original_wp": "使用限定来源账户、仅业务库 SELECT 权限、独立 socket 的现代恢复模板是官方文档校正，不等同原 WP 的 root@%/全权限做法。费用聚合 SQL 未在可见文本公开，应使用明确构造 schema。",
+      "limits_and_corrections": [
+        "重置、授权和配置改动均会改变副本，必须保留原目录与哈希，不能写原件。",
+        "原文 SQL 广泛 root@%/GRANT ALL 仅作为旧实践，不复制为标准默认。",
+        "恢复网站的外部依赖和认证仿真归网站重构页。",
+        "正文不得把截图中未公开的字段结构编造成赛事实际 DDL。"
+      ],
+      "verified_status": "题意、配置位置、访问恢复命令可见；统计字段/SQL主要截图，不臆造",
+      "target_heading": "22 物理目录、表空间与损坏副本的操作入口"
+    },
+    {
+      "id": "contest-shuzheng-2025-server-binlog",
+      "contest": "2025 年数证杯服务器取证",
+      "url": "https://www.blog.st4rr.top/posts/f294c61f/index.html",
+      "source_title": "数证杯2025 部分writeup+复现",
+      "source_type": "第一人称赛后复现文章",
+      "published_at": "2025-11-07",
+      "visible_question_intent": "统计指定日期之后成功入群人数；找出被删除订单的编号；统计成功订单金额且明确忽略已删除数据。",
+      "public_object_or_command": {
+        "tables_public": true,
+        "schema_public": true,
+        "data_directory_public": "/data/k8s_data/default/mysql80",
+        "commands_public": [
+          "COUNT(*) + WHERE",
+          "SUM(actual_price) + status + updated_at"
+        ],
+        "details": "公开 captchabot.user_captcha_record、captcha_status、captcha_success_time；orders、actual_price、status、updated_at；删除订单通过导出目录与数据库取证工具阅读 binlog.000002。"
+      },
+      "derived_operational_topic": [
+        "COUNT 与 SUM 分别回答人数与金额",
+        "成功状态、时间字段和是否排除删除记录必须是查询定义的一部分",
+        "目录恢复、当前表查询与 binlog 历史是三种不同证据状态",
+        "mysqlbinlog --base64-output=DECODE-ROWS -vv 阅读删除前镜像，映射当时 DDL"
+      ],
+      "derived_is_not_original_wp": "mysqlbinlog 解码、事务边界和前镜像说明是补充方法；原文只写数据库取证工具及 binlog 文件，未展示 mysqlbinlog 命令。",
+      "limits_and_corrections": [
+        "原 WP COUNT(*) 对成功记录统计；只有证明一人一条时才等于人数，重复挑战需 COUNT(DISTINCT user_id)。",
+        "status=4 是此应用的成功枚举，不作为通用 MySQL/所有网站含义。",
+        "updated_at 不当然是付款时间，必须回代码和事件表核对。",
+        "缺失或 MINIMAL 行镜像不能恢复所有列；不能套用原文‘最后一条就是’到任意检材。",
+        "K8s 启动/卷恢复归集群页；本文只解释目录定位及数据库证据。"
+      ],
+      "verified_status": "真实题意、表/字段与两个聚合命令在公开搜索正文可见；删除工具界面未复跑",
+      "target_heading": "23 binlog、其他日志与时间点回放"
+    },
+    {
+      "id": "contest-shuzheng-2024-team-aggregate",
+      "contest": "2024 年数证杯决赛团体数据分析",
+      "url": "https://www.cnblogs.com/WXjzc/p/18595176",
+      "source_title": "2024数证杯决赛团体",
+      "source_type": "作者公开题解",
+      "published_at": "2024-12-09",
+      "visible_question_intent": "逐用户审核通过提现合计的最大值；有效银行卡及地区/启用用户；手机号码中指定数字出现次数；提现与消费比；指定根用户下线最大层级且根为第 1 层。",
+      "public_object_or_command": {
+        "tables_public": "仅 user_info 和 tel 在可见代码公开；其他表/DDL 主要截图或未展示",
+        "schema_public": "示例 Python 使用 tuanti",
+        "data_directory_public": false,
+        "commands_public": [
+          "select tel from user_info;"
+        ],
+        "details": "号码字符计数原文用 Python phone.count；下线层级说明导出 uid/parent 后递归，并承认临时添加根节点导致层数偏移。"
+      },
+      "derived_operational_topic": [
+        "GROUP BY 用户 + HAVING 先聚合后阈值",
+        "最大值不是最大单笔",
+        "提现/消费先各自按用户聚合再连接，避免明细乘积",
+        "CHAR_LENGTH(s)-CHAR_LENGTH(REPLACE(s,'8','')) 的字符统计",
+        "递归 CTE(MySQL 8) 或脚本(MySQL 5.7)，显式根层与环路/孤立节点处理"
+      ],
+      "derived_is_not_original_wp": "SQL 字符计数、分母 NULLIF、聚合子查询、递归 CTE 是讲解补充，不宣称是原作者执行命令。须用构造表名及字段并提供自己的验证数据。",
+      "limits_and_corrections": [
+        "题目没有要求真实手机号格式校验；不能自行添加规则改变统计范围。",
+        "号码应作为字符串保留前导零；NULL 独立处理。",
+        "有效/启用/审核状态以代码或字典解释。",
+        "消费为 0 或 NULL 的比率须单列，不用除零或任意填值。",
+        "根为第 1 层时直接孩子第 2 层，导出脚本的人工节点不能改变定义。"
+      ],
+      "verified_status": "六个数据库考点和一个 SQL 可见；其他 SQL/表结构未公开",
+      "target_heading": "18 聚合、排名与多表资金统计"
+    },
+    {
+      "id": "contest-shuzheng-2024-individual-member",
+      "contest": "2024 年数证杯决赛个人服务器取证",
+      "url": "https://www.cnblogs.com/zzpu213/p/18692389",
+      "source_title": "数证杯个人",
+      "source_type": "第一人称参赛及复盘记录",
+      "visible_question_intent": "定位会员信息表；从程序解释 status=-1；按省级地区统计平均月收入并定位第二高地区。",
+      "public_object_or_command": {
+        "tables_public": true,
+        "schema_public": true,
+        "data_directory_public": false,
+        "commands_public": [
+          "AVG(income) + GROUP BY + ORDER BY"
+        ],
+        "details": "公开 a_member_st、address、income；原 WP 使用 SUBSTRING(address,1,2) 作地区分组。"
+      },
+      "derived_operational_topic": [
+        "information_schema 列/表查找",
+        "状态值必须与代码定义对应",
+        "AVG、COUNT、NULL 纳入范围核对",
+        "排名先定义第二条还是第二个不同平均值；MySQL 8 ROW_NUMBER/DENSE_RANK 可实现不同口径",
+        "按规范地区码/完整省名映射，而非随意截两个字"
+      ],
+      "derived_is_not_original_wp": "规范省级地区映射、窗口函数、并列处理与空收入统计是补充和校正，不是原文命令。",
+      "limits_and_corrections": [
+        "SUBSTRING(address,1,2) 会截断自治区或不同前缀并可能误分组，不能当一般行政区划算法。",
+        "AVG 忽略 NULL，字符串/空串需查类型和有效值，不能视为 0。",
+        "MySQL 5.7 不支持窗口函数/递归 CTE，应用聚合排序或导出脚本。",
+        "公开 Jasypt 解密流程属于配置/逆向相邻专题，不在本文复制真实密钥或密文。"
+      ],
+      "verified_status": "题意、表/字段、原 AVG SQL 可见；表结构/真实附件未复跑",
+      "target_heading": "20 MySQL 8 的窗口排名、最新一条与会员层级"
+    },
+    {
+      "id": "contest-bluehat-2022-semi-official-mysql",
+      "contest": "2022 年第六届蓝帽杯半决赛",
+      "url": "https://mdr.skyeye.qianxin.com/forum/share/1807",
+      "source_title": "第六届“蓝帽杯”半决赛取证题目官方解析",
+      "source_type": "奇安信攻防社区官方账号发布，注明转载盘古石取证",
+      "published_at": "2022-08-11",
+      "year_crosscheck_url": "https://www.qianxin.com/bluehatcup/2022",
+      "visible_question_intent": "分析会员最大层级；累计充值排名与下线收益；余额与开户地区；截至某时点平台收入排除赠送；登录人数最高日期；恢复历史 SQL 备份查客服聊天身份。",
+      "public_object_or_command": {
+        "tables_public": true,
+        "schema_public": true,
+        "data_directory_public": "SQL 备份目录示例；不是 MySQL datadir",
+        "commands_public": [
+          "GROUP BY userid + SUM(amount) + ORDER BY + LIMIT",
+          "SUM(recharge)-SUM(withdrawal)",
+          "COUNT(DISTINCT userid) + DATE_FORMAT + GROUP BY"
+        ],
+        "details": "公开 member(inviter,invicode)、memberrecharge、memberwithdrawal、moneylog、memberlogs、layims；账户口令与固定用户清单不复制。"
+      },
+      "derived_operational_topic": [
+        "TOP-N 累计排名、并列边界、稳定排序",
+        "独立聚合避免 JOIN 乘积，COALESCE 在业务定义下处理空集合",
+        "排除平台赠送必须有类型/状态语义支持",
+        "日志行数不等于去重会员人数",
+        "SQL 备份先审阅、在新实例导入，再用参数化文本检索"
+      ],
+      "derived_is_not_original_wp": "原文恢复命令 mysql ... < - 不完整，不能照抄为可执行导入命令；改为审阅 dump 文件后 mysql --defaults-file=... < ./work/backup.sql。半开区间、NULL处理、限定只读账号均为校正补充。",
+      "limits_and_corrections": [
+        "官方解析题意为截至指定时间，但示例使用严格小于最后一秒会漏边界；构造方案用下一日零点的半开区间并明确时区与精度。",
+        "general_log 当场开启只记录本次仿真活动，不会追溯未记录的历史 SQL；可在专门复现场景辅助观察但必须区分时间线。",
+        "用户成功充值减成功提现是题目业务口径，不自动等于会计利润或所有收入。",
+        "最大层级需核对 inviter/invicode 含义与环路，不按任意两个类似字段猜关系。"
+      ],
+      "verified_status": "官方题意与多条 SQL 可见；赛事年份与主办方页面交叉核对",
+      "target_heading": "24 实战组合与自建 SQL 练习"
+    }
+  ],
+  "command_groups": [
+    {
+      "topic": "材料/配置",
+      "target_heading": "13 数据目录",
+      "commands": [
+        "find",
+        "rg",
+        "sha256sum"
+      ]
+    },
+    {
+      "topic": "连接",
+      "target_heading": "14 mysql",
+      "commands": [
+        "--protocol=TCP",
+        "--socket",
+        "--no-defaults"
+      ]
+    },
+    {
+      "topic": "客户端参数",
+      "target_heading": "14 mysql",
+      "commands": [
+        "--batch",
+        "--raw",
+        "--quick",
+        "--execute"
+      ]
+    },
+    {
+      "topic": "交互命令",
+      "target_heading": "14 mysql",
+      "commands": [
+        "tee",
+        "pager",
+        "source",
+        "delimiter"
+      ]
+    },
+    {
+      "topic": "实例身份",
+      "target_heading": "15 实例",
+      "commands": [
+        "USER()",
+        "CURRENT_USER()",
+        "@@datadir"
+      ]
+    },
+    {
+      "topic": "授权/角色",
+      "target_heading": "15 实例",
+      "commands": [
+        "SHOW GRANTS",
+        "SHOW CREATE USER",
+        "CURRENT_ROLE"
+      ]
+    },
+    {
+      "topic": "快照/状态",
+      "target_heading": "15 实例",
+      "commands": [
+        "CONSISTENT SNAPSHOT",
+        "PROCESSLIST",
+        "SHOW ENGINE INNODB STATUS"
+      ]
+    },
+    {
+      "topic": "结构清点",
+      "target_heading": "16 库表",
+      "commands": [
+        "SHOW FULL TABLES",
+        "SHOW CREATE TABLE",
+        "SHOW INDEX"
+      ]
+    },
+    {
+      "topic": "元数据",
+      "target_heading": "16 库表",
+      "commands": [
+        "INFORMATION_SCHEMA.COLUMNS",
+        "KEY_COLUMN_USAGE"
+      ]
+    },
+    {
+      "topic": "检索/排序",
+      "target_heading": "17 SELECT",
+      "commands": [
+        "WHERE",
+        "ORDER BY",
+        "LIMIT",
+        "IS NULL"
+      ]
+    },
+    {
+      "topic": "去重/异常",
+      "target_heading": "17 SELECT",
+      "commands": [
+        "EXISTS",
+        "duplicates",
+        "LEFT JOIN"
+      ]
+    },
+    {
+      "topic": "分组统计",
+      "target_heading": "18 聚合",
+      "commands": [
+        "COUNT(DISTINCT",
+        "SUM(",
+        "AVG(",
+        "HAVING"
+      ]
+    },
+    {
+      "topic": "关联资金",
+      "target_heading": "18 聚合",
+      "commands": [
+        "COALESCE",
+        "NULLIF",
+        "SUM(DISTINCT"
+      ]
+    },
+    {
+      "topic": "时间/IP",
+      "target_heading": "19 时间",
+      "commands": [
+        "FROM_UNIXTIME",
+        "CONVERT_TZ",
+        "INET_NTOA"
+      ]
+    },
+    {
+      "topic": "编码/JSON",
+      "target_heading": "19 时间",
+      "commands": [
+        "CHAR_LENGTH",
+        "HEX(",
+        "JSON_EXTRACT"
+      ]
+    },
+    {
+      "topic": "窗口/层级",
+      "target_heading": "20 MySQL",
+      "commands": [
+        "ROW_NUMBER",
+        "DENSE_RANK",
+        "WITH RECURSIVE"
+      ]
+    },
+    {
+      "topic": "dump/导入",
+      "target_heading": "21 逻辑",
+      "commands": [
+        "mysqldump",
+        "--single-transaction",
+        "--no-tablespaces"
+      ]
+    },
+    {
+      "topic": "结果/CRUD",
+      "target_heading": "21 逻辑",
+      "commands": [
+        "OUTFILE",
+        "CSV",
+        "INSERT INTO",
+        "ROLLBACK"
+      ]
+    },
+    {
+      "topic": "完整目录/救援",
+      "target_heading": "22 物理",
+      "commands": [
+        "mysqld",
+        "innodb_force_recovery",
+        "--initialize"
+      ]
+    },
+    {
+      "topic": "表空间/引擎",
+      "target_heading": "22 物理",
+      "commands": [
+        "ibd2sdi",
+        "DISCARD TABLESPACE",
+        "IMPORT TABLESPACE",
+        "myisamchk"
+      ]
+    },
+    {
+      "topic": "增量/账户",
+      "target_heading": "22 物理",
+      "commands": [
+        "--apply-log-only",
+        "GRANT",
+        "REVOKE"
+      ]
+    },
+    {
+      "topic": "binlog/回放",
+      "target_heading": "23 binlog",
+      "commands": [
+        "DECODE-ROWS",
+        "--stop-position",
+        "--binary-mode"
+      ]
+    },
+    {
+      "topic": "其他日志",
+      "target_heading": "23 binlog",
+      "commands": [
+        "general_log",
+        "slow_query_log",
+        "log_error"
+      ]
+    }
+  ],
+  "official_sources": [
+    "https://dev.mysql.com/doc/refman/8.4/en/mysql-command-options.html",
+    "https://dev.mysql.com/doc/refman/8.4/en/mysql-commands.html",
+    "https://dev.mysql.com/doc/refman/8.4/en/option-file-options.html",
+    "https://dev.mysql.com/doc/refman/8.4/en/commit.html",
+    "https://dev.mysql.com/doc/refman/8.4/en/information-schema-tables-table.html",
+    "https://dev.mysql.com/doc/refman/8.4/en/group-by-handling.html",
+    "https://dev.mysql.com/doc/refman/8.4/en/aggregate-functions.html",
+    "https://dev.mysql.com/doc/refman/8.4/en/date-and-time-functions.html",
+    "https://dev.mysql.com/doc/refman/8.4/en/datetime.html",
+    "https://dev.mysql.com/doc/refman/8.4/en/miscellaneous-functions.html",
+    "https://dev.mysql.com/doc/refman/8.4/en/json-search-functions.html",
+    "https://dev.mysql.com/doc/refman/8.4/en/window-function-descriptions.html",
+    "https://dev.mysql.com/doc/refman/8.4/en/with.html",
+    "https://dev.mysql.com/doc/refman/8.4/en/mysqldump.html",
+    "https://dev.mysql.com/doc/refman/8.4/en/select-into.html",
+    "https://dev.mysql.com/doc/refman/8.0/en/server-options.html",
+    "https://dev.mysql.com/doc/refman/8.0/en/persisted-system-variables.html",
+    "https://dev.mysql.com/doc/refman/8.0/en/x-plugin-options-system-variables.html",
+    "https://dev.mysql.com/doc/refman/8.0/en/forcing-innodb-recovery.html",
+    "https://dev.mysql.com/doc/refman/8.0/en/innodb-table-import.html",
+    "https://dev.mysql.com/doc/refman/8.0/en/ibd2sdi.html",
+    "https://dev.mysql.com/doc/refman/8.0/en/myisamchk.html",
+    "https://dev.mysql.com/doc/refman/8.0/en/mysqlbinlog.html",
+    "https://dev.mysql.com/doc/refman/8.0/en/point-in-time-recovery.html",
+    "https://docs.percona.com/percona-xtrabackup/2.4/backup_scenarios/incremental_backup.html",
+    "https://mariadb.com/docs/server/server-usage/storage-engines/innodb/innodb-troubleshooting/innodb-recovery-modes"
+  ],
+  "synthetic_practice": {
+    "cases": 15,
+    "fixture": "entirely-constructed",
+    "server": "MySQL5.5.62",
+    "real_contest_replay": false
+  },
+  "rulings": [
+    "Original11sections preserved as exactbyteprefix; new12-25 only.",
+    "Real competition questions traceable internally, pageuses independent scenarios/constructedschema.",
+    "PriorRegRipper protectedhashes for authorizedtarget2files refreshed with audit trail; existingassertions unchanged."
+  ]
+}

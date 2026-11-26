@@ -1,0 +1,510 @@
+{
+  "fixture": "entirely-constructed",
+  "expected_origin": "hand-written before server execution, not copied from query output",
+  "null_representation": "mysql --batch --raw emits literal NULL",
+  "cases": [
+    {
+      "case_id": "Q01_paid_active",
+      "columns": [
+        "paid_active_orders",
+        "paid_users",
+        "paid_active_amount"
+      ],
+      "rows": [
+        [
+          "5",
+          "4",
+          "450.00"
+        ]
+      ]
+    },
+    {
+      "case_id": "Q02_count_grains",
+      "columns": [
+        "all_order_rows",
+        "ordering_users",
+        "nonnull_paid_at"
+      ],
+      "rows": [
+        [
+          "9",
+          "5",
+          "7"
+        ]
+      ]
+    },
+    {
+      "case_id": "Q03_group_having",
+      "columns": [
+        "user_id",
+        "paid_orders",
+        "paid_amount"
+      ],
+      "rows": [
+        [
+          "1",
+          "2",
+          "200.00"
+        ]
+      ]
+    },
+    {
+      "case_id": "Q04_preaggregate_net",
+      "columns": [
+        "user_id",
+        "income_raw",
+        "paid_orders",
+        "paid_amount",
+        "approved_withdrawal",
+        "recharge",
+        "gift",
+        "synthetic_net"
+      ],
+      "rows": [
+        [
+          "1",
+          "1000.00",
+          "2",
+          "200.00",
+          "100.00",
+          "350.00",
+          "20.00",
+          "1070.00"
+        ],
+        [
+          "2",
+          "NULL",
+          "1",
+          "200.00",
+          "25.00",
+          "100.00",
+          "10.00",
+          "-115.00"
+        ],
+        [
+          "3",
+          "500.00",
+          "1",
+          "50.00",
+          "0.00",
+          "0.00",
+          "5.00",
+          "455.00"
+        ],
+        [
+          "4",
+          "200.00",
+          "0",
+          "0.00",
+          "10.00",
+          "20.00",
+          "0.00",
+          "210.00"
+        ],
+        [
+          "5",
+          "NULL",
+          "0",
+          "0.00",
+          "0.00",
+          "0.00",
+          "0.00",
+          "0.00"
+        ],
+        [
+          "6",
+          "0.00",
+          "1",
+          "0.00",
+          "0.00",
+          "0.00",
+          "0.00",
+          "0.00"
+        ]
+      ]
+    },
+    {
+      "case_id": "Q05_daily_login",
+      "columns": [
+        "event_day",
+        "login_rows",
+        "active_users"
+      ],
+      "rows": [
+        [
+          "2024-01-01",
+          "3",
+          "2"
+        ],
+        [
+          "2024-01-02",
+          "4",
+          "3"
+        ]
+      ]
+    },
+    {
+      "case_id": "Q06_active_days",
+      "columns": [
+        "user_id",
+        "active_days"
+      ],
+      "rows": [
+        [
+          "1",
+          "2"
+        ],
+        [
+          "2",
+          "1"
+        ],
+        [
+          "3",
+          "1"
+        ],
+        [
+          "6",
+          "1"
+        ]
+      ]
+    },
+    {
+      "case_id": "Q07_character_occurrences",
+      "columns": [
+        "user_id",
+        "name",
+        "occurrences_jia",
+        "occurrences_underscore"
+      ],
+      "rows": [
+        [
+          "1",
+          "User_A_A",
+          "0",
+          "2"
+        ],
+        [
+          "2",
+          "User_B",
+          "0",
+          "1"
+        ],
+        [
+          "3",
+          "User_C",
+          "0",
+          "1"
+        ],
+        [
+          "4",
+          "User_D_D_D",
+          "0",
+          "3"
+        ],
+        [
+          "5",
+          "User_E",
+          "0",
+          "1"
+        ],
+        [
+          "6",
+          "用户甲甲",
+          "2",
+          "0"
+        ]
+      ]
+    },
+    {
+      "case_id": "Q08_ip_unix_raw",
+      "columns": [
+        "event_id",
+        "ip_raw",
+        "ip_text",
+        "event_at_raw",
+        "unix_utc",
+        "utc_roundtrip"
+      ],
+      "rows": [
+        [
+          "1",
+          "2130706433",
+          "127.0.0.1",
+          "2024-01-01 00:00:00",
+          "1704067200",
+          "2024-01-01 00:00:00"
+        ],
+        [
+          "3",
+          "3232235777",
+          "192.168.1.1",
+          "2024-01-01 23:59:59",
+          "1704153599",
+          "2024-01-01 23:59:59"
+        ],
+        [
+          "4",
+          "167772161",
+          "10.0.0.1",
+          "2024-01-02 00:00:00",
+          "1704153600",
+          "2024-01-02 00:00:00"
+        ],
+        [
+          "5",
+          "3221225985",
+          "192.0.2.1",
+          "2024-01-02 08:00:00",
+          "1704182400",
+          "2024-01-02 08:00:00"
+        ],
+        [
+          "7",
+          "0",
+          "0.0.0.0",
+          "2024-01-03 00:00:00",
+          "1704240000",
+          "2024-01-03 00:00:00"
+        ],
+        [
+          "8",
+          "4294967295",
+          "255.255.255.255",
+          "2024-01-02 23:59:59",
+          "1704239999",
+          "2024-01-02 23:59:59"
+        ]
+      ]
+    },
+    {
+      "case_id": "Q09_parent_self_join",
+      "columns": [
+        "user_id",
+        "user_name",
+        "parent_id_raw",
+        "parent_name"
+      ],
+      "rows": [
+        [
+          "1",
+          "User_A_A",
+          "NULL",
+          "NULL"
+        ],
+        [
+          "2",
+          "User_B",
+          "1",
+          "User_A_A"
+        ],
+        [
+          "3",
+          "User_C",
+          "1",
+          "User_A_A"
+        ],
+        [
+          "4",
+          "User_D_D_D",
+          "2",
+          "User_B"
+        ],
+        [
+          "5",
+          "User_E",
+          "NULL",
+          "NULL"
+        ],
+        [
+          "6",
+          "用户甲甲",
+          "2",
+          "User_B"
+        ]
+      ]
+    },
+    {
+      "case_id": "Q10_hex_lengths",
+      "columns": [
+        "user_id",
+        "name_hex",
+        "name_chars",
+        "name_bytes",
+        "phone_raw",
+        "phone_hex",
+        "phone_chars"
+      ],
+      "rows": [
+        [
+          "1",
+          "557365725F415F41",
+          "8",
+          "8",
+          "001001",
+          "303031303031",
+          "6"
+        ],
+        [
+          "2",
+          "557365725F42",
+          "6",
+          "6",
+          "002002",
+          "303032303032",
+          "6"
+        ],
+        [
+          "3",
+          "557365725F43",
+          "6",
+          "6",
+          "NULL",
+          "NULL",
+          "NULL"
+        ],
+        [
+          "4",
+          "557365725F445F445F44",
+          "10",
+          "10",
+          "004004",
+          "303034303034",
+          "6"
+        ],
+        [
+          "5",
+          "557365725F45",
+          "6",
+          "6",
+          "005005",
+          "303035303035",
+          "6"
+        ],
+        [
+          "6",
+          "E794A8E688B7E794B2E794B2",
+          "4",
+          "12",
+          "000006",
+          "303030303036",
+          "6"
+        ]
+      ]
+    },
+    {
+      "case_id": "Q11_items_join_inflation",
+      "columns": [
+        "joined_rows",
+        "real_orders",
+        "inflated_order_amount"
+      ],
+      "rows": [
+        [
+          "9",
+          "5",
+          "800.00"
+        ]
+      ]
+    },
+    {
+      "case_id": "Q12_sum_distinct_counterexample",
+      "columns": [
+        "correct_order_amount",
+        "wrong_distinct_amount"
+      ],
+      "rows": [
+        [
+          "450.00",
+          "350.00"
+        ]
+      ]
+    },
+    {
+      "case_id": "Q13_naive_multi_join",
+      "columns": [
+        "user_id",
+        "joined_rows",
+        "inflated_paid",
+        "inflated_withdrawal"
+      ],
+      "rows": [
+        [
+          "1",
+          "4",
+          "400.00",
+          "200.00"
+        ],
+        [
+          "2",
+          "1",
+          "200.00",
+          "25.00"
+        ],
+        [
+          "3",
+          "1",
+          "50.00",
+          "0.00"
+        ],
+        [
+          "4",
+          "2",
+          "0.00",
+          "10.00"
+        ],
+        [
+          "5",
+          "1",
+          "0.00",
+          "0.00"
+        ],
+        [
+          "6",
+          "1",
+          "0.00",
+          "0.00"
+        ]
+      ]
+    },
+    {
+      "case_id": "Q14_null_denominators",
+      "columns": [
+        "users",
+        "known_income_users",
+        "known_phone_users",
+        "known_income_sum",
+        "known_income_average"
+      ],
+      "rows": [
+        [
+          "6",
+          "4",
+          "5",
+          "1700.00",
+          "425.00"
+        ]
+      ]
+    },
+    {
+      "case_id": "Q15_status_softdelete_contrast",
+      "columns": [
+        "correct_paid_active",
+        "correct_amount",
+        "wrong_not_pending_count",
+        "wrong_not_pending_amount",
+        "wrong_include_deleted_count",
+        "wrong_include_deleted_amount"
+      ],
+      "rows": [
+        [
+          "5",
+          "450.00",
+          "6",
+          "500.00",
+          "6",
+          "520.00"
+        ]
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1383 @@
+{
+  "date": "2026-10-04",
+  "location": "Forensics / 手机取证 / iOS 取证",
+  "articles": {
+    "forensic-ios-forensics": {
+      "bytes": 27566,
+      "sections": 14,
+      "body_sha256": "ebb43d73a5806c8e52632eea9f74587eb4b7419f0f68020e4c82e20b7d4d31c4",
+      "path": "D:\\winoptimizeDir\\Desktop\\Misc学习\\ctf-atlas\\src\\content-curation\\forensic-ios-forensics.md"
+    },
+    "forensic-ios-tools": {
+      "bytes": 17894,
+      "sections": 9,
+      "body_sha256": "0ca90201121a1a54e982a52d5646ab6f6847e04c8aa0fcc69b68b764e9d2a06b",
+      "path": "D:\\winoptimizeDir\\Desktop\\Misc学习\\ctf-atlas\\src\\content-curation\\forensic-ios-tools.md"
+    },
+    "forensic-ios-backup": {
+      "bytes": 9672,
+      "sections": 10,
+      "body_sha256": "803569f25bb3812ca1a8e2833b25213bb1dd667c39b434473485a50ab32ce65e",
+      "path": "D:\\winoptimizeDir\\Desktop\\Misc学习\\ctf-atlas\\src\\content-curation\\forensic-ios-backup.md"
+    }
+  },
+  "requirements": {
+    "concepts_principles_exams_workflow_pitfalls_summary": "forensic-ios-forensics sections 01-07 and 13-14",
+    "ileapp_and_plist_editor_uses_environment_steps_output_scenarios_notes": "forensic-ios-tools sections 01-09",
+    "real_competition_cases": "forensic-ios-forensics sections 08-12; 4 competitions / 7 primary contest sources",
+    "old_content_integration": "existing backup and mobile guide original bodies preserved with normalized newlines, sourceIds unchanged; cross-platform apps, wallet page and directory index linked without edits"
+  },
+  "changes": {
+    "added_articles": [
+      "forensic-ios-forensics",
+      "forensic-ios-tools"
+    ],
+    "revised_existing": [
+      "forensic-ios-backup",
+      "forensic-guide-mobile"
+    ],
+    "merged": "one iOS learning route; no old page deleted or replaced",
+    "deduplicated": "backup export/Manifest/SMS/WAL procedures remain in backup page; new tool procedures only in tools page",
+    "preserved_other_pages": [
+      "fic-case-14",
+      "forensic-crypto-wallets",
+      "forensic-mobile-apps"
+    ]
+  },
+  "preservation": [
+    {
+      "id": "forensic-ios-backup",
+      "old_body_preserved_with_normalized_newlines": true,
+      "previous_sourceIds": "[web-forensics-wiki-mobile, web-digiforensics-mobile-public]",
+      "current_sourceIds": "[web-forensics-wiki-mobile, web-digiforensics-mobile-public]",
+      "sourceIds_preserved": true,
+      "before_file_sha256": "cd39e512388555f0690074668aada6ab95ab93c182de246751216263aa9aba61",
+      "after_file_sha256": "803569f25bb3812ca1a8e2833b25213bb1dd667c39b434473485a50ab32ce65e",
+      "old_body_normalized_sha256": "a7f817d86e41d642567c71c0b2274676c09e487196507a1fdf40bc855e91a807"
+    },
+    {
+      "id": "forensic-guide-mobile",
+      "old_body_preserved_with_normalized_newlines": true,
+      "previous_sourceIds": "[web-forensics-wiki-skilltree]",
+      "current_sourceIds": "[web-forensics-wiki-skilltree]",
+      "sourceIds_preserved": true,
+      "before_file_sha256": "8584c5a763f81b2775a0442c8a702bc2a690d16f0a45bb5a9cb65fa6aa56f8c3",
+      "after_file_sha256": "1ff136498ecc710b56cd3101cd53853de02946dcee83b76ca02f5c374588b5db",
+      "old_body_normalized_sha256": "941ecdbde83b72bf5954a2ea3c3dc2635e121caa5995ffc1f9504ba2be343911"
+    }
+  ],
+  "source_mapping": [
+    {
+      "id": "web-ios-reference-888171a6e1",
+      "url": "https://support.apple.com/en-us/108353",
+      "reviewedAt": "2026-10-04",
+      "articleIds": [
+        "forensic-ios-forensics"
+      ],
+      "sections": {
+        "forensic-ios-forensics": [
+          "## 01 先辨别检材和采集层级"
+        ]
+      },
+      "source_kind": "official product/platform documentation or original project code"
+    },
+    {
+      "id": "web-ios-reference-9d458e869c",
+      "url": "https://support.apple.com/guide/security/data-protection-overview-secf6276da8a/web",
+      "reviewedAt": "2026-10-04",
+      "articleIds": [
+        "forensic-ios-forensics"
+      ],
+      "sections": {
+        "forensic-ios-forensics": [
+          "## 02 iOS 安全机制如何影响取证"
+        ]
+      },
+      "source_kind": "official product/platform documentation or original project code"
+    },
+    {
+      "id": "web-ios-reference-de0656fc72",
+      "url": "https://support.apple.com/guide/security/data-protection-classes-secb010e978a/web",
+      "reviewedAt": "2026-10-04",
+      "articleIds": [
+        "forensic-ios-forensics"
+      ],
+      "sections": {
+        "forensic-ios-forensics": [
+          "## 02 iOS 安全机制如何影响取证"
+        ]
+      },
+      "source_kind": "official product/platform documentation or original project code"
+    },
+    {
+      "id": "web-ios-reference-c1df50aa91",
+      "url": "https://support.apple.com/guide/security/keychain-data-protection-secb0694df1a/web",
+      "reviewedAt": "2026-10-04",
+      "articleIds": [
+        "forensic-ios-forensics"
+      ],
+      "sections": {
+        "forensic-ios-forensics": [
+          "## 02 iOS 安全机制如何影响取证"
+        ]
+      },
+      "source_kind": "official product/platform documentation or original project code"
+    },
+    {
+      "id": "web-ios-reference-4eb80a97c7",
+      "url": "https://support.apple.com/guide/security/role-of-apple-file-system-seca6147599e/web",
+      "reviewedAt": "2026-10-04",
+      "articleIds": [
+        "forensic-ios-forensics"
+      ],
+      "sections": {
+        "forensic-ios-forensics": [
+          "## 02 iOS 安全机制如何影响取证"
+        ]
+      },
+      "source_kind": "official product/platform documentation or original project code"
+    },
+    {
+      "id": "web-ios-reference-8fdef7fc68",
+      "url": "https://support.apple.com/en-euro/guide/security/sec1a976c067/web",
+      "reviewedAt": "2026-10-04",
+      "articleIds": [
+        "forensic-ios-forensics"
+      ],
+      "sections": {
+        "forensic-ios-forensics": [
+          "## 03 应用沙盒、身份与目录"
+        ]
+      },
+      "source_kind": "official product/platform documentation or original project code"
+    },
+    {
+      "id": "web-ios-reference-50aa28ec61",
+      "url": "https://github.com/apple-oss-distributions/CF/blob/main/PropertyList.dtd",
+      "reviewedAt": "2026-10-04",
+      "articleIds": [
+        "forensic-ios-forensics",
+        "forensic-ios-tools"
+      ],
+      "sections": {
+        "forensic-ios-forensics": [
+          "## 04 Plist、SQLite 和序列化对象"
+        ],
+        "forensic-ios-tools": [
+          "## 07 Plist 键、Data 和日期的输出解读"
+        ]
+      },
+      "source_kind": "official product/platform documentation or original project code"
+    },
+    {
+      "id": "web-ios-reference-83bb3ee720",
+      "url": "https://docs.python.org/3/library/plistlib.html",
+      "reviewedAt": "2026-10-04",
+      "articleIds": [
+        "forensic-ios-forensics",
+        "forensic-ios-tools"
+      ],
+      "sections": {
+        "forensic-ios-forensics": [
+          "## 04 Plist、SQLite 和序列化对象"
+        ],
+        "forensic-ios-tools": [
+          "## 07 Plist 键、Data 和日期的输出解读"
+        ]
+      },
+      "source_kind": "official product/platform documentation or original project code"
+    },
+    {
+      "id": "web-ios-reference-f9612325f4",
+      "url": "https://developer.apple.com/documentation/foundation/date/timeintervalsincereferencedate-swift.property",
+      "reviewedAt": "2026-10-04",
+      "articleIds": [
+        "forensic-ios-forensics"
+      ],
+      "sections": {
+        "forensic-ios-forensics": [
+          "## 05 时间：纪元、单位与事件语义"
+        ]
+      },
+      "source_kind": "official product/platform documentation or original project code"
+    },
+    {
+      "id": "web-ios-reference-624a3d6efc",
+      "url": "https://www.stark4n6.com/2021/05/mvs2021-ctf-iphone.html",
+      "reviewedAt": "2026-10-04",
+      "articleIds": [
+        "forensic-ios-forensics"
+      ],
+      "sections": {
+        "forensic-ios-forensics": [
+          "## 08 真实比赛：健康同步、应用快照与 Live Photo"
+        ]
+      },
+      "source_kind": "original contest announcement or first-person analysis"
+    },
+    {
+      "id": "web-ios-reference-aa8086607d",
+      "url": "https://www.magnetforensics.com/blog/update-on-magnet-summit-2022-capture-the-flag-contests/",
+      "reviewedAt": "2026-10-04",
+      "articleIds": [
+        "forensic-ios-forensics"
+      ],
+      "sections": {
+        "forensic-ios-forensics": [
+          "## 09 真实比赛：累计时长与 WAL 差异"
+        ]
+      },
+      "source_kind": "original contest announcement or first-person analysis"
+    },
+    {
+      "id": "web-ios-reference-c28539d8f8",
+      "url": "https://www.stark4n6.com/2022/06/magnet-user-summit-2022-ctf-iphone.html",
+      "reviewedAt": "2026-10-04",
+      "articleIds": [
+        "forensic-ios-forensics"
+      ],
+      "sections": {
+        "forensic-ios-forensics": [
+          "## 09 真实比赛：累计时长与 WAL 差异",
+          "## 10 真实比赛：最后位置与首次搜索"
+        ]
+      },
+      "source_kind": "original contest announcement or first-person analysis"
+    },
+    {
+      "id": "web-ios-reference-879ebb9a57",
+      "url": "https://bakerstreetforensics.com/2022/07/28/magnet-2022-ctf-ios15/",
+      "reviewedAt": "2026-10-04",
+      "articleIds": [
+        "forensic-ios-forensics"
+      ],
+      "sections": {
+        "forensic-ios-forensics": [
+          "## 10 真实比赛：最后位置与首次搜索"
+        ]
+      },
+      "source_kind": "original contest announcement or first-person analysis"
+    },
+    {
+      "id": "web-ios-reference-b277096430",
+      "url": "https://www.magnetforensics.com/blog/announcing-the-mvs-2023-ctf-winners-and-a-new-ctf-challenge/",
+      "reviewedAt": "2026-10-04",
+      "articleIds": [
+        "forensic-ios-forensics"
+      ],
+      "sections": {
+        "forensic-ios-forensics": [
+          "## 11 真实比赛：健康距离、位置与新版本活动"
+        ]
+      },
+      "source_kind": "original contest announcement or first-person analysis"
+    },
+    {
+      "id": "web-ios-reference-2749c43720",
+      "url": "https://www.stark4n6.com/2023/03/magnet-virtual-summit-2023-ctf-ios-16.html",
+      "reviewedAt": "2026-10-04",
+      "articleIds": [
+        "forensic-ios-forensics"
+      ],
+      "sections": {
+        "forensic-ios-forensics": [
+          "## 11 真实比赛：健康距离、位置与新版本活动"
+        ]
+      },
+      "source_kind": "original contest announcement or first-person analysis"
+    },
+    {
+      "id": "web-ios-reference-457f3cdaa3",
+      "url": "https://www.cnblogs.com/zzpu213/p/18692389",
+      "reviewedAt": "2026-10-04",
+      "articleIds": [
+        "forensic-ios-forensics"
+      ],
+      "sections": {
+        "forensic-ios-forensics": [
+          "## 12 真实比赛：账本金额、便签和地址状态"
+        ]
+      },
+      "source_kind": "original contest announcement or first-person analysis"
+    },
+    {
+      "id": "web-ios-reference-d4a1c20c09",
+      "url": "https://github.com/abrignoni/iLEAPP",
+      "reviewedAt": "2026-10-04",
+      "articleIds": [
+        "forensic-ios-tools"
+      ],
+      "sections": {
+        "forensic-ios-tools": [
+          "## 01 版本、用途与运行环境",
+          "## 04 常用与扩展参数表",
+          "## 05 输出解读与验证"
+        ]
+      },
+      "source_kind": "official product/platform documentation or original project code"
+    },
+    {
+      "id": "web-ios-reference-787e2defd7",
+      "url": "https://github.com/abrignoni/iLEAPP/releases/tag/v2026.4.4",
+      "reviewedAt": "2026-10-04",
+      "articleIds": [
+        "forensic-ios-tools"
+      ],
+      "sections": {
+        "forensic-ios-tools": [
+          "## 01 版本、用途与运行环境"
+        ]
+      },
+      "source_kind": "official product/platform documentation or original project code"
+    },
+    {
+      "id": "web-ios-reference-1338e9c36c",
+      "url": "https://www.icopybot.com/plist-editor.htm",
+      "reviewedAt": "2026-10-04",
+      "articleIds": [
+        "forensic-ios-tools"
+      ],
+      "sections": {
+        "forensic-ios-tools": [
+          "## 01 版本、用途与运行环境"
+        ]
+      },
+      "source_kind": "official product/platform documentation or original project code"
+    },
+    {
+      "id": "web-ios-reference-57f0129efc",
+      "url": "https://github.com/abrignoni/iLEAPP/blob/7b0594a03c50d9b27ab49fa586e720e788b6236b/ileapp.py",
+      "reviewedAt": "2026-10-04",
+      "articleIds": [
+        "forensic-ios-tools"
+      ],
+      "sections": {
+        "forensic-ios-tools": [
+          "## 04 常用与扩展参数表"
+        ]
+      },
+      "source_kind": "official product/platform documentation or original project code"
+    },
+    {
+      "id": "web-ios-reference-241c451a58",
+      "url": "https://www.icopybot.com/plist-editor-manual.htm",
+      "reviewedAt": "2026-10-04",
+      "articleIds": [
+        "forensic-ios-tools"
+      ],
+      "sections": {
+        "forensic-ios-tools": [
+          "## 06 Plist_Editor 的只读操作"
+        ]
+      },
+      "source_kind": "official product/platform documentation or original project code"
+    }
+  ],
+  "competition_sources": {
+    "audit_date": "2026-10-04",
+    "purpose": "iOS取证知识点真实比赛来源审计；供维护稿提炼，不把比赛答案搬入知识正文",
+    "verification_level": "已逐条阅读公开题干及第一人称解题记录；未下载、解包或复跑比赛检材",
+    "competitions_confirmed": 4,
+    "credentials_and_fixed_answers_retained": false,
+    "sources": [
+      {
+        "id": "magnet-2021-kp",
+        "url": "https://www.stark4n6.com/2021/05/mvs2021-ctf-iphone.html",
+        "title": "Magnet Virtual Summit 2021 CTF - iPhone",
+        "author": "Kevin Pagano",
+        "source_type": "参赛者本人解析",
+        "competition": "Magnet Virtual Summit 2021 CTF",
+        "date": "2021-05-26",
+        "readscope": "网页正文全部；重点阅读Apple Health同步、应用快照、Live Photo、解析器差异章节；图像仅阅读其正文说明",
+        "firsthand_basis": "作者叙述本人备赛、比赛提交与赛后核查，文末说明其名次争议复核经历",
+        "material": "iPhone全文件系统ZIP；另提供keychain plist；没有据此认定常规iTunes备份具有同样覆盖范围",
+        "question_evidence_excerpt": "What time did the health database last sync?",
+        "confirmed_methods": [
+          "healthdb.sqlite：cloud_sync_stores.last_sync；作者手工查表并转换Apple时间",
+          "Apple News等应用的Library/SplashBoard/Snapshots下KTX快照补足OCR与邮件搜索未命中的屏幕内容",
+          "DCIM中的Live Photo包含可播放音频；通话/聊天姓名可辅助消歧，不能只读HEIC静态画面"
+        ],
+        "limits": [
+          "作者对Snapchat arroyo.db消息格式明确保留疑问，不能宣传所有内容已经通用解密",
+          "keychain plist为比赛额外材料，不代表原始keychain数据库可直接读取",
+          "未读取附件和截图原图；未独立证明Health时间单位或KTX渲染流程"
+        ]
+      },
+      {
+        "id": "magnet-2022-official",
+        "url": "https://www.magnetforensics.com/blog/update-on-magnet-summit-2022-capture-the-flag-contests/",
+        "title": "Update on Magnet Summit 2022 Capture the Flag Contests",
+        "author": "Jessica Hyde / Magnet Forensics",
+        "source_type": "主办方公告",
+        "competition": "Magnet User Summit 2022 CTF / Nashville及后续线上开放",
+        "date": "2022-05-19",
+        "readscope": "正文的比赛说明、获奖者和Save the Date章节；未把此页April Virtual CTF的Android题目误当iOS题目",
+        "material": "官方明确公布Nashville比赛含iOS 15 Full File System镜像，随后安排线上比赛",
+        "question_evidence_excerpt": "此页只确认iOS15比赛及检材存在，不提供该组完整iOS题干",
+        "confirmed_methods": [
+          "官方获奖名单列出Kevin Pagano，与其2022 iPhone一手解析交叉对应"
+        ],
+        "limits": [
+          "没有下载镜像；公告不用于证明具体数据库字段或完整iOS题目列表"
+        ]
+      },
+      {
+        "id": "magnet-2022-kp",
+        "url": "https://www.stark4n6.com/2022/06/magnet-user-summit-2022-ctf-iphone.html",
+        "title": "Magnet User Summit 2022 CTF - iPhone",
+        "author": "Kevin Pagano",
+        "source_type": "参赛者本人解析",
+        "competition": "Magnet User Summit 2022 CTF",
+        "date": "2022-06-22",
+        "readscope": "正文全部；重点阅读应用使用时长、Gmail未读数量、Safari首次搜索时间章节；正文中的SQL已阅读",
+        "material": "iOS15 GrayKey镜像；全文件系统目录",
+        "question_evidence_excerpt": "Which application had the most amount of screentime?",
+        "confirmed_methods": [
+          "private/var/mobile/Library/CoreDuet/Knowledge/knowledgeC.db：ZOBJECT；筛ZSTREAMNAME=/app/inFocus，按ZVALUESTRING分组，SUM(ZENDDATE-ZSTARTDATE)",
+          "Safari/History.db的访问时间不等于首次搜索；另检查保留的Google URL中ei解析时间并区分UTC与本地时间",
+          "Gmail sqlitedb的label_counts及label_server_perm_id；作者报告主库与加入-wal后的未读统计存在差异"
+        ],
+        "limits": [
+          "只证实该检材和作者处理结果；比赛接受值不能覆盖WAL差异或取代状态解释",
+          "未复跑SQL或Unfurl；没有保留具体答案、账号及搜索URL"
+        ]
+      },
+      {
+        "id": "magnet-2022-dm",
+        "url": "https://bakerstreetforensics.com/2022/07/28/magnet-2022-ctf-ios15/",
+        "title": "Magnet 2022 CTF – iOS15",
+        "author": "Doug Metz",
+        "source_type": "解题者本人赛后实证解析",
+        "competition": "Magnet User Summit 2022 CTF",
+        "date": "2022-07-28",
+        "readscope": "正文全部；重点阅读RoutineD时间排序、累计时长、Live Photo运动方向章节；正文截图未独立读取",
+        "material": "作者通过公开练习平台取得iOS15全文件系统检材后处理；本文记录本人处理路线",
+        "question_evidence_excerpt": "What was the last position of the phone?",
+        "confirmed_methods": [
+          "Library/Caches/com.apple.routined/Cache.sqlite：ZRTCLLOCATIONMO；先验证ZTIMESTAMP日期意义再排序，读取ZLATITUDE、ZLONGITUDE",
+          "单条Screen Time最长不代表累计最长；作者导出并按应用汇总",
+          "Live Photo方向需播放运动片段并结合场景定位；朝向和倒退时的运动方向不同"
+        ],
+        "limits": [
+          "同一2022比赛的第二份解析，不重复计为新比赛",
+          "不得把网页中截图或在线街景当作本轮已经重放的检材",
+          "作者首次搜索时间解释需与时区证据核对，不能照搬机器本地时区"
+        ]
+      },
+      {
+        "id": "magnet-2023-official",
+        "url": "https://www.magnetforensics.com/blog/announcing-the-mvs-2023-ctf-winners-and-a-new-ctf-challenge/",
+        "title": "Announcing the MVS 2023 CTF Winners and a NEW CTF Challenge!",
+        "author": "Jessica Hyde / Magnet Forensics",
+        "source_type": "主办方题目及数据集公告",
+        "competition": "Magnet Virtual Summit 2023 CTF",
+        "date": "2023-03-21",
+        "readscope": "正文Images、完整iOS Questions及Solutions章节；没有打开镜像下载链接",
+        "material": "iOS16 Full File System镜像；公告MD5为067606649297d7adcf6082e5ed0acbb9，仅作为公开元数据而非本地核验哈希",
+        "question_evidence_excerpt": "Which airline lounge was viewed?",
+        "confirmed_methods": [
+          "官方实际题目包括账户去重、地点、Live Photo移动方向、Apple距离与地点关联等；官方Solutions链接直接指向Kevin Pagano及Emma Sousa本人文章"
+        ],
+        "limits": [
+          "原始检材未下载；公开哈希未经本轮重算",
+          "官方题干与WP标题个别用词不同，以题意及证据路线核对而非机械匹配题名"
+        ]
+      },
+      {
+        "id": "magnet-2023-kp",
+        "url": "https://www.stark4n6.com/2023/03/magnet-virtual-summit-2023-ctf-ios-16.html",
+        "title": "Magnet Virtual Summit 2023 CTF - iOS 16 iPhone",
+        "author": "Kevin Pagano",
+        "source_type": "参赛者本人解析；主办方直接链接",
+        "competition": "Magnet Virtual Summit 2023 CTF",
+        "date": "2023-03-09",
+        "readscope": "正文全部；重点阅读Biome用户活动、Apple Health与RoutineD关联、应用缓存广告章节；工具版本只作当时元数据",
+        "material": "iOS16全文件系统ZIP；作者工具元数据为iLEAPP v1.18.4和AXIOM v6.11",
+        "question_evidence_excerpt": "At which location did the user travel the most meters according to Apple?",
+        "confirmed_methods": [
+          "Library/Health/healthdb_secure.sqlite的距离记录，按时间段关联Library/Caches/com.apple.routined/Cache.sqlite定位",
+          "作者通过Biome User Activity及Google Search报告获取浏览语义；不能因knowledgeC缺失就认定不存在活动",
+          "应用Documents/plus-ad-video缓存可提供广告播放内容；文件存在与用户确实观看次数需区分"
+        ],
+        "limits": [
+          "本文未提供Biome原始流精确路径、表字段或健康距离SQL，不能凭报告标签编造查询",
+          "仅正文阅读，未解析ZIP、视频、Biome或Health数据库",
+          "不得据此笼统声称Biome在全部版本完全替代knowledgeC"
+        ]
+      },
+      {
+        "id": "shuzheng-2024-zzpu213",
+        "url": "https://www.cnblogs.com/zzpu213/p/18692389",
+        "title": "数证杯个人 / 2024数证杯决赛个人赛wp",
+        "author": "zzpu213",
+        "source_type": "参赛者本人赛中与赛后复现记录",
+        "competition": "2024数证杯决赛个人赛",
+        "date": "2025-01-27 05:12",
+        "readscope": "正文全部；重点逐题阅读手机取证；核对页尾发表日期及开篇本人参赛陈述；图片链接已尝试读取但返回Cache miss",
+        "material": "题干明示苹果手机检材；文中未明确取得方式及原始容器类型，故不归类为iTunes备份或全文件系统",
+        "question_evidence_excerpt": "记账APP中记录的使用支付宝支付的用于礼金红包的金额",
+        "confirmed_methods": [
+          "参赛者定位记账App数据库，依据类别UUID及支付方式ID筛选账目并合计；文章文本表名写为TBL OUTGOCATEGORYINFO",
+          "作者赛后更正金额单位，应核验分与元而非照搬原始整数SUM",
+          "商业工具未解析的便签内容仍需回查应用数据库；家庭地址需区分删除记录与当前记录"
+        ],
+        "limits": [
+          "TBL OUTGOCATEGORYINFO拼写仅来自正文；数据库文件名及精确列名未核实，不能擅自改为带下划线表名",
+          "图像原图读取失败；没有复跑检材和原作者SQL",
+          "GPS照片只能支持照片摄制位置，单独不足以证明机主本人到访"
+        ]
+      }
+    ],
+    "excluded_or_incomplete_reads": [
+      {
+        "url": "https://forensics.xidian.edu.cn/wiki/MeiyaCup2024Individual/",
+        "result": "404；未作为已读来源"
+      },
+      {
+        "url": "https://forensics.xidian.edu.cn/wiki/MeiyaCup2025Individual/",
+        "result": "浏览工具不可访问；未作为已读来源"
+      },
+      {
+        "url": "https://www.ctfiot.com/145808.html",
+        "result": "搜索命中转载而非原作者页面；未纳入主来源。搜索摘要出现把Apple Cocoa时间误解释成Unix时间的内容，未采用。"
+      }
+    ]
+  },
+  "tool_local_version_results": [
+    {
+      "command": [
+        "D:\\CTF_MISC_Tools\\Forensics\\iLEAPP\\ileapp.exe",
+        "--version"
+      ],
+      "exit": 0,
+      "output": "iLEAPP 2026.4.4\n"
+    },
+    {
+      "command": [
+        "D:\\CTF_MISC_Tools\\Forensics\\iLEAPP\\ileapp.exe",
+        "--help"
+      ],
+      "exit": 0,
+      "output": "usage: ileapp.exe [-h] [-t {fs,tar,zip,gz,itunes,file,raw}] [-o OUTPUT_PATH]\n                  [-i INPUT_PATH] [--image_password_file IMAGE_PASSWORD_FILE]\n                  [--image_password_env IMAGE_PASSWORD_ENV]\n                  [--image_private_key IMAGE_PRIVATE_KEY]\n                  [--bitlocker_key BITLOCKER_KEY] [-tz TIMEZONE] [-w]\n                  [-m LOAD_PROFILE] [-d LOAD_CASE_DATA]\n                  [-c CREATE_PROFILE_CASEDATA] [-p]\n                  [--custom_output_folder CUSTOM_OUTPUT_FOLDER]\n                  [--html_row_limit HTML_ROW_LIMIT]\n                  [--custom_artifacts_path CUSTOM_ARTIFACTS_PATH]\n                  [--itunes_password ITUNES_PASSWORD] [--keychain KEYCHAIN]\n                  [--version]\n\niLEAPP v2026.4.4: iOS Logs, Events, And Plists Parser.\n\noptions:\n  -h, --help            show this help message and exit\n  -t {fs,tar,zip,gz,itunes,file,raw}\n                        Specify the input type. 'fs' for a folder containing\n                        extracted files with normal paths and names, 'tar',\n                        'zip', or 'gz' for compressed packages containing\n                        files with normal names, 'itunes' for a folder\n                        containing a raw iTunes backup with hashed paths and\n                        names, 'raw' for a disk image (.img, .dd, .bin, or any\n                        numbered .001 segment of a split set) or an\n                        acquisition (EnCase/EWF .E01, SMART .s01, EWF2 .Ex01,\n                        AFF .aff, AFM .afm, or any .aff in an AFD folder, AFF4\n                        .aff4, an Apple .dmg, with any .dmgpart files beside\n                        it, .sparseimage, or .sparsebundle folder, or a\n                        virtual machine disk, .vhd, .vhdx, .vmdk or .qcow2),\n                        read in place without mounting (logical evidence, an\n                        EnCase .L01 or FTK Imager .ad1, is read as the files\n                        it holds): its NTFS, FAT32, exFAT, ext2/3/4, F2FS,\n                        HFS+, APFS, QNX6, QNX4, ETFS, EFS, SquashFS, JFFS2,\n                        UBI/UBIFS, YAFFS and QNX IFS volumes are searched\n                        directly, 'file' for a single file input.\n  -o, --output_path OUTPUT_PATH\n                        Path to base output folder (this must exist)\n  -i, --input_path INPUT_PATH\n                        Path to input file/folder\n  --image_password_file IMAGE_PASSWORD_FILE\n                        For an encrypted image (-t raw; an Apple disk image,\n                        an encrypted AFF or an FTK Imager AD-encrypted set),\n                        or a BitLocker or encrypted APFS volume in an image:\n                        read its password (for BitLocker, a password or\n                        recovery password; for APFS, a password or personal\n                        recovery key) from the first line of this file\n  --image_password_env IMAGE_PASSWORD_ENV\n                        For an encrypted image, or a BitLocker or encrypted\n                        APFS volume in one (-t raw): take its password from\n                        this environment variable. Without either, it is asked\n                        for at a terminal\n  --image_private_key IMAGE_PRIVATE_KEY\n                        For an image sealed to a certificate (-t raw; an Apple\n                        disk image, an AFF or an FTK Imager AD-encrypted set):\n                        the certificate's RSA private key file, unencrypted,\n                        as PEM or DER\n  --bitlocker_key BITLOCKER_KEY\n                        For a BitLocker volume in an image (-t raw): its\n                        startup key (.BEK) file. Repeatable\n  -tz, --timezone TIMEZONE\n                        Timezone name (e.g., 'America/New_York')\n  -w, --wrap_text       Do not wrap text for output of data files\n  -m, --load_profile LOAD_PROFILE\n                        Path to iLEAPP Profile file (.ilprofile).\n  -d, --load_case_data LOAD_CASE_DATA\n                        Path to LEAPP Case Data file (.lcasedata).\n  -c, --create_profile_casedata CREATE_PROFILE_CASEDATA\n                        Generate an iLEAPP Profile file (.ilprofile) or LEAPP\n                        Case Data file (.lcasedata) into the specified path.\n                        This argument is meant to be used alone, without any\n                        other arguments.\n  -p, --artifact_paths  Generate a text file list of artifact paths. This\n                        argument is meant to be used alone, without any other\n                        arguments.\n  --custom_output_folder CUSTOM_OUTPUT_FOLDER\n                        Custom name for the output folder\n  --html_row_limit HTML_ROW_LIMIT\n                        Rows above which an artifact's table is left off its\n                        HTML page, which then points at the LAVA database and\n                        the TSV export instead (default 50000). 0 writes every\n                        table.\n  --custom_artifacts_path CUSTOM_ARTIFACTS_PATH\n                        Additional path to load artifacts from (e.g.,\n                        scripts/alternate_artifacts)\n  --itunes_password ITUNES_PASSWORD\n                        Password used for encrypted iTunes backup\n  --keychain KEYCHAIN   Path to a keychain file captured from the device. Some\n                        apps keep their database key in the keychain, which is\n                        collected separately from the file system extraction.\n  --version             show program's version number and exit\n"
+    }
+  ],
+  "ileapp_execution": [
+    {
+      "mode": "fs",
+      "command": [
+        "D:\\CTF_MISC_Tools\\Forensics\\iLEAPP\\ileapp.exe",
+        "-t",
+        "fs",
+        "-i",
+        "D:\\winoptimizeDir\\Desktop\\Misc学习\\ctf-atlas\\.work\\ios-forensics-20261004\\validation-input",
+        "-o",
+        "D:\\winoptimizeDir\\Desktop\\Misc学习\\ctf-atlas\\.work\\ios-forensics-20261004\\run-fs",
+        "--custom_output_folder",
+        "verified",
+        "-tz",
+        "Asia/Shanghai"
+      ],
+      "exit": 0,
+      "files": [
+        "verified\\index.html",
+        "verified\\_lava_artifacts.db",
+        "verified\\_lava_data.lava",
+        "verified\\_HTML\\index.html",
+        "verified\\_HTML\\System_Version_plist.html",
+        "verified\\_Timeline\\tl.db",
+        "verified\\_TSV Exports\\System Version plist.tsv",
+        "verified\\data\\System\\Library\\CoreServices\\SystemVersion.plist",
+        "verified\\_HTML\\_elements\\all.css",
+        "verified\\_HTML\\_elements\\chats.css",
+        "verified\\_HTML\\_elements\\dark-mode-switch.js",
+        "verified\\_HTML\\_elements\\dark-mode.css",
+        "verified\\_HTML\\_elements\\dashboard.css",
+        "verified\\_HTML\\_elements\\iLEAPP_banner.png",
+        "verified\\_HTML\\_elements\\logo.png",
+        "verified\\_HTML\\_elements\\Roboto.css",
+        "verified\\_HTML\\_elements\\tabler-icons.css",
+        "verified\\_HTML\\_Script_Logs\\DeviceInfo.html",
+        "verified\\_HTML\\_Script_Logs\\ProcessedFilesLog.html",
+        "verified\\_HTML\\_Script_Logs\\Screen_Output.html",
+        "verified\\_HTML\\_elements\\fonts\\fa\\fa-brands-400.eot",
+        "verified\\_HTML\\_elements\\fonts\\fa\\fa-brands-400.svg#fontawesome",
+        "verified\\_HTML\\_elements\\fonts\\fa\\fa-brands-400.ttf",
+        "verified\\_HTML\\_elements\\fonts\\fa\\fa-brands-400.woff",
+        "verified\\_HTML\\_elements\\fonts\\fa\\fa-brands-400.woff2",
+        "verified\\_HTML\\_elements\\fonts\\fa\\fa-regular-400.eot",
+        "verified\\_HTML\\_elements\\fonts\\fa\\fa-regular-400.svg#fontawesome",
+        "verified\\_HTML\\_elements\\fonts\\fa\\fa-regular-400.ttf",
+        "verified\\_HTML\\_elements\\fonts\\fa\\fa-regular-400.woff",
+        "verified\\_HTML\\_elements\\fonts\\fa\\fa-regular-400.woff2",
+        "verified\\_HTML\\_elements\\fonts\\fa\\fa-solid-900.eot",
+        "verified\\_HTML\\_elements\\fonts\\fa\\fa-solid-900.svg#fontawesome",
+        "verified\\_HTML\\_elements\\fonts\\fa\\fa-solid-900.ttf",
+        "verified\\_HTML\\_elements\\fonts\\fa\\fa-solid-900.woff",
+        "verified\\_HTML\\_elements\\fonts\\fa\\fa-solid-900.woff2",
+        "verified\\_HTML\\_elements\\fonts\\tabler-icons\\tabler-icons.ttf",
+        "verified\\_HTML\\_elements\\fonts\\tabler-icons\\tabler-icons.woff",
+        "verified\\_HTML\\_elements\\fonts\\tabler-icons\\tabler-icons.woff2",
+        "verified\\_HTML\\_elements\\fonts\\roboto\\v32\\KFOlCnqEu92Fr1MmEU9fABc4AMP6lbBP.woff2",
+        "verified\\_HTML\\_elements\\fonts\\roboto\\v32\\KFOlCnqEu92Fr1MmEU9fBBc4AMP6lQ.woff2",
+        "verified\\_HTML\\_elements\\fonts\\roboto\\v32\\KFOlCnqEu92Fr1MmEU9fBxc4AMP6lbBP.woff2",
+        "verified\\_HTML\\_elements\\fonts\\roboto\\v32\\KFOlCnqEu92Fr1MmEU9fCBc4AMP6lbBP.woff2",
+        "verified\\_HTML\\_elements\\fonts\\roboto\\v32\\KFOlCnqEu92Fr1MmEU9fChc4AMP6lbBP.woff2",
+        "verified\\_HTML\\_elements\\fonts\\roboto\\v32\\KFOlCnqEu92Fr1MmEU9fCRc4AMP6lbBP.woff2",
+        "verified\\_HTML\\_elements\\fonts\\roboto\\v32\\KFOlCnqEu92Fr1MmEU9fCxc4AMP6lbBP.woff2",
+        "verified\\_HTML\\_elements\\fonts\\roboto\\v32\\KFOlCnqEu92Fr1MmSU5fABc4AMP6lbBP.woff2",
+        "verified\\_HTML\\_elements\\fonts\\roboto\\v32\\KFOlCnqEu92Fr1MmSU5fBBc4AMP6lQ.woff2",
+        "verified\\_HTML\\_elements\\fonts\\roboto\\v32\\KFOlCnqEu92Fr1MmSU5fBxc4AMP6lbBP.woff2",
+        "verified\\_HTML\\_elements\\fonts\\roboto\\v32\\KFOlCnqEu92Fr1MmSU5fCBc4AMP6lbBP.woff2",
+        "verified\\_HTML\\_elements\\fonts\\roboto\\v32\\KFOlCnqEu92Fr1MmSU5fChc4AMP6lbBP.woff2",
+        "verified\\_HTML\\_elements\\fonts\\roboto\\v32\\KFOlCnqEu92Fr1MmSU5fCRc4AMP6lbBP.woff2",
+        "verified\\_HTML\\_elements\\fonts\\roboto\\v32\\KFOlCnqEu92Fr1MmSU5fCxc4AMP6lbBP.woff2",
+        "verified\\_HTML\\_elements\\fonts\\roboto\\v32\\KFOlCnqEu92Fr1MmWUlfABc4AMP6lbBP.woff2",
+        "verified\\_HTML\\_elements\\fonts\\roboto\\v32\\KFOlCnqEu92Fr1MmWUlfBBc4AMP6lQ.woff2",
+        "verified\\_HTML\\_elements\\fonts\\roboto\\v32\\KFOlCnqEu92Fr1MmWUlfBxc4AMP6lbBP.woff2",
+        "verified\\_HTML\\_elements\\fonts\\roboto\\v32\\KFOlCnqEu92Fr1MmWUlfCBc4AMP6lbBP.woff2",
+        "verified\\_HTML\\_elements\\fonts\\roboto\\v32\\KFOlCnqEu92Fr1MmWUlfChc4AMP6lbBP.woff2",
+        "verified\\_HTML\\_elements\\fonts\\roboto\\v32\\KFOlCnqEu92Fr1MmWUlfCRc4AMP6lbBP.woff2",
+        "verified\\_HTML\\_elements\\fonts\\roboto\\v32\\KFOlCnqEu92Fr1MmWUlfCxc4AMP6lbBP.woff2",
+        "verified\\_HTML\\_elements\\fonts\\roboto\\v32\\KFOmCnqEu92Fr1Mu4mxKKTU1Kg.woff2",
+        "verified\\_HTML\\_elements\\fonts\\roboto\\v32\\KFOmCnqEu92Fr1Mu4WxKKTU1Kvnz.woff2",
+        "verified\\_HTML\\_elements\\fonts\\roboto\\v32\\KFOmCnqEu92Fr1Mu5mxKKTU1Kvnz.woff2",
+        "verified\\_HTML\\_elements\\fonts\\roboto\\v32\\KFOmCnqEu92Fr1Mu72xKKTU1Kvnz.woff2",
+        "verified\\_HTML\\_elements\\fonts\\roboto\\v32\\KFOmCnqEu92Fr1Mu7GxKKTU1Kvnz.woff2",
+        "verified\\_HTML\\_elements\\fonts\\roboto\\v32\\KFOmCnqEu92Fr1Mu7mxKKTU1Kvnz.woff2",
+        "verified\\_HTML\\_elements\\fonts\\roboto\\v32\\KFOmCnqEu92Fr1Mu7WxKKTU1Kvnz.woff2",
+        "verified\\_HTML\\_elements\\MDB-Free_4.13.0\\css\\bootstrap.min.css",
+        "verified\\_HTML\\_elements\\MDB-Free_4.13.0\\css\\mdb.min.css",
+        "verified\\_HTML\\_elements\\MDB-Free_4.13.0\\js\\bootstrap.js",
+        "verified\\_HTML\\_elements\\MDB-Free_4.13.0\\js\\bootstrap.min.js",
+        "verified\\_HTML\\_elements\\MDB-Free_4.13.0\\js\\jquery.js",
+        "verified\\_HTML\\_elements\\MDB-Free_4.13.0\\js\\jquery.min.js",
+        "verified\\_HTML\\_elements\\MDB-Free_4.13.0\\js\\mdb.js",
+        "verified\\_HTML\\_elements\\MDB-Free_4.13.0\\js\\mdb.min.js",
+        "verified\\_HTML\\_elements\\MDB-Free_4.13.0\\js\\popper.js",
+        "verified\\_HTML\\_elements\\MDB-Free_4.13.0\\js\\popper.min.js",
+        "verified\\_HTML\\_elements\\MDB-Free_4.13.0\\css\\addons\\datatables-select.min.css",
+        "verified\\_HTML\\_elements\\MDB-Free_4.13.0\\css\\addons\\datatables.min.css",
+        "verified\\_HTML\\_elements\\MDB-Free_4.13.0\\css\\addons\\directives.min.css",
+        "verified\\_HTML\\_elements\\MDB-Free_4.13.0\\css\\addons\\flag.min.css",
+        "verified\\_HTML\\_elements\\MDB-Free_4.13.0\\css\\addons\\jquery.zmd.hierarchical-display.min.css",
+        "verified\\_HTML\\_elements\\MDB-Free_4.13.0\\css\\addons\\rating.min.css",
+        "verified\\_HTML\\_elements\\MDB-Free_4.13.0\\img\\overlays\\01.png",
+        "verified\\_HTML\\_elements\\MDB-Free_4.13.0\\img\\overlays\\02.png",
+        "verified\\_HTML\\_elements\\MDB-Free_4.13.0\\img\\overlays\\03.png",
+        "verified\\_HTML\\_elements\\MDB-Free_4.13.0\\img\\overlays\\04.png",
+        "verified\\_HTML\\_elements\\MDB-Free_4.13.0\\img\\overlays\\05.png",
+        "verified\\_HTML\\_elements\\MDB-Free_4.13.0\\img\\overlays\\06.png",
+        "verified\\_HTML\\_elements\\MDB-Free_4.13.0\\img\\overlays\\07.png",
+        "verified\\_HTML\\_elements\\MDB-Free_4.13.0\\img\\overlays\\08.png",
+        "verified\\_HTML\\_elements\\MDB-Free_4.13.0\\img\\overlays\\09.png",
+        "verified\\_HTML\\_elements\\MDB-Free_4.13.0\\img\\svg\\arrow_left.svg",
+        "verified\\_HTML\\_elements\\MDB-Free_4.13.0\\img\\svg\\arrow_right.svg",
+        "verified\\_HTML\\_elements\\MDB-Free_4.13.0\\js\\addons\\datatables-select.min.js",
+        "verified\\_HTML\\_elements\\MDB-Free_4.13.0\\js\\addons\\datatables.min.js",
+        "verified\\_HTML\\_elements\\MDB-Free_4.13.0\\js\\addons\\directives.min.js",
+        "verified\\_HTML\\_elements\\MDB-Free_4.13.0\\js\\addons\\flag.min.js",
+        "verified\\_HTML\\_elements\\MDB-Free_4.13.0\\js\\addons\\imagesloaded.pkgd.min.js",
+        "verified\\_HTML\\_elements\\MDB-Free_4.13.0\\js\\addons\\jquery.zmd.hierarchical-display.min.js",
+        "verified\\_HTML\\_elements\\MDB-Free_4.13.0\\js\\addons\\masonry.pkgd.min.js",
+        "verified\\_HTML\\_elements\\MDB-Free_4.13.0\\js\\addons\\rating.min.js",
+        "verified\\_HTML\\_elements\\MDB-Free_4.13.0\\js\\modules\\animations-extended.min.js",
+        "verified\\_HTML\\_elements\\MDB-Free_4.13.0\\js\\modules\\forms-free.min.js",
+        "verified\\_HTML\\_elements\\MDB-Free_4.13.0\\js\\modules\\scrolling-navbar.min.js",
+        "verified\\_HTML\\_elements\\MDB-Free_4.13.0\\js\\modules\\treeview.min.js",
+        "verified\\_HTML\\_elements\\MDB-Free_4.13.0\\js\\modules\\wow.min.js"
+      ],
+      "system_tsv": [
+        "verified\\_TSV Exports\\System Version plist.tsv"
+      ],
+      "log": ".work\\ios-forensics-20261004\\run-fs.txt"
+    },
+    {
+      "mode": "zip",
+      "command": [
+        "D:\\CTF_MISC_Tools\\Forensics\\iLEAPP\\ileapp.exe",
+        "-t",
+        "zip",
+        "-i",
+        "D:\\winoptimizeDir\\Desktop\\Misc学习\\ctf-atlas\\.work\\ios-forensics-20261004\\validation-input.zip",
+        "-o",
+        "D:\\winoptimizeDir\\Desktop\\Misc学习\\ctf-atlas\\.work\\ios-forensics-20261004\\run-zip",
+        "--custom_output_folder",
+        "verified",
+        "-tz",
+        "Asia/Shanghai"
+      ],
+      "exit": 0,
+      "files": [
+        "verified\\index.html",
+        "verified\\_lava_artifacts.db",
+        "verified\\_lava_data.lava",
+        "verified\\_HTML\\index.html",
+        "verified\\_HTML\\System_Version_plist.html",
+        "verified\\_Timeline\\tl.db",
+        "verified\\_TSV Exports\\System Version plist.tsv",
+        "verified\\data\\System\\Library\\CoreServices\\SystemVersion.plist",
+        "verified\\_HTML\\_elements\\all.css",
+        "verified\\_HTML\\_elements\\chats.css",
+        "verified\\_HTML\\_elements\\dark-mode-switch.js",
+        "verified\\_HTML\\_elements\\dark-mode.css",
+        "verified\\_HTML\\_elements\\dashboard.css",
+        "verified\\_HTML\\_elements\\iLEAPP_banner.png",
+        "verified\\_HTML\\_elements\\logo.png",
+        "verified\\_HTML\\_elements\\Roboto.css",
+        "verified\\_HTML\\_elements\\tabler-icons.css",
+        "verified\\_HTML\\_Script_Logs\\DeviceInfo.html",
+        "verified\\_HTML\\_Script_Logs\\ProcessedFilesLog.html",
+        "verified\\_HTML\\_Script_Logs\\Screen_Output.html",
+        "verified\\_HTML\\_elements\\fonts\\fa\\fa-brands-400.eot",
+        "verified\\_HTML\\_elements\\fonts\\fa\\fa-brands-400.svg#fontawesome",
+        "verified\\_HTML\\_elements\\fonts\\fa\\fa-brands-400.ttf",
+        "verified\\_HTML\\_elements\\fonts\\fa\\fa-brands-400.woff",
+        "verified\\_HTML\\_elements\\fonts\\fa\\fa-brands-400.woff2",
+        "verified\\_HTML\\_elements\\fonts\\fa\\fa-regular-400.eot",
+        "verified\\_HTML\\_elements\\fonts\\fa\\fa-regular-400.svg#fontawesome",
+        "verified\\_HTML\\_elements\\fonts\\fa\\fa-regular-400.ttf",
+        "verified\\_HTML\\_elements\\fonts\\fa\\fa-regular-400.woff",
+        "verified\\_HTML\\_elements\\fonts\\fa\\fa-regular-400.woff2",
+        "verified\\_HTML\\_elements\\fonts\\fa\\fa-solid-900.eot",
+        "verified\\_HTML\\_elements\\fonts\\fa\\fa-solid-900.svg#fontawesome",
+        "verified\\_HTML\\_elements\\fonts\\fa\\fa-solid-900.ttf",
+        "verified\\_HTML\\_elements\\fonts\\fa\\fa-solid-900.woff",
+        "verified\\_HTML\\_elements\\fonts\\fa\\fa-solid-900.woff2",
+        "verified\\_HTML\\_elements\\fonts\\tabler-icons\\tabler-icons.ttf",
+        "verified\\_HTML\\_elements\\fonts\\tabler-icons\\tabler-icons.woff",
+        "verified\\_HTML\\_elements\\fonts\\tabler-icons\\tabler-icons.woff2",
+        "verified\\_HTML\\_elements\\fonts\\roboto\\v32\\KFOlCnqEu92Fr1MmEU9fABc4AMP6lbBP.woff2",
+        "verified\\_HTML\\_elements\\fonts\\roboto\\v32\\KFOlCnqEu92Fr1MmEU9fBBc4AMP6lQ.woff2",
+        "verified\\_HTML\\_elements\\fonts\\roboto\\v32\\KFOlCnqEu92Fr1MmEU9fBxc4AMP6lbBP.woff2",
+        "verified\\_HTML\\_elements\\fonts\\roboto\\v32\\KFOlCnqEu92Fr1MmEU9fCBc4AMP6lbBP.woff2",
+        "verified\\_HTML\\_elements\\fonts\\roboto\\v32\\KFOlCnqEu92Fr1MmEU9fChc4AMP6lbBP.woff2",
+        "verified\\_HTML\\_elements\\fonts\\roboto\\v32\\KFOlCnqEu92Fr1MmEU9fCRc4AMP6lbBP.woff2",
+        "verified\\_HTML\\_elements\\fonts\\roboto\\v32\\KFOlCnqEu92Fr1MmEU9fCxc4AMP6lbBP.woff2",
+        "verified\\_HTML\\_elements\\fonts\\roboto\\v32\\KFOlCnqEu92Fr1MmSU5fABc4AMP6lbBP.woff2",
+        "verified\\_HTML\\_elements\\fonts\\roboto\\v32\\KFOlCnqEu92Fr1MmSU5fBBc4AMP6lQ.woff2",
+        "verified\\_HTML\\_elements\\fonts\\roboto\\v32\\KFOlCnqEu92Fr1MmSU5fBxc4AMP6lbBP.woff2",
+        "verified\\_HTML\\_elements\\fonts\\roboto\\v32\\KFOlCnqEu92Fr1MmSU5fCBc4AMP6lbBP.woff2",
+        "verified\\_HTML\\_elements\\fonts\\roboto\\v32\\KFOlCnqEu92Fr1MmSU5fChc4AMP6lbBP.woff2",
+        "verified\\_HTML\\_elements\\fonts\\roboto\\v32\\KFOlCnqEu92Fr1MmSU5fCRc4AMP6lbBP.woff2",
+        "verified\\_HTML\\_elements\\fonts\\roboto\\v32\\KFOlCnqEu92Fr1MmSU5fCxc4AMP6lbBP.woff2",
+        "verified\\_HTML\\_elements\\fonts\\roboto\\v32\\KFOlCnqEu92Fr1MmWUlfABc4AMP6lbBP.woff2",
+        "verified\\_HTML\\_elements\\fonts\\roboto\\v32\\KFOlCnqEu92Fr1MmWUlfBBc4AMP6lQ.woff2",
+        "verified\\_HTML\\_elements\\fonts\\roboto\\v32\\KFOlCnqEu92Fr1MmWUlfBxc4AMP6lbBP.woff2",
+        "verified\\_HTML\\_elements\\fonts\\roboto\\v32\\KFOlCnqEu92Fr1MmWUlfCBc4AMP6lbBP.woff2",
+        "verified\\_HTML\\_elements\\fonts\\roboto\\v32\\KFOlCnqEu92Fr1MmWUlfChc4AMP6lbBP.woff2",
+        "verified\\_HTML\\_elements\\fonts\\roboto\\v32\\KFOlCnqEu92Fr1MmWUlfCRc4AMP6lbBP.woff2",
+        "verified\\_HTML\\_elements\\fonts\\roboto\\v32\\KFOlCnqEu92Fr1MmWUlfCxc4AMP6lbBP.woff2",
+        "verified\\_HTML\\_elements\\fonts\\roboto\\v32\\KFOmCnqEu92Fr1Mu4mxKKTU1Kg.woff2",
+        "verified\\_HTML\\_elements\\fonts\\roboto\\v32\\KFOmCnqEu92Fr1Mu4WxKKTU1Kvnz.woff2",
+        "verified\\_HTML\\_elements\\fonts\\roboto\\v32\\KFOmCnqEu92Fr1Mu5mxKKTU1Kvnz.woff2",
+        "verified\\_HTML\\_elements\\fonts\\roboto\\v32\\KFOmCnqEu92Fr1Mu72xKKTU1Kvnz.woff2",
+        "verified\\_HTML\\_elements\\fonts\\roboto\\v32\\KFOmCnqEu92Fr1Mu7GxKKTU1Kvnz.woff2",
+        "verified\\_HTML\\_elements\\fonts\\roboto\\v32\\KFOmCnqEu92Fr1Mu7mxKKTU1Kvnz.woff2",
+        "verified\\_HTML\\_elements\\fonts\\roboto\\v32\\KFOmCnqEu92Fr1Mu7WxKKTU1Kvnz.woff2",
+        "verified\\_HTML\\_elements\\MDB-Free_4.13.0\\css\\bootstrap.min.css",
+        "verified\\_HTML\\_elements\\MDB-Free_4.13.0\\css\\mdb.min.css",
+        "verified\\_HTML\\_elements\\MDB-Free_4.13.0\\js\\bootstrap.js",
+        "verified\\_HTML\\_elements\\MDB-Free_4.13.0\\js\\bootstrap.min.js",
+        "verified\\_HTML\\_elements\\MDB-Free_4.13.0\\js\\jquery.js",
+        "verified\\_HTML\\_elements\\MDB-Free_4.13.0\\js\\jquery.min.js",
+        "verified\\_HTML\\_elements\\MDB-Free_4.13.0\\js\\mdb.js",
+        "verified\\_HTML\\_elements\\MDB-Free_4.13.0\\js\\mdb.min.js",
+        "verified\\_HTML\\_elements\\MDB-Free_4.13.0\\js\\popper.js",
+        "verified\\_HTML\\_elements\\MDB-Free_4.13.0\\js\\popper.min.js",
+        "verified\\_HTML\\_elements\\MDB-Free_4.13.0\\css\\addons\\datatables-select.min.css",
+        "verified\\_HTML\\_elements\\MDB-Free_4.13.0\\css\\addons\\datatables.min.css",
+        "verified\\_HTML\\_elements\\MDB-Free_4.13.0\\css\\addons\\directives.min.css",
+        "verified\\_HTML\\_elements\\MDB-Free_4.13.0\\css\\addons\\flag.min.css",
+        "verified\\_HTML\\_elements\\MDB-Free_4.13.0\\css\\addons\\jquery.zmd.hierarchical-display.min.css",
+        "verified\\_HTML\\_elements\\MDB-Free_4.13.0\\css\\addons\\rating.min.css",
+        "verified\\_HTML\\_elements\\MDB-Free_4.13.0\\img\\overlays\\01.png",
+        "verified\\_HTML\\_elements\\MDB-Free_4.13.0\\img\\overlays\\02.png",
+        "verified\\_HTML\\_elements\\MDB-Free_4.13.0\\img\\overlays\\03.png",
+        "verified\\_HTML\\_elements\\MDB-Free_4.13.0\\img\\overlays\\04.png",
+        "verified\\_HTML\\_elements\\MDB-Free_4.13.0\\img\\overlays\\05.png",
+        "verified\\_HTML\\_elements\\MDB-Free_4.13.0\\img\\overlays\\06.png",
+        "verified\\_HTML\\_elements\\MDB-Free_4.13.0\\img\\overlays\\07.png",
+        "verified\\_HTML\\_elements\\MDB-Free_4.13.0\\img\\overlays\\08.png",
+        "verified\\_HTML\\_elements\\MDB-Free_4.13.0\\img\\overlays\\09.png",
+        "verified\\_HTML\\_elements\\MDB-Free_4.13.0\\img\\svg\\arrow_left.svg",
+        "verified\\_HTML\\_elements\\MDB-Free_4.13.0\\img\\svg\\arrow_right.svg",
+        "verified\\_HTML\\_elements\\MDB-Free_4.13.0\\js\\addons\\datatables-select.min.js",
+        "verified\\_HTML\\_elements\\MDB-Free_4.13.0\\js\\addons\\datatables.min.js",
+        "verified\\_HTML\\_elements\\MDB-Free_4.13.0\\js\\addons\\directives.min.js",
+        "verified\\_HTML\\_elements\\MDB-Free_4.13.0\\js\\addons\\flag.min.js",
+        "verified\\_HTML\\_elements\\MDB-Free_4.13.0\\js\\addons\\imagesloaded.pkgd.min.js",
+        "verified\\_HTML\\_elements\\MDB-Free_4.13.0\\js\\addons\\jquery.zmd.hierarchical-display.min.js",
+        "verified\\_HTML\\_elements\\MDB-Free_4.13.0\\js\\addons\\masonry.pkgd.min.js",
+        "verified\\_HTML\\_elements\\MDB-Free_4.13.0\\js\\addons\\rating.min.js",
+        "verified\\_HTML\\_elements\\MDB-Free_4.13.0\\js\\modules\\animations-extended.min.js",
+        "verified\\_HTML\\_elements\\MDB-Free_4.13.0\\js\\modules\\forms-free.min.js",
+        "verified\\_HTML\\_elements\\MDB-Free_4.13.0\\js\\modules\\scrolling-navbar.min.js",
+        "verified\\_HTML\\_elements\\MDB-Free_4.13.0\\js\\modules\\treeview.min.js",
+        "verified\\_HTML\\_elements\\MDB-Free_4.13.0\\js\\modules\\wow.min.js"
+      ],
+      "system_tsv": [
+        "verified\\_TSV Exports\\System Version plist.tsv"
+      ],
+      "log": ".work\\ios-forensics-20261004\\run-zip.txt"
+    },
+    {
+      "mode": "tar",
+      "command": [
+        "D:\\CTF_MISC_Tools\\Forensics\\iLEAPP\\ileapp.exe",
+        "-t",
+        "tar",
+        "-i",
+        "D:\\winoptimizeDir\\Desktop\\Misc学习\\ctf-atlas\\.work\\ios-forensics-20261004\\validation-input.tar",
+        "-o",
+        "D:\\winoptimizeDir\\Desktop\\Misc学习\\ctf-atlas\\.work\\ios-forensics-20261004\\run-tar",
+        "--custom_output_folder",
+        "verified",
+        "-tz",
+        "Asia/Shanghai"
+      ],
+      "exit": 0,
+      "files": [
+        "verified\\index.html",
+        "verified\\_lava_artifacts.db",
+        "verified\\_lava_data.lava",
+        "verified\\_HTML\\index.html",
+        "verified\\_HTML\\System_Version_plist.html",
+        "verified\\_Timeline\\tl.db",
+        "verified\\_TSV Exports\\System Version plist.tsv",
+        "verified\\data\\System\\Library\\CoreServices\\SystemVersion.plist",
+        "verified\\_HTML\\_elements\\all.css",
+        "verified\\_HTML\\_elements\\chats.css",
+        "verified\\_HTML\\_elements\\dark-mode-switch.js",
+        "verified\\_HTML\\_elements\\dark-mode.css",
+        "verified\\_HTML\\_elements\\dashboard.css",
+        "verified\\_HTML\\_elements\\iLEAPP_banner.png",
+        "verified\\_HTML\\_elements\\logo.png",
+        "verified\\_HTML\\_elements\\Roboto.css",
+        "verified\\_HTML\\_elements\\tabler-icons.css",
+        "verified\\_HTML\\_Script_Logs\\DeviceInfo.html",
+        "verified\\_HTML\\_Script_Logs\\ProcessedFilesLog.html",
+        "verified\\_HTML\\_Script_Logs\\Screen_Output.html",
+        "verified\\_HTML\\_elements\\fonts\\fa\\fa-brands-400.eot",
+        "verified\\_HTML\\_elements\\fonts\\fa\\fa-brands-400.svg#fontawesome",
+        "verified\\_HTML\\_elements\\fonts\\fa\\fa-brands-400.ttf",
+        "verified\\_HTML\\_elements\\fonts\\fa\\fa-brands-400.woff",
+        "verified\\_HTML\\_elements\\fonts\\fa\\fa-brands-400.woff2",
+        "verified\\_HTML\\_elements\\fonts\\fa\\fa-regular-400.eot",
+        "verified\\_HTML\\_elements\\fonts\\fa\\fa-regular-400.svg#fontawesome",
+        "verified\\_HTML\\_elements\\fonts\\fa\\fa-regular-400.ttf",
+        "verified\\_HTML\\_elements\\fonts\\fa\\fa-regular-400.woff",
+        "verified\\_HTML\\_elements\\fonts\\fa\\fa-regular-400.woff2",
+        "verified\\_HTML\\_elements\\fonts\\fa\\fa-solid-900.eot",
+        "verified\\_HTML\\_elements\\fonts\\fa\\fa-solid-900.svg#fontawesome",
+        "verified\\_HTML\\_elements\\fonts\\fa\\fa-solid-900.ttf",
+        "verified\\_HTML\\_elements\\fonts\\fa\\fa-solid-900.woff",
+        "verified\\_HTML\\_elements\\fonts\\fa\\fa-solid-900.woff2",
+        "verified\\_HTML\\_elements\\fonts\\tabler-icons\\tabler-icons.ttf",
+        "verified\\_HTML\\_elements\\fonts\\tabler-icons\\tabler-icons.woff",
+        "verified\\_HTML\\_elements\\fonts\\tabler-icons\\tabler-icons.woff2",
+        "verified\\_HTML\\_elements\\fonts\\roboto\\v32\\KFOlCnqEu92Fr1MmEU9fABc4AMP6lbBP.woff2",
+        "verified\\_HTML\\_elements\\fonts\\roboto\\v32\\KFOlCnqEu92Fr1MmEU9fBBc4AMP6lQ.woff2",
+        "verified\\_HTML\\_elements\\fonts\\roboto\\v32\\KFOlCnqEu92Fr1MmEU9fBxc4AMP6lbBP.woff2",
+        "verified\\_HTML\\_elements\\fonts\\roboto\\v32\\KFOlCnqEu92Fr1MmEU9fCBc4AMP6lbBP.woff2",
+        "verified\\_HTML\\_elements\\fonts\\roboto\\v32\\KFOlCnqEu92Fr1MmEU9fChc4AMP6lbBP.woff2",
+        "verified\\_HTML\\_elements\\fonts\\roboto\\v32\\KFOlCnqEu92Fr1MmEU9fCRc4AMP6lbBP.woff2",
+        "verified\\_HTML\\_elements\\fonts\\roboto\\v32\\KFOlCnqEu92Fr1MmEU9fCxc4AMP6lbBP.woff2",
+        "verified\\_HTML\\_elements\\fonts\\roboto\\v32\\KFOlCnqEu92Fr1MmSU5fABc4AMP6lbBP.woff2",
+        "verified\\_HTML\\_elements\\fonts\\roboto\\v32\\KFOlCnqEu92Fr1MmSU5fBBc4AMP6lQ.woff2",
+        "verified\\_HTML\\_elements\\fonts\\roboto\\v32\\KFOlCnqEu92Fr1MmSU5fBxc4AMP6lbBP.woff2",
+        "verified\\_HTML\\_elements\\fonts\\roboto\\v32\\KFOlCnqEu92Fr1MmSU5fCBc4AMP6lbBP.woff2",
+        "verified\\_HTML\\_elements\\fonts\\roboto\\v32\\KFOlCnqEu92Fr1MmSU5fChc4AMP6lbBP.woff2",
+        "verified\\_HTML\\_elements\\fonts\\roboto\\v32\\KFOlCnqEu92Fr1MmSU5fCRc4AMP6lbBP.woff2",
+        "verified\\_HTML\\_elements\\fonts\\roboto\\v32\\KFOlCnqEu92Fr1MmSU5fCxc4AMP6lbBP.woff2",
+        "verified\\_HTML\\_elements\\fonts\\roboto\\v32\\KFOlCnqEu92Fr1MmWUlfABc4AMP6lbBP.woff2",
+        "verified\\_HTML\\_elements\\fonts\\roboto\\v32\\KFOlCnqEu92Fr1MmWUlfBBc4AMP6lQ.woff2",
+        "verified\\_HTML\\_elements\\fonts\\roboto\\v32\\KFOlCnqEu92Fr1MmWUlfBxc4AMP6lbBP.woff2",
+        "verified\\_HTML\\_elements\\fonts\\roboto\\v32\\KFOlCnqEu92Fr1MmWUlfCBc4AMP6lbBP.woff2",
+        "verified\\_HTML\\_elements\\fonts\\roboto\\v32\\KFOlCnqEu92Fr1MmWUlfChc4AMP6lbBP.woff2",
+        "verified\\_HTML\\_elements\\fonts\\roboto\\v32\\KFOlCnqEu92Fr1MmWUlfCRc4AMP6lbBP.woff2",
+        "verified\\_HTML\\_elements\\fonts\\roboto\\v32\\KFOlCnqEu92Fr1MmWUlfCxc4AMP6lbBP.woff2",
+        "verified\\_HTML\\_elements\\fonts\\roboto\\v32\\KFOmCnqEu92Fr1Mu4mxKKTU1Kg.woff2",
+        "verified\\_HTML\\_elements\\fonts\\roboto\\v32\\KFOmCnqEu92Fr1Mu4WxKKTU1Kvnz.woff2",
+        "verified\\_HTML\\_elements\\fonts\\roboto\\v32\\KFOmCnqEu92Fr1Mu5mxKKTU1Kvnz.woff2",
+        "verified\\_HTML\\_elements\\fonts\\roboto\\v32\\KFOmCnqEu92Fr1Mu72xKKTU1Kvnz.woff2",
+        "verified\\_HTML\\_elements\\fonts\\roboto\\v32\\KFOmCnqEu92Fr1Mu7GxKKTU1Kvnz.woff2",
+        "verified\\_HTML\\_elements\\fonts\\roboto\\v32\\KFOmCnqEu92Fr1Mu7mxKKTU1Kvnz.woff2",
+        "verified\\_HTML\\_elements\\fonts\\roboto\\v32\\KFOmCnqEu92Fr1Mu7WxKKTU1Kvnz.woff2",
+        "verified\\_HTML\\_elements\\MDB-Free_4.13.0\\css\\bootstrap.min.css",
+        "verified\\_HTML\\_elements\\MDB-Free_4.13.0\\css\\mdb.min.css",
+        "verified\\_HTML\\_elements\\MDB-Free_4.13.0\\js\\bootstrap.js",
+        "verified\\_HTML\\_elements\\MDB-Free_4.13.0\\js\\bootstrap.min.js",
+        "verified\\_HTML\\_elements\\MDB-Free_4.13.0\\js\\jquery.js",
+        "verified\\_HTML\\_elements\\MDB-Free_4.13.0\\js\\jquery.min.js",
+        "verified\\_HTML\\_elements\\MDB-Free_4.13.0\\js\\mdb.js",
+        "verified\\_HTML\\_elements\\MDB-Free_4.13.0\\js\\mdb.min.js",
+        "verified\\_HTML\\_elements\\MDB-Free_4.13.0\\js\\popper.js",
+        "verified\\_HTML\\_elements\\MDB-Free_4.13.0\\js\\popper.min.js",
+        "verified\\_HTML\\_elements\\MDB-Free_4.13.0\\css\\addons\\datatables-select.min.css",
+        "verified\\_HTML\\_elements\\MDB-Free_4.13.0\\css\\addons\\datatables.min.css",
+        "verified\\_HTML\\_elements\\MDB-Free_4.13.0\\css\\addons\\directives.min.css",
+        "verified\\_HTML\\_elements\\MDB-Free_4.13.0\\css\\addons\\flag.min.css",
+        "verified\\_HTML\\_elements\\MDB-Free_4.13.0\\css\\addons\\jquery.zmd.hierarchical-display.min.css",
+        "verified\\_HTML\\_elements\\MDB-Free_4.13.0\\css\\addons\\rating.min.css",
+        "verified\\_HTML\\_elements\\MDB-Free_4.13.0\\img\\overlays\\01.png",
+        "verified\\_HTML\\_elements\\MDB-Free_4.13.0\\img\\overlays\\02.png",
+        "verified\\_HTML\\_elements\\MDB-Free_4.13.0\\img\\overlays\\03.png",
+        "verified\\_HTML\\_elements\\MDB-Free_4.13.0\\img\\overlays\\04.png",
+        "verified\\_HTML\\_elements\\MDB-Free_4.13.0\\img\\overlays\\05.png",
+        "verified\\_HTML\\_elements\\MDB-Free_4.13.0\\img\\overlays\\06.png",
+        "verified\\_HTML\\_elements\\MDB-Free_4.13.0\\img\\overlays\\07.png",
+        "verified\\_HTML\\_elements\\MDB-Free_4.13.0\\img\\overlays\\08.png",
+        "verified\\_HTML\\_elements\\MDB-Free_4.13.0\\img\\overlays\\09.png",
+        "verified\\_HTML\\_elements\\MDB-Free_4.13.0\\img\\svg\\arrow_left.svg",
+        "verified\\_HTML\\_elements\\MDB-Free_4.13.0\\img\\svg\\arrow_right.svg",
+        "verified\\_HTML\\_elements\\MDB-Free_4.13.0\\js\\addons\\datatables-select.min.js",
+        "verified\\_HTML\\_elements\\MDB-Free_4.13.0\\js\\addons\\datatables.min.js",
+        "verified\\_HTML\\_elements\\MDB-Free_4.13.0\\js\\addons\\directives.min.js",
+        "verified\\_HTML\\_elements\\MDB-Free_4.13.0\\js\\addons\\flag.min.js",
+        "verified\\_HTML\\_elements\\MDB-Free_4.13.0\\js\\addons\\imagesloaded.pkgd.min.js",
+        "verified\\_HTML\\_elements\\MDB-Free_4.13.0\\js\\addons\\jquery.zmd.hierarchical-display.min.js",
+        "verified\\_HTML\\_elements\\MDB-Free_4.13.0\\js\\addons\\masonry.pkgd.min.js",
+        "verified\\_HTML\\_elements\\MDB-Free_4.13.0\\js\\addons\\rating.min.js",
+        "verified\\_HTML\\_elements\\MDB-Free_4.13.0\\js\\modules\\animations-extended.min.js",
+        "verified\\_HTML\\_elements\\MDB-Free_4.13.0\\js\\modules\\forms-free.min.js",
+        "verified\\_HTML\\_elements\\MDB-Free_4.13.0\\js\\modules\\scrolling-navbar.min.js",
+        "verified\\_HTML\\_elements\\MDB-Free_4.13.0\\js\\modules\\treeview.min.js",
+        "verified\\_HTML\\_elements\\MDB-Free_4.13.0\\js\\modules\\wow.min.js"
+      ],
+      "system_tsv": [
+        "verified\\_TSV Exports\\System Version plist.tsv"
+      ],
+      "log": ".work\\ios-forensics-20261004\\run-tar.txt"
+    },
+    {
+      "mode": "file",
+      "command": [
+        "D:\\CTF_MISC_Tools\\Forensics\\iLEAPP\\ileapp.exe",
+        "-t",
+        "file",
+        "-i",
+        "D:\\winoptimizeDir\\Desktop\\Misc学习\\ctf-atlas\\.work\\ios-forensics-20261004\\validation-input\\System\\Library\\CoreServices\\SystemVersion.plist",
+        "-o",
+        "D:\\winoptimizeDir\\Desktop\\Misc学习\\ctf-atlas\\.work\\ios-forensics-20261004\\run-file",
+        "--custom_output_folder",
+        "verified",
+        "-tz",
+        "Asia/Shanghai"
+      ],
+      "exit": 0,
+      "files": [
+        "verified\\index.html",
+        "verified\\_lava_artifacts.db",
+        "verified\\_lava_data.lava",
+        "verified\\data\\SystemVersion.plist",
+        "verified\\_HTML\\index.html",
+        "verified\\_HTML\\iOS_Information.html",
+        "verified\\_HTML\\System_Version_plist.html",
+        "verified\\_Timeline\\tl.db",
+        "verified\\_TSV Exports\\iOS Information.tsv",
+        "verified\\_TSV Exports\\System Version plist.tsv",
+        "verified\\_HTML\\_elements\\all.css",
+        "verified\\_HTML\\_elements\\chats.css",
+        "verified\\_HTML\\_elements\\dark-mode-switch.js",
+        "verified\\_HTML\\_elements\\dark-mode.css",
+        "verified\\_HTML\\_elements\\dashboard.css",
+        "verified\\_HTML\\_elements\\iLEAPP_banner.png",
+        "verified\\_HTML\\_elements\\logo.png",
+        "verified\\_HTML\\_elements\\Roboto.css",
+        "verified\\_HTML\\_elements\\tabler-icons.css",
+        "verified\\_HTML\\_Script_Logs\\DeviceInfo.html",
+        "verified\\_HTML\\_Script_Logs\\ProcessedFilesLog.html",
+        "verified\\_HTML\\_Script_Logs\\Screen_Output.html",
+        "verified\\_HTML\\_elements\\fonts\\fa\\fa-brands-400.eot",
+        "verified\\_HTML\\_elements\\fonts\\fa\\fa-brands-400.svg#fontawesome",
+        "verified\\_HTML\\_elements\\fonts\\fa\\fa-brands-400.ttf",
+        "verified\\_HTML\\_elements\\fonts\\fa\\fa-brands-400.woff",
+        "verified\\_HTML\\_elements\\fonts\\fa\\fa-brands-400.woff2",
+        "verified\\_HTML\\_elements\\fonts\\fa\\fa-regular-400.eot",
+        "verified\\_HTML\\_elements\\fonts\\fa\\fa-regular-400.svg#fontawesome",
+        "verified\\_HTML\\_elements\\fonts\\fa\\fa-regular-400.ttf",
+        "verified\\_HTML\\_elements\\fonts\\fa\\fa-regular-400.woff",
+        "verified\\_HTML\\_elements\\fonts\\fa\\fa-regular-400.woff2",
+        "verified\\_HTML\\_elements\\fonts\\fa\\fa-solid-900.eot",
+        "verified\\_HTML\\_elements\\fonts\\fa\\fa-solid-900.svg#fontawesome",
+        "verified\\_HTML\\_elements\\fonts\\fa\\fa-solid-900.ttf",
+        "verified\\_HTML\\_elements\\fonts\\fa\\fa-solid-900.woff",
+        "verified\\_HTML\\_elements\\fonts\\fa\\fa-solid-900.woff2",
+        "verified\\_HTML\\_elements\\fonts\\tabler-icons\\tabler-icons.ttf",
+        "verified\\_HTML\\_elements\\fonts\\tabler-icons\\tabler-icons.woff",
+        "verified\\_HTML\\_elements\\fonts\\tabler-icons\\tabler-icons.woff2",
+        "verified\\_HTML\\_elements\\fonts\\roboto\\v32\\KFOlCnqEu92Fr1MmEU9fABc4AMP6lbBP.woff2",
+        "verified\\_HTML\\_elements\\fonts\\roboto\\v32\\KFOlCnqEu92Fr1MmEU9fBBc4AMP6lQ.woff2",
+        "verified\\_HTML\\_elements\\fonts\\roboto\\v32\\KFOlCnqEu92Fr1MmEU9fBxc4AMP6lbBP.woff2",
+        "verified\\_HTML\\_elements\\fonts\\roboto\\v32\\KFOlCnqEu92Fr1MmEU9fCBc4AMP6lbBP.woff2",
+        "verified\\_HTML\\_elements\\fonts\\roboto\\v32\\KFOlCnqEu92Fr1MmEU9fChc4AMP6lbBP.woff2",
+        "verified\\_HTML\\_elements\\fonts\\roboto\\v32\\KFOlCnqEu92Fr1MmEU9fCRc4AMP6lbBP.woff2",
+        "verified\\_HTML\\_elements\\fonts\\roboto\\v32\\KFOlCnqEu92Fr1MmEU9fCxc4AMP6lbBP.woff2",
+        "verified\\_HTML\\_elements\\fonts\\roboto\\v32\\KFOlCnqEu92Fr1MmSU5fABc4AMP6lbBP.woff2",
+        "verified\\_HTML\\_elements\\fonts\\roboto\\v32\\KFOlCnqEu92Fr1MmSU5fBBc4AMP6lQ.woff2",
+        "verified\\_HTML\\_elements\\fonts\\roboto\\v32\\KFOlCnqEu92Fr1MmSU5fBxc4AMP6lbBP.woff2",
+        "verified\\_HTML\\_elements\\fonts\\roboto\\v32\\KFOlCnqEu92Fr1MmSU5fCBc4AMP6lbBP.woff2",
+        "verified\\_HTML\\_elements\\fonts\\roboto\\v32\\KFOlCnqEu92Fr1MmSU5fChc4AMP6lbBP.woff2",
+        "verified\\_HTML\\_elements\\fonts\\roboto\\v32\\KFOlCnqEu92Fr1MmSU5fCRc4AMP6lbBP.woff2",
+        "verified\\_HTML\\_elements\\fonts\\roboto\\v32\\KFOlCnqEu92Fr1MmSU5fCxc4AMP6lbBP.woff2",
+        "verified\\_HTML\\_elements\\fonts\\roboto\\v32\\KFOlCnqEu92Fr1MmWUlfABc4AMP6lbBP.woff2",
+        "verified\\_HTML\\_elements\\fonts\\roboto\\v32\\KFOlCnqEu92Fr1MmWUlfBBc4AMP6lQ.woff2",
+        "verified\\_HTML\\_elements\\fonts\\roboto\\v32\\KFOlCnqEu92Fr1MmWUlfBxc4AMP6lbBP.woff2",
+        "verified\\_HTML\\_elements\\fonts\\roboto\\v32\\KFOlCnqEu92Fr1MmWUlfCBc4AMP6lbBP.woff2",
+        "verified\\_HTML\\_elements\\fonts\\roboto\\v32\\KFOlCnqEu92Fr1MmWUlfChc4AMP6lbBP.woff2",
+        "verified\\_HTML\\_elements\\fonts\\roboto\\v32\\KFOlCnqEu92Fr1MmWUlfCRc4AMP6lbBP.woff2",
+        "verified\\_HTML\\_elements\\fonts\\roboto\\v32\\KFOlCnqEu92Fr1MmWUlfCxc4AMP6lbBP.woff2",
+        "verified\\_HTML\\_elements\\fonts\\roboto\\v32\\KFOmCnqEu92Fr1Mu4mxKKTU1Kg.woff2",
+        "verified\\_HTML\\_elements\\fonts\\roboto\\v32\\KFOmCnqEu92Fr1Mu4WxKKTU1Kvnz.woff2",
+        "verified\\_HTML\\_elements\\fonts\\roboto\\v32\\KFOmCnqEu92Fr1Mu5mxKKTU1Kvnz.woff2",
+        "verified\\_HTML\\_elements\\fonts\\roboto\\v32\\KFOmCnqEu92Fr1Mu72xKKTU1Kvnz.woff2",
+        "verified\\_HTML\\_elements\\fonts\\roboto\\v32\\KFOmCnqEu92Fr1Mu7GxKKTU1Kvnz.woff2",
+        "verified\\_HTML\\_elements\\fonts\\roboto\\v32\\KFOmCnqEu92Fr1Mu7mxKKTU1Kvnz.woff2",
+        "verified\\_HTML\\_elements\\fonts\\roboto\\v32\\KFOmCnqEu92Fr1Mu7WxKKTU1Kvnz.woff2",
+        "verified\\_HTML\\_elements\\MDB-Free_4.13.0\\css\\bootstrap.min.css",
+        "verified\\_HTML\\_elements\\MDB-Free_4.13.0\\css\\mdb.min.css",
+        "verified\\_HTML\\_elements\\MDB-Free_4.13.0\\js\\bootstrap.js",
+        "verified\\_HTML\\_elements\\MDB-Free_4.13.0\\js\\bootstrap.min.js",
+        "verified\\_HTML\\_elements\\MDB-Free_4.13.0\\js\\jquery.js",
+        "verified\\_HTML\\_elements\\MDB-Free_4.13.0\\js\\jquery.min.js",
+        "verified\\_HTML\\_elements\\MDB-Free_4.13.0\\js\\mdb.js",
+        "verified\\_HTML\\_elements\\MDB-Free_4.13.0\\js\\mdb.min.js",
+        "verified\\_HTML\\_elements\\MDB-Free_4.13.0\\js\\popper.js",
+        "verified\\_HTML\\_elements\\MDB-Free_4.13.0\\js\\popper.min.js",
+        "verified\\_HTML\\_elements\\MDB-Free_4.13.0\\css\\addons\\datatables-select.min.css",
+        "verified\\_HTML\\_elements\\MDB-Free_4.13.0\\css\\addons\\datatables.min.css",
+        "verified\\_HTML\\_elements\\MDB-Free_4.13.0\\css\\addons\\directives.min.css",
+        "verified\\_HTML\\_elements\\MDB-Free_4.13.0\\css\\addons\\flag.min.css",
+        "verified\\_HTML\\_elements\\MDB-Free_4.13.0\\css\\addons\\jquery.zmd.hierarchical-display.min.css",
+        "verified\\_HTML\\_elements\\MDB-Free_4.13.0\\css\\addons\\rating.min.css",
+        "verified\\_HTML\\_elements\\MDB-Free_4.13.0\\img\\overlays\\01.png",
+        "verified\\_HTML\\_elements\\MDB-Free_4.13.0\\img\\overlays\\02.png",
+        "verified\\_HTML\\_elements\\MDB-Free_4.13.0\\img\\overlays\\03.png",
+        "verified\\_HTML\\_elements\\MDB-Free_4.13.0\\img\\overlays\\04.png",
+        "verified\\_HTML\\_elements\\MDB-Free_4.13.0\\img\\overlays\\05.png",
+        "verified\\_HTML\\_elements\\MDB-Free_4.13.0\\img\\overlays\\06.png",
+        "verified\\_HTML\\_elements\\MDB-Free_4.13.0\\img\\overlays\\07.png",
+        "verified\\_HTML\\_elements\\MDB-Free_4.13.0\\img\\overlays\\08.png",
+        "verified\\_HTML\\_elements\\MDB-Free_4.13.0\\img\\overlays\\09.png",
+        "verified\\_HTML\\_elements\\MDB-Free_4.13.0\\img\\svg\\arrow_left.svg",
+        "verified\\_HTML\\_elements\\MDB-Free_4.13.0\\img\\svg\\arrow_right.svg",
+        "verified\\_HTML\\_elements\\MDB-Free_4.13.0\\js\\addons\\datatables-select.min.js",
+        "verified\\_HTML\\_elements\\MDB-Free_4.13.0\\js\\addons\\datatables.min.js",
+        "verified\\_HTML\\_elements\\MDB-Free_4.13.0\\js\\addons\\directives.min.js",
+        "verified\\_HTML\\_elements\\MDB-Free_4.13.0\\js\\addons\\flag.min.js",
+        "verified\\_HTML\\_elements\\MDB-Free_4.13.0\\js\\addons\\imagesloaded.pkgd.min.js",
+        "verified\\_HTML\\_elements\\MDB-Free_4.13.0\\js\\addons\\jquery.zmd.hierarchical-display.min.js",
+        "verified\\_HTML\\_elements\\MDB-Free_4.13.0\\js\\addons\\masonry.pkgd.min.js",
+        "verified\\_HTML\\_elements\\MDB-Free_4.13.0\\js\\addons\\rating.min.js",
+        "verified\\_HTML\\_elements\\MDB-Free_4.13.0\\js\\modules\\animations-extended.min.js",
+        "verified\\_HTML\\_elements\\MDB-Free_4.13.0\\js\\modules\\forms-free.min.js",
+        "verified\\_HTML\\_elements\\MDB-Free_4.13.0\\js\\modules\\scrolling-navbar.min.js",
+        "verified\\_HTML\\_elements\\MDB-Free_4.13.0\\js\\modules\\treeview.min.js",
+        "verified\\_HTML\\_elements\\MDB-Free_4.13.0\\js\\modules\\wow.min.js"
+      ],
+      "system_tsv": [
+        "verified\\_TSV Exports\\System Version plist.tsv"
+      ],
+      "log": ".work\\ios-forensics-20261004\\run-file.txt"
+    },
+    {
+      "input_hash_before": "cc4dada1ffde7f8157b16f7be900d49d031eede06cc15ee27c007841c2407f48",
+      "input_hash_after": "cc4dada1ffde7f8157b16f7be900d49d031eede06cc15ee27c007841c2407f48",
+      "fixture_only_not_contest": true
+    }
+  ],
+  "helper_execution": [
+    {
+      "command": [
+        "C:\\Users\\23037\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+        "-X",
+        "utf8",
+        "public/practice/ios_inspect.py",
+        "time",
+        "--epoch",
+        "apple",
+        "--unit",
+        "s",
+        "--value",
+        "0",
+        "--zone",
+        "UTC"
+      ],
+      "exit": 0,
+      "literal_output": "{\n  \"raw\": \"0\",\n  \"epoch\": \"apple\",\n  \"unit\": \"s\",\n  \"utc\": \"2001-01-01T00:00:00+00:00\",\n  \"zone\": \"UTC\",\n  \"display\": \"2001-01-01T00:00:00+00:00\",\n  \"precision\": \"microsecond; sub-microsecond part truncated toward zero\"\n}\n"
+    },
+    {
+      "command": [
+        "C:\\Users\\23037\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+        "-X",
+        "utf8",
+        "public/practice/ios_inspect.py",
+        "time",
+        "--epoch",
+        "apple",
+        "--unit",
+        "ns",
+        "--value",
+        "1000000000",
+        "--zone",
+        "Asia/Shanghai"
+      ],
+      "exit": 0,
+      "literal_output": "{\n  \"raw\": \"1000000000\",\n  \"epoch\": \"apple\",\n  \"unit\": \"ns\",\n  \"utc\": \"2001-01-01T00:00:01+00:00\",\n  \"zone\": \"Asia/Shanghai\",\n  \"display\": \"2001-01-01T08:00:01+08:00\",\n  \"precision\": \"microsecond; sub-microsecond part truncated toward zero\"\n}\n"
+    },
+    {
+      "command": [
+        "C:\\Users\\23037\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+        "-X",
+        "utf8",
+        "public/practice/ios_inspect.py",
+        "plist",
+        "D:\\winoptimizeDir\\Desktop\\Misc学习\\ctf-atlas\\.work\\ios-forensics-20261004\\validation-input\\System\\Library\\CoreServices\\SystemVersion.plist"
+      ],
+      "exit": 0,
+      "literal_output": "{\n  \"path\": \"D:\\\\winoptimizeDir\\\\Desktop\\\\Misc学习\\\\ctf-atlas\\\\.work\\\\ios-forensics-20261004\\\\validation-input\\\\System\\\\Library\\\\CoreServices\\\\SystemVersion.plist\",\n  \"sha256\": \"cc4dada1ffde7f8157b16f7be900d49d031eede06cc15ee27c007841c2407f48\",\n  \"format\": \"binary\",\n  \"value\": {\n    \"type\": \"dict\",\n    \"value\": {\n      \"FixtureLabel\": {\n        \"type\": \"str\",\n        \"value\": \"constructed parser validation, not contest evidence\"\n      },\n      \"ProductBuildVersion\": {\n        \"type\": \"str\",\n        \"value\": \"21A000\"\n      },\n      \"ProductName\": {\n        \"type\": \"str\",\n        \"value\": \"iPhone OS\"\n      },\n      \"ProductVersion\": {\n        \"type\": \"str\",\n        \"value\": \"17.0\"\n      }\n    }\n  }\n}\n"
+    },
+    {
+      "command": [
+        "C:\\Users\\23037\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+        "-X",
+        "utf8",
+        "public/practice/ios_inspect.py",
+        "time",
+        "--epoch",
+        "unix",
+        "--unit",
+        "s",
+        "--value",
+        "not-a-number"
+      ],
+      "exit": 2,
+      "literal_output": "Inspection error: timestamp must be a decimal number\n"
+    }
+  ],
+  "selected_module_match": [
+    {
+      "file": "D:\\CTF_MISC_Tools\\Forensics\\iLEAPP\\_internal\\scripts\\version_info.py",
+      "local_sha256": "f99548953f9270abb34ceca60f648b43f42bba6b4673a49f54033f5d4dc3584e",
+      "release_sha256": "eecbd1bb204b559f7c0e285cb7756e1cc88c406f51bcb198d644f5e8925687f1",
+      "byte_equal": false,
+      "normalized_crlf_equal": true
+    },
+    {
+      "file": "D:\\CTF_MISC_Tools\\Forensics\\iLEAPP\\_internal\\scripts\\search_files.py",
+      "local_sha256": "74d330e67900613df70bc49214d129649ea98a588018fd5a6d905becd4193851",
+      "release_sha256": "43c346b0cc953200ba8f17ff3e62ca506142367d4893bc143c23d509f4fc91dc",
+      "byte_equal": false,
+      "normalized_crlf_equal": true
+    },
+    {
+      "file": "D:\\CTF_MISC_Tools\\Forensics\\iLEAPP\\_internal\\scripts\\artifacts\\systemVersionPlist.py",
+      "local_sha256": "1043a781d5eae229f7c7af238eb3b2c956dc0cec59ebdb33b0a214426d98f502",
+      "release_sha256": "c9a3a22212c0642657e0f3871246f050287ec8dbece7e3bb5d667b036c5f9042",
+      "byte_equal": false,
+      "normalized_crlf_equal": true
+    }
+  ],
+  "plist_editor": {
+    "path": "D:\\CTF_MISC_Tools\\Forensics\\Plist_Editor\\plist Editor Pro\\plistEditor.exe",
+    "product": "plist Editor Pro",
+    "publisher": "VOWSoft, Ltd.",
+    "file_product_version": "2, 1, 0, 1",
+    "sha256": "DD1E88C211A07613B7824D34ABC10B0B95E658A074D5891D4E9B36ABEC2271E5",
+    "authenticode": "Valid / Signature verified.",
+    "gui_execution": "not performed; steps verified against official manual",
+    "website_version": "v2.5.0 (2017-08-10); not local installed version"
+  },
+  "documentation_lookup": {
+    "iLEAPP": {
+      "context7": "resolved twice; only unrelated /noovolari/leapp cloud credential tool was returned; not used",
+      "used_instead": "abrignoni/iLEAPP release tag, fixed commit, local --help and --version"
+    },
+    "Plist_Editor": {
+      "context7": "resolved Plist_Editor; only Go, JS and TS plist libraries were returned; not used as GUI product documentation",
+      "used_instead": "VOWSoft icopybot official product page and manual, actual local PE product/version and Authenticode signature"
+    }
+  },
+  "verification": [
+    {
+      "name": "python-tests",
+      "command": [
+        "C:\\Users\\23037\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+        "-X",
+        "utf8",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-v"
+      ],
+      "exit": 1,
+      "log": ".work\\ios-forensics-20261004\\python-tests.txt"
+    },
+    {
+      "name": "ui-tests",
+      "command": [
+        "npm.cmd",
+        "run",
+        "test:ui"
+      ],
+      "exit": 0,
+      "log": ".work\\ios-forensics-20261004\\ui-tests.txt"
+    },
+    {
+      "name": "check",
+      "command": [
+        "npm.cmd",
+        "run",
+        "check"
+      ],
+      "exit": 0,
+      "log": ".work\\ios-forensics-20261004\\check.txt"
+    },
+    {
+      "name": "build",
+      "command": [
+        "npm.cmd",
+        "run",
+        "build"
+      ],
+      "exit": 0,
+      "log": ".work\\ios-forensics-20261004\\build.txt"
+    },
+    {
+      "name": "site-audit",
+      "command": [
+        "C:\\Users\\23037\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+        "-X",
+        "utf8",
+        "scripts/audit_site.py"
+      ],
+      "exit": 0,
+      "log": ".work\\ios-forensics-20261004\\site-audit.txt"
+    },
+    {
+      "name": "web-audit",
+      "command": [
+        "C:\\Users\\23037\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+        "-X",
+        "utf8",
+        "scripts/audit_forensics_web.py"
+      ],
+      "exit": 0,
+      "log": ".work\\ios-forensics-20261004\\web-audit.txt"
+    }
+  ],
+  "baseline_tests": {
+    "total": 60,
+    "passed": 59,
+    "failed": 1,
+    "log": "D:\\winoptimizeDir\\Desktop\\Misc学习\\ctf-atlas\\.work\\ios-forensics-20261004\\baseline-tests.txt"
+  },
+  "known_baseline_missing_path": [
+    {
+      "name": "Inseyets PA",
+      "module": "Forensics",
+      "path": "D:\\CTF_MISC_Tools\\Forensics\\Inseyets PA",
+      "kind": "程序目录",
+      "group": "Forensics",
+      "id": "tool-6dcfcfceab3f"
+    }
+  ],
+  "reimport": {
+    "command": [
+      "C:\\Users\\23037\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+      "-X",
+      "utf8",
+      "scripts/import_manuals.py"
+    ],
+    "exit": 0,
+    "tool_inventory_scan_count": 166,
+    "preserved_tool_inventory_count": 162,
+    "tool_inventory_preserved": true,
+    "production_changed_by_reimport": []
+  },
+  "browser_search": {
+    "filters": {
+      "module": "Forensics",
+      "track": "手机取证",
+      "type": "知识点",
+      "query": "iOS"
+    },
+    "results": [
+      {
+        "href": "/knowledge/forensic-ios-forensics/",
+        "text": "01 / 知识点 / Forensics / 手机取证\niOS 取证：原理、考点与实战流程\n\niOS 取证：原理、考点与实战流程. 辨别提取层级、安全机制和应用身份，解析Plist、数据库、时间与系统痕迹"
+      },
+      {
+        "href": "/knowledge/forensic-ios-backup/",
+        "text": "02 / 知识点 / Forensics / 手机取证\niOS 备份与系统痕迹分析\n\niOS 备份与系统痕迹分析. 从备份清单、应用容器和系统数据库还原设备、通信与使用活动。 iOS 与备份时间线"
+      },
+      {
+        "href": "/knowledge/forensic-ios-tools/",
+        "text": "03 / 知识点 / Forensics / 手机取证\niOS 工具与实战：iLEAPP 与 Plist_Editor\n\niOS 工具与实战：iLEAPP 与 Plist_Editor. 按实际版本说明iLEAPP输入模式、参数与报告，详解Plist Editor Pro只读查看、"
+      },
+      {
+        "href": "/knowledge/forensic-guide-mobile/",
+        "text": "04 / 知识点 / Forensics / 手机取证\n手机取证：设备、备份与应用记录分析路线\n\n段样本，再解释时间戳、消息方向和状态码。 03 iOS：从备份清单还原逻辑路径. 本地备份先保存完整目录"
+      }
+    ],
+    "consoleErrors": []
+  },
+  "screenshots": [
+    "D:\\winoptimizeDir\\Desktop\\Misc学习\\ctf-atlas\\.work\\ios-forensics-20261004\\ios-core-page.png",
+    "D:\\winoptimizeDir\\Desktop\\Misc学习\\ctf-atlas\\.work\\ios-forensics-20261004\\ios-tools-page.png",
+    "D:\\winoptimizeDir\\Desktop\\Misc学习\\ctf-atlas\\.work\\ios-forensics-20261004\\ios-search.png"
+  ],
+  "boundaries": [
+    "No contest image downloaded, parsed or replayed",
+    "No live iPhone acquired, unlocked or modified",
+    "Constructed SystemVersion fixture is parser validation, not a fabricated contest question",
+    "No Plist Editor Pro GUI operation executed",
+    "No universal iOS decryption or deleted-data recovery claim"
+  ],
+  "browser_final_page": {
+    "url": "http://127.0.0.1:4321/knowledge/forensic-ios-forensics/",
+    "heading": "iOS 取证：原理、考点与实战流程",
+    "chapterCount": 14,
+    "textStart": "Forensics\n/\n手机取证\n/\niOS 原理与流程\niOS 取证：原理、考点与实战流程\n\n辨别提取层级、安全机制和应用身份，解析Plist、数据库、时间与系统痕迹，结合真实比赛建立可复核的证据链。\n\niOS 原理与流程\n文件系统\n时间线\n\niOS 取证的核心不是“把手机导入工具后找答案”，而是确认提取覆盖范围，识别系统和应用对象，解释原始字段，再用独立证据核验结论。本模块位于 Forensics → 手机取证 → iOS 取证，按以下路线学习：\n\n本"
+  },
+  "http_verification": [
+    {
+      "route": "knowledge/forensic-ios-forensics/",
+      "status": 200,
+      "bytes": 42579,
+      "sha256": "ff4f262ba27d844203bfe65fb98a5983d390817a8638b946fd69eb5eb624bc1d"
+    },
+    {
+      "route": "knowledge/forensic-ios-tools/",
+      "status": 200,
+      "bytes": 33581,
+      "sha256": "2d8d6783e9c660c1d411bd9a6ef4b1eb7a5ec8f0914ff401a89f921f16a4f3ca"
+    },
+    {
+      "route": "knowledge/forensic-ios-backup/",
+      "status": 200,
+      "bytes": 20947,
+      "sha256": "82bd8b3031d36b322ba0843c6e8eb40ac7814b6ee0b1c621ba24c597adadc73d"
+    },
+    {
+      "route": "practice/ios_inspect.py",
+      "status": 200,
+      "bytes": 3361,
+      "sha256": "828c47e4330b3c64c9fd402099d0563b0050a37b2779c1c217e793313cc55dea"
+    }
+  ],
+  "final_tests": {
+    "python_total": 65,
+    "passed": 64,
+    "failed": 1,
+    "new_ios_tests": 5,
+    "new_ios_tests_passed": 5,
+    "ui_passed": 5
+  },
+  "independent_review": {
+    "competition_researcher": "read-only comparison against 7 original contest sources; no supported contradiction found",
+    "ileapp_researcher": "read-only verification of help, fixed release code and four modes; no supported parameter/output error found"
+  }
+}

@@ -1,0 +1,2435 @@
+{
+  "date": "2026-10-02",
+  "sourceIdsCatalog": [
+    {
+      "title": "APP逆向基础",
+      "path": "D:\\winoptimizeDir\\Desktop\\APP逆向基础.md",
+      "sha256": "5eac65ccf155930e9b835ebda1c6e9cd06684eb9b71d2f2804a1c30ba0497fd6",
+      "bytes": 18803,
+      "lines": 650,
+      "sourceUrl": "https://mp.weixin.qq.com/s/ev6w3LPNf3zbTBBEb8YQRg",
+      "acquisition": "user-provided-local-markdown",
+      "module": "Reverse",
+      "target": "reverse-bytecode",
+      "availableImages": 0,
+      "missingImages": 23,
+      "id": "local-app-reverse-5eac65ccf155"
+    },
+    {
+      "title": "流量常见分析技战法详解",
+      "path": "D:\\winoptimizeDir\\Desktop\\流量常见分析技战法详解.md",
+      "sha256": "5b192a3d3aa6e5b4a23bb385dfa22bc09ad234f6f313eb12f52cdc7151e63422",
+      "bytes": 49380,
+      "lines": 892,
+      "sourceUrl": "https://mp.weixin.qq.com/s/ZOWynRbwVkCQsejFWjnLTQ",
+      "acquisition": "user-provided-local-markdown",
+      "module": "Forensics",
+      "target": "forensic-network-traffic",
+      "availableImages": 0,
+      "missingImages": 145,
+      "id": "web-wechat-traffic-zowynrbw"
+    }
+  ],
+  "curationReview": {
+    "reverse-bytecode": {
+      "schemaVersion": 1,
+      "checkedAt": "2026-10-02",
+      "page": "src/content/knowledge/reverse-bytecode.md",
+      "source": {
+        "path": "D:\\winoptimizeDir\\Desktop\\APP逆向基础.md",
+        "sourceUrl": "https://mp.weixin.qq.com/s/ev6w3LPNf3zbTBBEb8YQRg",
+        "sha256Before": "5EAC65CCF155930E9B835EBDA1C6E9CD06684EB9B71D2F2804A1C30BA0497FD6",
+        "sha256After": "5EAC65CCF155930E9B835EBDA1C6E9CD06684EB9B71D2F2804A1C30BA0497FD6",
+        "fullTextRead": true,
+        "sourceCommandsExecuted": false,
+        "sourceModified": false
+      },
+      "preservation": {
+        "pageTitlePreserved": true,
+        "module": "Reverse",
+        "topic": "程序结构",
+        "sourceIdsPreserved": [],
+        "challengeIdsPreserved": [
+          "478f25269338",
+          "1c45f7d38b2e",
+          "e39fd964440f",
+          "4b5a4b9b0555"
+        ],
+        "oldH2HeadingsPreserved": [
+          "01 先看谁调用谁",
+          "02 JAR 与 Java 字节码",
+          "03 APK 与 Android 入口",
+          "04 WASM 与宿主接口",
+          "05 验证边界"
+        ],
+        "jarCommandsAndMeaningPreserved": true,
+        "wasmCommandsAndMeaningPreserved": true,
+        "originalValidationMeaningPreserved": true,
+        "oldPageAnchorReferencesFound": false,
+        "relatedPageLink": "src/content/knowledge/reverse-format-triage.md:51",
+        "newSubsections": 17,
+        "existingTaxonomyReused": true
+      },
+      "coverage": [
+        {
+          "sourceLines": [
+            1,
+            29
+          ],
+          "theme": "文章元信息、推广、往期文章链接",
+          "disposition": "仅留内部出处，推广和源名不进入渲染内容",
+          "targets": []
+        },
+        {
+          "sourceLines": [
+            30,
+            38
+          ],
+          "theme": "APK、镜像与备份的检材类型及工具层次",
+          "targets": [
+            "3.1",
+            "3.10"
+          ],
+          "notes": "明确代码与运行数据版本配对，不执行样本"
+        },
+        {
+          "sourceLines": [
+            39,
+            73
+          ],
+          "theme": "安装包与应用目录、cache/code_cache/files/databases/lib/shared_prefs、备份容器",
+          "targets": [
+            "3.1",
+            "3.4",
+            "3.15"
+          ],
+          "notes": "扩展分包、多用户、CE/DE和WAL；修正固定路径和库释放假设"
+        },
+        {
+          "sourceLines": [
+            74,
+            106
+          ],
+          "theme": "ADB设备、shell、forward、server、connect、USB、安装卸载、包名路径、pull/push、焦点、am调试",
+          "targets": [
+            "3.12"
+          ],
+          "notes": "查询流程限定受控模拟器；变更状态命令分列用途和影响；无需真实设备动作"
+        },
+        {
+          "sourceLines": [
+            108,
+            113
+          ],
+          "theme": "Native/Web/混合与业务类型",
+          "targets": [
+            "3.5"
+          ],
+          "notes": "业务类目转成可验证功能；区分原生界面与JNI机器码"
+        },
+        {
+          "sourceLines": [
+            114,
+            172
+          ],
+          "theme": "直播/交易/聊天/媒体/通讯录/定位权限/金融网页/第三方服务/功能鉴定/哈希与文件变化",
+          "targets": [
+            "3.5",
+            "3.14",
+            "3.16"
+          ],
+          "notes": "用证据矩阵替代案件固定目标；保留账单、缓存、账号、跳转与调用链。备份漏洞/Fastjson/密码Token绕过不扩展为对真实服务的攻击步骤"
+        },
+        {
+          "sourceLines": [
+            174,
+            180
+          ],
+          "theme": "地址溯源、行为分析、加解密",
+          "targets": [
+            "3.5",
+            "3.8",
+            "3.17"
+          ],
+          "notes": "字符串候选与已发生行为分开"
+        },
+        {
+          "sourceLines": [
+            182,
+            200
+          ],
+          "theme": "APK ZIP、伪加密、文件头/中央目录/尾部签名",
+          "targets": [
+            "3.3"
+          ],
+          "notes": "按规范纠错并给出结构验证和修复副本边界"
+        },
+        {
+          "sourceLines": [
+            202,
+            287
+          ],
+          "theme": "七种常见APK条目、Manifest入口、resources表、找不到入口、资源调用",
+          "targets": [
+            "3.2",
+            "3.6",
+            "3.11"
+          ],
+          "notes": "保留结构知识，补充多DEX/分包/别名，修正resources.arsc和getAssets"
+        },
+        {
+          "sourceLines": [
+            289,
+            337
+          ],
+          "theme": "Activity/Service/Receiver/Provider及生命周期",
+          "targets": [
+            "3.6",
+            "3.7"
+          ],
+          "notes": "修正Service定义、回调拼写、Provider后端和初始化"
+        },
+        {
+          "sourceLines": [
+            339,
+            367
+          ],
+          "theme": "Button、Intent、Toast/Dialog/Log、Thread/Handler与混淆",
+          "targets": [
+            "3.7",
+            "3.9"
+          ],
+          "notes": "补回调触发、Kotlin/Compose例外与LENGTH_SHORT"
+        },
+        {
+          "sourceLines": [
+            368,
+            391
+          ],
+          "theme": "落地、不落地、按需释放与虚拟保护、转储",
+          "targets": [
+            "3.11"
+          ],
+          "notes": "以证据模型描述；不沿厂商名称固定归代，不承诺运行所有路径即可完整还原"
+        },
+        {
+          "sourceLines": [
+            393,
+            404
+          ],
+          "theme": "SO解析、native连接、JNI_OnLoad/register",
+          "targets": [
+            "3.10"
+          ],
+          "notes": "修正JNI_OnLoad签名，补RegisterNatives表与实例/静态参数"
+        },
+        {
+          "sourceLines": [
+            406,
+            445
+          ],
+          "theme": "可执行性、兼容性/域名失效、结构、入口、import/override/onCreate/界面/初始化/事件/run/构造",
+          "targets": [
+            "3.1",
+            "3.6",
+            "3.7",
+            "3.13",
+            "3.16"
+          ],
+          "notes": "先离线后受控验证，保留不能执行的分析分支"
+        },
+        {
+          "sourceLines": [
+            446,
+            471
+          ],
+          "theme": "顺序阅读、去混淆、参数推演、动静结合、条件与定义赋值引用",
+          "targets": [
+            "3.8",
+            "3.9",
+            "3.17"
+          ],
+          "notes": "反查事件/副作用，包含异常/finally/循环体，引用不等于赋值"
+        },
+        {
+          "sourceLines": [
+            472,
+            483
+          ],
+          "theme": "抓不到流量、CONNECT、DNS与无网络",
+          "targets": [
+            "3.14"
+          ],
+          "notes": "纠正层次混同，链接既有网络取证页"
+        },
+        {
+          "sourceLines": [
+            484,
+            495
+          ],
+          "theme": "Objection免root Hook、使用操作截图",
+          "targets": [
+            "3.13"
+          ],
+          "notes": "截图不可用；只说明官方可核验Gadget改包签名前提与证据影响"
+        },
+        {
+          "sourceLines": [
+            496,
+            509
+          ],
+          "theme": "动态调试、主机5037监听与PID",
+          "targets": [
+            "3.12",
+            "3.13"
+          ],
+          "notes": "改为Kali/Linux排查；未填入截图IP/PID，未终止进程"
+        },
+        {
+          "sourceLines": [
+            510,
+            531
+          ],
+          "theme": "Frida Spawn/Attach、27042转发与旧CLI参数",
+          "targets": [
+            "3.13"
+          ],
+          "notes": "官方当前源码核对参数；自建训练应用观察模板限定受控模拟器，不操作原始设备"
+        },
+        {
+          "sourceLines": [
+            532,
+            557
+          ],
+          "theme": "SQLite加密、execSQL、Helper构造、口令打开、loadLibs",
+          "targets": [
+            "3.15",
+            "3.16"
+          ],
+          "notes": "普通SQLite与新旧SQLCipher区分，追口令来源并读schema验证"
+        },
+        {
+          "sourceLines": [
+            558,
+            589
+          ],
+          "theme": "Class.forName、Declared/Public Field、setAccessible、set",
+          "targets": [
+            "3.9"
+          ],
+          "notes": "区分Field描述与取值、继承与static/instance，改字段不作为原行为证据"
+        },
+        {
+          "sourceLines": [
+            590,
+            639
+          ],
+          "theme": "SharedPreferences类型/模式/XML位置/put/get",
+          "targets": [
+            "3.15"
+          ],
+          "notes": "修正MODE_APPEND和world访问模式、apply/commit边界；不复原缺失截图的key/value"
+        },
+        {
+          "sourceLines": [
+            640,
+            650
+          ],
+          "theme": "结尾推广、二维码与图片",
+          "disposition": "推广不进正文",
+          "targets": []
+        }
+      ],
+      "imageAudit": {
+        "referenceCount": 23,
+        "existingCount": 0,
+        "viewedCount": 0,
+        "resolutionRule": "URI解码后相对源Markdown父目录D:\\winoptimizeDir\\Desktop解析；逐条Test-Path核查。",
+        "missingImagePolicy": "无截图观察事实。仅从邻近文字辨认概念主题，命令/API另查官方资料；没有推断截图具体地址、数值、PID、口令、界面输出或成功状态。",
+        "images": [
+          {
+            "reference": "app%E9%80%86%E5%90%91%E5%9F%BA%E7%A1%80/640.gif",
+            "resolvedPath": "D:\\winoptimizeDir\\Desktop\\app逆向基础\\640.gif",
+            "exists": false,
+            "viewed": false,
+            "inferredTopic": "推广",
+            "topicBasis": "adjacent text only",
+            "screenshotFactsRecovered": false
+          },
+          {
+            "reference": "app%E9%80%86%E5%90%91%E5%9F%BA%E7%A1%80/640.png",
+            "resolvedPath": "D:\\winoptimizeDir\\Desktop\\app逆向基础\\640.png",
+            "exists": false,
+            "viewed": false,
+            "inferredTopic": "推广",
+            "topicBasis": "adjacent text only",
+            "screenshotFactsRecovered": false
+          },
+          {
+            "reference": "app%E9%80%86%E5%90%91%E5%9F%BA%E7%A1%80/4acd5230-c6c9-4ea5-8fb0-1f5479b71aaf.idunno",
+            "resolvedPath": "D:\\winoptimizeDir\\Desktop\\app逆向基础\\4acd5230-c6c9-4ea5-8fb0-1f5479b71aaf.idunno",
+            "exists": false,
+            "viewed": false,
+            "inferredTopic": "ZIP本地头",
+            "topicBasis": "adjacent text only",
+            "screenshotFactsRecovered": false
+          },
+          {
+            "reference": "app%E9%80%86%E5%90%91%E5%9F%BA%E7%A1%80/436ea4a3-94a2-4835-80ae-e7cc8b95ab27.idunno",
+            "resolvedPath": "D:\\winoptimizeDir\\Desktop\\app逆向基础\\436ea4a3-94a2-4835-80ae-e7cc8b95ab27.idunno",
+            "exists": false,
+            "viewed": false,
+            "inferredTopic": "ZIP中央目录",
+            "topicBasis": "adjacent text only",
+            "screenshotFactsRecovered": false
+          },
+          {
+            "reference": "app%E9%80%86%E5%90%91%E5%9F%BA%E7%A1%80/0278e331-0e84-41ed-a99f-ff8e85f7dae6.idunno",
+            "resolvedPath": "D:\\winoptimizeDir\\Desktop\\app逆向基础\\0278e331-0e84-41ed-a99f-ff8e85f7dae6.idunno",
+            "exists": false,
+            "viewed": false,
+            "inferredTopic": "ZIP目录结束记录",
+            "topicBasis": "adjacent text only",
+            "screenshotFactsRecovered": false
+          },
+          {
+            "reference": "app%E9%80%86%E5%90%91%E5%9F%BA%E7%A1%80/503e0e3e-e5f1-4574-a263-0bbae6b76ff2.idunno",
+            "resolvedPath": "D:\\winoptimizeDir\\Desktop\\app逆向基础\\503e0e3e-e5f1-4574-a263-0bbae6b76ff2.idunno",
+            "exists": false,
+            "viewed": false,
+            "inferredTopic": "Activity生命周期",
+            "topicBasis": "adjacent text only",
+            "screenshotFactsRecovered": false
+          },
+          {
+            "reference": "app%E9%80%86%E5%90%91%E5%9F%BA%E7%A1%80/7a2cfef4-3cf9-412b-b644-dd15d9b9b6f3.idunno",
+            "resolvedPath": "D:\\winoptimizeDir\\Desktop\\app逆向基础\\7a2cfef4-3cf9-412b-b644-dd15d9b9b6f3.idunno",
+            "exists": false,
+            "viewed": false,
+            "inferredTopic": "Service生命周期",
+            "topicBasis": "adjacent text only",
+            "screenshotFactsRecovered": false
+          },
+          {
+            "reference": "app%E9%80%86%E5%90%91%E5%9F%BA%E7%A1%80/8880abc3-6d93-483f-83eb-e6ec15b79974.idunno",
+            "resolvedPath": "D:\\winoptimizeDir\\Desktop\\app逆向基础\\8880abc3-6d93-483f-83eb-e6ec15b79974.idunno",
+            "exists": false,
+            "viewed": false,
+            "inferredTopic": "Receiver生命周期",
+            "topicBasis": "adjacent text only",
+            "screenshotFactsRecovered": false
+          },
+          {
+            "reference": "app%E9%80%86%E5%90%91%E5%9F%BA%E7%A1%80/920ae473-10ec-49cb-ad3a-76980004efa4.idunno",
+            "resolvedPath": "D:\\winoptimizeDir\\Desktop\\app逆向基础\\920ae473-10ec-49cb-ad3a-76980004efa4.idunno",
+            "exists": false,
+            "viewed": false,
+            "inferredTopic": "Intent",
+            "topicBasis": "adjacent text only",
+            "screenshotFactsRecovered": false
+          },
+          {
+            "reference": "app%E9%80%86%E5%90%91%E5%9F%BA%E7%A1%80/9ab54e2c-4045-4502-a1fd-87671ad7c89b.idunno",
+            "resolvedPath": "D:\\winoptimizeDir\\Desktop\\app逆向基础\\9ab54e2c-4045-4502-a1fd-87671ad7c89b.idunno",
+            "exists": false,
+            "viewed": false,
+            "inferredTopic": "Toast格式",
+            "topicBasis": "adjacent text only",
+            "screenshotFactsRecovered": false
+          },
+          {
+            "reference": "app%E9%80%86%E5%90%91%E5%9F%BA%E7%A1%80/962d697e-fbf4-41a1-8cfb-3eae38182bf7.idunno",
+            "resolvedPath": "D:\\winoptimizeDir\\Desktop\\app逆向基础\\962d697e-fbf4-41a1-8cfb-3eae38182bf7.idunno",
+            "exists": false,
+            "viewed": false,
+            "inferredTopic": "JNI连接",
+            "topicBasis": "adjacent text only",
+            "screenshotFactsRecovered": false
+          },
+          {
+            "reference": "app%E9%80%86%E5%90%91%E5%9F%BA%E7%A1%80/8941f5a7-42b5-4e13-83bb-cd9771a290c8.idunno",
+            "resolvedPath": "D:\\winoptimizeDir\\Desktop\\app逆向基础\\8941f5a7-42b5-4e13-83bb-cd9771a290c8.idunno",
+            "exists": false,
+            "viewed": false,
+            "inferredTopic": "Objection调用",
+            "topicBasis": "adjacent text only",
+            "screenshotFactsRecovered": false
+          },
+          {
+            "reference": "app%E9%80%86%E5%90%91%E5%9F%BA%E7%A1%80/5018e22a-0a7b-4c8d-8e26-98f683a76b96.idunno",
+            "resolvedPath": "D:\\winoptimizeDir\\Desktop\\app逆向基础\\5018e22a-0a7b-4c8d-8e26-98f683a76b96.idunno",
+            "exists": false,
+            "viewed": false,
+            "inferredTopic": "Objection操作",
+            "topicBasis": "adjacent text only",
+            "screenshotFactsRecovered": false
+          },
+          {
+            "reference": "app%E9%80%86%E5%90%91%E5%9F%BA%E7%A1%80/81244b47-3b3e-4ff9-84cc-6046e5428fb7.idunno",
+            "resolvedPath": "D:\\winoptimizeDir\\Desktop\\app逆向基础\\81244b47-3b3e-4ff9-84cc-6046e5428fb7.idunno",
+            "exists": false,
+            "viewed": false,
+            "inferredTopic": "5037监听",
+            "topicBasis": "adjacent text only",
+            "screenshotFactsRecovered": false
+          },
+          {
+            "reference": "app%E9%80%86%E5%90%91%E5%9F%BA%E7%A1%80/91aa66a6-9b8a-445f-aa45-8efd8788d442.idunno",
+            "resolvedPath": "D:\\winoptimizeDir\\Desktop\\app逆向基础\\91aa66a6-9b8a-445f-aa45-8efd8788d442.idunno",
+            "exists": false,
+            "viewed": false,
+            "inferredTopic": "PID查看",
+            "topicBasis": "adjacent text only",
+            "screenshotFactsRecovered": false
+          },
+          {
+            "reference": "app%E9%80%86%E5%90%91%E5%9F%BA%E7%A1%80/f4df4a82-61b3-4964-9627-d6b3d07916df.idunno",
+            "resolvedPath": "D:\\winoptimizeDir\\Desktop\\app逆向基础\\f4df4a82-61b3-4964-9627-d6b3d07916df.idunno",
+            "exists": false,
+            "viewed": false,
+            "inferredTopic": "数据库加密",
+            "topicBasis": "adjacent text only",
+            "screenshotFactsRecovered": false
+          },
+          {
+            "reference": "app%E9%80%86%E5%90%91%E5%9F%BA%E7%A1%80/1e160f7c-2881-4821-9f85-190d088cdbfe.idunno",
+            "resolvedPath": "D:\\winoptimizeDir\\Desktop\\app逆向基础\\1e160f7c-2881-4821-9f85-190d088cdbfe.idunno",
+            "exists": false,
+            "viewed": false,
+            "inferredTopic": "SharedPreferences写入",
+            "topicBasis": "adjacent text only",
+            "screenshotFactsRecovered": false
+          },
+          {
+            "reference": "app%E9%80%86%E5%90%91%E5%9F%BA%E7%A1%80/f9ad6712-84ef-45c1-97a9-7f684063fa93.idunno",
+            "resolvedPath": "D:\\winoptimizeDir\\Desktop\\app逆向基础\\f9ad6712-84ef-45c1-97a9-7f684063fa93.idunno",
+            "exists": false,
+            "viewed": false,
+            "inferredTopic": "SharedPreferences读取",
+            "topicBasis": "adjacent text only",
+            "screenshotFactsRecovered": false
+          },
+          {
+            "reference": "app%E9%80%86%E5%90%91%E5%9F%BA%E7%A1%80/ee84cc6f-7e0f-4e9c-a2a9-34e1b01c6e66.idunno",
+            "resolvedPath": "D:\\winoptimizeDir\\Desktop\\app逆向基础\\ee84cc6f-7e0f-4e9c-a2a9-34e1b01c6e66.idunno",
+            "exists": false,
+            "viewed": false,
+            "inferredTopic": "无独立文字支持的截图",
+            "topicBasis": "adjacent text only",
+            "screenshotFactsRecovered": false
+          },
+          {
+            "reference": "app%E9%80%86%E5%90%91%E5%9F%BA%E7%A1%80/5e01380a-20fe-4357-b2b0-74f85509acda.idunno",
+            "resolvedPath": "D:\\winoptimizeDir\\Desktop\\app逆向基础\\5e01380a-20fe-4357-b2b0-74f85509acda.idunno",
+            "exists": false,
+            "viewed": false,
+            "inferredTopic": "无独立文字支持的截图",
+            "topicBasis": "adjacent text only",
+            "screenshotFactsRecovered": false
+          },
+          {
+            "reference": "app%E9%80%86%E5%90%91%E5%9F%BA%E7%A1%80/a541dae4-01ce-4c5c-bdc9-00b62134eae1.idunno",
+            "resolvedPath": "D:\\winoptimizeDir\\Desktop\\app逆向基础\\a541dae4-01ce-4c5c-bdc9-00b62134eae1.idunno",
+            "exists": false,
+            "viewed": false,
+            "inferredTopic": "推广",
+            "topicBasis": "adjacent text only",
+            "screenshotFactsRecovered": false
+          },
+          {
+            "reference": "app%E9%80%86%E5%90%91%E5%9F%BA%E7%A1%80/af1cb636-9834-4820-a62c-773d6cdebb8d.idunno",
+            "resolvedPath": "D:\\winoptimizeDir\\Desktop\\app逆向基础\\af1cb636-9834-4820-a62c-773d6cdebb8d.idunno",
+            "exists": false,
+            "viewed": false,
+            "inferredTopic": "推广",
+            "topicBasis": "adjacent text only",
+            "screenshotFactsRecovered": false
+          },
+          {
+            "reference": "app%E9%80%86%E5%90%91%E5%9F%BA%E7%A1%80/887ad893-f76f-4a8b-970c-a61e8ee42eff.svg",
+            "resolvedPath": "D:\\winoptimizeDir\\Desktop\\app逆向基础\\887ad893-f76f-4a8b-970c-a61e8ee42eff.svg",
+            "exists": false,
+            "viewed": false,
+            "inferredTopic": "二维码推广",
+            "topicBasis": "adjacent text only",
+            "screenshotFactsRecovered": false
+          }
+        ]
+      },
+      "corrections": [
+        {
+          "issue": "ZIP尾部字节05 4B 05 06",
+          "corrected": "50 4B 05 06；区分本地头、实际数据和目录",
+          "authority": "PKWARE APPNOTE"
+        },
+        {
+          "issue": "固定七项、assets=第三方接口、SO=C或加固",
+          "corrected": "常见条目清单，assets可任意资源，SO为ABI对应原生库，不能据此认定加固"
+        },
+        {
+          "issue": "getAssets(文件名)",
+          "corrected": "getAssets().open(文件名)",
+          "authority": "AssetManager"
+        },
+        {
+          "issue": "resources.arcs",
+          "corrected": "resources.arsc；解码后的values不代表APK中明文原件"
+        },
+        {
+          "issue": "Manifest入口仅看MAIN/LAUNCHER；类不存在即加固",
+          "corrected": "同一intent-filter、activity-alias targetActivity、多DEX/分包/加载/反编译错误逐一排查"
+        },
+        {
+          "issue": "share_prefs；固定/data/app包名；lib先释放",
+          "corrected": "shared_prefs、实际随机目录/分包、多用户和实际加载路径"
+        },
+        {
+          "issue": "Service=恶意程序/后台进程",
+          "corrected": "Service组件不天然恶意，也不默认另起线程或进程"
+        },
+        {
+          "issue": "onDestory、OnReceiver、ContextProvider",
+          "corrected": "onDestroy、onReceive、ContentProvider；补Provider.onCreate"
+        },
+        {
+          "issue": "Thread调用方式=handler变量",
+          "corrected": "分别追Thread.start/Runnable.run/执行器和Handler的Looper"
+        },
+        {
+          "issue": "Toast.LENGTH_SHOT",
+          "corrected": "Toast.LENGTH_SHORT；context需满足生命周期条件"
+        },
+        {
+          "issue": "只看if/try/while判断",
+          "corrected": "包含else/catch/finally、循环体、副作用与可达条件"
+        },
+        {
+          "issue": "查找用例=赋值；全局变量静态即可",
+          "corrected": "分清读写/传参/调用，追异步写入和初始化"
+        },
+        {
+          "issue": "按厂商固定壳代/全部执行后转储即可",
+          "corrected": "按文件加载/内存加载/按需释放等证据模型，声明覆盖缺口"
+        },
+        {
+          "issue": "JAVA_、JNI_OnLoad(JavaVM*,JNIEnv*)",
+          "corrected": "Java_；jint JNI_OnLoad(JavaVM*,void*)，RegisterNatives映射"
+        },
+        {
+          "issue": "CONNECT缺失=URL是IP；DNS=UDP；GET/POST固定CONNECT+TCP",
+          "corrected": "区分代理/直连/TCP/UDP/QUIC、缓存与加密DNS；无流量不等于无功能"
+        },
+        {
+          "issue": "Objection无前提免root",
+          "corrected": "Gadget等可用接入条件与改包重签影响"
+        },
+        {
+          "issue": "5037监听占用立即结束PID",
+          "corrected": "ADB正常监听可能，先只读核对，kill-server影响主机会话"
+        },
+        {
+          "issue": "ADB forward称为Python方法",
+          "corrected": "主机CLI命令，与Python API区分"
+        },
+        {
+          "issue": "Frida --no-pause、-UF固定目标",
+          "corrected": "当前默认resume/可选--pause，-F前台不保证目标；受控模拟器显式-D"
+        },
+        {
+          "issue": "SQLite加密与普通getWritableDatabase(密码)混写",
+          "corrected": "普通无参API、新旧SQLCipher包名/初始化/口令版本分开"
+        },
+        {
+          "issue": "getDeclaredField/getField直接取得值；set(null)任意字段",
+          "corrected": "返回Field描述，get/set需对象，null适用于static"
+        },
+        {
+          "issue": "SharedPreferences MODE_APPEND、MODE_PRIVATE覆盖全部、WORLD通用共享",
+          "corrected": "MODE_APPEND属于文件写入，PRIVATE是访问模式，WORLD弃用；apply/commit写盘边界"
+        }
+      ],
+      "documentation": {
+        "policy": "工具与API先resolve-library-id再query-docs；单概念优先；匹配不到或结果缺乏直接语法依据时仅回退官方文档/维护者源代码。无博客百科作为语法证明。",
+        "context7": [
+          {
+            "requested": "Android SDK",
+            "status": "首次匹配到第三方SDK，改用Android Developers重新resolve",
+            "selected": [
+              "/websites/developer_android",
+              "/websites/developer_android_tools",
+              "/websites/developer_android_reference"
+            ],
+            "concepts": [
+              "storage",
+              "launcher alias",
+              "components/lifecycle",
+              "SharedPreferences",
+              "ADB commandline",
+              "apksigner"
+            ],
+            "notes": "部分查询召回较差，按概念细化并以官方API/工具文档补核"
+          },
+          {
+            "requested": "jadx",
+            "selected": [
+              "/skylot/jadx"
+            ],
+            "concepts": [
+              "CLI output directory",
+              "decompile limitations/fallback"
+            ]
+          },
+          {
+            "requested": "Apktool",
+            "selected": [
+              "/ibotpeaches/apktool"
+            ],
+            "concepts": [
+              "APK decoding CLI and output"
+            ]
+          },
+          {
+            "requested": "Frida and frida-tools",
+            "selected": [
+              "/frida/frida-website"
+            ],
+            "concepts": [
+              "CLI targeting",
+              "Java method overload observation"
+            ],
+            "notes": "CLI暂停/目标精确语法回退维护者frida-tools源码"
+          },
+          {
+            "requested": "SQLCipher Android",
+            "selected": [
+              "/sqlcipher/sqlcipher"
+            ],
+            "concepts": [
+              "Android legacy/current API"
+            ],
+            "notes": "Android专项文档未匹配；alternate resolve仍只有core，回退两个官方Android仓库"
+          },
+          {
+            "requested": "Android NDK",
+            "selected": [
+              "/websites/developer_android_ndk"
+            ],
+            "concepts": [
+              "JNI_OnLoad/RegisterNatives"
+            ]
+          },
+          {
+            "requested": "OpenJDK javap",
+            "selected": [
+              "/openjdk/jdk"
+            ],
+            "concepts": [
+              "javap disassembly/private classpath",
+              "reflection fields"
+            ],
+            "notes": "reflection返回内容不充分且有生成的HTTP样式伪接口，不采用该伪接口，补查Android Java API参考"
+          },
+          {
+            "requested": "Objection",
+            "selected": [
+              "/sensepost/objection"
+            ],
+            "concepts": [
+              "non-root gadget APK patching prerequisites"
+            ]
+          },
+          {
+            "requested": "WABT then WebAssembly wabt wasm2wat wasm-objdump",
+            "status": "无直接WABT匹配",
+            "concepts": [
+              "existing WASM CLI verification"
+            ],
+            "notes": "官方WABT README和wasm-objdump源码核对"
+          }
+        ],
+        "officialUrls": [
+          "https://github.com/openjdk/jdk/blob/master/src/jdk.jdeps/share/man/javap.md",
+          "https://github.com/skylot/jadx#usage",
+          "https://apktool.org/docs/cli-parameters/",
+          "https://developer.android.com/tools/apksigner",
+          "https://pkware.cachefly.net/webdocs/casestudies/APPNOTE.TXT",
+          "https://developer.android.com/training/data-storage",
+          "https://developer.android.com/guide/topics/manifest/activity-alias-element",
+          "https://developer.android.com/guide/components/activities/activity-lifecycle",
+          "https://developer.android.com/develop/background-work/services",
+          "https://developer.android.com/develop/background-work/background-tasks/broadcasts",
+          "https://developer.android.com/guide/components/fundamentals",
+          "https://developer.android.com/reference/android/widget/Toast",
+          "https://developer.android.com/reference/android/content/res/AssetManager",
+          "https://developer.android.com/reference/java/lang/Class",
+          "https://developer.android.com/reference/java/lang/reflect/Field",
+          "https://developer.android.com/ndk/guides/jni-tips",
+          "https://developer.android.com/tools/adb",
+          "https://github.com/sensepost/objection/wiki/Patching-Android-Applications",
+          "https://frida.re/docs/examples/android/",
+          "https://github.com/frida/frida-tools/blob/main/frida_tools/application.py",
+          "https://github.com/frida/frida-tools/blob/main/frida_tools/repl.py",
+          "https://developer.android.com/training/data-storage/shared-preferences",
+          "https://developer.android.com/reference/android/content/SharedPreferences.Editor",
+          "https://developer.android.com/reference/android/content/Context",
+          "https://developer.android.com/reference/android/database/sqlite/SQLiteOpenHelper",
+          "https://github.com/sqlcipher/android-database-sqlcipher",
+          "https://github.com/sqlcipher/sqlcipher-android",
+          "https://github.com/WebAssembly/wabt",
+          "https://raw.githubusercontent.com/WebAssembly/wabt/main/src/tools/wasm-objdump.cc"
+        ]
+      },
+      "checks": {
+        "markdownFencesBalanced": true,
+        "fenceCount": 20,
+        "h3Count": 17,
+        "localLinkTargetsExist": [
+          "forensic-mobile-apps",
+          "forensic-network-traffic",
+          "reverse-dataflow",
+          "reverse-validation"
+        ],
+        "promotionalSourceNamesInRenderedBody": false,
+        "fixedAnswerOrRealCredentialsAdded": false,
+        "sourceHashUnchanged": true,
+        "siteGenerationOrBuildRun": false,
+        "originalApkOrDeviceRuntimeVerification": false,
+        "templatesAreConstructedExamples": true
+      },
+      "validationBoundaries": [
+        "未取得或执行真实APK、手机镜像、原始设备或源文截图。",
+        "ADB、Frida、Objection和SQLCipher命令/API依据官方文档核对，未在设备上实测。",
+        "Frida模板以自建com.example.lab训练应用和明确受控模拟器为前提，不证明原样本具有所示类/方法。",
+        "未转储、脱壳、扫描真实域名、请求支付/客服服务，未恢复实际数据库或确定口令。",
+        "源码、反编译与字符串只能支持条件性静态结论；运行观察、资金确认、真实回传及完整恢复须另有证据。",
+        "站点生成/构建与渲染验证留给根代理统一执行。"
+      ]
+    },
+    "forensic-network-traffic": {
+      "schema_version": 1,
+      "review_date": "2026-10-02",
+      "source": {
+        "path": "D:\\winoptimizeDir\\Desktop\\流量常见分析技战法详解.md",
+        "line_count": 892,
+        "sha256": "5b192a3d3aa6e5b4a23bb385dfa22bc09ad234f6f313eb12f52cdc7151e63422",
+        "read_ranges": [
+          [
+            1,
+            220
+          ],
+          [
+            221,
+            440
+          ],
+          [
+            441,
+            665
+          ],
+          [
+            666,
+            892
+          ]
+        ],
+        "access": "read_only",
+        "instructions_inside_source": "treated_as_evidence_text_not_operational_authorization"
+      },
+      "target": {
+        "path": "src/content-curation/forensic-network-traffic.md",
+        "track": "网络取证",
+        "topic": "流量与协议",
+        "original_sections": "01-13",
+        "new_sections": "14-22",
+        "preservation": {
+          "baseline_path": ".work/app-traffic/before/src/content-curation/forensic-network-traffic.md",
+          "baseline_bytes": 17718,
+          "baseline_sha256": "c98acbaf47ebe1a9a029a6823e968422777f8660d55bed532a863508be7ee676",
+          "exact_original_byte_prefix_preserved": true,
+          "method": "Compared every baseline byte against the same offset in the updated file; all original 01-13 body bytes remain unchanged."
+        },
+        "related_pages": {
+          "forensic-guide-network": "Existing general acquisition/calibration route linked from sections 05 and 14. Detailed operations and constructed scenarios stay in the traffic page.",
+          "forensic-network-channels": "Does not exist in this checkout. No link or new page created.",
+          "forensic-wireless": "Existing wireless SSID and handshake link retained.",
+          "forensic-protected-data": "Existing encrypted archive workflow link retained.",
+          "fic-case-08": "Existing cryptographic forensic workflow link retained."
+        },
+        "updated_bytes": 62055,
+        "updated_lines": 644,
+        "updated_sha256": "ce6ac9ebe3dbcc445cc902a291486528c3df62954d45f3d39e9c32c545978350"
+      },
+      "coverage": [
+        {
+          "source_lines": [
+            30,
+            59
+          ],
+          "theme": "主动攻击与主动访问后感染的通信角色",
+          "landing": [
+            "14.1",
+            "14.2",
+            "14.3"
+          ],
+          "status": "expanded_and_corrected",
+          "note": "Endpoint count and SRC/DST direction are investigation entry points; role and infection require request, object, process and timing evidence."
+        },
+        {
+          "source_lines": [
+            60,
+            73
+          ],
+          "theme": "端口探测与工具User-Agent",
+          "landing": [
+            "15.2",
+            "15.3",
+            "22.1"
+          ],
+          "status": "expanded_and_corrected",
+          "note": "Pure SYN scan has no HTTP User-Agent. Tool names are mutable candidate markers."
+        },
+        {
+          "source_lines": [
+            74,
+            102
+          ],
+          "theme": "TCP标志、三次握手与序列号",
+          "landing": [
+            "15.1"
+          ],
+          "status": "expanded_and_corrected",
+          "note": "ACK validates acknowledgement number; PSH is not a payload predicate. Relative sequence zero is not the raw ISN. Data may accompany establishment."
+        },
+        {
+          "source_lines": [
+            104,
+            130
+          ],
+          "theme": "TCP半关闭与四次挥手",
+          "landing": [
+            "15.1"
+          ],
+          "status": "retained_as_protocol_semantics",
+          "note": "FIN affects one direction; combined FIN/ACK, simultaneous close and reset prevent a rigid four-frame assumption."
+        },
+        {
+          "source_lines": [
+            132,
+            162
+          ],
+          "theme": "SYN扫描与开放端口数量",
+          "landing": [
+            "15.2",
+            "15.3"
+          ],
+          "status": "expanded_and_corrected",
+          "note": "Use responding server tcp.srcport for SYN/ACK service ports. Match streams and distinguish refusal, no observed response and completed application interaction."
+        },
+        {
+          "source_lines": [
+            164,
+            200
+          ],
+          "theme": "批量认证、长度变化与成功会话",
+          "landing": [
+            "09",
+            "10.2",
+            "16.1",
+            "16.3"
+          ],
+          "status": "expanded_and_corrected",
+          "note": "Frequency, five-second duration, POST and response length do not prove guessing or success. Ordinary SSH authentication is encrypted; use host logs."
+        },
+        {
+          "source_lines": [
+            172,
+            182
+          ],
+          "theme": "哈希碰撞与会话令牌猜测",
+          "landing": [
+            "16.2"
+          ],
+          "status": "retained_and_corrected",
+          "note": "Collision, password guessing, token enumeration and preimage search are distinct. Decodable JWT does not prove accepted signature or session hijack."
+        },
+        {
+          "source_lines": [
+            202,
+            212
+          ],
+          "theme": "NBNS/WINS设备名称",
+          "landing": [
+            "17.1",
+            "17.3"
+          ],
+          "status": "expanded_and_corrected",
+          "note": "NBNS is NetBIOS naming, not dynamic DNS. Correlate actual name, suffix, response and time without deriving missing screenshot values."
+        },
+        {
+          "source_lines": [
+            214,
+            224
+          ],
+          "theme": "DHCP名称与地址租约",
+          "landing": [
+            "17.1",
+            "17.3"
+          ],
+          "status": "expanded_and_corrected",
+          "note": "Use Request/ACK, transaction ID, client identifier and lease timeline. Hostname alone does not prove tablet identity; offer is not final assignment."
+        },
+        {
+          "source_lines": [
+            226,
+            244
+          ],
+          "theme": "User-Agent系统与架构声明",
+          "landing": [
+            "17.2"
+          ],
+          "status": "retained_and_corrected",
+          "note": "Preserves historical NT token examples as claims, warns of spoofing and UA reduction; NT 10.0 does not distinguish Windows 10/11."
+        },
+        {
+          "source_lines": [
+            246,
+            346
+          ],
+          "theme": "Kerberos AS/TGS/AP完整交换与密钥",
+          "landing": [
+            "18.1",
+            "18.2",
+            "18.3"
+          ],
+          "status": "expanded_and_corrected",
+          "note": "Distinguishes client-TGS and client-service session keys, long-term keys and subkeys; encrypted timestamp is time rather than random nonce; tickets do not contain an encrypted password. Ticket issuance, service authentication and authorization are separate."
+        },
+        {
+          "source_lines": [
+            348,
+            404
+          ],
+          "theme": "SMB协商、NTLM认证与共享",
+          "landing": [
+            "19.1",
+            "19.2",
+            "19.3"
+          ],
+          "status": "expanded_and_corrected",
+          "note": "SMB is not printer proof; client dialect offer differs from selected response. NTLM challenge is 8 bytes; response is not NT hash. Final Session Setup status differs from interim continuation and other-command success."
+        },
+        {
+          "source_lines": [
+            406,
+            424
+          ],
+          "theme": "一句话入口、动态执行与参数",
+          "landing": [
+            "20.1",
+            "20.2"
+          ],
+          "status": "defensive_static_analysis",
+          "note": "Explains parameter/decode/execute/response locations without publishing a runnable shell or executing extracted text."
+        },
+        {
+          "source_lines": [
+            426,
+            452
+          ],
+          "theme": "菜刀历史版本候选",
+          "landing": [
+            "07",
+            "20.1",
+            "20.5"
+          ],
+          "status": "concept_covered_image_specific_signatures_unverified",
+          "note": "2011/2014/2016 details are image-only; no fabricated exact signatures. General code/Base64/parameter and static validation preserved."
+        },
+        {
+          "source_lines": [
+            454,
+            520
+          ],
+          "theme": "蚁剑明文、Base64、CHR/CHR16、ROT13",
+          "landing": [
+            "20.1",
+            "20.2",
+            "20.5"
+          ],
+          "status": "expanded_and_corrected",
+          "note": "Covers initialization, boundary markers, representation decoding and weak UA. Source CHR and CHR16 pasted sequences cannot prove distinction; require actual notation and allowlisted conversion, never eval."
+        },
+        {
+          "source_lines": [
+            522,
+            614
+          ],
+          "theme": "冰蝎早期动态密钥与加密交互",
+          "landing": [
+            "07",
+            "20.3",
+            "20.5"
+          ],
+          "status": "conditional_implementation_analysis",
+          "note": "GET/POST key exchange, Session/Cookie correlation and per-layer verification retained as some implementations; 16-byte response or fixed Accept cannot establish family."
+        },
+        {
+          "source_lines": [
+            616,
+            642
+          ],
+          "theme": "冰蝎静态派生密钥与二进制封装",
+          "landing": [
+            "20.3"
+          ],
+          "status": "corrected_and_conditional",
+          "note": "MD5 prefix as ASCII differs from raw digest bytes. octet-stream is generic binary MIME, not a one-file/one-parameter constraint; fixed 5720/5740 counts omitted as unverified."
+        },
+        {
+          "source_lines": [
+            644,
+            654
+          ],
+          "theme": "冰蝎版本、临时端口与请求头",
+          "landing": [
+            "20.3"
+          ],
+          "status": "corrected_and_conditional",
+          "note": "49700-range source ports and increments do not establish version. Form MIME and mutable headers are candidates, not universal signatures."
+        },
+        {
+          "source_lines": [
+            656,
+            688
+          ],
+          "theme": "哥斯拉功能与主机影响",
+          "landing": [
+            "20.4",
+            "20.5"
+          ],
+          "status": "defensive_operation_mapping",
+          "note": "Groups command, files, databases, archives, screenshot, credential access and memory modules as decoded operation candidates; does not execute plugin/tool functions or infer actual privilege impact."
+        },
+        {
+          "source_lines": [
+            690,
+            730
+          ],
+          "theme": "PHP_XOR_BASE64与加载/检查/调用阶段",
+          "landing": [
+            "20.2",
+            "20.4",
+            "20.5"
+          ],
+          "status": "conditional_implementation_analysis",
+          "note": "Covers URL/Base64/XOR layering, key representation, index offset, response markers and Session; exactly three POSTs is not universal."
+        },
+        {
+          "source_lines": [
+            732,
+            742
+          ],
+          "theme": "PHP_EVAL_XOR_BASE64加载参数与功能参数",
+          "landing": [
+            "20.4"
+          ],
+          "status": "conditional_implementation_analysis",
+          "note": "Separates repeated loader field and changing operation field; names and keys require actual server implementation; no real/default secret printed."
+        },
+        {
+          "source_lines": [
+            744,
+            748
+          ],
+          "theme": "PHP_XOR_RAW二进制请求响应",
+          "landing": [
+            "20.2",
+            "20.4"
+          ],
+          "status": "conditional_implementation_analysis",
+          "note": "RAW differs from form/Base64 envelopes; preserve actual boundaries, key bytes and XOR offset."
+        },
+        {
+          "source_lines": [
+            750,
+            810
+          ],
+          "theme": "Shiro rememberMe、反序列化、执行和内存马",
+          "landing": [
+            "21.1"
+          ],
+          "status": "expanded_and_corrected",
+          "note": "Historical affected condition verified. deleteMe is clearing logic, not conclusive framework/login/exploitation evidence. Cookie length, 200 and output symbols do not prove execution. Use config, logs, process and memory evidence; no gadget execution."
+        },
+        {
+          "source_lines": [
+            812,
+            834
+          ],
+          "theme": "PwnKit上传、本地执行与提权",
+          "landing": [
+            "21.2"
+          ],
+          "status": "defensive_evidence_boundary",
+          "note": "Retains transfer-to-process-to-privilege-change chain. Local CVE cannot be confirmed from traffic or scanner label; host audit and patched package state required. Exploit commands excluded."
+        },
+        {
+          "source_lines": [
+            836,
+            866
+          ],
+          "theme": "Dify数据库身份、上传key与文件读取",
+          "landing": [
+            "21.3"
+          ],
+          "status": "deployment_specific_unverified_vulnerability",
+          "note": "No version or usable screenshots supplied. Fixed credentials removed, roles split, storage key semantics contextualized, metadata/read path/response hash chain required; no database updates or request replay."
+        },
+        {
+          "source_lines": [
+            868,
+            878
+          ],
+          "theme": "显示过滤速查表",
+          "landing": [
+            "22.1",
+            "22.2"
+          ],
+          "status": "reconstructed_from_official_reference_not_screenshot",
+          "note": "All table screenshots missing; practical filters rebuilt and documented by official field tables. No claim to reproduce missing image rows exactly."
+        },
+        {
+          "source_lines": null,
+          "theme": "TLS RSA/ECDHE/session secrets与RDP边界",
+          "landing": [
+            "22.3",
+            "22.4"
+          ],
+          "status": "requested_protocol_boundary_extension",
+          "note": "No standalone TLS/RDP source section. Root task explicitly requested current protocol checks; content remains a decryption boundary within traffic workflow, not a new page."
+        }
+      ],
+      "image_audit": {
+        "references": 145,
+        "existing_files": 0,
+        "missing_files": 145,
+        "resolution_method": "URL-decode every relative Markdown image target, resolve against D:/winoptimizeDir/Desktop, test exact local path existence.",
+        "view_image_calls": 0,
+        "reason_not_viewed": "No referenced local image exists.",
+        "inference_policy": "Only general concepts, official protocol semantics and explicitly constructed scenarios added. No screenshot-only frame numbers, addresses, bytes, keys, lengths or observed result fabricated.",
+        "important_gaps": [
+          "Endpoint statistics, request/response arrows and duration/length readings unavailable.",
+          "NBNS/DHCP host names and device identification screenshots unavailable.",
+          "Kerberos encrypted fields/PAC contents and SMB negotiation/NTLM bytes unavailable.",
+          "Historical Caidao version signatures and AntSword encoded payload examples unavailable.",
+          "Behinder key exchange, version-specific headers/payload lengths and Godzilla request/response wrappers unavailable.",
+          "Shiro command output/memory-shell, PwnKit execution and Dify file-read screenshots unavailable.",
+          "Display-filter appendix is image-only; exact original table rows cannot be recovered."
+        ],
+        "items": [
+          {
+            "line": 16,
+            "relative": "流量常见分析技战法详解/640.gif",
+            "absolute": "D:\\winoptimizeDir\\Desktop\\流量常见分析技战法详解\\640.gif",
+            "exists": false
+          },
+          {
+            "line": 18,
+            "relative": "流量常见分析技战法详解/640.png",
+            "absolute": "D:\\winoptimizeDir\\Desktop\\流量常见分析技战法详解\\640.png",
+            "exists": false
+          },
+          {
+            "line": 36,
+            "relative": "流量常见分析技战法详解/640.1.png",
+            "absolute": "D:\\winoptimizeDir\\Desktop\\流量常见分析技战法详解\\640.1.png",
+            "exists": false
+          },
+          {
+            "line": 42,
+            "relative": "流量常见分析技战法详解/640.2.png",
+            "absolute": "D:\\winoptimizeDir\\Desktop\\流量常见分析技战法详解\\640.2.png",
+            "exists": false
+          },
+          {
+            "line": 50,
+            "relative": "流量常见分析技战法详解/640.3.png",
+            "absolute": "D:\\winoptimizeDir\\Desktop\\流量常见分析技战法详解\\640.3.png",
+            "exists": false
+          },
+          {
+            "line": 54,
+            "relative": "流量常见分析技战法详解/640.4.png",
+            "absolute": "D:\\winoptimizeDir\\Desktop\\流量常见分析技战法详解\\640.4.png",
+            "exists": false
+          },
+          {
+            "line": 66,
+            "relative": "流量常见分析技战法详解/640.5.png",
+            "absolute": "D:\\winoptimizeDir\\Desktop\\流量常见分析技战法详解\\640.5.png",
+            "exists": false
+          },
+          {
+            "line": 70,
+            "relative": "流量常见分析技战法详解/640.6.png",
+            "absolute": "D:\\winoptimizeDir\\Desktop\\流量常见分析技战法详解\\640.6.png",
+            "exists": false
+          },
+          {
+            "line": 90,
+            "relative": "流量常见分析技战法详解/640.7.png",
+            "absolute": "D:\\winoptimizeDir\\Desktop\\流量常见分析技战法详解\\640.7.png",
+            "exists": false
+          },
+          {
+            "line": 94,
+            "relative": "流量常见分析技战法详解/640.8.png",
+            "absolute": "D:\\winoptimizeDir\\Desktop\\流量常见分析技战法详解\\640.8.png",
+            "exists": false
+          },
+          {
+            "line": 98,
+            "relative": "流量常见分析技战法详解/640.9.png",
+            "absolute": "D:\\winoptimizeDir\\Desktop\\流量常见分析技战法详解\\640.9.png",
+            "exists": false
+          },
+          {
+            "line": 102,
+            "relative": "流量常见分析技战法详解/640.10.png",
+            "absolute": "D:\\winoptimizeDir\\Desktop\\流量常见分析技战法详解\\640.10.png",
+            "exists": false
+          },
+          {
+            "line": 114,
+            "relative": "流量常见分析技战法详解/640.11.png",
+            "absolute": "D:\\winoptimizeDir\\Desktop\\流量常见分析技战法详解\\640.11.png",
+            "exists": false
+          },
+          {
+            "line": 118,
+            "relative": "流量常见分析技战法详解/640.12.png",
+            "absolute": "D:\\winoptimizeDir\\Desktop\\流量常见分析技战法详解\\640.12.png",
+            "exists": false
+          },
+          {
+            "line": 122,
+            "relative": "流量常见分析技战法详解/640.13.png",
+            "absolute": "D:\\winoptimizeDir\\Desktop\\流量常见分析技战法详解\\640.13.png",
+            "exists": false
+          },
+          {
+            "line": 126,
+            "relative": "流量常见分析技战法详解/640.14.png",
+            "absolute": "D:\\winoptimizeDir\\Desktop\\流量常见分析技战法详解\\640.14.png",
+            "exists": false
+          },
+          {
+            "line": 130,
+            "relative": "流量常见分析技战法详解/640.15.png",
+            "absolute": "D:\\winoptimizeDir\\Desktop\\流量常见分析技战法详解\\640.15.png",
+            "exists": false
+          },
+          {
+            "line": 136,
+            "relative": "流量常见分析技战法详解/640.16.png",
+            "absolute": "D:\\winoptimizeDir\\Desktop\\流量常见分析技战法详解\\640.16.png",
+            "exists": false
+          },
+          {
+            "line": 188,
+            "relative": "流量常见分析技战法详解/640.17.png",
+            "absolute": "D:\\winoptimizeDir\\Desktop\\流量常见分析技战法详解\\640.17.png",
+            "exists": false
+          },
+          {
+            "line": 192,
+            "relative": "流量常见分析技战法详解/640.18.png",
+            "absolute": "D:\\winoptimizeDir\\Desktop\\流量常见分析技战法详解\\640.18.png",
+            "exists": false
+          },
+          {
+            "line": 196,
+            "relative": "流量常见分析技战法详解/640.19.png",
+            "absolute": "D:\\winoptimizeDir\\Desktop\\流量常见分析技战法详解\\640.19.png",
+            "exists": false
+          },
+          {
+            "line": 200,
+            "relative": "流量常见分析技战法详解/640.20.png",
+            "absolute": "D:\\winoptimizeDir\\Desktop\\流量常见分析技战法详解\\640.20.png",
+            "exists": false
+          },
+          {
+            "line": 208,
+            "relative": "流量常见分析技战法详解/640.21.png",
+            "absolute": "D:\\winoptimizeDir\\Desktop\\流量常见分析技战法详解\\640.21.png",
+            "exists": false
+          },
+          {
+            "line": 212,
+            "relative": "流量常见分析技战法详解/640.22.png",
+            "absolute": "D:\\winoptimizeDir\\Desktop\\流量常见分析技战法详解\\640.22.png",
+            "exists": false
+          },
+          {
+            "line": 218,
+            "relative": "流量常见分析技战法详解/640.23.png",
+            "absolute": "D:\\winoptimizeDir\\Desktop\\流量常见分析技战法详解\\640.23.png",
+            "exists": false
+          },
+          {
+            "line": 224,
+            "relative": "流量常见分析技战法详解/640.24.png",
+            "absolute": "D:\\winoptimizeDir\\Desktop\\流量常见分析技战法详解\\640.24.png",
+            "exists": false
+          },
+          {
+            "line": 228,
+            "relative": "流量常见分析技战法详解/640.25.png",
+            "absolute": "D:\\winoptimizeDir\\Desktop\\流量常见分析技战法详解\\640.25.png",
+            "exists": false
+          },
+          {
+            "line": 232,
+            "relative": "流量常见分析技战法详解/640.26.png",
+            "absolute": "D:\\winoptimizeDir\\Desktop\\流量常见分析技战法详解\\640.26.png",
+            "exists": false
+          },
+          {
+            "line": 234,
+            "relative": "流量常见分析技战法详解/640.27.png",
+            "absolute": "D:\\winoptimizeDir\\Desktop\\流量常见分析技战法详解\\640.27.png",
+            "exists": false
+          },
+          {
+            "line": 236,
+            "relative": "流量常见分析技战法详解/640.28.png",
+            "absolute": "D:\\winoptimizeDir\\Desktop\\流量常见分析技战法详解\\640.28.png",
+            "exists": false
+          },
+          {
+            "line": 238,
+            "relative": "流量常见分析技战法详解/640.29.png",
+            "absolute": "D:\\winoptimizeDir\\Desktop\\流量常见分析技战法详解\\640.29.png",
+            "exists": false
+          },
+          {
+            "line": 240,
+            "relative": "流量常见分析技战法详解/640.30.png",
+            "absolute": "D:\\winoptimizeDir\\Desktop\\流量常见分析技战法详解\\640.30.png",
+            "exists": false
+          },
+          {
+            "line": 242,
+            "relative": "流量常见分析技战法详解/640.31.png",
+            "absolute": "D:\\winoptimizeDir\\Desktop\\流量常见分析技战法详解\\640.31.png",
+            "exists": false
+          },
+          {
+            "line": 244,
+            "relative": "流量常见分析技战法详解/640.32.png",
+            "absolute": "D:\\winoptimizeDir\\Desktop\\流量常见分析技战法详解\\640.32.png",
+            "exists": false
+          },
+          {
+            "line": 252,
+            "relative": "流量常见分析技战法详解/640.33.png",
+            "absolute": "D:\\winoptimizeDir\\Desktop\\流量常见分析技战法详解\\640.33.png",
+            "exists": false
+          },
+          {
+            "line": 260,
+            "relative": "流量常见分析技战法详解/640.34.png",
+            "absolute": "D:\\winoptimizeDir\\Desktop\\流量常见分析技战法详解\\640.34.png",
+            "exists": false
+          },
+          {
+            "line": 268,
+            "relative": "流量常见分析技战法详解/640.35.png",
+            "absolute": "D:\\winoptimizeDir\\Desktop\\流量常见分析技战法详解\\640.35.png",
+            "exists": false
+          },
+          {
+            "line": 272,
+            "relative": "流量常见分析技战法详解/640.36.png",
+            "absolute": "D:\\winoptimizeDir\\Desktop\\流量常见分析技战法详解\\640.36.png",
+            "exists": false
+          },
+          {
+            "line": 286,
+            "relative": "流量常见分析技战法详解/640.37.png",
+            "absolute": "D:\\winoptimizeDir\\Desktop\\流量常见分析技战法详解\\640.37.png",
+            "exists": false
+          },
+          {
+            "line": 308,
+            "relative": "流量常见分析技战法详解/640.38.png",
+            "absolute": "D:\\winoptimizeDir\\Desktop\\流量常见分析技战法详解\\640.38.png",
+            "exists": false
+          },
+          {
+            "line": 312,
+            "relative": "流量常见分析技战法详解/640.39.png",
+            "absolute": "D:\\winoptimizeDir\\Desktop\\流量常见分析技战法详解\\640.39.png",
+            "exists": false
+          },
+          {
+            "line": 324,
+            "relative": "流量常见分析技战法详解/640.40.png",
+            "absolute": "D:\\winoptimizeDir\\Desktop\\流量常见分析技战法详解\\640.40.png",
+            "exists": false
+          },
+          {
+            "line": 346,
+            "relative": "流量常见分析技战法详解/640.jpeg",
+            "absolute": "D:\\winoptimizeDir\\Desktop\\流量常见分析技战法详解\\640.jpeg",
+            "exists": false
+          },
+          {
+            "line": 356,
+            "relative": "流量常见分析技战法详解/640.41.png",
+            "absolute": "D:\\winoptimizeDir\\Desktop\\流量常见分析技战法详解\\640.41.png",
+            "exists": false
+          },
+          {
+            "line": 362,
+            "relative": "流量常见分析技战法详解/640.42.png",
+            "absolute": "D:\\winoptimizeDir\\Desktop\\流量常见分析技战法详解\\640.42.png",
+            "exists": false
+          },
+          {
+            "line": 366,
+            "relative": "流量常见分析技战法详解/640.43.png",
+            "absolute": "D:\\winoptimizeDir\\Desktop\\流量常见分析技战法详解\\640.43.png",
+            "exists": false
+          },
+          {
+            "line": 370,
+            "relative": "流量常见分析技战法详解/640.44.png",
+            "absolute": "D:\\winoptimizeDir\\Desktop\\流量常见分析技战法详解\\640.44.png",
+            "exists": false
+          },
+          {
+            "line": 374,
+            "relative": "流量常见分析技战法详解/640.45.png",
+            "absolute": "D:\\winoptimizeDir\\Desktop\\流量常见分析技战法详解\\640.45.png",
+            "exists": false
+          },
+          {
+            "line": 384,
+            "relative": "流量常见分析技战法详解/640.46.png",
+            "absolute": "D:\\winoptimizeDir\\Desktop\\流量常见分析技战法详解\\640.46.png",
+            "exists": false
+          },
+          {
+            "line": 390,
+            "relative": "流量常见分析技战法详解/640.47.png",
+            "absolute": "D:\\winoptimizeDir\\Desktop\\流量常见分析技战法详解\\640.47.png",
+            "exists": false
+          },
+          {
+            "line": 392,
+            "relative": "流量常见分析技战法详解/640.48.png",
+            "absolute": "D:\\winoptimizeDir\\Desktop\\流量常见分析技战法详解\\640.48.png",
+            "exists": false
+          },
+          {
+            "line": 396,
+            "relative": "流量常见分析技战法详解/640.49.png",
+            "absolute": "D:\\winoptimizeDir\\Desktop\\流量常见分析技战法详解\\640.49.png",
+            "exists": false
+          },
+          {
+            "line": 400,
+            "relative": "流量常见分析技战法详解/640.50.png",
+            "absolute": "D:\\winoptimizeDir\\Desktop\\流量常见分析技战法详解\\640.50.png",
+            "exists": false
+          },
+          {
+            "line": 404,
+            "relative": "流量常见分析技战法详解/640.51.png",
+            "absolute": "D:\\winoptimizeDir\\Desktop\\流量常见分析技战法详解\\640.51.png",
+            "exists": false
+          },
+          {
+            "line": 432,
+            "relative": "流量常见分析技战法详解/640.52.png",
+            "absolute": "D:\\winoptimizeDir\\Desktop\\流量常见分析技战法详解\\640.52.png",
+            "exists": false
+          },
+          {
+            "line": 436,
+            "relative": "流量常见分析技战法详解/640.53.png",
+            "absolute": "D:\\winoptimizeDir\\Desktop\\流量常见分析技战法详解\\640.53.png",
+            "exists": false
+          },
+          {
+            "line": 438,
+            "relative": "流量常见分析技战法详解/640.54.png",
+            "absolute": "D:\\winoptimizeDir\\Desktop\\流量常见分析技战法详解\\640.54.png",
+            "exists": false
+          },
+          {
+            "line": 440,
+            "relative": "流量常见分析技战法详解/640.55.png",
+            "absolute": "D:\\winoptimizeDir\\Desktop\\流量常见分析技战法详解\\640.55.png",
+            "exists": false
+          },
+          {
+            "line": 444,
+            "relative": "流量常见分析技战法详解/640.56.png",
+            "absolute": "D:\\winoptimizeDir\\Desktop\\流量常见分析技战法详解\\640.56.png",
+            "exists": false
+          },
+          {
+            "line": 446,
+            "relative": "流量常见分析技战法详解/640.57.png",
+            "absolute": "D:\\winoptimizeDir\\Desktop\\流量常见分析技战法详解\\640.57.png",
+            "exists": false
+          },
+          {
+            "line": 450,
+            "relative": "流量常见分析技战法详解/640.58.png",
+            "absolute": "D:\\winoptimizeDir\\Desktop\\流量常见分析技战法详解\\640.58.png",
+            "exists": false
+          },
+          {
+            "line": 452,
+            "relative": "流量常见分析技战法详解/640.59.png",
+            "absolute": "D:\\winoptimizeDir\\Desktop\\流量常见分析技战法详解\\640.59.png",
+            "exists": false
+          },
+          {
+            "line": 460,
+            "relative": "流量常见分析技战法详解/640.60.png",
+            "absolute": "D:\\winoptimizeDir\\Desktop\\流量常见分析技战法详解\\640.60.png",
+            "exists": false
+          },
+          {
+            "line": 466,
+            "relative": "流量常见分析技战法详解/640.61.png",
+            "absolute": "D:\\winoptimizeDir\\Desktop\\流量常见分析技战法详解\\640.61.png",
+            "exists": false
+          },
+          {
+            "line": 476,
+            "relative": "流量常见分析技战法详解/640.62.png",
+            "absolute": "D:\\winoptimizeDir\\Desktop\\流量常见分析技战法详解\\640.62.png",
+            "exists": false
+          },
+          {
+            "line": 480,
+            "relative": "流量常见分析技战法详解/640.63.png",
+            "absolute": "D:\\winoptimizeDir\\Desktop\\流量常见分析技战法详解\\640.63.png",
+            "exists": false
+          },
+          {
+            "line": 488,
+            "relative": "流量常见分析技战法详解/640.64.png",
+            "absolute": "D:\\winoptimizeDir\\Desktop\\流量常见分析技战法详解\\640.64.png",
+            "exists": false
+          },
+          {
+            "line": 500,
+            "relative": "流量常见分析技战法详解/640.65.png",
+            "absolute": "D:\\winoptimizeDir\\Desktop\\流量常见分析技战法详解\\640.65.png",
+            "exists": false
+          },
+          {
+            "line": 512,
+            "relative": "流量常见分析技战法详解/640.66.png",
+            "absolute": "D:\\winoptimizeDir\\Desktop\\流量常见分析技战法详解\\640.66.png",
+            "exists": false
+          },
+          {
+            "line": 520,
+            "relative": "流量常见分析技战法详解/640.67.png",
+            "absolute": "D:\\winoptimizeDir\\Desktop\\流量常见分析技战法详解\\640.67.png",
+            "exists": false
+          },
+          {
+            "line": 538,
+            "relative": "流量常见分析技战法详解/640.68.png",
+            "absolute": "D:\\winoptimizeDir\\Desktop\\流量常见分析技战法详解\\640.68.png",
+            "exists": false
+          },
+          {
+            "line": 542,
+            "relative": "流量常见分析技战法详解/640.69.png",
+            "absolute": "D:\\winoptimizeDir\\Desktop\\流量常见分析技战法详解\\640.69.png",
+            "exists": false
+          },
+          {
+            "line": 552,
+            "relative": "流量常见分析技战法详解/640.70.png",
+            "absolute": "D:\\winoptimizeDir\\Desktop\\流量常见分析技战法详解\\640.70.png",
+            "exists": false
+          },
+          {
+            "line": 554,
+            "relative": "流量常见分析技战法详解/640.71.png",
+            "absolute": "D:\\winoptimizeDir\\Desktop\\流量常见分析技战法详解\\640.71.png",
+            "exists": false
+          },
+          {
+            "line": 556,
+            "relative": "流量常见分析技战法详解/640.72.png",
+            "absolute": "D:\\winoptimizeDir\\Desktop\\流量常见分析技战法详解\\640.72.png",
+            "exists": false
+          },
+          {
+            "line": 560,
+            "relative": "流量常见分析技战法详解/640.73.png",
+            "absolute": "D:\\winoptimizeDir\\Desktop\\流量常见分析技战法详解\\640.73.png",
+            "exists": false
+          },
+          {
+            "line": 562,
+            "relative": "流量常见分析技战法详解/640.74.png",
+            "absolute": "D:\\winoptimizeDir\\Desktop\\流量常见分析技战法详解\\640.74.png",
+            "exists": false
+          },
+          {
+            "line": 564,
+            "relative": "流量常见分析技战法详解/640.75.png",
+            "absolute": "D:\\winoptimizeDir\\Desktop\\流量常见分析技战法详解\\640.75.png",
+            "exists": false
+          },
+          {
+            "line": 566,
+            "relative": "流量常见分析技战法详解/640.76.png",
+            "absolute": "D:\\winoptimizeDir\\Desktop\\流量常见分析技战法详解\\640.76.png",
+            "exists": false
+          },
+          {
+            "line": 568,
+            "relative": "流量常见分析技战法详解/640.77.png",
+            "absolute": "D:\\winoptimizeDir\\Desktop\\流量常见分析技战法详解\\640.77.png",
+            "exists": false
+          },
+          {
+            "line": 570,
+            "relative": "流量常见分析技战法详解/640.78.png",
+            "absolute": "D:\\winoptimizeDir\\Desktop\\流量常见分析技战法详解\\640.78.png",
+            "exists": false
+          },
+          {
+            "line": 572,
+            "relative": "流量常见分析技战法详解/640.79.png",
+            "absolute": "D:\\winoptimizeDir\\Desktop\\流量常见分析技战法详解\\640.79.png",
+            "exists": false
+          },
+          {
+            "line": 576,
+            "relative": "流量常见分析技战法详解/640.80.png",
+            "absolute": "D:\\winoptimizeDir\\Desktop\\流量常见分析技战法详解\\640.80.png",
+            "exists": false
+          },
+          {
+            "line": 580,
+            "relative": "流量常见分析技战法详解/640.81.png",
+            "absolute": "D:\\winoptimizeDir\\Desktop\\流量常见分析技战法详解\\640.81.png",
+            "exists": false
+          },
+          {
+            "line": 590,
+            "relative": "流量常见分析技战法详解/640.82.png",
+            "absolute": "D:\\winoptimizeDir\\Desktop\\流量常见分析技战法详解\\640.82.png",
+            "exists": false
+          },
+          {
+            "line": 602,
+            "relative": "流量常见分析技战法详解/640.83.png",
+            "absolute": "D:\\winoptimizeDir\\Desktop\\流量常见分析技战法详解\\640.83.png",
+            "exists": false
+          },
+          {
+            "line": 604,
+            "relative": "流量常见分析技战法详解/640.84.png",
+            "absolute": "D:\\winoptimizeDir\\Desktop\\流量常见分析技战法详解\\640.84.png",
+            "exists": false
+          },
+          {
+            "line": 612,
+            "relative": "流量常见分析技战法详解/640.85.png",
+            "absolute": "D:\\winoptimizeDir\\Desktop\\流量常见分析技战法详解\\640.85.png",
+            "exists": false
+          },
+          {
+            "line": 614,
+            "relative": "流量常见分析技战法详解/640.86.png",
+            "absolute": "D:\\winoptimizeDir\\Desktop\\流量常见分析技战法详解\\640.86.png",
+            "exists": false
+          },
+          {
+            "line": 630,
+            "relative": "流量常见分析技战法详解/640.87.png",
+            "absolute": "D:\\winoptimizeDir\\Desktop\\流量常见分析技战法详解\\640.87.png",
+            "exists": false
+          },
+          {
+            "line": 632,
+            "relative": "流量常见分析技战法详解/640.88.png",
+            "absolute": "D:\\winoptimizeDir\\Desktop\\流量常见分析技战法详解\\640.88.png",
+            "exists": false
+          },
+          {
+            "line": 634,
+            "relative": "流量常见分析技战法详解/640.89.png",
+            "absolute": "D:\\winoptimizeDir\\Desktop\\流量常见分析技战法详解\\640.89.png",
+            "exists": false
+          },
+          {
+            "line": 638,
+            "relative": "流量常见分析技战法详解/640.90.png",
+            "absolute": "D:\\winoptimizeDir\\Desktop\\流量常见分析技战法详解\\640.90.png",
+            "exists": false
+          },
+          {
+            "line": 642,
+            "relative": "流量常见分析技战法详解/640.91.png",
+            "absolute": "D:\\winoptimizeDir\\Desktop\\流量常见分析技战法详解\\640.91.png",
+            "exists": false
+          },
+          {
+            "line": 650,
+            "relative": "流量常见分析技战法详解/640.92.png",
+            "absolute": "D:\\winoptimizeDir\\Desktop\\流量常见分析技战法详解\\640.92.png",
+            "exists": false
+          },
+          {
+            "line": 652,
+            "relative": "流量常见分析技战法详解/640.93.png",
+            "absolute": "D:\\winoptimizeDir\\Desktop\\流量常见分析技战法详解\\640.93.png",
+            "exists": false
+          },
+          {
+            "line": 690,
+            "relative": "流量常见分析技战法详解/640.94.png",
+            "absolute": "D:\\winoptimizeDir\\Desktop\\流量常见分析技战法详解\\640.94.png",
+            "exists": false
+          },
+          {
+            "line": 692,
+            "relative": "流量常见分析技战法详解/640.95.png",
+            "absolute": "D:\\winoptimizeDir\\Desktop\\流量常见分析技战法详解\\640.95.png",
+            "exists": false
+          },
+          {
+            "line": 696,
+            "relative": "流量常见分析技战法详解/640.96.png",
+            "absolute": "D:\\winoptimizeDir\\Desktop\\流量常见分析技战法详解\\640.96.png",
+            "exists": false
+          },
+          {
+            "line": 698,
+            "relative": "流量常见分析技战法详解/640.97.png",
+            "absolute": "D:\\winoptimizeDir\\Desktop\\流量常见分析技战法详解\\640.97.png",
+            "exists": false
+          },
+          {
+            "line": 702,
+            "relative": "流量常见分析技战法详解/640.98.png",
+            "absolute": "D:\\winoptimizeDir\\Desktop\\流量常见分析技战法详解\\640.98.png",
+            "exists": false
+          },
+          {
+            "line": 710,
+            "relative": "流量常见分析技战法详解/640.99.png",
+            "absolute": "D:\\winoptimizeDir\\Desktop\\流量常见分析技战法详解\\640.99.png",
+            "exists": false
+          },
+          {
+            "line": 712,
+            "relative": "流量常见分析技战法详解/640.100.png",
+            "absolute": "D:\\winoptimizeDir\\Desktop\\流量常见分析技战法详解\\640.100.png",
+            "exists": false
+          },
+          {
+            "line": 714,
+            "relative": "流量常见分析技战法详解/640.101.png",
+            "absolute": "D:\\winoptimizeDir\\Desktop\\流量常见分析技战法详解\\640.101.png",
+            "exists": false
+          },
+          {
+            "line": 718,
+            "relative": "流量常见分析技战法详解/640.102.png",
+            "absolute": "D:\\winoptimizeDir\\Desktop\\流量常见分析技战法详解\\640.102.png",
+            "exists": false
+          },
+          {
+            "line": 720,
+            "relative": "流量常见分析技战法详解/640.103.png",
+            "absolute": "D:\\winoptimizeDir\\Desktop\\流量常见分析技战法详解\\640.103.png",
+            "exists": false
+          },
+          {
+            "line": 722,
+            "relative": "流量常见分析技战法详解/640.104.png",
+            "absolute": "D:\\winoptimizeDir\\Desktop\\流量常见分析技战法详解\\640.104.png",
+            "exists": false
+          },
+          {
+            "line": 726,
+            "relative": "流量常见分析技战法详解/640.105.png",
+            "absolute": "D:\\winoptimizeDir\\Desktop\\流量常见分析技战法详解\\640.105.png",
+            "exists": false
+          },
+          {
+            "line": 728,
+            "relative": "流量常见分析技战法详解/640.106.png",
+            "absolute": "D:\\winoptimizeDir\\Desktop\\流量常见分析技战法详解\\640.106.png",
+            "exists": false
+          },
+          {
+            "line": 730,
+            "relative": "流量常见分析技战法详解/640.107.png",
+            "absolute": "D:\\winoptimizeDir\\Desktop\\流量常见分析技战法详解\\640.107.png",
+            "exists": false
+          },
+          {
+            "line": 736,
+            "relative": "流量常见分析技战法详解/640.108.png",
+            "absolute": "D:\\winoptimizeDir\\Desktop\\流量常见分析技战法详解\\640.108.png",
+            "exists": false
+          },
+          {
+            "line": 742,
+            "relative": "流量常见分析技战法详解/640.109.png",
+            "absolute": "D:\\winoptimizeDir\\Desktop\\流量常见分析技战法详解\\640.109.png",
+            "exists": false
+          },
+          {
+            "line": 748,
+            "relative": "流量常见分析技战法详解/640.110.png",
+            "absolute": "D:\\winoptimizeDir\\Desktop\\流量常见分析技战法详解\\640.110.png",
+            "exists": false
+          },
+          {
+            "line": 760,
+            "relative": "流量常见分析技战法详解/640.111.png",
+            "absolute": "D:\\winoptimizeDir\\Desktop\\流量常见分析技战法详解\\640.111.png",
+            "exists": false
+          },
+          {
+            "line": 764,
+            "relative": "流量常见分析技战法详解/640.112.png",
+            "absolute": "D:\\winoptimizeDir\\Desktop\\流量常见分析技战法详解\\640.112.png",
+            "exists": false
+          },
+          {
+            "line": 770,
+            "relative": "流量常见分析技战法详解/640.113.png",
+            "absolute": "D:\\winoptimizeDir\\Desktop\\流量常见分析技战法详解\\640.113.png",
+            "exists": false
+          },
+          {
+            "line": 772,
+            "relative": "流量常见分析技战法详解/640.114.png",
+            "absolute": "D:\\winoptimizeDir\\Desktop\\流量常见分析技战法详解\\640.114.png",
+            "exists": false
+          },
+          {
+            "line": 778,
+            "relative": "流量常见分析技战法详解/640.115.png",
+            "absolute": "D:\\winoptimizeDir\\Desktop\\流量常见分析技战法详解\\640.115.png",
+            "exists": false
+          },
+          {
+            "line": 782,
+            "relative": "流量常见分析技战法详解/640.116.png",
+            "absolute": "D:\\winoptimizeDir\\Desktop\\流量常见分析技战法详解\\640.116.png",
+            "exists": false
+          },
+          {
+            "line": 788,
+            "relative": "流量常见分析技战法详解/640.117.png",
+            "absolute": "D:\\winoptimizeDir\\Desktop\\流量常见分析技战法详解\\640.117.png",
+            "exists": false
+          },
+          {
+            "line": 792,
+            "relative": "流量常见分析技战法详解/640.118.png",
+            "absolute": "D:\\winoptimizeDir\\Desktop\\流量常见分析技战法详解\\640.118.png",
+            "exists": false
+          },
+          {
+            "line": 798,
+            "relative": "流量常见分析技战法详解/640.119.png",
+            "absolute": "D:\\winoptimizeDir\\Desktop\\流量常见分析技战法详解\\640.119.png",
+            "exists": false
+          },
+          {
+            "line": 804,
+            "relative": "流量常见分析技战法详解/640.120.png",
+            "absolute": "D:\\winoptimizeDir\\Desktop\\流量常见分析技战法详解\\640.120.png",
+            "exists": false
+          },
+          {
+            "line": 808,
+            "relative": "流量常见分析技战法详解/640.121.png",
+            "absolute": "D:\\winoptimizeDir\\Desktop\\流量常见分析技战法详解\\640.121.png",
+            "exists": false
+          },
+          {
+            "line": 810,
+            "relative": "流量常见分析技战法详解/640.122.png",
+            "absolute": "D:\\winoptimizeDir\\Desktop\\流量常见分析技战法详解\\640.122.png",
+            "exists": false
+          },
+          {
+            "line": 820,
+            "relative": "流量常见分析技战法详解/640.1.jpeg",
+            "absolute": "D:\\winoptimizeDir\\Desktop\\流量常见分析技战法详解\\640.1.jpeg",
+            "exists": false
+          },
+          {
+            "line": 824,
+            "relative": "流量常见分析技战法详解/640.2.jpeg",
+            "absolute": "D:\\winoptimizeDir\\Desktop\\流量常见分析技战法详解\\640.2.jpeg",
+            "exists": false
+          },
+          {
+            "line": 828,
+            "relative": "流量常见分析技战法详解/640.123.png",
+            "absolute": "D:\\winoptimizeDir\\Desktop\\流量常见分析技战法详解\\640.123.png",
+            "exists": false
+          },
+          {
+            "line": 832,
+            "relative": "流量常见分析技战法详解/640.124.png",
+            "absolute": "D:\\winoptimizeDir\\Desktop\\流量常见分析技战法详解\\640.124.png",
+            "exists": false
+          },
+          {
+            "line": 834,
+            "relative": "流量常见分析技战法详解/640.125.png",
+            "absolute": "D:\\winoptimizeDir\\Desktop\\流量常见分析技战法详解\\640.125.png",
+            "exists": false
+          },
+          {
+            "line": 842,
+            "relative": "流量常见分析技战法详解/640.126.png",
+            "absolute": "D:\\winoptimizeDir\\Desktop\\流量常见分析技战法详解\\640.126.png",
+            "exists": false
+          },
+          {
+            "line": 844,
+            "relative": "流量常见分析技战法详解/640.127.png",
+            "absolute": "D:\\winoptimizeDir\\Desktop\\流量常见分析技战法详解\\640.127.png",
+            "exists": false
+          },
+          {
+            "line": 848,
+            "relative": "流量常见分析技战法详解/640.128.png",
+            "absolute": "D:\\winoptimizeDir\\Desktop\\流量常见分析技战法详解\\640.128.png",
+            "exists": false
+          },
+          {
+            "line": 854,
+            "relative": "流量常见分析技战法详解/640.129.png",
+            "absolute": "D:\\winoptimizeDir\\Desktop\\流量常见分析技战法详解\\640.129.png",
+            "exists": false
+          },
+          {
+            "line": 858,
+            "relative": "流量常见分析技战法详解/640.130.png",
+            "absolute": "D:\\winoptimizeDir\\Desktop\\流量常见分析技战法详解\\640.130.png",
+            "exists": false
+          },
+          {
+            "line": 862,
+            "relative": "流量常见分析技战法详解/640.131.png",
+            "absolute": "D:\\winoptimizeDir\\Desktop\\流量常见分析技战法详解\\640.131.png",
+            "exists": false
+          },
+          {
+            "line": 866,
+            "relative": "流量常见分析技战法详解/640.132.png",
+            "absolute": "D:\\winoptimizeDir\\Desktop\\流量常见分析技战法详解\\640.132.png",
+            "exists": false
+          },
+          {
+            "line": 870,
+            "relative": "流量常见分析技战法详解/640.133.png",
+            "absolute": "D:\\winoptimizeDir\\Desktop\\流量常见分析技战法详解\\640.133.png",
+            "exists": false
+          },
+          {
+            "line": 872,
+            "relative": "流量常见分析技战法详解/640.134.png",
+            "absolute": "D:\\winoptimizeDir\\Desktop\\流量常见分析技战法详解\\640.134.png",
+            "exists": false
+          },
+          {
+            "line": 874,
+            "relative": "流量常见分析技战法详解/640.135.png",
+            "absolute": "D:\\winoptimizeDir\\Desktop\\流量常见分析技战法详解\\640.135.png",
+            "exists": false
+          },
+          {
+            "line": 876,
+            "relative": "流量常见分析技战法详解/640.136.png",
+            "absolute": "D:\\winoptimizeDir\\Desktop\\流量常见分析技战法详解\\640.136.png",
+            "exists": false
+          },
+          {
+            "line": 878,
+            "relative": "流量常见分析技战法详解/640.137.png",
+            "absolute": "D:\\winoptimizeDir\\Desktop\\流量常见分析技战法详解\\640.137.png",
+            "exists": false
+          },
+          {
+            "line": 882,
+            "relative": "流量常见分析技战法详解/640.138.png",
+            "absolute": "D:\\winoptimizeDir\\Desktop\\流量常见分析技战法详解\\640.138.png",
+            "exists": false
+          },
+          {
+            "line": 884,
+            "relative": "流量常见分析技战法详解/640.3.jpeg",
+            "absolute": "D:\\winoptimizeDir\\Desktop\\流量常见分析技战法详解\\640.3.jpeg",
+            "exists": false
+          },
+          {
+            "line": 892,
+            "relative": "流量常见分析技战法详解/640.1.gif",
+            "absolute": "D:\\winoptimizeDir\\Desktop\\流量常见分析技战法详解\\640.1.gif",
+            "exists": false
+          }
+        ]
+      },
+      "official_documentation": [
+        {
+          "url": "https://www.wireshark.org/docs/man-pages/tshark.html",
+          "used_for": "Statistics, field output, display/capture distinction, follow report and export-objects option"
+        },
+        {
+          "url": "https://www.wireshark.org/docs/wsug_html_chunked/ChAdvFollowStreamSection.html",
+          "used_for": "Follow Stream direction and Raw GUI Save As binary semantics; HTTP/2 substream"
+        },
+        {
+          "url": "https://www.wireshark.org/docs/wsug_html_chunked/ChIOExportSection.html",
+          "used_for": "Protocol objects and export of known TLS secrets"
+        },
+        {
+          "url": "https://www.wireshark.org/docs/dfref/t/tcp.html",
+          "used_for": "TCP SYN/ACK/RST/payload/sequence/analysis filters"
+        },
+        {
+          "url": "https://www.wireshark.org/docs/dfref/h/http.html",
+          "used_for": "Existing HTTP request/response associations retained"
+        },
+        {
+          "url": "https://www.wireshark.org/docs/dfref/f/ftp.html",
+          "used_for": "Existing FTP control/data reconstruction retained"
+        },
+        {
+          "url": "https://www.wireshark.org/docs/dfref/d/dhcp.html",
+          "used_for": "dhcp.id, dhcp.hw.mac_addr, dhcp.option.hostname, dhcp.option.dhcp, dhcp.ip.your, server id"
+        },
+        {
+          "url": "https://www.wireshark.org/docs/dfref/n/nbns.html",
+          "used_for": "NBNS naming fields"
+        },
+        {
+          "url": "https://www.wireshark.org/docs/dfref/k/kerberos.html",
+          "used_for": "Kerberos message/name/realm/encryption/error fields and case sensitivity"
+        },
+        {
+          "url": "https://www.wireshark.org/docs/dfref/s/smb2.html",
+          "used_for": "SMB2 command/message/session/tree/response/status/dialect fields"
+        },
+        {
+          "url": "https://www.wireshark.org/docs/dfref/n/ntlmssp.html",
+          "used_for": "NTLM domain/username and response field distinction"
+        },
+        {
+          "url": "https://www.wireshark.org/docs/dfref/r/rdp.html",
+          "used_for": "RDP protocol and security negotiation field availability"
+        },
+        {
+          "url": "https://wiki.wireshark.org/TLS",
+          "used_for": "RSA key exchange limits, ECDHE/TLS1.3 session secrets, tls.keylog_file and known-secret export"
+        },
+        {
+          "url": "https://www.rfc-editor.org/rfc/rfc9293.html",
+          "used_for": "TCP flags, half-close and data-bearing establishment boundary"
+        },
+        {
+          "url": "https://www.rfc-editor.org/rfc/rfc1001.html",
+          "used_for": "NBNS is NetBIOS naming rather than dynamic DNS"
+        },
+        {
+          "url": "https://www.rfc-editor.org/rfc/rfc2131.html",
+          "used_for": "DHCP lease exchange and broadcast/client addresses"
+        },
+        {
+          "url": "https://www.rfc-editor.org/rfc/rfc4120.html",
+          "used_for": "Kerberos time versus nonce, AS/TGS/AP, distinct session keys and subkeys"
+        },
+        {
+          "url": "https://www.rfc-editor.org/rfc/rfc4253.html",
+          "used_for": "Encrypted SSH transport after key exchange"
+        },
+        {
+          "url": "https://www.rfc-editor.org/rfc/rfc4252.html",
+          "used_for": "User authentication runs over protected SSH transport"
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/microsoft-edge/web-platform/user-agent-guidance",
+          "used_for": "Windows 10/11 retain Windows NT 10.0 UA token and mutable client hints"
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/openspecs/windows_protocols/ms-nlmp/801a4681-8809-4be9-ab0d-61dcfe762786",
+          "used_for": "NTLM ServerChallenge is 8 bytes/64 bits"
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/openspecs/windows_protocols/ms-smb2/e545352b-9f2b-4c5e-9350-db46e4f6755e",
+          "used_for": "SMB Session Setup and continuation/success/failure status interpretation"
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/openspecs/windows_protocols/ms-rdpbcgr/422e59a0-98c8-4a28-af9f-235a572b6e4d",
+          "used_for": "RDP external security protocols and encrypted layers"
+        },
+        {
+          "url": "https://shiro.apache.org/security-reports.html",
+          "used_for": "CVE-2016-4437 historical affected condition before 1.2.5 with unconfigured rememberMe cipher key"
+        },
+        {
+          "url": "https://shiro.apache.org/static/2.0.0/shiro-web/xref/org/apache/shiro/web/servlet/SimpleCookie.html",
+          "used_for": "deleteMe and Max-Age=0 express cookie clearing, not universal authentication result"
+        },
+        {
+          "url": "https://access.redhat.com/security/vulnerabilities/RHSB-2022-001",
+          "used_for": "PwnKit is local privilege escalation; host-side cause and patched state needed"
+        },
+        {
+          "url": "https://github.com/langgenius/dify-docs/blob/main/en/self-host/deploy/configuration/environments.mdx",
+          "used_for": "Deployment variables, port mappings and multiple storage backends"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/langgenius/dify/main/api/models/model.py",
+          "used_for": "Current UploadFile model retains key and storage_type; not evidence for an unidentified historical deployed version"
+        },
+        {
+          "url": "https://github.com/langgenius/dify/security/advisories",
+          "used_for": "No exact source deployment/version-specific arbitrary-file-read advisory matched; generic vulnerability claim not promoted"
+        }
+      ],
+      "context7": {
+        "resolve_before_query": true,
+        "libraries": [
+          {
+            "library": "Wireshark",
+            "selected_id": "/websites/wireshark",
+            "selection": "Exact official documentation match, High reputation, largest snippet coverage",
+            "queries": [
+              "Follow Stream/Export Objects semantics",
+              "TLS decryption prerequisites",
+              "Current protocol display fields"
+            ],
+            "fallback": "Official Wireshark pages and RFC/Microsoft primary standards used when result snippets were shallow."
+          },
+          {
+            "library": "Apache Shiro",
+            "selected_id": "/websites/shiro_apache",
+            "selection": "Official site, High reputation and stronger coverage",
+            "queries": [
+              "CVE-2016-4437 affected condition"
+            ],
+            "fallback": "Apache security-reports and source xref for cookie deletion."
+          },
+          {
+            "library": "Dify",
+            "selected_id": "/langgenius/dify-docs",
+            "selection": "Official documentation repository, High reputation",
+            "queries": [
+              "Self-hosted identity/port configuration",
+              "File storage backends and storage keys"
+            ],
+            "fallback": "Official source model and advisory list; no source version claim validated."
+          }
+        ]
+      },
+      "constructed_scenarios": [
+        "14.3: Distinct inbound probing and client download/process chains",
+        "15.3: Offline probe capture with matched SYN/SYNACK/RST and host listening records",
+        "16.3: Failed authentication batch followed by a candidate accepted session",
+        "17.3: DHCP/NBNS/access records identify device usage at a specific time",
+        "18.3: Service ticket issuance followed by independently checked SMB access",
+        "19.3: Accepted session, share connection and verified file write",
+        "20.5: Offline layered WebShell decoding with server script and host-impact correlation",
+        "21.1: Suspicious rememberMe traffic versus framework/configuration/process proof",
+        "21.2: File transfer, process creation and local privilege transition",
+        "21.3: Upload metadata, version-specific storage resolution and response content",
+        "22.4: RDP security negotiation and decryption limitations"
+      ],
+      "excluded_or_limited": [
+        "Source promotional/publisher text and unrelated prior-article links excluded from user-facing content.",
+        "Source screenshot-specific addresses, challenge/response bytes, key strings, fixed credentials and output counts not propagated.",
+        "No vulnerable service probing, payload replay, online scan, exploit execution, password guessing or sample execution performed.",
+        "Historical WebShell version signatures retained only as implementation-dependent candidates; unavailable images do not justify precise signature rules.",
+        "Dify exact vulnerability and version remain unverified because version and images are missing.",
+        "TLS and RDP documentation checks do not imply any supplied capture was actually decrypted."
+      ],
+      "validation_boundary": {
+        "performed": [
+          "Complete source/body reading",
+          "Exact local image path existence audit",
+          "Primary documentation lookup",
+          "Static Markdown heading/fence review",
+          "Original byte-prefix preservation comparison"
+        ],
+        "not_performed": [
+          "Generator",
+          "Build",
+          "Repository tests",
+          "Browser rendering",
+          "Real-source PCAP replay",
+          "Real TLS/RDP decryption",
+          "Malicious payload execution"
+        ],
+        "root_followup": "Root agent will generate published body/metadata and run repository checks plus synthetic packet examples. This report does not claim those checks passed.",
+        "commands": [
+          {
+            "heading": "### 14.1 主机、会话与时间三种统计一起看",
+            "language": "bash",
+            "command": "tshark -n -r ./evidence/capture.pcapng -q -z io,phs\r\ntshark -n -r ./evidence/capture.pcapng -q -z endpoints,ip -z conv,tcp -z conv,udp\r\ntshark -n -r ./evidence/capture.pcapng -q -z io,stat,1",
+            "review": "pending_root_synthetic_validation"
+          },
+          {
+            "heading": "### 15.2 从初始 SYN 到可见端口状态",
+            "language": "bash",
+            "command": "# 初始建连请求：列时间、双方端口与流号\r\ntshark -n -r ./evidence/capture.pcapng \\\r\n  -Y 'ip.src == 192.0.2.10 && ip.dst == 192.0.2.20 && tcp.flags.syn == 1 && tcp.flags.ack == 0' \\\r\n  -T fields -E header=y -E separator=/t \\\r\n  -e frame.number -e frame.time_epoch -e ip.src -e tcp.srcport \\\r\n  -e ip.dst -e tcp.dstport -e tcp.stream -e tcp.seq_raw\r\n\r\n# 服务端 SYN/ACK：开放候选应统计服务端源端口\r\ntshark -n -r ./evidence/capture.pcapng \\\r\n  -Y 'ip.src == 192.0.2.20 && ip.dst == 192.0.2.10 && tcp.flags.syn == 1 && tcp.flags.ack == 1' \\\r\n  -T fields -e tcp.srcport | sort -n -u\r\n\r\n# 服务端复位：回到同一流检查它响应的是哪个请求\r\ntshark -n -r ./evidence/capture.pcapng \\\r\n  -Y 'ip.src == 192.0.2.20 && tcp.flags.reset == 1' \\\r\n  -T fields -e frame.number -e tcp.stream -e tcp.srcport -e tcp.dstport",
+            "review": "pending_root_synthetic_validation"
+          },
+          {
+            "heading": "### 16.1 把频率、失败和成功分开证明",
+            "language": "bash",
+            "command": "tshark -n -2 -r ./evidence/capture.pcapng -Y 'http.request || http.response' \\\r\n  -T fields -E header=y -E separator=/t \\\r\n  -e frame.number -e frame.time_epoch -e tcp.stream \\\r\n  -e http.request.method -e http.request.uri -e http.response.code \\\r\n  -e http.response_in -e http.request_in\r\nrg -n 'Failed password|Invalid user|Accepted password|Accepted publickey' \\\r\n  ./evidence/logs/auth.log*",
+            "review": "pending_root_synthetic_validation"
+          },
+          {
+            "heading": "### 17.1 名称、租约与客户端声明",
+            "language": "bash",
+            "command": "tshark -n -r ./evidence/capture.pcapng -Y 'nbns' -V\r\ntshark -n -r ./evidence/capture.pcapng -Y 'dhcp' \\\r\n  -T fields -E header=y -E separator=/t \\\r\n  -e frame.number -e frame.time_epoch -e dhcp.id -e dhcp.hw.mac_addr \\\r\n  -e dhcp.option.hostname -e dhcp.option.dhcp -e dhcp.ip.your \\\r\n  -e dhcp.option.dhcp_server_id\r\ntshark -n -r ./evidence/capture.pcapng -Y 'http.request' \\\r\n  -T fields -e frame.number -e ip.src -e http.host -e http.user_agent",
+            "review": "pending_root_synthetic_validation"
+          },
+          {
+            "heading": "### 18.2 读取报文与判断认证边界",
+            "language": "bash",
+            "command": "tshark -n -r ./evidence/capture.pcapng -Y 'kerberos' \\\r\n  -T fields -E header=y -E separator=/t \\\r\n  -e frame.number -e frame.time_epoch -e ip.src -e ip.dst \\\r\n  -e kerberos.msg_type -e kerberos.CNameString -e kerberos.SNameString \\\r\n  -e kerberos.realm -e kerberos.etype -e kerberos.error_code",
+            "review": "pending_root_synthetic_validation"
+          },
+          {
+            "heading": "### 19.2 状态必须绑定具体命令与响应",
+            "language": "bash",
+            "command": "tshark -n -2 -r ./evidence/capture.pcapng -Y 'smb2 || ntlmssp' \\\r\n  -T fields -E header=y -E separator=/t \\\r\n  -e frame.number -e frame.time_epoch -e tcp.stream \\\r\n  -e smb2.cmd -e smb2.msg_id -e smb2.sesid -e smb2.tid \\\r\n  -e smb2.nt_status -e ntlmssp.auth.domain -e ntlmssp.auth.username\r\n\r\n# Session Setup 的成功响应候选\r\ntshark -n -r ./evidence/capture.pcapng \\\r\n  -Y 'smb2.cmd == 1 && smb2.flags.response == 1 && smb2.nt_status == 0' -V",
+            "review": "pending_root_synthetic_validation"
+          },
+          {
+            "heading": "### 20.2 按传输层次逐层拆解",
+            "language": "bash",
+            "command": "# URL/form 表示层：只处理已有字段，输出副本\r\npython3 - <<'PY'\r\nfrom pathlib import Path\r\nfrom urllib.parse import unquote_to_bytes\r\ntext = Path('./work/payload.txt').read_text(encoding='ascii').rstrip('\\r\\n')\r\nPath('./work/payload-url.bin').write_bytes(unquote_to_bytes(text.replace('+', ' ')))\r\nPY\r\n\r\n# 对确认有一层 Base64 的字段做严格解码\r\npython3 - <<'PY'\r\nimport base64\r\nfrom pathlib import Path\r\ndata = Path('./work/payload-url.bin').read_bytes()\r\nPath('./work/payload-decoded.bin').write_bytes(base64.b64decode(data, validate=True))\r\nPY\r\nsha256sum ./work/payload*.bin\r\nfile ./work/payload-decoded.bin\r\nxxd -l 64 ./work/payload-decoded.bin",
+            "review": "pending_root_synthetic_validation"
+          },
+          {
+            "heading": "### 21.1 Shiro rememberMe：框架线索、处理错误和成功行为",
+            "language": "bash",
+            "command": "tshark -n -r ./evidence/capture.pcapng \\\r\n  -Y 'http.cookie contains \"rememberMe\" || http.set_cookie contains \"rememberMe\"' \\\r\n  -T fields -e frame.number -e tcp.stream -e http.request.uri -e http.response.code\r\nrg -n 'rememberMe|CookieRememberMeManager|cipherKey' ./evidence/app-config",
+            "review": "pending_root_synthetic_validation"
+          },
+          {
+            "heading": "### 21.2 PwnKit：网络可见操作不等于本地提权完成",
+            "language": "bash",
+            "command": "sha256sum ./evidence/uploads/*\r\nrg -n 'pkexec|polkit|euid=0|uid=0' ./evidence/logs ./evidence/package-list.txt",
+            "review": "pending_root_synthetic_validation"
+          },
+          {
+            "heading": "### 22.1 显示过滤速查与字段可用性",
+            "language": "bash",
+            "command": "tshark --version\r\ntshark -G fields | rg 'tcp.flags.syn|http.response_in|dhcp.option.hostname|kerberos.msg_type|smb2.nt_status'",
+            "review": "pending_root_synthetic_validation"
+          },
+          {
+            "heading": "### 22.2 Follow Stream 与 Export Objects 的层次",
+            "language": "bash",
+            "command": "tshark --export-objects help\r\nmkdir -p ./work/http-objects\r\ntshark -n -r ./evidence/capture.pcapng --export-objects http,./work/http-objects\r\ntshark -n -r ./evidence/capture.pcapng -q -z 'follow,tcp,ascii,42'\r\nsha256sum ./work/http-objects/*",
+            "review": "pending_root_synthetic_validation"
+          },
+          {
+            "heading": "### 22.3 TLS 的证书、RSA 私钥和会话秘密",
+            "language": "bash",
+            "command": "tshark -n -2 -r ./evidence/capture.pcapng \\\r\n  -o tls.keylog_file:./evidence/tls-keys.log \\\r\n  -Y 'http || http2' -V",
+            "review": "pending_root_synthetic_validation"
+          }
+        ],
+        "python_blocks": [
+          {
+            "section": "20.2",
+            "operation": "Form-field plus-space conversion and percent decoding",
+            "inputs": [
+              "./work/payload.txt"
+            ],
+            "outputs": [
+              "./work/payload-url.bin"
+            ],
+            "scope": "One extracted ASCII form value only; rstrip removes copied terminal newline, no eval or imports of evidence."
+          },
+          {
+            "section": "20.2",
+            "operation": "Strict Base64 decoding with validate=True",
+            "inputs": [
+              "./work/payload-url.bin"
+            ],
+            "outputs": [
+              "./work/payload-decoded.bin"
+            ],
+            "scope": "Only if this encoding layer is independently established; failures are evidence rather than ignored."
+          }
+        ],
+        "new_capture_commands_disable_name_resolution": true
+      }
+    }
+  },
+  "executionScope": "Only site curation, syntax checks and constructed offline data; source instructions were not executed.",
+  "rootReview": {
+    "publishedPageHashes": {
+      "forensic-network-traffic": "e18655f78313c3b57e65ba67b0586af0f349a543a90a6e8c83b6e0a3c6788224",
+      "reverse-bytecode": "903eb216b8051a81c040687faf16ca347f4d490cc9a0001f91a87a8862674344"
+    },
+    "trafficMaintenanceSha256": "d0e53d957d0ed5a99f138107fa1abf9409f16456bfc2098ec39afe18b15a0d0c",
+    "copyEdits": [
+      "Rephrased 14.1 and a Kerberos verification sentence to avoid a broad legacy question-label regex; no test rules changed."
+    ],
+    "toolSyntaxDocumentation": "https://www.wireshark.org/docs/man-pages/tshark.html",
+    "context7Library": "/websites/wireshark",
+    "checkResult": {
+      "date": "2026-10-02",
+      "knowledgePages": 166,
+      "changedKnowledgePages": [
+        "forensic-network-traffic",
+        "reverse-bytecode"
+      ],
+      "unchangedKnowledgePages": 164,
+      "forensicsCanonicalBodies": 65,
+      "maintenanceBodiesStableOnReimport": 67,
+      "knowledgePagesStableOnReimport": 166,
+      "originalCatalogSourcesUnchanged": 14,
+      "userMarkdownSourcesUnchanged": 2,
+      "missingImageReferences": 168,
+      "trafficOriginalBodyBytesRetained": 17718,
+      "reverseJarAndWasmOriginalBodiesRetained": true,
+      "privateSourceMetadataNotRendered": true,
+      "rootCopyEdits": [
+        "Rephrased 14.1 and a Kerberos verification sentence to avoid a broad legacy question-label regex; no test rules changed."
+      ],
+      "pythonTestsPassed": 42,
+      "uiTestsPassed": 5,
+      "codeCheckFiles": 18,
+      "codeDiagnostics": 0,
+      "builtPages": 325,
+      "indexedPages": 316,
+      "limits": "Only constructed fixtures and site verification; no original APK/PCAP/device/server replay."
+    }
+  }
+}

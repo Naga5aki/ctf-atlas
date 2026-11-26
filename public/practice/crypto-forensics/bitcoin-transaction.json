@@ -1,0 +1,14 @@
+{
+  "network": "synthetic",
+  "txid": "synthetic-current-tx",
+  "vin": [
+    {"txid": "synthetic-prev-tx", "vout": 0, "prevout": {"value": 0.0012}},
+    {"txid": "synthetic-prev-tx", "vout": 2, "prevout": {"value": 0.0008}}
+  ],
+  "vout": [
+    {"n": 0, "value": 0.0015, "scriptPubKey": {"type": "synthetic"}},
+    {"n": 1, "value": 0.00049, "scriptPubKey": {"type": "synthetic"}}
+  ],
+  "fee": 0.00001,
+  "vsize": 200
+}

@@ -1,0 +1,4010 @@
+{
+  "date": "2026-10-04",
+  "articleId": "forensic-xways-workflow",
+  "module": "Forensics",
+  "track": "综合取证",
+  "displayTrack": "通用方法",
+  "topic": "工具与路径",
+  "articleSHA256": "2bca5e6e95480235ecde2c9ee5284e01ccaaa53fba1a73681dd76251578a5e6c",
+  "factsBoundary": "Only eight user-supplied URLs; Forensics-Wiki wins conflicts; supplemental claims remain attributed.",
+  "counts": {
+    "sources": 8,
+    "sections": 18,
+    "extractedPointsMapped": 410,
+    "operationalOrLearningMapped": 390,
+    "nonKeyContext": 20,
+    "unmapped": 0,
+    "remainingKeypointGaps": 0
+  },
+  "imageReadScope": {
+    "read": 80,
+    "notIndividuallyRead": 110,
+    "introductionImageNumbersRead": [
+      3,
+      9,
+      10,
+      11,
+      13,
+      14,
+      46,
+      47
+    ],
+    "bGroupReadCounts": [
+      13,
+      23,
+      36
+    ]
+  },
+  "sources": [
+    {
+      "url": "https://www.forensics-wiki.com/node/0197f5eb-59ea-7d5d-a88f-d997aac44bdc",
+      "title": "X-Ways Forensics 入门指南（一）",
+      "readStatus": "read-visible-body",
+      "readScope": "当前隐藏浏览器 .tiptap.ProseMirror 全部正文自首至末读取；逐段核对原HTML缓存转换文本。",
+      "pointCount": 86,
+      "pointIds": [
+        "A1-P001",
+        "A1-P002",
+        "A1-P003",
+        "A1-P004",
+        "A1-P005",
+        "A1-P006",
+        "A1-P007",
+        "A1-P008",
+        "A1-P009",
+        "A1-P010",
+        "A1-P011",
+        "A1-P012",
+        "A1-P013",
+        "A1-P014",
+        "A1-P015",
+        "A1-P016",
+        "A1-P017",
+        "A1-P018",
+        "A1-P019",
+        "A1-P020",
+        "A1-P021",
+        "A1-P022",
+        "A1-P023",
+        "A1-P024",
+        "A1-P025",
+        "A1-P026",
+        "A1-P027",
+        "A1-P028",
+        "A1-P029",
+        "A1-P030",
+        "A1-P031",
+        "A1-P032",
+        "A1-P033",
+        "A1-P034",
+        "A1-P035",
+        "A1-P036",
+        "A1-P037",
+        "A1-P038",
+        "A1-P039",
+        "A1-P040",
+        "A1-P041",
+        "A1-P042",
+        "A1-P043",
+        "A1-P044",
+        "A1-P045",
+        "A1-P046",
+        "A1-P047",
+        "A1-P048",
+        "A1-P049",
+        "A1-P050",
+        "A1-P051",
+        "A1-P052",
+        "A1-P053",
+        "A1-P054",
+        "A1-P055",
+        "A1-P056",
+        "A1-P057",
+        "A1-P058",
+        "A1-P059",
+        "A1-P060",
+        "A1-P061",
+        "A1-P062",
+        "A1-P063",
+        "A1-P064",
+        "A1-P065",
+        "A1-P066",
+        "A1-P067",
+        "A1-P068",
+        "A1-P069",
+        "A1-P070",
+        "A1-P071",
+        "A1-P072",
+        "A1-P073",
+        "A1-P074",
+        "A1-P075",
+        "A1-P076",
+        "A1-P077",
+        "A1-P078",
+        "A1-I001",
+        "A1-I002",
+        "A1-I003",
+        "A1-I004",
+        "A1-I005",
+        "A1-I006",
+        "A1-I007",
+        "A1-I008"
+      ]
+    },
+    {
+      "url": "https://www.forensics-wiki.com/node/0197f603-6725-7f16-9edb-87c885033916",
+      "title": "使用 X-Ways Forensics Excire 照片分析模块进行照片分析",
+      "readStatus": "read-visible-body",
+      "readScope": "当前隐藏浏览器 .tiptap.ProseMirror 全部正文自首至末读取；逐段核对原HTML缓存转换文本。",
+      "pointCount": 98,
+      "pointIds": [
+        "A2-P001",
+        "A2-P002",
+        "A2-P003",
+        "A2-P004",
+        "A2-P005",
+        "A2-P006",
+        "A2-P007",
+        "A2-P008",
+        "A2-P009",
+        "A2-P010",
+        "A2-P011",
+        "A2-P012",
+        "A2-P013",
+        "A2-P014",
+        "A2-P015",
+        "A2-P016",
+        "A2-P017",
+        "A2-P018",
+        "A2-P019",
+        "A2-P020",
+        "A2-P021",
+        "A2-P022",
+        "A2-P023",
+        "A2-P024",
+        "A2-P025",
+        "A2-P026",
+        "A2-P027",
+        "A2-P028",
+        "A2-P029",
+        "A2-P030",
+        "A2-P031",
+        "A2-P032",
+        "A2-P033",
+        "A2-P034",
+        "A2-P035",
+        "A2-P036",
+        "A2-P037",
+        "A2-P038",
+        "A2-P039",
+        "A2-P040",
+        "A2-P041",
+        "A2-P042",
+        "A2-P043",
+        "A2-P044",
+        "A2-P045",
+        "A2-P046",
+        "A2-P047",
+        "A2-P048",
+        "A2-P049",
+        "A2-P050",
+        "A2-P051",
+        "A2-P052",
+        "A2-P053",
+        "A2-P054",
+        "A2-P055",
+        "A2-P056",
+        "A2-P057",
+        "A2-P058",
+        "A2-P059",
+        "A2-P060",
+        "A2-P061",
+        "A2-P062",
+        "A2-P063",
+        "A2-P064",
+        "A2-P065",
+        "A2-P066",
+        "A2-P067",
+        "A2-P068",
+        "A2-P069",
+        "A2-P070",
+        "A2-P071",
+        "A2-P072",
+        "A2-P073",
+        "A2-P074",
+        "A2-P075",
+        "A2-P076",
+        "A2-P077",
+        "A2-P078",
+        "A2-P079",
+        "A2-P080",
+        "A2-P081",
+        "A2-P082",
+        "A2-P083",
+        "A2-P084",
+        "A2-P085",
+        "A2-P086",
+        "A2-P087",
+        "A2-P088",
+        "A2-P089",
+        "A2-P090",
+        "A2-P091",
+        "A2-P092",
+        "A2-P093",
+        "A2-P094",
+        "A2-P095",
+        "A2-P096",
+        "A2-P097",
+        "A2-P098"
+      ]
+    },
+    {
+      "url": "https://www.forensics-wiki.com/node/0197f606-44de-70fa-840c-6ed2c0462d5c",
+      "title": "X-Ways Forensics 入门指南（二）——使用技巧",
+      "readStatus": "read-visible-body",
+      "readScope": "当前隐藏浏览器 .tiptap.ProseMirror 全部正文自首至末读取；逐段核对原HTML缓存转换文本。",
+      "pointCount": 38,
+      "pointIds": [
+        "A3-P001",
+        "A3-P002",
+        "A3-P003",
+        "A3-P004",
+        "A3-P005",
+        "A3-P006",
+        "A3-P007",
+        "A3-P008",
+        "A3-P009",
+        "A3-P010",
+        "A3-P011",
+        "A3-P012",
+        "A3-P013",
+        "A3-P014",
+        "A3-P015",
+        "A3-P016",
+        "A3-P017",
+        "A3-P018",
+        "A3-P019",
+        "A3-P020",
+        "A3-P021",
+        "A3-P022",
+        "A3-P023",
+        "A3-P024",
+        "A3-P025",
+        "A3-P026",
+        "A3-P027",
+        "A3-P028",
+        "A3-P029",
+        "A3-P030",
+        "A3-P031",
+        "A3-P032",
+        "A3-P033",
+        "A3-P034",
+        "A3-P035",
+        "A3-P036",
+        "A3-P037",
+        "A3-P038"
+      ]
+    },
+    {
+      "url": "https://www.forensics-wiki.com/node/0197f612-4279-7699-a18b-3ca961f7b7bb",
+      "title": "XWF 高效取证思路——多开提效",
+      "readStatus": "read-visible-body",
+      "readScope": {
+        "cached_html": "全部",
+        "live_dom": "全部正文；与缓存对读",
+        "images": 13,
+        "images_viewed": 13,
+        "method": "独立后台 IAB tab 1；原页灯箱逐图阅读",
+        "web_open_result": "inaccessible"
+      },
+      "pointCount": 28,
+      "pointIds": [
+        "B-M01",
+        "B-M02",
+        "B-M03",
+        "B-M04",
+        "B-M05",
+        "B-M06",
+        "B-M07",
+        "B-M08",
+        "B-M09",
+        "B-M10",
+        "B-M11",
+        "B-M12",
+        "B-M13",
+        "B-M14",
+        "B-M15",
+        "B-M16",
+        "B-M17",
+        "B-M18",
+        "B-M19",
+        "B-M20",
+        "B-M21",
+        "B-M22",
+        "B-M23",
+        "B-M24",
+        "B-M25",
+        "B-M26",
+        "B-M27",
+        "B-M28"
+      ]
+    },
+    {
+      "url": "https://www.forensics-wiki.com/node/0197fd30-0ac9-7077-b4a6-bb8badd8accf",
+      "title": "XWaysForensics功能介绍事件列表功能",
+      "readStatus": "read-visible-body",
+      "readScope": {
+        "cached_html": "全部",
+        "live_dom": "全部正文；与缓存对读",
+        "images": 23,
+        "images_viewed": 23,
+        "method": "独立后台 IAB tab 1；原页灯箱逐图阅读",
+        "web_open_result": "403"
+      },
+      "pointCount": 27,
+      "pointIds": [
+        "B-E01",
+        "B-E02",
+        "B-E03",
+        "B-E04",
+        "B-E05",
+        "B-E06",
+        "B-E07",
+        "B-E08",
+        "B-E09",
+        "B-E10",
+        "B-E11",
+        "B-E12",
+        "B-E13",
+        "B-E14",
+        "B-E15",
+        "B-E16",
+        "B-E17",
+        "B-E18",
+        "B-E19",
+        "B-E20",
+        "B-E21",
+        "B-E22",
+        "B-E23",
+        "B-E24",
+        "B-E25",
+        "B-E26",
+        "B-E27"
+      ]
+    },
+    {
+      "url": "https://www.forensics-wiki.com/node/0197fd4e-1ec0-7f00-a3a9-aa54a0705086",
+      "title": "XWaysForensics包含报告表标签的使用",
+      "readStatus": "read-visible-body",
+      "readScope": {
+        "cached_html": "全部",
+        "live_dom": "全部正文；与缓存对读",
+        "images": 36,
+        "images_viewed": 36,
+        "method": "独立后台 IAB tab 1；原页灯箱逐图阅读",
+        "web_open_result": "inaccessible"
+      },
+      "pointCount": 36,
+      "pointIds": [
+        "B-L01",
+        "B-L02",
+        "B-L03",
+        "B-L04",
+        "B-L05",
+        "B-L06",
+        "B-L07",
+        "B-L08",
+        "B-L09",
+        "B-L10",
+        "B-L11",
+        "B-L12",
+        "B-L13",
+        "B-L14",
+        "B-L15",
+        "B-L16",
+        "B-L17",
+        "B-L18",
+        "B-L19",
+        "B-L20",
+        "B-L21",
+        "B-L22",
+        "B-L23",
+        "B-L24",
+        "B-L25",
+        "B-L26",
+        "B-L27",
+        "B-L28",
+        "B-L29",
+        "B-L30",
+        "B-L31",
+        "B-L32",
+        "B-L33",
+        "B-L34",
+        "B-L35",
+        "B-L36"
+      ]
+    },
+    {
+      "url": "https://wenku.csdn.net/column/45z64793a5",
+      "title": "【X-ways Forensics全面攻略】：从入门到精通，数字取证的10大实用技巧",
+      "readStatus": "read-visible-body",
+      "readScope": {
+        "included": "wenku-visible.txt 24-91知识概览、95-155本文目录、159-521六章正文",
+        "excluded": "535行之后相关推荐、作者卡片、专栏简介/其他文章目录及其他推荐；未访问关联文章/付费下载",
+        "completeness": "本页可见正文读至6.3.3；370行作者称第四章部分内容，不推断未展示章节",
+        "nonInstructionContext": "标题/作者、宣传性评价及旧路径只作来源定位/版本背景；正文无需要继承的价格参数。"
+      },
+      "pointCount": 53,
+      "pointIds": [
+        "CSDN-001",
+        "CSDN-002",
+        "CSDN-003",
+        "CSDN-004",
+        "CSDN-005",
+        "CSDN-006",
+        "CSDN-007",
+        "CSDN-008",
+        "CSDN-009",
+        "CSDN-010",
+        "CSDN-011",
+        "CSDN-012",
+        "CSDN-013",
+        "CSDN-014",
+        "CSDN-015",
+        "CSDN-016",
+        "CSDN-017",
+        "CSDN-018",
+        "CSDN-019",
+        "CSDN-020",
+        "CSDN-021",
+        "CSDN-022",
+        "CSDN-023",
+        "CSDN-024",
+        "CSDN-025",
+        "CSDN-026",
+        "CSDN-027",
+        "CSDN-028",
+        "CSDN-029",
+        "CSDN-030",
+        "CSDN-031",
+        "CSDN-032",
+        "CSDN-033",
+        "CSDN-034",
+        "CSDN-035",
+        "CSDN-036",
+        "CSDN-037",
+        "CSDN-038",
+        "CSDN-039",
+        "CSDN-040",
+        "CSDN-041",
+        "CSDN-042",
+        "CSDN-043",
+        "CSDN-044",
+        "CSDN-045",
+        "CSDN-046",
+        "CSDN-047",
+        "CSDN-048",
+        "CSDN-049",
+        "CSDN-050",
+        "CSDN-051",
+        "CSDN-052",
+        "CSDN-053"
+      ]
+    },
+    {
+      "url": "https://www.cnblogs.com/suv789/p/18304375",
+      "title": "掌握 X-Ways Forensics 的基本操作和高级功能；深入了解 X-Ways Forensics 的高级功能和技术，掌握 X-Ways Forensics 的深层次功能和技术，深入的技术和方法；基础到高级的 X-Ways Forensics 使用技术和方法，",
+      "readStatus": "read-visible-body",
+      "readScope": {
+        "included": "功能表、历史/演进、功能分类、应用背景、初/中/高/专家/顶级五档大纲",
+        "excluded": "导航、评论/网站页脚",
+        "completeness": "正文至顶级大纲结语；页面为主题大纲，并未提供五套实际操作教程",
+        "nonInstructionContext": "发展年份/推广性总结只留来源差异；不作为软件操作方法事实。"
+      },
+      "pointCount": 44,
+      "pointIds": [
+        "BLOG-001",
+        "BLOG-002",
+        "BLOG-003",
+        "BLOG-004",
+        "BLOG-005",
+        "BLOG-006",
+        "BLOG-007",
+        "BLOG-008",
+        "BLOG-009",
+        "BLOG-010",
+        "BLOG-011",
+        "BLOG-012",
+        "BLOG-013",
+        "BLOG-014",
+        "BLOG-015",
+        "BLOG-016",
+        "BLOG-017",
+        "BLOG-018",
+        "BLOG-019",
+        "BLOG-020",
+        "BLOG-021",
+        "BLOG-022",
+        "BLOG-023",
+        "BLOG-024",
+        "BLOG-025",
+        "BLOG-026",
+        "BLOG-027",
+        "BLOG-028",
+        "BLOG-029",
+        "BLOG-030",
+        "BLOG-031",
+        "BLOG-032",
+        "BLOG-033",
+        "BLOG-034",
+        "BLOG-035",
+        "BLOG-036",
+        "BLOG-037",
+        "BLOG-038",
+        "BLOG-039",
+        "BLOG-040",
+        "BLOG-041",
+        "BLOG-042",
+        "BLOG-043",
+        "BLOG-044"
+      ]
+    }
+  ],
+  "pointMapping": [
+    {
+      "id": "A1-P001",
+      "sections": [
+        "01"
+      ],
+      "status": "covered",
+      "reason": "指定来源要点已在目标章节改写或与同主题步骤合并。"
+    },
+    {
+      "id": "A1-P002",
+      "sections": [
+        "09"
+      ],
+      "status": "covered_with_limit",
+      "reason": "核心近似体积100 MiB在09明确区分MPlayer配置总体积；未量化的低内存形容作为上下文，不作保证。"
+    },
+    {
+      "id": "A1-P003",
+      "sections": [
+        "01"
+      ],
+      "status": "covered_with_limit",
+      "reason": "01保留随包WinHex与改名对应运行方式；具体位数规则是原教程说明，不设为必须操作。"
+    },
+    {
+      "id": "A1-P004",
+      "sections": [
+        "01"
+      ],
+      "status": "covered",
+      "reason": "指定来源要点已在目标章节改写或与同主题步骤合并。"
+    },
+    {
+      "id": "A1-P005",
+      "sections": [
+        "01"
+      ],
+      "status": "covered_with_limit",
+      "reason": "01列功能概述包含病毒查杀；未增加查杀入口/参数。"
+    },
+    {
+      "id": "A1-P006",
+      "sections": [
+        "01"
+      ],
+      "status": "covered",
+      "reason": "指定来源要点已在目标章节改写或与同主题步骤合并。"
+    },
+    {
+      "id": "A1-P007",
+      "sections": [
+        "04",
+        "18"
+      ],
+      "status": "context",
+      "reason": "04/18保留旧演示版本与历史限定；约2019发行及作者撰文时21.1不是操作步骤，不逐项重述。"
+    },
+    {
+      "id": "A1-P008",
+      "sections": [
+        "18"
+      ],
+      "status": "context",
+      "reason": "非关键且作者自称回忆的首发年份；第18保留2001/2003差异而不确认历史。"
+    },
+    {
+      "id": "A1-P009",
+      "sections": [
+        "18"
+      ],
+      "status": "context",
+      "reason": "作者面向新手的写作目的、参考书/手册背景，不是独立操作要点；第18说明资源推荐不作为步骤。"
+    },
+    {
+      "id": "A1-P010",
+      "sections": [
+        "18"
+      ],
+      "status": "context",
+      "reason": "参考书年份与语言属于资料推荐背景；未采用外链内容或引入版本现状。"
+    },
+    {
+      "id": "A1-P011",
+      "sections": [
+        "02"
+      ],
+      "status": "covered_with_limit",
+      "reason": "指定来源要点已在目标章节改写或与同主题步骤合并。"
+    },
+    {
+      "id": "A1-P012",
+      "sections": [
+        "02"
+      ],
+      "status": "covered",
+      "reason": "指定来源要点已在目标章节改写或与同主题步骤合并。"
+    },
+    {
+      "id": "A1-P013",
+      "sections": [
+        "02"
+      ],
+      "status": "covered",
+      "reason": "指定来源要点已在目标章节改写或与同主题步骤合并。"
+    },
+    {
+      "id": "A1-P014",
+      "sections": [
+        "02"
+      ],
+      "status": "covered_with_limit",
+      "reason": "02明确采用Wiki的数据库外部查看器方案，避免扩写当前内置能力；MPlayer组件路径另见03。"
+    },
+    {
+      "id": "A1-P015",
+      "sections": [
+        "02"
+      ],
+      "status": "covered_with_limit",
+      "reason": "指定来源要点已在目标章节改写或与同主题步骤合并。"
+    },
+    {
+      "id": "A1-P016",
+      "sections": [
+        "02"
+      ],
+      "status": "covered_with_limit",
+      "reason": "指定来源要点已在目标章节改写或与同主题步骤合并。"
+    },
+    {
+      "id": "A1-P017",
+      "sections": [
+        "04"
+      ],
+      "status": "covered_with_limit",
+      "reason": "指定来源要点已在目标章节改写或与同主题步骤合并。"
+    },
+    {
+      "id": "A1-P018",
+      "sections": [
+        "04"
+      ],
+      "status": "covered_with_limit",
+      "reason": "指定来源要点已在目标章节改写或与同主题步骤合并。"
+    },
+    {
+      "id": "A1-P019",
+      "sections": [
+        "04"
+      ],
+      "status": "covered",
+      "reason": "指定来源要点已在目标章节改写或与同主题步骤合并。"
+    },
+    {
+      "id": "A1-P020",
+      "sections": [
+        "04"
+      ],
+      "status": "covered_with_limit",
+      "reason": "指定来源要点已在目标章节改写或与同主题步骤合并。"
+    },
+    {
+      "id": "A1-P021",
+      "sections": [
+        "04",
+        "18"
+      ],
+      "status": "context",
+      "reason": "原比赛检材标识与加载截图为原例背景；第04保留建案/加镜像流程，不宣称复现该比赛检材。"
+    },
+    {
+      "id": "A1-P022",
+      "sections": [
+        "04"
+      ],
+      "status": "covered_with_limit",
+      "reason": "指定来源要点已在目标章节改写或与同主题步骤合并。"
+    },
+    {
+      "id": "A1-P023",
+      "sections": [
+        "05"
+      ],
+      "status": "covered_with_limit",
+      "reason": "05保留目标层级平铺/分区范围，不必沿用原例H名称；鼠标右键平铺入口是源文步骤而非新能力。"
+    },
+    {
+      "id": "A1-P024",
+      "sections": [
+        "05"
+      ],
+      "status": "covered_with_limit",
+      "reason": "05保留Wechat*名称模式；H用户名为非关键原例标识，用用户目录范围概括。"
+    },
+    {
+      "id": "A1-P025",
+      "sections": [
+        "05"
+      ],
+      "status": "covered",
+      "reason": "指定来源要点已在目标章节改写或与同主题步骤合并。"
+    },
+    {
+      "id": "A1-P026",
+      "sections": [
+        "05"
+      ],
+      "status": "covered_with_limit",
+      "reason": "05保留Windows Registry类型、Activate及左侧范围；选具体类型/全选属于同一筛选层级。"
+    },
+    {
+      "id": "A1-P027",
+      "sections": [
+        "05",
+        "18"
+      ],
+      "status": "context",
+      "reason": "接近瞬时为作者未量化的性能体验；第18排除推广评价，没有改写为速度保证。"
+    },
+    {
+      "id": "A1-P028",
+      "sections": [
+        "06"
+      ],
+      "status": "covered_with_limit",
+      "reason": "指定来源要点已在目标章节改写或与同主题步骤合并。"
+    },
+    {
+      "id": "A1-P029",
+      "sections": [
+        "06"
+      ],
+      "status": "covered",
+      "reason": "指定来源要点已在目标章节改写或与同主题步骤合并。"
+    },
+    {
+      "id": "A1-P030",
+      "sections": [
+        "06"
+      ],
+      "status": "covered_with_limit",
+      "reason": "06保留BitLocker、处理中已有命中、结束进入结果页；图中切换按钮未读，不补名称。"
+    },
+    {
+      "id": "A1-P031",
+      "sections": [
+        "06"
+      ],
+      "status": "covered_with_limit",
+      "reason": "指定来源要点已在目标章节改写或与同主题步骤合并。"
+    },
+    {
+      "id": "A1-P032",
+      "sections": [
+        "06"
+      ],
+      "status": "covered_with_limit",
+      "reason": "06保留受损文件系统Hex定位场景；WinHex教程参考建议为背景，不引入额外恢复语法。"
+    },
+    {
+      "id": "A1-P033",
+      "sections": [
+        "07"
+      ],
+      "status": "covered_with_limit",
+      "reason": "指定来源要点已在目标章节改写或与同主题步骤合并。"
+    },
+    {
+      "id": "A1-P034",
+      "sections": [
+        "07"
+      ],
+      "status": "covered",
+      "reason": "指定来源要点已在目标章节改写或与同主题步骤合并。"
+    },
+    {
+      "id": "A1-P035",
+      "sections": [
+        "02",
+        "13"
+      ],
+      "status": "covered",
+      "reason": "指定来源要点已在目标章节改写或与同主题步骤合并。"
+    },
+    {
+      "id": "A1-P036",
+      "sections": [
+        "13"
+      ],
+      "status": "covered",
+      "reason": "指定来源要点已在目标章节改写或与同主题步骤合并。"
+    },
+    {
+      "id": "A1-P037",
+      "sections": [
+        "13"
+      ],
+      "status": "covered_with_limit",
+      "reason": "指定来源要点已在目标章节改写或与同主题步骤合并。"
+    },
+    {
+      "id": "A1-P038",
+      "sections": [
+        "08"
+      ],
+      "status": "covered",
+      "reason": "指定来源要点已在目标章节改写或与同主题步骤合并。"
+    },
+    {
+      "id": "A1-P039",
+      "sections": [
+        "08"
+      ],
+      "status": "covered",
+      "reason": "指定来源要点已在目标章节改写或与同主题步骤合并。"
+    },
+    {
+      "id": "A1-P040",
+      "sections": [
+        "08"
+      ],
+      "status": "covered_with_limit",
+      "reason": "指定来源要点已在目标章节改写或与同主题步骤合并。"
+    },
+    {
+      "id": "A1-P041",
+      "sections": [
+        "08"
+      ],
+      "status": "covered_with_limit",
+      "reason": "08保留单Hive对应规则、全部Hive/全部规则便利流程，单选/多选由具体/全部操作归并。"
+    },
+    {
+      "id": "A1-P042",
+      "sections": [
+        "08"
+      ],
+      "status": "covered",
+      "reason": "指定来源要点已在目标章节改写或与同主题步骤合并。"
+    },
+    {
+      "id": "A1-P043",
+      "sections": [
+        "08"
+      ],
+      "status": "covered",
+      "reason": "报告检索键在08逐项列出，含源文有歧义字段的限定。"
+    },
+    {
+      "id": "A1-P044",
+      "sections": [
+        "08"
+      ],
+      "status": "covered",
+      "reason": "报告检索键在08逐项列出，含源文有歧义字段的限定。"
+    },
+    {
+      "id": "A1-P045",
+      "sections": [
+        "08"
+      ],
+      "status": "covered",
+      "reason": "报告检索键在08逐项列出，含源文有歧义字段的限定。"
+    },
+    {
+      "id": "A1-P046",
+      "sections": [
+        "08"
+      ],
+      "status": "covered",
+      "reason": "报告检索键在08逐项列出，含源文有歧义字段的限定。"
+    },
+    {
+      "id": "A1-P047",
+      "sections": [
+        "08"
+      ],
+      "status": "covered",
+      "reason": "报告检索键在08逐项列出，含源文有歧义字段的限定。"
+    },
+    {
+      "id": "A1-P048",
+      "sections": [
+        "08"
+      ],
+      "status": "covered",
+      "reason": "报告检索键在08逐项列出，含源文有歧义字段的限定。"
+    },
+    {
+      "id": "A1-P049",
+      "sections": [
+        "08"
+      ],
+      "status": "covered",
+      "reason": "报告检索键在08逐项列出，含源文有歧义字段的限定。"
+    },
+    {
+      "id": "A1-P050",
+      "sections": [
+        "08"
+      ],
+      "status": "covered",
+      "reason": "报告检索键在08逐项列出，含源文有歧义字段的限定。"
+    },
+    {
+      "id": "A1-P051",
+      "sections": [
+        "08"
+      ],
+      "status": "covered",
+      "reason": "报告检索键在08逐项列出，含源文有歧义字段的限定。"
+    },
+    {
+      "id": "A1-P052",
+      "sections": [
+        "08"
+      ],
+      "status": "covered",
+      "reason": "报告检索键在08逐项列出，含源文有歧义字段的限定。"
+    },
+    {
+      "id": "A1-P053",
+      "sections": [
+        "08"
+      ],
+      "status": "covered",
+      "reason": "报告检索键在08逐项列出，含源文有歧义字段的限定。"
+    },
+    {
+      "id": "A1-P054",
+      "sections": [
+        "08"
+      ],
+      "status": "covered",
+      "reason": "报告检索键在08逐项列出，含源文有歧义字段的限定。"
+    },
+    {
+      "id": "A1-P055",
+      "sections": [
+        "08"
+      ],
+      "status": "covered_with_limit",
+      "reason": "报告检索键在08逐项列出，含源文有歧义字段的限定。"
+    },
+    {
+      "id": "A1-P056",
+      "sections": [
+        "08"
+      ],
+      "status": "covered",
+      "reason": "报告检索键在08逐项列出，含源文有歧义字段的限定。"
+    },
+    {
+      "id": "A1-P057",
+      "sections": [
+        "08"
+      ],
+      "status": "covered_with_limit",
+      "reason": "报告检索键在08逐项列出，含源文有歧义字段的限定。"
+    },
+    {
+      "id": "A1-P058",
+      "sections": [
+        "08"
+      ],
+      "status": "covered",
+      "reason": "报告检索键在08逐项列出，含源文有歧义字段的限定。"
+    },
+    {
+      "id": "A1-P059",
+      "sections": [
+        "08"
+      ],
+      "status": "covered",
+      "reason": "报告检索键在08逐项列出，含源文有歧义字段的限定。"
+    },
+    {
+      "id": "A1-P060",
+      "sections": [
+        "08"
+      ],
+      "status": "covered",
+      "reason": "报告检索键在08逐项列出，含源文有歧义字段的限定。"
+    },
+    {
+      "id": "A1-P061",
+      "sections": [
+        "08"
+      ],
+      "status": "covered",
+      "reason": "报告检索键在08逐项列出，含源文有歧义字段的限定。"
+    },
+    {
+      "id": "A1-P062",
+      "sections": [
+        "08"
+      ],
+      "status": "covered",
+      "reason": "报告检索键在08逐项列出，含源文有歧义字段的限定。"
+    },
+    {
+      "id": "A1-P063",
+      "sections": [
+        "08"
+      ],
+      "status": "covered",
+      "reason": "报告检索键在08逐项列出，含源文有歧义字段的限定。"
+    },
+    {
+      "id": "A1-P064",
+      "sections": [
+        "08"
+      ],
+      "status": "covered",
+      "reason": "报告检索键在08逐项列出，含源文有歧义字段的限定。"
+    },
+    {
+      "id": "A1-P065",
+      "sections": [
+        "08"
+      ],
+      "status": "covered_with_limit",
+      "reason": "报告检索键在08逐项列出，含源文有歧义字段的限定。"
+    },
+    {
+      "id": "A1-P066",
+      "sections": [
+        "08"
+      ],
+      "status": "covered",
+      "reason": "报告检索键在08逐项列出，含源文有歧义字段的限定。"
+    },
+    {
+      "id": "A1-P067",
+      "sections": [
+        "08"
+      ],
+      "status": "covered",
+      "reason": "报告检索键在08逐项列出，含源文有歧义字段的限定。"
+    },
+    {
+      "id": "A1-P068",
+      "sections": [
+        "08"
+      ],
+      "status": "covered",
+      "reason": "报告检索键在08逐项列出，含源文有歧义字段的限定。"
+    },
+    {
+      "id": "A1-P069",
+      "sections": [
+        "08"
+      ],
+      "status": "covered",
+      "reason": "报告检索键在08逐项列出，含源文有歧义字段的限定。"
+    },
+    {
+      "id": "A1-P070",
+      "sections": [
+        "08"
+      ],
+      "status": "covered",
+      "reason": "报告检索键在08逐项列出，含源文有歧义字段的限定。"
+    },
+    {
+      "id": "A1-P071",
+      "sections": [
+        "08"
+      ],
+      "status": "covered",
+      "reason": "报告检索键在08逐项列出，含源文有歧义字段的限定。"
+    },
+    {
+      "id": "A1-P072",
+      "sections": [
+        "08"
+      ],
+      "status": "covered",
+      "reason": "报告检索键在08逐项列出，含源文有歧义字段的限定。"
+    },
+    {
+      "id": "A1-P073",
+      "sections": [
+        "08"
+      ],
+      "status": "covered",
+      "reason": "报告检索键在08逐项列出，含源文有歧义字段的限定。"
+    },
+    {
+      "id": "A1-P074",
+      "sections": [
+        "08"
+      ],
+      "status": "covered",
+      "reason": "报告检索键在08逐项列出，含源文有歧义字段的限定。"
+    },
+    {
+      "id": "A1-P075",
+      "sections": [
+        "08"
+      ],
+      "status": "covered_with_limit",
+      "reason": "报告检索键在08逐项列出，含源文有歧义字段的限定。"
+    },
+    {
+      "id": "A1-P076",
+      "sections": [
+        "08"
+      ],
+      "status": "covered",
+      "reason": "报告检索键在08逐项列出，含源文有歧义字段的限定。"
+    },
+    {
+      "id": "A1-P077",
+      "sections": [
+        "08"
+      ],
+      "status": "covered",
+      "reason": "报告检索键在08逐项列出，含源文有歧义字段的限定。"
+    },
+    {
+      "id": "A1-P078",
+      "sections": [
+        "08"
+      ],
+      "status": "covered_with_limit",
+      "reason": "报告检索键在08逐项列出，含源文有歧义字段的限定。"
+    },
+    {
+      "id": "A1-I001",
+      "sections": [
+        "02"
+      ],
+      "status": "covered_with_limit",
+      "reason": "02按已读Wiki截图Help→Setup→中文优先，区分补充页写法。"
+    },
+    {
+      "id": "A1-I002",
+      "sections": [
+        "02"
+      ],
+      "status": "covered_with_limit",
+      "reason": "02完整保留右键Options/Endian/进制/ASCII时间/UTC+8菜单项。"
+    },
+    {
+      "id": "A1-I003",
+      "sections": [
+        "02"
+      ],
+      "status": "covered_with_limit",
+      "reason": "02保留数值、浮点、日期、标识解释类型；灰显Min's instead of sec's、Transparency及当时勾选状态为非关键图示上下文，不作为配置建议。"
+    },
+    {
+      "id": "A1-I004",
+      "sections": [
+        "04"
+      ],
+      "status": "covered_with_limit",
+      "reason": "04保留Case Data内的File→Create New Case，区分主File。"
+    },
+    {
+      "id": "A1-I005",
+      "sections": [
+        "04"
+      ],
+      "status": "covered_with_limit",
+      "reason": "04保留Case Data内的File→Add Image...。"
+    },
+    {
+      "id": "A1-I006",
+      "sections": [
+        "04"
+      ],
+      "status": "covered_with_limit",
+      "reason": "04完整保留Raw/Container、Evidence File、All Types扩展名；All Files是文件选择器通用显示项，非格式支持要点。"
+    },
+    {
+      "id": "A1-I007",
+      "sections": [
+        "08"
+      ],
+      "status": "covered_with_limit",
+      "reason": "08保留Registry Viewer左上Create Report...；Include Value Slack、Verbose Printouts、Export list是未在正文展开用途的可选截图上下文，不增加教程流程。"
+    },
+    {
+      "id": "A1-I008",
+      "sections": [
+        "08"
+      ],
+      "status": "covered_with_limit",
+      "reason": "08保留全部10种Reg Report规则类别与.txt后缀。"
+    },
+    {
+      "id": "A2-P001",
+      "sections": [
+        "09"
+      ],
+      "status": "covered_with_limit",
+      "reason": "09功能概述+10人脸/外观标签承载面部、人物、物品和整体要素，未给识别准确率。"
+    },
+    {
+      "id": "A2-P002",
+      "sections": [
+        "09"
+      ],
+      "status": "covered_with_limit",
+      "reason": "指定来源要点已在目标章节改写或与同主题步骤合并。"
+    },
+    {
+      "id": "A2-P003",
+      "sections": [
+        "09"
+      ],
+      "status": "covered_with_limit",
+      "reason": "指定来源要点已在目标章节改写或与同主题步骤合并。"
+    },
+    {
+      "id": "A2-P004",
+      "sections": [
+        "09"
+      ],
+      "status": "covered_with_limit",
+      "reason": "09保留明确64位OS范围；不推断其他OS不能配置目录的诊断细节。"
+    },
+    {
+      "id": "A2-P005",
+      "sections": [
+        "09"
+      ],
+      "status": "covered_with_limit",
+      "reason": "指定来源要点已在目标章节改写或与同主题步骤合并。"
+    },
+    {
+      "id": "A2-P006",
+      "sections": [
+        "09"
+      ],
+      "status": "covered_with_limit",
+      "reason": "指定来源要点已在目标章节改写或与同主题步骤合并。"
+    },
+    {
+      "id": "A2-P007",
+      "sections": [
+        "09"
+      ],
+      "status": "covered_with_limit",
+      "reason": "指定来源要点已在目标章节改写或与同主题步骤合并。"
+    },
+    {
+      "id": "A2-P008",
+      "sections": [
+        "09"
+      ],
+      "status": "covered_with_limit",
+      "reason": "09保留对应版本res、合适解压目录和选项→文件查看；偏好放XWF目录为作者可选建议。"
+    },
+    {
+      "id": "A2-P009",
+      "sections": [
+        "09"
+      ],
+      "status": "covered",
+      "reason": "指定来源要点已在目标章节改写或与同主题步骤合并。"
+    },
+    {
+      "id": "A2-P010",
+      "sections": [
+        "09"
+      ],
+      "status": "covered_with_limit",
+      "reason": "09保留目录导入、递归、选中流程；原自建测试集构造与图片内容是背景，未读图不猜。"
+    },
+    {
+      "id": "A2-P011",
+      "sections": [
+        "09"
+      ],
+      "status": "covered",
+      "reason": "指定来源要点已在目标章节改写或与同主题步骤合并。"
+    },
+    {
+      "id": "A2-P012",
+      "sections": [
+        "09",
+        "05"
+      ],
+      "status": "covered_with_limit",
+      "reason": "09标签显示与05空栏/列宽一般方法组合覆盖，未重复同一列配置步骤。"
+    },
+    {
+      "id": "A2-P013",
+      "sections": [
+        "09",
+        "12"
+      ],
+      "status": "covered_with_limit",
+      "reason": "12区分绿色人工、灰色XWF、棕色Excire标签来源，避免全部标签都解释为Excire。"
+    },
+    {
+      "id": "A2-P014",
+      "sections": [
+        "09",
+        "10"
+      ],
+      "status": "covered",
+      "reason": "指定来源要点已在目标章节改写或与同主题步骤合并。"
+    },
+    {
+      "id": "A2-P015",
+      "sections": [
+        "09",
+        "10"
+      ],
+      "status": "covered_with_limit",
+      "reason": "09保留隐蔽携枪原测试例并限定作者简单测试、没有检出率。"
+    },
+    {
+      "id": "A2-P016",
+      "sections": [
+        "09",
+        "10"
+      ],
+      "status": "covered_with_limit",
+      "reason": "09/10保留Nudity/Nude Pornography与误判，词表Nude Photography差异并列，不统一。"
+    },
+    {
+      "id": "A2-P017",
+      "sections": [
+        "10"
+      ],
+      "status": "covered",
+      "reason": "指定来源要点已在目标章节改写或与同主题步骤合并。"
+    },
+    {
+      "id": "A2-P018",
+      "sections": [
+        "10"
+      ],
+      "status": "covered",
+      "reason": "指定来源要点已在目标章节改写或与同主题步骤合并。"
+    },
+    {
+      "id": "A2-P019",
+      "sections": [
+        "10"
+      ],
+      "status": "covered_with_limit",
+      "reason": "10保留Marit Larsen参考例；歌手身份与具体照片姿态不是操作条件。"
+    },
+    {
+      "id": "A2-P020",
+      "sections": [
+        "10"
+      ],
+      "status": "covered_with_limit",
+      "reason": "10保留严格度5/3及两张/漏一张/全部/无误判，明确非通用阈值。"
+    },
+    {
+      "id": "A2-P021",
+      "sections": [
+        "10"
+      ],
+      "status": "covered_with_limit",
+      "reason": "10明确保留多张参考照片产生对应多种过滤结果及标签命中。"
+    },
+    {
+      "id": "A2-P022",
+      "sections": [
+        "10"
+      ],
+      "status": "covered_with_limit",
+      "reason": "10保留marker-help路径；首次弹帮助为界面背景，不影响再次查看操作。"
+    },
+    {
+      "id": "A2-P023",
+      "sections": [
+        "10"
+      ],
+      "status": "covered_with_limit",
+      "reason": "指定来源要点已在目标章节改写或与同主题步骤合并。"
+    },
+    {
+      "id": "A2-P024",
+      "sections": [
+        "10"
+      ],
+      "status": "covered_with_limit",
+      "reason": "10保留实际测试生成、非固定全量清单；只列英文标签，作者自行翻译背景不提升为官方释义。"
+    },
+    {
+      "id": "A2-P025",
+      "sections": [
+        "10"
+      ],
+      "status": "covered_with_limit",
+      "reason": "10逐项保留英文标签并按语义用途分组；普通中文直译不重复，特殊原测试解释/误判/歧义另写。"
+    },
+    {
+      "id": "A2-P026",
+      "sections": [
+        "10"
+      ],
+      "status": "covered_with_limit",
+      "reason": "10逐项保留英文标签并按语义用途分组；普通中文直译不重复，特殊原测试解释/误判/歧义另写。"
+    },
+    {
+      "id": "A2-P027",
+      "sections": [
+        "10"
+      ],
+      "status": "covered_with_limit",
+      "reason": "10逐项保留英文标签并按语义用途分组；普通中文直译不重复，特殊原测试解释/误判/歧义另写。"
+    },
+    {
+      "id": "A2-P028",
+      "sections": [
+        "10"
+      ],
+      "status": "covered_with_limit",
+      "reason": "10逐项保留英文标签并按语义用途分组；普通中文直译不重复，特殊原测试解释/误判/歧义另写。"
+    },
+    {
+      "id": "A2-P029",
+      "sections": [
+        "10"
+      ],
+      "status": "covered_with_limit",
+      "reason": "10逐项保留英文标签并按语义用途分组；普通中文直译不重复，特殊原测试解释/误判/歧义另写。"
+    },
+    {
+      "id": "A2-P030",
+      "sections": [
+        "10"
+      ],
+      "status": "covered_with_limit",
+      "reason": "10逐项保留英文标签并按语义用途分组；普通中文直译不重复，特殊原测试解释/误判/歧义另写。"
+    },
+    {
+      "id": "A2-P031",
+      "sections": [
+        "10"
+      ],
+      "status": "covered_with_limit",
+      "reason": "10逐项保留英文标签并按语义用途分组；普通中文直译不重复，特殊原测试解释/误判/歧义另写。"
+    },
+    {
+      "id": "A2-P032",
+      "sections": [
+        "10"
+      ],
+      "status": "covered_with_limit",
+      "reason": "10逐项保留英文标签并按语义用途分组；普通中文直译不重复，特殊原测试解释/误判/歧义另写。"
+    },
+    {
+      "id": "A2-P033",
+      "sections": [
+        "10"
+      ],
+      "status": "covered_with_limit",
+      "reason": "10逐项保留英文标签并按语义用途分组；普通中文直译不重复，特殊原测试解释/误判/歧义另写。"
+    },
+    {
+      "id": "A2-P034",
+      "sections": [
+        "10"
+      ],
+      "status": "covered_with_limit",
+      "reason": "10逐项保留英文标签并按语义用途分组；普通中文直译不重复，特殊原测试解释/误判/歧义另写。"
+    },
+    {
+      "id": "A2-P035",
+      "sections": [
+        "10"
+      ],
+      "status": "covered_with_limit",
+      "reason": "10逐项保留英文标签并按语义用途分组；普通中文直译不重复，特殊原测试解释/误判/歧义另写。"
+    },
+    {
+      "id": "A2-P036",
+      "sections": [
+        "10"
+      ],
+      "status": "covered_with_limit",
+      "reason": "10逐项保留英文标签并按语义用途分组；普通中文直译不重复，特殊原测试解释/误判/歧义另写。"
+    },
+    {
+      "id": "A2-P037",
+      "sections": [
+        "10"
+      ],
+      "status": "covered_with_limit",
+      "reason": "10逐项保留英文标签并按语义用途分组；普通中文直译不重复，特殊原测试解释/误判/歧义另写。"
+    },
+    {
+      "id": "A2-P038",
+      "sections": [
+        "10"
+      ],
+      "status": "covered_with_limit",
+      "reason": "10逐项保留英文标签并按语义用途分组；普通中文直译不重复，特殊原测试解释/误判/歧义另写。"
+    },
+    {
+      "id": "A2-P039",
+      "sections": [
+        "10"
+      ],
+      "status": "covered_with_limit",
+      "reason": "10逐项保留英文标签并按语义用途分组；普通中文直译不重复，特殊原测试解释/误判/歧义另写。"
+    },
+    {
+      "id": "A2-P040",
+      "sections": [
+        "10"
+      ],
+      "status": "covered_with_limit",
+      "reason": "10逐项保留英文标签并按语义用途分组；普通中文直译不重复，特殊原测试解释/误判/歧义另写。"
+    },
+    {
+      "id": "A2-P041",
+      "sections": [
+        "10"
+      ],
+      "status": "covered_with_limit",
+      "reason": "10逐项保留英文标签并按语义用途分组；普通中文直译不重复，特殊原测试解释/误判/歧义另写。"
+    },
+    {
+      "id": "A2-P042",
+      "sections": [
+        "10"
+      ],
+      "status": "covered_with_limit",
+      "reason": "10逐项保留英文标签并按语义用途分组；普通中文直译不重复，特殊原测试解释/误判/歧义另写。"
+    },
+    {
+      "id": "A2-P043",
+      "sections": [
+        "10"
+      ],
+      "status": "covered_with_limit",
+      "reason": "10逐项保留英文标签并按语义用途分组；普通中文直译不重复，特殊原测试解释/误判/歧义另写。"
+    },
+    {
+      "id": "A2-P044",
+      "sections": [
+        "10"
+      ],
+      "status": "covered_with_limit",
+      "reason": "10逐项保留英文标签并按语义用途分组；普通中文直译不重复，特殊原测试解释/误判/歧义另写。"
+    },
+    {
+      "id": "A2-P045",
+      "sections": [
+        "10"
+      ],
+      "status": "covered_with_limit",
+      "reason": "10逐项保留英文标签并按语义用途分组；普通中文直译不重复，特殊原测试解释/误判/歧义另写。"
+    },
+    {
+      "id": "A2-P046",
+      "sections": [
+        "10"
+      ],
+      "status": "covered_with_limit",
+      "reason": "10逐项保留英文标签并按语义用途分组；普通中文直译不重复，特殊原测试解释/误判/歧义另写。"
+    },
+    {
+      "id": "A2-P047",
+      "sections": [
+        "10"
+      ],
+      "status": "covered_with_limit",
+      "reason": "10逐项保留英文标签并按语义用途分组；普通中文直译不重复，特殊原测试解释/误判/歧义另写。"
+    },
+    {
+      "id": "A2-P048",
+      "sections": [
+        "10"
+      ],
+      "status": "covered_with_limit",
+      "reason": "10逐项保留英文标签并按语义用途分组；普通中文直译不重复，特殊原测试解释/误判/歧义另写。"
+    },
+    {
+      "id": "A2-P049",
+      "sections": [
+        "10"
+      ],
+      "status": "covered_with_limit",
+      "reason": "10逐项保留英文标签并按语义用途分组；普通中文直译不重复，特殊原测试解释/误判/歧义另写。"
+    },
+    {
+      "id": "A2-P050",
+      "sections": [
+        "10"
+      ],
+      "status": "covered_with_limit",
+      "reason": "10逐项保留英文标签并按语义用途分组；普通中文直译不重复，特殊原测试解释/误判/歧义另写。"
+    },
+    {
+      "id": "A2-P051",
+      "sections": [
+        "10"
+      ],
+      "status": "covered_with_limit",
+      "reason": "10逐项保留英文标签并按语义用途分组；普通中文直译不重复，特殊原测试解释/误判/歧义另写。"
+    },
+    {
+      "id": "A2-P052",
+      "sections": [
+        "10"
+      ],
+      "status": "covered_with_limit",
+      "reason": "10逐项保留英文标签并按语义用途分组；普通中文直译不重复，特殊原测试解释/误判/歧义另写。"
+    },
+    {
+      "id": "A2-P053",
+      "sections": [
+        "10"
+      ],
+      "status": "covered_with_limit",
+      "reason": "10逐项保留英文标签并按语义用途分组；普通中文直译不重复，特殊原测试解释/误判/歧义另写。"
+    },
+    {
+      "id": "A2-P054",
+      "sections": [
+        "10"
+      ],
+      "status": "covered_with_limit",
+      "reason": "10逐项保留英文标签并按语义用途分组；普通中文直译不重复，特殊原测试解释/误判/歧义另写。"
+    },
+    {
+      "id": "A2-P055",
+      "sections": [
+        "10"
+      ],
+      "status": "covered_with_limit",
+      "reason": "10逐项保留英文标签并按语义用途分组；普通中文直译不重复，特殊原测试解释/误判/歧义另写。"
+    },
+    {
+      "id": "A2-P056",
+      "sections": [
+        "10"
+      ],
+      "status": "covered_with_limit",
+      "reason": "10逐项保留英文标签并按语义用途分组；普通中文直译不重复，特殊原测试解释/误判/歧义另写。"
+    },
+    {
+      "id": "A2-P057",
+      "sections": [
+        "10"
+      ],
+      "status": "covered_with_limit",
+      "reason": "10逐项保留英文标签并按语义用途分组；普通中文直译不重复，特殊原测试解释/误判/歧义另写。"
+    },
+    {
+      "id": "A2-P058",
+      "sections": [
+        "10"
+      ],
+      "status": "covered_with_limit",
+      "reason": "10逐项保留英文标签并按语义用途分组；普通中文直译不重复，特殊原测试解释/误判/歧义另写。"
+    },
+    {
+      "id": "A2-P059",
+      "sections": [
+        "10"
+      ],
+      "status": "covered_with_limit",
+      "reason": "10逐项保留英文标签并按语义用途分组；普通中文直译不重复，特殊原测试解释/误判/歧义另写。"
+    },
+    {
+      "id": "A2-P060",
+      "sections": [
+        "10"
+      ],
+      "status": "covered_with_limit",
+      "reason": "10逐项保留英文标签并按语义用途分组；普通中文直译不重复，特殊原测试解释/误判/歧义另写。"
+    },
+    {
+      "id": "A2-P061",
+      "sections": [
+        "10"
+      ],
+      "status": "covered_with_limit",
+      "reason": "10逐项保留英文标签并按语义用途分组；普通中文直译不重复，特殊原测试解释/误判/歧义另写。"
+    },
+    {
+      "id": "A2-P062",
+      "sections": [
+        "10"
+      ],
+      "status": "covered_with_limit",
+      "reason": "10逐项保留英文标签并按语义用途分组；普通中文直译不重复，特殊原测试解释/误判/歧义另写。"
+    },
+    {
+      "id": "A2-P063",
+      "sections": [
+        "10"
+      ],
+      "status": "covered_with_limit",
+      "reason": "10逐项保留英文标签并按语义用途分组；普通中文直译不重复，特殊原测试解释/误判/歧义另写。"
+    },
+    {
+      "id": "A2-P064",
+      "sections": [
+        "10"
+      ],
+      "status": "covered_with_limit",
+      "reason": "10逐项保留英文标签并按语义用途分组；普通中文直译不重复，特殊原测试解释/误判/歧义另写。"
+    },
+    {
+      "id": "A2-P065",
+      "sections": [
+        "10"
+      ],
+      "status": "covered_with_limit",
+      "reason": "10逐项保留英文标签并按语义用途分组；普通中文直译不重复，特殊原测试解释/误判/歧义另写。"
+    },
+    {
+      "id": "A2-P066",
+      "sections": [
+        "10"
+      ],
+      "status": "covered_with_limit",
+      "reason": "10逐项保留英文标签并按语义用途分组；普通中文直译不重复，特殊原测试解释/误判/歧义另写。"
+    },
+    {
+      "id": "A2-P067",
+      "sections": [
+        "10"
+      ],
+      "status": "covered_with_limit",
+      "reason": "10逐项保留英文标签并按语义用途分组；普通中文直译不重复，特殊原测试解释/误判/歧义另写。"
+    },
+    {
+      "id": "A2-P068",
+      "sections": [
+        "10"
+      ],
+      "status": "covered_with_limit",
+      "reason": "10逐项保留英文标签并按语义用途分组；普通中文直译不重复，特殊原测试解释/误判/歧义另写。"
+    },
+    {
+      "id": "A2-P069",
+      "sections": [
+        "10"
+      ],
+      "status": "covered_with_limit",
+      "reason": "10逐项保留英文标签并按语义用途分组；普通中文直译不重复，特殊原测试解释/误判/歧义另写。"
+    },
+    {
+      "id": "A2-P070",
+      "sections": [
+        "10"
+      ],
+      "status": "covered_with_limit",
+      "reason": "10逐项保留英文标签并按语义用途分组；普通中文直译不重复，特殊原测试解释/误判/歧义另写。"
+    },
+    {
+      "id": "A2-P071",
+      "sections": [
+        "10"
+      ],
+      "status": "covered_with_limit",
+      "reason": "10逐项保留英文标签并按语义用途分组；普通中文直译不重复，特殊原测试解释/误判/歧义另写。"
+    },
+    {
+      "id": "A2-P072",
+      "sections": [
+        "10"
+      ],
+      "status": "covered_with_limit",
+      "reason": "10逐项保留英文标签并按语义用途分组；普通中文直译不重复，特殊原测试解释/误判/歧义另写。"
+    },
+    {
+      "id": "A2-P073",
+      "sections": [
+        "10"
+      ],
+      "status": "covered_with_limit",
+      "reason": "10逐项保留英文标签并按语义用途分组；普通中文直译不重复，特殊原测试解释/误判/歧义另写。"
+    },
+    {
+      "id": "A2-P074",
+      "sections": [
+        "10"
+      ],
+      "status": "covered_with_limit",
+      "reason": "10逐项保留英文标签并按语义用途分组；普通中文直译不重复，特殊原测试解释/误判/歧义另写。"
+    },
+    {
+      "id": "A2-P075",
+      "sections": [
+        "10"
+      ],
+      "status": "covered_with_limit",
+      "reason": "10逐项保留英文标签并按语义用途分组；普通中文直译不重复，特殊原测试解释/误判/歧义另写。"
+    },
+    {
+      "id": "A2-P076",
+      "sections": [
+        "10"
+      ],
+      "status": "covered_with_limit",
+      "reason": "10逐项保留英文标签并按语义用途分组；普通中文直译不重复，特殊原测试解释/误判/歧义另写。"
+    },
+    {
+      "id": "A2-P077",
+      "sections": [
+        "10"
+      ],
+      "status": "covered_with_limit",
+      "reason": "10逐项保留英文标签并按语义用途分组；普通中文直译不重复，特殊原测试解释/误判/歧义另写。"
+    },
+    {
+      "id": "A2-P078",
+      "sections": [
+        "10"
+      ],
+      "status": "covered_with_limit",
+      "reason": "10逐项保留英文标签并按语义用途分组；普通中文直译不重复，特殊原测试解释/误判/歧义另写。"
+    },
+    {
+      "id": "A2-P079",
+      "sections": [
+        "10"
+      ],
+      "status": "covered_with_limit",
+      "reason": "10逐项保留英文标签并按语义用途分组；普通中文直译不重复，特殊原测试解释/误判/歧义另写。"
+    },
+    {
+      "id": "A2-P080",
+      "sections": [
+        "10"
+      ],
+      "status": "covered_with_limit",
+      "reason": "10逐项保留英文标签并按语义用途分组；普通中文直译不重复，特殊原测试解释/误判/歧义另写。"
+    },
+    {
+      "id": "A2-P081",
+      "sections": [
+        "10"
+      ],
+      "status": "covered_with_limit",
+      "reason": "10逐项保留英文标签并按语义用途分组；普通中文直译不重复，特殊原测试解释/误判/歧义另写。"
+    },
+    {
+      "id": "A2-P082",
+      "sections": [
+        "10"
+      ],
+      "status": "covered_with_limit",
+      "reason": "10逐项保留英文标签并按语义用途分组；普通中文直译不重复，特殊原测试解释/误判/歧义另写。"
+    },
+    {
+      "id": "A2-P083",
+      "sections": [
+        "10"
+      ],
+      "status": "covered_with_limit",
+      "reason": "10逐项保留英文标签并按语义用途分组；普通中文直译不重复，特殊原测试解释/误判/歧义另写。"
+    },
+    {
+      "id": "A2-P084",
+      "sections": [
+        "10"
+      ],
+      "status": "covered_with_limit",
+      "reason": "10逐项保留英文标签并按语义用途分组；普通中文直译不重复，特殊原测试解释/误判/歧义另写。"
+    },
+    {
+      "id": "A2-P085",
+      "sections": [
+        "10"
+      ],
+      "status": "covered_with_limit",
+      "reason": "10逐项保留英文标签并按语义用途分组；普通中文直译不重复，特殊原测试解释/误判/歧义另写。"
+    },
+    {
+      "id": "A2-P086",
+      "sections": [
+        "10"
+      ],
+      "status": "covered_with_limit",
+      "reason": "10逐项保留英文标签并按语义用途分组；普通中文直译不重复，特殊原测试解释/误判/歧义另写。"
+    },
+    {
+      "id": "A2-P087",
+      "sections": [
+        "10"
+      ],
+      "status": "covered_with_limit",
+      "reason": "10逐项保留英文标签并按语义用途分组；普通中文直译不重复，特殊原测试解释/误判/歧义另写。"
+    },
+    {
+      "id": "A2-P088",
+      "sections": [
+        "10"
+      ],
+      "status": "covered_with_limit",
+      "reason": "10逐项保留英文标签并按语义用途分组；普通中文直译不重复，特殊原测试解释/误判/歧义另写。"
+    },
+    {
+      "id": "A2-P089",
+      "sections": [
+        "10"
+      ],
+      "status": "covered_with_limit",
+      "reason": "10逐项保留英文标签并按语义用途分组；普通中文直译不重复，特殊原测试解释/误判/歧义另写。"
+    },
+    {
+      "id": "A2-P090",
+      "sections": [
+        "10"
+      ],
+      "status": "covered_with_limit",
+      "reason": "10逐项保留英文标签并按语义用途分组；普通中文直译不重复，特殊原测试解释/误判/歧义另写。"
+    },
+    {
+      "id": "A2-P091",
+      "sections": [
+        "10"
+      ],
+      "status": "covered_with_limit",
+      "reason": "10逐项保留英文标签并按语义用途分组；普通中文直译不重复，特殊原测试解释/误判/歧义另写。"
+    },
+    {
+      "id": "A2-P092",
+      "sections": [
+        "10"
+      ],
+      "status": "covered_with_limit",
+      "reason": "10逐项保留英文标签并按语义用途分组；普通中文直译不重复，特殊原测试解释/误判/歧义另写。"
+    },
+    {
+      "id": "A2-P093",
+      "sections": [
+        "10"
+      ],
+      "status": "covered_with_limit",
+      "reason": "10逐项保留英文标签并按语义用途分组；普通中文直译不重复，特殊原测试解释/误判/歧义另写。"
+    },
+    {
+      "id": "A2-P094",
+      "sections": [
+        "10"
+      ],
+      "status": "covered_with_limit",
+      "reason": "10逐项保留英文标签并按语义用途分组；普通中文直译不重复，特殊原测试解释/误判/歧义另写。"
+    },
+    {
+      "id": "A2-P095",
+      "sections": [
+        "10"
+      ],
+      "status": "covered_with_limit",
+      "reason": "10逐项保留英文标签并按语义用途分组；普通中文直译不重复，特殊原测试解释/误判/歧义另写。"
+    },
+    {
+      "id": "A2-P096",
+      "sections": [
+        "10"
+      ],
+      "status": "covered_with_limit",
+      "reason": "10逐项保留英文标签并按语义用途分组；普通中文直译不重复，特殊原测试解释/误判/歧义另写。"
+    },
+    {
+      "id": "A2-P097",
+      "sections": [
+        "10"
+      ],
+      "status": "covered_with_limit",
+      "reason": "10保留IMFDB外部测试转述的多数优于/也有不及与非作者独立复测；差别大小是非关键主观比较，未转为排名。"
+    },
+    {
+      "id": "A2-P098",
+      "sections": [
+        "10"
+      ],
+      "status": "covered_with_limit",
+      "reason": "10保留多工具补充与分类查看边界，没有引入外部工具事实。"
+    },
+    {
+      "id": "A3-P001",
+      "sections": [
+        "03"
+      ],
+      "status": "covered_with_limit",
+      "reason": "指定来源要点已在目标章节改写或与同主题步骤合并。"
+    },
+    {
+      "id": "A3-P002",
+      "sections": [
+        "03"
+      ],
+      "status": "covered_with_limit",
+      "reason": "指定来源要点已在目标章节改写或与同主题步骤合并。"
+    },
+    {
+      "id": "A3-P003",
+      "sections": [
+        "03"
+      ],
+      "status": "covered",
+      "reason": "指定来源要点已在目标章节改写或与同主题步骤合并。"
+    },
+    {
+      "id": "A3-P004",
+      "sections": [
+        "03"
+      ],
+      "status": "covered_with_limit",
+      "reason": "指定来源要点已在目标章节改写或与同主题步骤合并。"
+    },
+    {
+      "id": "A3-P005",
+      "sections": [
+        "03"
+      ],
+      "status": "covered_with_limit",
+      "reason": "指定来源要点已在目标章节改写或与同主题步骤合并。"
+    },
+    {
+      "id": "A3-P006",
+      "sections": [
+        "03"
+      ],
+      "status": "covered_with_limit",
+      "reason": "指定来源要点已在目标章节改写或与同主题步骤合并。"
+    },
+    {
+      "id": "A3-P007",
+      "sections": [
+        "03"
+      ],
+      "status": "covered_with_limit",
+      "reason": "指定来源要点已在目标章节改写或与同主题步骤合并。"
+    },
+    {
+      "id": "A3-P008",
+      "sections": [
+        "03"
+      ],
+      "status": "covered_with_limit",
+      "reason": "03保留关闭初始排序以减少加载开销；数十万/百万是原文场景量级，不是性能阈值。"
+    },
+    {
+      "id": "A3-P009",
+      "sections": [
+        "03"
+      ],
+      "status": "covered_with_limit",
+      "reason": "03明确源例同时16个搜索，并不改成固定推荐线程数。"
+    },
+    {
+      "id": "A3-P010",
+      "sections": [
+        "04"
+      ],
+      "status": "covered",
+      "reason": "指定来源要点已在目标章节改写或与同主题步骤合并。"
+    },
+    {
+      "id": "A3-P011",
+      "sections": [
+        "04"
+      ],
+      "status": "covered",
+      "reason": "指定来源要点已在目标章节改写或与同主题步骤合并。"
+    },
+    {
+      "id": "A3-P012",
+      "sections": [
+        "04"
+      ],
+      "status": "covered_with_limit",
+      "reason": "指定来源要点已在目标章节改写或与同主题步骤合并。"
+    },
+    {
+      "id": "A3-P013",
+      "sections": [
+        "04"
+      ],
+      "status": "covered_with_limit",
+      "reason": "指定来源要点已在目标章节改写或与同主题步骤合并。"
+    },
+    {
+      "id": "A3-P014",
+      "sections": [
+        "04"
+      ],
+      "status": "covered_with_limit",
+      "reason": "指定来源要点已在目标章节改写或与同主题步骤合并。"
+    },
+    {
+      "id": "A3-P015",
+      "sections": [
+        "05"
+      ],
+      "status": "covered_with_limit",
+      "reason": "05列名显隐、0像素、像素输入与拖拽均已保留。"
+    },
+    {
+      "id": "A3-P016",
+      "sections": [
+        "05"
+      ],
+      "status": "covered_with_limit",
+      "reason": "指定来源要点已在目标章节改写或与同主题步骤合并。"
+    },
+    {
+      "id": "A3-P017",
+      "sections": [
+        "05"
+      ],
+      "status": "covered",
+      "reason": "指定来源要点已在目标章节改写或与同主题步骤合并。"
+    },
+    {
+      "id": "A3-P018",
+      "sections": [
+        "05"
+      ],
+      "status": "covered_with_limit",
+      "reason": "指定来源要点已在目标章节改写或与同主题步骤合并。"
+    },
+    {
+      "id": "A3-P019",
+      "sections": [
+        "05"
+      ],
+      "status": "covered_with_limit",
+      "reason": "05保留定位回原目录并取消过滤；Xftp.exe是非关键示例文件名，不增加新场景。"
+    },
+    {
+      "id": "A3-P020",
+      "sections": [
+        "14"
+      ],
+      "status": "covered",
+      "reason": "指定来源要点已在目标章节改写或与同主题步骤合并。"
+    },
+    {
+      "id": "A3-P021",
+      "sections": [
+        "14"
+      ],
+      "status": "covered_with_limit",
+      "reason": "14保留压缩包提取不能直接当嵌套磁盘解析的区别。"
+    },
+    {
+      "id": "A3-P022",
+      "sections": [
+        "14"
+      ],
+      "status": "covered_with_limit",
+      "reason": "指定来源要点已在目标章节改写或与同主题步骤合并。"
+    },
+    {
+      "id": "A3-P023",
+      "sections": [
+        "14"
+      ],
+      "status": "covered_with_limit",
+      "reason": "指定来源要点已在目标章节改写或与同主题步骤合并。"
+    },
+    {
+      "id": "A3-P024",
+      "sections": [
+        "14"
+      ],
+      "status": "covered",
+      "reason": "指定来源要点已在目标章节改写或与同主题步骤合并。"
+    },
+    {
+      "id": "A3-P025",
+      "sections": [
+        "15"
+      ],
+      "status": "covered_with_limit",
+      "reason": "15保留XWF设置切XWI简化界面，不编写未读图中的准确开关路径。"
+    },
+    {
+      "id": "A3-P026",
+      "sections": [
+        "15"
+      ],
+      "status": "covered",
+      "reason": "指定来源要点已在目标章节改写或与同主题步骤合并。"
+    },
+    {
+      "id": "A3-P027",
+      "sections": [
+        "15",
+        "05"
+      ],
+      "status": "covered_with_limit",
+      "reason": "15保留XWI基本功能列表，05一般浏览/过滤流程用于理解；不扩写未明确的新限制。"
+    },
+    {
+      "id": "A3-P028",
+      "sections": [
+        "15"
+      ],
+      "status": "covered_with_limit",
+      "reason": "15保留去十六进制、最多三编码栏；案件窗口样式变化是非关键图示背景。"
+    },
+    {
+      "id": "A3-P029",
+      "sections": [
+        "15"
+      ],
+      "status": "covered",
+      "reason": "指定来源要点已在目标章节改写或与同主题步骤合并。"
+    },
+    {
+      "id": "A3-P030",
+      "sections": [
+        "11"
+      ],
+      "status": "covered",
+      "reason": "指定来源要点已在目标章节改写或与同主题步骤合并。"
+    },
+    {
+      "id": "A3-P031",
+      "sections": [
+        "11"
+      ],
+      "status": "covered_with_limit",
+      "reason": "指定来源要点已在目标章节改写或与同主题步骤合并。"
+    },
+    {
+      "id": "A3-P032",
+      "sections": [
+        "11"
+      ],
+      "status": "covered",
+      "reason": "指定来源要点已在目标章节改写或与同主题步骤合并。"
+    },
+    {
+      "id": "A3-P033",
+      "sections": [
+        "11"
+      ],
+      "status": "covered_with_limit",
+      "reason": "指定来源要点已在目标章节改写或与同主题步骤合并。"
+    },
+    {
+      "id": "A3-P034",
+      "sections": [
+        "11"
+      ],
+      "status": "covered",
+      "reason": "指定来源要点已在目标章节改写或与同主题步骤合并。"
+    },
+    {
+      "id": "A3-P035",
+      "sections": [
+        "11"
+      ],
+      "status": "covered_with_limit",
+      "reason": "指定来源要点已在目标章节改写或与同主题步骤合并。"
+    },
+    {
+      "id": "A3-P036",
+      "sections": [
+        "11"
+      ],
+      "status": "covered",
+      "reason": "指定来源要点已在目标章节改写或与同主题步骤合并。"
+    },
+    {
+      "id": "A3-P037",
+      "sections": [
+        "11"
+      ],
+      "status": "covered",
+      "reason": "指定来源要点已在目标章节改写或与同主题步骤合并。"
+    },
+    {
+      "id": "A3-P038",
+      "sections": [
+        "11"
+      ],
+      "status": "covered",
+      "reason": "指定来源要点已在目标章节改写或与同主题步骤合并。"
+    },
+    {
+      "id": "B-M01",
+      "sections": [
+        "15"
+      ],
+      "status": "covered",
+      "reason": "主稿已保留该核心操作或边界；与相关章节合并去重。"
+    },
+    {
+      "id": "B-M02",
+      "sections": [
+        "15"
+      ],
+      "status": "covered",
+      "reason": "主稿已保留该核心操作或边界；与相关章节合并去重。"
+    },
+    {
+      "id": "B-M03",
+      "sections": [
+        "15"
+      ],
+      "status": "covered",
+      "reason": "主稿已保留该核心操作或边界；与相关章节合并去重。"
+    },
+    {
+      "id": "B-M04",
+      "sections": [
+        "15"
+      ],
+      "status": "supplementary-context",
+      "reason": "原文括号说明区分实例并非本例必需，主稿保留决定性的允许多开配置，不将该括号扩展为全版本要求。"
+    },
+    {
+      "id": "B-M05",
+      "sections": [
+        "04",
+        "15"
+      ],
+      "status": "covered-with-illustrative-context",
+      "reason": "添加全部检材→保存→第二实例开同案已覆盖；2024团体赛年份是案例身份信息，不要求正文重述。"
+    },
+    {
+      "id": "B-M06",
+      "sections": [
+        "15"
+      ],
+      "status": "covered",
+      "reason": "主稿已保留该核心操作或边界；与相关章节合并去重。"
+    },
+    {
+      "id": "B-M07",
+      "sections": [
+        "15"
+      ],
+      "status": "covered",
+      "reason": "主稿已保留该核心操作或边界；与相关章节合并去重。"
+    },
+    {
+      "id": "B-M08",
+      "sections": [
+        "15"
+      ],
+      "status": "covered",
+      "reason": "主稿已保留该核心操作或边界；与相关章节合并去重。"
+    },
+    {
+      "id": "B-M09",
+      "sections": [
+        "15"
+      ],
+      "status": "covered",
+      "reason": "主稿已保留该核心操作或边界；与相关章节合并去重。"
+    },
+    {
+      "id": "B-M10",
+      "sections": [
+        "15"
+      ],
+      "status": "covered",
+      "reason": "主稿已保留该核心操作或边界；与相关章节合并去重。"
+    },
+    {
+      "id": "B-M11",
+      "sections": [
+        "15"
+      ],
+      "status": "covered",
+      "reason": "主稿已保留该核心操作或边界；与相关章节合并去重。"
+    },
+    {
+      "id": "B-M12",
+      "sections": [
+        "15"
+      ],
+      "status": "covered",
+      "reason": "主稿已保留该核心操作或边界；与相关章节合并去重。"
+    },
+    {
+      "id": "B-M13",
+      "sections": [
+        "15"
+      ],
+      "status": "covered",
+      "reason": "主稿已保留该核心操作或边界；与相关章节合并去重。"
+    },
+    {
+      "id": "B-M14",
+      "sections": [
+        "15"
+      ],
+      "status": "illustrative-context",
+      "reason": "四同案窗口和第五空白窗口是截图例示，不转写为并发上限。"
+    },
+    {
+      "id": "B-M15",
+      "sections": [
+        "06",
+        "15"
+      ],
+      "status": "covered",
+      "reason": "主稿已保留该核心操作或边界；与相关章节合并去重。"
+    },
+    {
+      "id": "B-M16",
+      "sections": [
+        "03",
+        "15"
+      ],
+      "status": "covered",
+      "reason": "主稿已保留该核心操作或边界；与相关章节合并去重。"
+    },
+    {
+      "id": "B-M17",
+      "sections": [
+        "15"
+      ],
+      "status": "covered-with-context",
+      "reason": "简化界面及功能切换已覆盖；易上手/观感为作者评价，不作为产品实测结论。"
+    },
+    {
+      "id": "B-M18",
+      "sections": [
+        "02",
+        "15"
+      ],
+      "status": "covered",
+      "reason": "主稿已保留该核心操作或边界；与相关章节合并去重。"
+    },
+    {
+      "id": "B-M19",
+      "sections": [
+        "15"
+      ],
+      "status": "covered",
+      "reason": "主稿已保留该核心操作或边界；与相关章节合并去重。"
+    },
+    {
+      "id": "B-M20",
+      "sections": [
+        "15"
+      ],
+      "status": "covered",
+      "reason": "主稿已保留该核心操作或边界；与相关章节合并去重。"
+    },
+    {
+      "id": "B-M21",
+      "sections": [
+        "15"
+      ],
+      "status": "covered",
+      "reason": "主稿已保留该核心操作或边界；与相关章节合并去重。"
+    },
+    {
+      "id": "B-M22",
+      "sections": [
+        "15"
+      ],
+      "status": "covered",
+      "reason": "主稿已保留该核心操作或边界；与相关章节合并去重。"
+    },
+    {
+      "id": "B-M23",
+      "sections": [
+        "15"
+      ],
+      "status": "covered",
+      "reason": "主稿已保留该核心操作或边界；与相关章节合并去重。"
+    },
+    {
+      "id": "B-M24",
+      "sections": [
+        "15"
+      ],
+      "status": "covered",
+      "reason": "主稿已保留该核心操作或边界；与相关章节合并去重。"
+    },
+    {
+      "id": "B-M25",
+      "sections": [
+        "15"
+      ],
+      "status": "covered",
+      "reason": "主稿已保留该核心操作或边界；与相关章节合并去重。"
+    },
+    {
+      "id": "B-M26",
+      "sections": [
+        "15"
+      ],
+      "status": "supplementary-context",
+      "reason": "XWI界面切换功能的体验/初级用户原意为上下文，主稿保留该切换的实际可用路径和用途。"
+    },
+    {
+      "id": "B-M27",
+      "sections": [
+        "15"
+      ],
+      "status": "covered",
+      "reason": "主稿已保留该核心操作或边界；与相关章节合并去重。"
+    },
+    {
+      "id": "B-M28",
+      "sections": [
+        "15"
+      ],
+      "status": "source-opinion-context",
+      "reason": "作者速度/稳定性最高的主观评价不进入产品保证；多编码与简洁界面实际操作仍在15。"
+    },
+    {
+      "id": "B-E01",
+      "sections": [
+        "11"
+      ],
+      "status": "covered",
+      "reason": "主稿已保留该核心操作或边界；与相关章节合并去重。"
+    },
+    {
+      "id": "B-E02",
+      "sections": [
+        "11"
+      ],
+      "status": "covered",
+      "reason": "主稿已保留该核心操作或边界；与相关章节合并去重。"
+    },
+    {
+      "id": "B-E03",
+      "sections": [
+        "11"
+      ],
+      "status": "covered-with-illustrative-context",
+      "reason": "16.9版本已覆盖；约2013年为历史上下文，可不强行纳入操作步骤。"
+    },
+    {
+      "id": "B-E04",
+      "sections": [
+        "11"
+      ],
+      "status": "covered",
+      "reason": "主稿已保留该核心操作或边界；与相关章节合并去重。"
+    },
+    {
+      "id": "B-E05",
+      "sections": [
+        "07",
+        "11"
+      ],
+      "status": "covered",
+      "reason": "主稿已保留该核心操作或边界；与相关章节合并去重。"
+    },
+    {
+      "id": "B-E06",
+      "sections": [
+        "07",
+        "11"
+      ],
+      "status": "covered",
+      "reason": "主稿已保留该核心操作或边界；与相关章节合并去重。"
+    },
+    {
+      "id": "B-E07",
+      "sections": [
+        "11"
+      ],
+      "status": "covered",
+      "reason": "主稿已保留该核心操作或边界；与相关章节合并去重。"
+    },
+    {
+      "id": "B-E08",
+      "sections": [
+        "05"
+      ],
+      "status": "covered",
+      "reason": "主稿已保留该核心操作或边界；与相关章节合并去重。"
+    },
+    {
+      "id": "B-E09",
+      "sections": [
+        "05"
+      ],
+      "status": "covered",
+      "reason": "主稿已保留该核心操作或边界；与相关章节合并去重。"
+    },
+    {
+      "id": "B-E10",
+      "sections": [
+        "05",
+        "11"
+      ],
+      "status": "covered",
+      "reason": "主稿已保留该核心操作或边界；与相关章节合并去重。"
+    },
+    {
+      "id": "B-E11",
+      "sections": [
+        "05",
+        "11"
+      ],
+      "status": "covered",
+      "reason": "主稿已保留该核心操作或边界；与相关章节合并去重。"
+    },
+    {
+      "id": "B-E12",
+      "sections": [
+        "11"
+      ],
+      "status": "illustrative-context",
+      "reason": "25→81为特定示例事件条数；递归含子目录语义已覆盖。"
+    },
+    {
+      "id": "B-E13",
+      "sections": [
+        "11"
+      ],
+      "status": "covered",
+      "reason": "主稿已保留该核心操作或边界；与相关章节合并去重。"
+    },
+    {
+      "id": "B-E14",
+      "sections": [
+        "11"
+      ],
+      "status": "covered",
+      "reason": "主稿已保留该核心操作或边界；与相关章节合并去重。"
+    },
+    {
+      "id": "B-E15",
+      "sections": [
+        "11"
+      ],
+      "status": "covered",
+      "reason": "主稿已保留该核心操作或边界；与相关章节合并去重。"
+    },
+    {
+      "id": "B-E16",
+      "sections": [
+        "11"
+      ],
+      "status": "covered",
+      "reason": "主稿已保留该核心操作或边界；与相关章节合并去重。"
+    },
+    {
+      "id": "B-E17",
+      "sections": [
+        "11"
+      ],
+      "status": "covered-with-illustrative-context",
+      "reason": "Device Attached和SYSTEM来源已覆盖；5事件及具体设备描述为截图检材值。"
+    },
+    {
+      "id": "B-E18",
+      "sections": [
+        "11"
+      ],
+      "status": "covered-with-illustrative-context",
+      "reason": "通信类别、main.db和eml已覆盖；具体账号/事件条数为例示。"
+    },
+    {
+      "id": "B-E19",
+      "sections": [
+        "11"
+      ],
+      "status": "covered",
+      "reason": "主稿已保留该核心操作或边界；与相关章节合并去重。"
+    },
+    {
+      "id": "B-E20",
+      "sections": [
+        "11"
+      ],
+      "status": "covered-with-illustrative-context",
+      "reason": "准确EXIF过滤项、内部时间和相机信息已覆盖；23为例示数量。"
+    },
+    {
+      "id": "B-E21",
+      "sections": [
+        "11"
+      ],
+      "status": "covered",
+      "reason": "主稿已保留该核心操作或边界；与相关章节合并去重。"
+    },
+    {
+      "id": "B-E22",
+      "sections": [
+        "11"
+      ],
+      "status": "covered",
+      "reason": "主稿已保留该核心操作或边界；与相关章节合并去重。"
+    },
+    {
+      "id": "B-E23",
+      "sections": [
+        "11"
+      ],
+      "status": "covered",
+      "reason": "主稿已保留该核心操作或边界；与相关章节合并去重。"
+    },
+    {
+      "id": "B-E24",
+      "sections": [
+        "11"
+      ],
+      "status": "covered-with-context",
+      "reason": "保存/加载设置菜单覆盖复用流程；右上另一个保存图标属同一结果的截图辅助入口。"
+    },
+    {
+      "id": "B-E25",
+      "sections": [
+        "11"
+      ],
+      "status": "covered",
+      "reason": "主稿已保留该核心操作或边界；与相关章节合并去重。"
+    },
+    {
+      "id": "B-E26",
+      "sections": [
+        "05",
+        "11",
+        "13"
+      ],
+      "status": "covered-with-source-context",
+      "reason": "专有应用解析不足明确在11；同类型文件过滤/行为重建/恢复分析分散在05/11/13；源文比较优势未作客观结论。"
+    },
+    {
+      "id": "B-E27",
+      "sections": [
+        "11",
+        "18"
+      ],
+      "status": "source-opinion-context",
+      "reason": "作者自称分析深度高于其他综合工具，缺少对比测试；主稿不移植为普遍事实。"
+    },
+    {
+      "id": "B-L01",
+      "sections": [
+        "12"
+      ],
+      "status": "covered",
+      "reason": "主稿已保留该核心操作或边界；与相关章节合并去重。"
+    },
+    {
+      "id": "B-L02",
+      "sections": [
+        "12",
+        "13"
+      ],
+      "status": "covered",
+      "reason": "主稿已保留该核心操作或边界；与相关章节合并去重。"
+    },
+    {
+      "id": "B-L03",
+      "sections": [
+        "05",
+        "12"
+      ],
+      "status": "covered",
+      "reason": "主稿已保留该核心操作或边界；与相关章节合并去重。"
+    },
+    {
+      "id": "B-L04",
+      "sections": [
+        "04",
+        "07",
+        "12"
+      ],
+      "status": "covered",
+      "reason": "主稿已保留该核心操作或边界；与相关章节合并去重。"
+    },
+    {
+      "id": "B-L05",
+      "sections": [
+        "05",
+        "12"
+      ],
+      "status": "covered-with-illustrative-context",
+      "reason": "全案递归、图片过滤、大小排序、缩略图已覆盖；羊主题是原案例内容。"
+    },
+    {
+      "id": "B-L06",
+      "sections": [
+        "12"
+      ],
+      "status": "covered",
+      "reason": "主稿已保留该核心操作或边界；与相关章节合并去重。"
+    },
+    {
+      "id": "B-L07",
+      "sections": [
+        "12"
+      ],
+      "status": "covered",
+      "reason": "主稿已保留该核心操作或边界；与相关章节合并去重。"
+    },
+    {
+      "id": "B-L08",
+      "sections": [
+        "12"
+      ],
+      "status": "covered",
+      "reason": "主稿已保留该核心操作或边界；与相关章节合并去重。"
+    },
+    {
+      "id": "B-L09",
+      "sections": [
+        "12"
+      ],
+      "status": "covered",
+      "reason": "主稿已保留该核心操作或边界；与相关章节合并去重。"
+    },
+    {
+      "id": "B-L10",
+      "sections": [
+        "12"
+      ],
+      "status": "covered",
+      "reason": "主稿已保留该核心操作或边界；与相关章节合并去重。"
+    },
+    {
+      "id": "B-L11",
+      "sections": [
+        "12"
+      ],
+      "status": "covered",
+      "reason": "主稿已保留该核心操作或边界；与相关章节合并去重。"
+    },
+    {
+      "id": "B-L12",
+      "sections": [
+        "12",
+        "13"
+      ],
+      "status": "covered-with-context",
+      "reason": "文件→创建报告与手工标记文件输出已覆盖；报告中列出此前标签是此流程上下文。"
+    },
+    {
+      "id": "B-L13",
+      "sections": [
+        "12"
+      ],
+      "status": "covered-with-context",
+      "reason": "Ctrl/Alt数字范围和Ctrl+0已覆盖；蓝字提示为截图辅助。"
+    },
+    {
+      "id": "B-L14",
+      "sections": [
+        "12"
+      ],
+      "status": "covered",
+      "reason": "主稿已保留该核心操作或边界；与相关章节合并去重。"
+    },
+    {
+      "id": "B-L15",
+      "sections": [
+        "12"
+      ],
+      "status": "covered-with-illustrative-context",
+      "reason": "删除定义影响对应文件的关联已覆盖；有隐写措施为示例标签名。"
+    },
+    {
+      "id": "B-L16",
+      "sections": [
+        "12"
+      ],
+      "status": "covered-with-illustrative-context",
+      "reason": "Ctrl多选→AND→激活的共同具备语义已覆盖；两个原案例标签名可不重述。"
+    },
+    {
+      "id": "B-L17",
+      "sections": [
+        "12"
+      ],
+      "status": "illustrative-context",
+      "reason": "OR/NOT及+直接子数据项目/+同目录文件为图中辅助控件，源文未解释；主稿保留实际演示AND，不补写其他操作。"
+    },
+    {
+      "id": "B-L18",
+      "sections": [
+        "12"
+      ],
+      "status": "covered",
+      "reason": "主稿已保留该核心操作或边界；与相关章节合并去重。"
+    },
+    {
+      "id": "B-L19",
+      "sections": [
+        "12"
+      ],
+      "status": "covered",
+      "reason": "主稿已保留该核心操作或边界；与相关章节合并去重。"
+    },
+    {
+      "id": "B-L20",
+      "sections": [
+        "09",
+        "12"
+      ],
+      "status": "covered",
+      "reason": "主稿已保留该核心操作或边界；与相关章节合并去重。"
+    },
+    {
+      "id": "B-L21",
+      "sections": [
+        "09",
+        "12"
+      ],
+      "status": "covered-with-source-context",
+      "reason": "标签筛选及数量仅作复杂度粗略线索已覆盖，不新增内容判定保证。"
+    },
+    {
+      "id": "B-L22",
+      "sections": [
+        "12"
+      ],
+      "status": "covered",
+      "reason": "主稿已保留该核心操作或边界；与相关章节合并去重。"
+    },
+    {
+      "id": "B-L23",
+      "sections": [
+        "13"
+      ],
+      "status": "covered",
+      "reason": "主稿已保留该核心操作或边界；与相关章节合并去重。"
+    },
+    {
+      "id": "B-L24",
+      "sections": [
+        "13"
+      ],
+      "status": "covered",
+      "reason": "主稿已保留该核心操作或边界；与相关章节合并去重。"
+    },
+    {
+      "id": "B-L25",
+      "sections": [
+        "13"
+      ],
+      "status": "covered",
+      "reason": "主稿已保留该核心操作或边界；与相关章节合并去重。"
+    },
+    {
+      "id": "B-L26",
+      "sections": [
+        "16"
+      ],
+      "status": "covered",
+      "reason": "主稿已保留该核心操作或边界；与相关章节合并去重。"
+    },
+    {
+      "id": "B-L27",
+      "sections": [
+        "16"
+      ],
+      "status": "covered",
+      "reason": "主稿已保留该核心操作或边界；与相关章节合并去重。"
+    },
+    {
+      "id": "B-L28",
+      "sections": [
+        "16"
+      ],
+      "status": "covered",
+      "reason": "主稿已保留该核心操作或边界；与相关章节合并去重。"
+    },
+    {
+      "id": "B-L29",
+      "sections": [
+        "16"
+      ],
+      "status": "covered",
+      "reason": "主稿已保留该核心操作或边界；与相关章节合并去重。"
+    },
+    {
+      "id": "B-L30",
+      "sections": [
+        "16"
+      ],
+      "status": "covered-with-context",
+      "reason": "导入文件夹、成功后删除和继续使用已覆盖；主稿依据同段后文与图片纠正一次导出笔误。"
+    },
+    {
+      "id": "B-L31",
+      "sections": [
+        "16"
+      ],
+      "status": "covered",
+      "reason": "主稿已保留该核心操作或边界；与相关章节合并去重。"
+    },
+    {
+      "id": "B-L32",
+      "sections": [
+        "16"
+      ],
+      "status": "covered-with-context",
+      "reason": "姓名缩写/仅显示自己的报告表/文件和注释缩写已覆盖；区分不同用户为截图辅助配置。"
+    },
+    {
+      "id": "B-L33",
+      "sections": [
+        "12",
+        "16"
+      ],
+      "status": "covered-with-source-context",
+      "reason": "标签用于个人分类与过滤已在12体现；作者常驻列/靠前位置是个人习惯，不作为统一建议。"
+    },
+    {
+      "id": "B-L34",
+      "sections": [
+        "09",
+        "12"
+      ],
+      "status": "covered-with-source-context",
+      "reason": "20.7公告图纳入Excire与09的20.5已有/20.7建议不矛盾；不将纳入改写为首次出现。"
+    },
+    {
+      "id": "B-L35",
+      "sections": [
+        "09"
+      ],
+      "status": "illustrative-context",
+      "reason": "09覆盖文件格式；60×60、主要颜色/Indoor-Outdoor/相似图选项是图示上下文，不转写为固定阈值或新增操作。"
+    },
+    {
+      "id": "B-L36",
+      "sections": [
+        "13"
+      ],
+      "status": "illustrative-context",
+      "reason": "3/500/50+50/15/250×185均为图示配置，不强行当成建议、默认或硬上限。"
+    },
+    {
+      "id": "CSDN-001",
+      "sections": [
+        "01"
+      ],
+      "status": "merged",
+      "reason": "setup.exe"
+    },
+    {
+      "id": "CSDN-002",
+      "sections": [
+        "01",
+        "02"
+      ],
+      "status": "merged",
+      "reason": "选择容量较大、数据较少的输出分区"
+    },
+    {
+      "id": "CSDN-003",
+      "sections": [
+        "02"
+      ],
+      "status": "source-claim-retained",
+      "reason": "文库未说明适用版本"
+    },
+    {
+      "id": "CSDN-004",
+      "sections": [
+        "02"
+      ],
+      "status": "source-claim-retained",
+      "reason": "脚本目录保留原设置"
+    },
+    {
+      "id": "CSDN-005",
+      "sections": [
+        "04"
+      ],
+      "status": "merged",
+      "reason": "填写名称、描述、调查员及机构"
+    },
+    {
+      "id": "CSDN-006",
+      "sections": [
+        "04"
+      ],
+      "status": "source-claim-retained",
+      "reason": "文库说明加载分析不直接修改数据"
+    },
+    {
+      "id": "CSDN-007",
+      "sections": [
+        "07",
+        "18"
+      ],
+      "status": "conflict-resolved",
+      "reason": "不是另做一份完整磁盘镜像"
+    },
+    {
+      "id": "CSDN-008",
+      "sections": [
+        "01",
+        "05",
+        "06",
+        "13",
+        "17"
+      ],
+      "status": "merged",
+      "reason": "文库概览提到安全擦除"
+    },
+    {
+      "id": "CSDN-009",
+      "sections": [
+        "13",
+        "17"
+      ],
+      "status": "theme-retained",
+      "reason": "特定类型恢复"
+    },
+    {
+      "id": "CSDN-010",
+      "sections": [
+        "01",
+        "03",
+        "09",
+        "17"
+      ],
+      "status": "source-claim-retained",
+      "reason": "至少 1 GB RAM"
+    },
+    {
+      "id": "CSDN-011",
+      "sections": [
+        "04",
+        "17"
+      ],
+      "status": "merged",
+      "reason": "容量、数据优先级、硬件兼容性及驱动检查"
+    },
+    {
+      "id": "CSDN-012",
+      "sections": [
+        "04",
+        "17"
+      ],
+      "status": "source-claim-retained",
+      "reason": "标准/逐位镜像、raw/dd、密码保护"
+    },
+    {
+      "id": "CSDN-013",
+      "sections": [
+        "04",
+        "17",
+        "18"
+      ],
+      "status": "conflict-resolved",
+      "reason": "不作为本篇的制作入口"
+    },
+    {
+      "id": "CSDN-014",
+      "sections": [
+        "04",
+        "17"
+      ],
+      "status": "source-claim-retained",
+      "reason": "Compare hash values"
+    },
+    {
+      "id": "CSDN-015",
+      "sections": [
+        "17"
+      ],
+      "status": "source-claim-retained",
+      "reason": "Analyze file systems"
+    },
+    {
+      "id": "CSDN-016",
+      "sections": [
+        "13",
+        "17"
+      ],
+      "status": "source-claim-retained",
+      "reason": "File recovery"
+    },
+    {
+      "id": "CSDN-017",
+      "sections": [
+        "07",
+        "11",
+        "18"
+      ],
+      "status": "conflict-resolved",
+      "reason": "时间轴"
+    },
+    {
+      "id": "CSDN-018",
+      "sections": [
+        "06",
+        "17"
+      ],
+      "status": "merged",
+      "reason": "内容、名称模式、扩展名、大小及创建/修改时间"
+    },
+    {
+      "id": "CSDN-019",
+      "sections": [
+        "06"
+      ],
+      "status": "merged",
+      "reason": "组合方向"
+    },
+    {
+      "id": "CSDN-020",
+      "sections": [
+        "06"
+      ],
+      "status": "source-claim-retained",
+      "reason": "通配符、正则及 AND/OR/NOT"
+    },
+    {
+      "id": "CSDN-021",
+      "sections": [
+        "06",
+        "17"
+      ],
+      "status": "illustration-retained",
+      "reason": "商业数据调查示例"
+    },
+    {
+      "id": "CSDN-022",
+      "sections": [
+        "04",
+        "17"
+      ],
+      "status": "source-claim-retained",
+      "reason": "Live RAM Memory"
+    },
+    {
+      "id": "CSDN-023",
+      "sections": [
+        "17"
+      ],
+      "status": "source-claim-retained",
+      "reason": "最近访问文件"
+    },
+    {
+      "id": "CSDN-024",
+      "sections": [
+        "17"
+      ],
+      "status": "theme-retained",
+      "reason": "内存与磁盘互证"
+    },
+    {
+      "id": "CSDN-025",
+      "sections": [
+        "17"
+      ],
+      "status": "source-claim-retained",
+      "reason": "网络环境记录"
+    },
+    {
+      "id": "CSDN-026",
+      "sections": [
+        "17"
+      ],
+      "status": "source-claim-retained",
+      "reason": "异常端口/包序列"
+    },
+    {
+      "id": "CSDN-027",
+      "sections": [
+        "17"
+      ],
+      "status": "theme-retained",
+      "reason": "数据泄露追踪"
+    },
+    {
+      "id": "CSDN-028",
+      "sections": [],
+      "status": "context",
+      "reason": null
+    },
+    {
+      "id": "CSDN-029",
+      "sections": [
+        "13",
+        "17"
+      ],
+      "status": "theme-retained",
+      "reason": "授权、隐私、伦理与证据可接受性"
+    },
+    {
+      "id": "CSDN-030",
+      "sections": [
+        "17"
+      ],
+      "status": "theme-retained",
+      "reason": "封存介质、操作日志、证据关联和审计"
+    },
+    {
+      "id": "CSDN-031",
+      "sections": [
+        "17"
+      ],
+      "status": "theme-retained",
+      "reason": "隐写、数字水印"
+    },
+    {
+      "id": "CSDN-032",
+      "sections": [
+        "17"
+      ],
+      "status": "theme-retained",
+      "reason": "算法识别"
+    },
+    {
+      "id": "CSDN-033",
+      "sections": [
+        "17"
+      ],
+      "status": "source-claim-retained",
+      "reason": "用哈希库识别加密类型和暴力破解"
+    },
+    {
+      "id": "CSDN-034",
+      "sections": [
+        "11",
+        "17"
+      ],
+      "status": "theme-retained",
+      "reason": "因果模型"
+    },
+    {
+      "id": "CSDN-035",
+      "sections": [
+        "07",
+        "08",
+        "11",
+        "17"
+      ],
+      "status": "merged",
+      "reason": "注册表、事件日志、文件系统日志"
+    },
+    {
+      "id": "CSDN-036",
+      "sections": [
+        "13"
+      ],
+      "status": "theme-retained",
+      "reason": "不把主观推测写为事实"
+    },
+    {
+      "id": "CSDN-037",
+      "sections": [],
+      "status": "context",
+      "reason": null
+    },
+    {
+      "id": "CSDN-038",
+      "sections": [
+        "17"
+      ],
+      "status": "source-claim-retained",
+      "reason": "宏、脚本及扩展"
+    },
+    {
+      "id": "CSDN-039",
+      "sections": [
+        "17"
+      ],
+      "status": "source-claim-retained",
+      "reason": "JavaScript/Python"
+    },
+    {
+      "id": "CSDN-040",
+      "sections": [
+        "17"
+      ],
+      "status": "theme-retained",
+      "reason": "变量/控制语句、模块化/错误处理/调试"
+    },
+    {
+      "id": "CSDN-041",
+      "sections": [
+        "17"
+      ],
+      "status": "illustration-retained",
+      "reason": "多硬盘搜索→筛选→CSV 元数据→测试优化"
+    },
+    {
+      "id": "CSDN-042",
+      "sections": [
+        "17"
+      ],
+      "status": "source-claim-retained",
+      "reason": "API/插件/外部库"
+    },
+    {
+      "id": "CSDN-043",
+      "sections": [
+        "17"
+      ],
+      "status": "theme-retained",
+      "reason": "选工具→接口集成"
+    },
+    {
+      "id": "CSDN-044",
+      "sections": [
+        "17"
+      ],
+      "status": "theme-retained",
+      "reason": "测试→持续评估"
+    },
+    {
+      "id": "CSDN-045",
+      "sections": [
+        "13",
+        "17"
+      ],
+      "status": "illustration-retained",
+      "reason": "商业数据窃取场景"
+    },
+    {
+      "id": "CSDN-046",
+      "sections": [
+        "04",
+        "17",
+        "18"
+      ],
+      "status": "conflict-resolved",
+      "reason": "工具 → 物理镜像"
+    },
+    {
+      "id": "CSDN-047",
+      "sections": [
+        "06",
+        "17"
+      ],
+      "status": "merged",
+      "reason": "特定短语与文件名模式"
+    },
+    {
+      "id": "CSDN-048",
+      "sections": [
+        "17"
+      ],
+      "status": "source-claim-retained",
+      "reason": "文件 → 修复"
+    },
+    {
+      "id": "CSDN-049",
+      "sections": [
+        "13",
+        "17"
+      ],
+      "status": "theme-retained",
+      "reason": "搜索准确性、恢复方法、报告的可信性与相关性"
+    },
+    {
+      "id": "CSDN-050",
+      "sections": [
+        "17"
+      ],
+      "status": "theme-retained",
+      "reason": "模拟环境涵盖入侵、篡改、恶意软件"
+    },
+    {
+      "id": "CSDN-051",
+      "sections": [
+        "17"
+      ],
+      "status": "theme-retained",
+      "reason": "实践总结"
+    },
+    {
+      "id": "CSDN-052",
+      "sections": [
+        "17"
+      ],
+      "status": "theme-retained",
+      "reason": "持续跟踪技术/工具/法规"
+    },
+    {
+      "id": "CSDN-053",
+      "sections": [
+        "17"
+      ],
+      "status": "theme-retained",
+      "reason": "认证与职业学习目标"
+    },
+    {
+      "id": "BLOG-001",
+      "sections": [
+        "04",
+        "17"
+      ],
+      "status": "merged",
+      "reason": "数据完整性与写保护"
+    },
+    {
+      "id": "BLOG-002",
+      "sections": [
+        "01",
+        "17"
+      ],
+      "status": "merged",
+      "reason": "NTFS/FAT/exFAT/EXT/HFS+"
+    },
+    {
+      "id": "BLOG-003",
+      "sections": [
+        "05"
+      ],
+      "status": "merged",
+      "reason": "浏览范围、过滤、列与定位"
+    },
+    {
+      "id": "BLOG-004",
+      "sections": [
+        "06",
+        "17"
+      ],
+      "status": "source-claim-retained",
+      "reason": "哈希值检索"
+    },
+    {
+      "id": "BLOG-005",
+      "sections": [
+        "11",
+        "17"
+      ],
+      "status": "merged",
+      "reason": "元数据及所有者"
+    },
+    {
+      "id": "BLOG-006",
+      "sections": [
+        "02",
+        "09",
+        "10",
+        "17"
+      ],
+      "status": "merged",
+      "reason": "Office/PDF 文本、缩略图、切片"
+    },
+    {
+      "id": "BLOG-007",
+      "sections": [
+        "17"
+      ],
+      "status": "source-claim-retained",
+      "reason": "文件差异"
+    },
+    {
+      "id": "BLOG-008",
+      "sections": [
+        "17"
+      ],
+      "status": "source-claim-retained",
+      "reason": "多次快照对文件/目录变化检测"
+    },
+    {
+      "id": "BLOG-009",
+      "sections": [
+        "13",
+        "17"
+      ],
+      "status": "merged",
+      "reason": "案件目标、取证步骤、发现及结论"
+    },
+    {
+      "id": "BLOG-010",
+      "sections": [
+        "11",
+        "17"
+      ],
+      "status": "source-claim-retained",
+      "reason": "网络与云"
+    },
+    {
+      "id": "BLOG-011",
+      "sections": [
+        "04",
+        "17"
+      ],
+      "status": "source-claim-retained",
+      "reason": "哈希与数字签名"
+    },
+    {
+      "id": "BLOG-012",
+      "sections": [
+        "13",
+        "17"
+      ],
+      "status": "source-claim-retained",
+      "reason": "坏道扫描"
+    },
+    {
+      "id": "BLOG-013",
+      "sections": [
+        "14",
+        "17"
+      ],
+      "status": "merged",
+      "reason": "VHD/VMDK"
+    },
+    {
+      "id": "BLOG-014",
+      "sections": [
+        "11",
+        "17"
+      ],
+      "status": "merged",
+      "reason": "事件列表与时间字段"
+    },
+    {
+      "id": "BLOG-015",
+      "sections": [
+        "05",
+        "12"
+      ],
+      "status": "merged",
+      "reason": "标签过滤"
+    },
+    {
+      "id": "BLOG-016",
+      "sections": [
+        "17"
+      ],
+      "status": "source-claim-retained",
+      "reason": "删除重复数据"
+    },
+    {
+      "id": "BLOG-017",
+      "sections": [
+        "17"
+      ],
+      "status": "source-claim-retained",
+      "reason": "不宣称所有加密内容都能解密"
+    },
+    {
+      "id": "BLOG-018",
+      "sections": [
+        "02"
+      ],
+      "status": "merged",
+      "reason": "路径、语言、查看器与编码"
+    },
+    {
+      "id": "BLOG-019",
+      "sections": [
+        "01",
+        "18"
+      ],
+      "status": "context",
+      "reason": "2001 与回忆性 2003"
+    },
+    {
+      "id": "BLOG-020",
+      "sections": [],
+      "status": "context",
+      "reason": null
+    },
+    {
+      "id": "BLOG-021",
+      "sections": [
+        "03",
+        "17"
+      ],
+      "status": "source-claim-retained",
+      "reason": "部分 Linux 支持、专业版/法医版"
+    },
+    {
+      "id": "BLOG-022",
+      "sections": [
+        "17"
+      ],
+      "status": "source-claim-retained",
+      "reason": "密钥"
+    },
+    {
+      "id": "BLOG-023",
+      "sections": [
+        "08",
+        "13",
+        "17"
+      ],
+      "status": "source-claim-retained",
+      "reason": "HTML/PDF/CSV"
+    },
+    {
+      "id": "BLOG-024",
+      "sections": [
+        "17"
+      ],
+      "status": "source-claim-retained",
+      "reason": "批处理"
+    },
+    {
+      "id": "BLOG-025",
+      "sections": [
+        "13",
+        "17"
+      ],
+      "status": "source-claim-retained",
+      "reason": "法庭标准及法医级支持"
+    },
+    {
+      "id": "BLOG-026",
+      "sections": [],
+      "status": "context",
+      "reason": null
+    },
+    {
+      "id": "BLOG-027",
+      "sections": [
+        "01",
+        "02",
+        "03"
+      ],
+      "status": "merged",
+      "reason": "工具定位与准备"
+    },
+    {
+      "id": "BLOG-028",
+      "sections": [
+        "04"
+      ],
+      "status": "merged",
+      "reason": "Add Directory..."
+    },
+    {
+      "id": "BLOG-029",
+      "sections": [
+        "02",
+        "17"
+      ],
+      "status": "conflict-resolved",
+      "reason": "历史修改记录"
+    },
+    {
+      "id": "BLOG-030",
+      "sections": [
+        "04"
+      ],
+      "status": "merged",
+      "reason": "Compute Hash"
+    },
+    {
+      "id": "BLOG-031",
+      "sections": [
+        "17"
+      ],
+      "status": "theme-retained",
+      "reason": "培训、书籍、课程、社区"
+    },
+    {
+      "id": "BLOG-032",
+      "sections": [
+        "17"
+      ],
+      "status": "theme-retained",
+      "reason": "文件头尾/真实类型"
+    },
+    {
+      "id": "BLOG-033",
+      "sections": [
+        "13",
+        "17"
+      ],
+      "status": "theme-retained",
+      "reason": "删除/格式化、碎片及损坏恢复"
+    },
+    {
+      "id": "BLOG-034",
+      "sections": [
+        "17"
+      ],
+      "status": "source-claim-retained",
+      "reason": "云存储及元数据"
+    },
+    {
+      "id": "BLOG-035",
+      "sections": [
+        "11",
+        "17"
+      ],
+      "status": "theme-retained",
+      "reason": "关系/链接可视化"
+    },
+    {
+      "id": "BLOG-036",
+      "sections": [
+        "13",
+        "17"
+      ],
+      "status": "theme-retained",
+      "reason": "图表或时间线"
+    },
+    {
+      "id": "BLOG-037",
+      "sections": [
+        "17"
+      ],
+      "status": "theme-retained",
+      "reason": "授权、隐私、伦理与证据可接受性"
+    },
+    {
+      "id": "BLOG-038",
+      "sections": [
+        "17"
+      ],
+      "status": "theme-retained",
+      "reason": "模拟环境"
+    },
+    {
+      "id": "BLOG-039",
+      "sections": [
+        "04",
+        "17"
+      ],
+      "status": "theme-retained",
+      "reason": "物理/逻辑"
+    },
+    {
+      "id": "BLOG-040",
+      "sections": [
+        "01",
+        "17"
+      ],
+      "status": "theme-retained",
+      "reason": "RAID 重组"
+    },
+    {
+      "id": "BLOG-041",
+      "sections": [
+        "17"
+      ],
+      "status": "source-claim-retained",
+      "reason": "物理/虚拟内存和虚拟机快照"
+    },
+    {
+      "id": "BLOG-042",
+      "sections": [
+        "17"
+      ],
+      "status": "theme-retained",
+      "reason": "大数据集/数据挖掘"
+    },
+    {
+      "id": "BLOG-043",
+      "sections": [
+        "17"
+      ],
+      "status": "theme-retained",
+      "reason": "分区表分析"
+    },
+    {
+      "id": "BLOG-044",
+      "sections": [
+        "17"
+      ],
+      "status": "theme-retained",
+      "reason": "自定义工作流"
+    }
+  ],
+  "reviewEvidence": {
+    "a": {
+      "file": "D:\\winoptimizeDir\\Desktop\\Misc学习\\ctf-atlas\\.work\\xwf-knowledge-20261004\\coverage-a.json",
+      "sha256": "af8288a2bac3a2bd77fceddf30007809b6e0d75e4491bcb86c2969f7ddcb794a"
+    },
+    "b": {
+      "file": "D:\\winoptimizeDir\\Desktop\\Misc学习\\ctf-atlas\\.work\\xwf-knowledge-20261004\\coverage-b.json",
+      "sha256": "b76177055ff73c2ce9e3aef34ad5a6f07a076d822d7f0220eef1ca6ac4a79db1"
+    },
+    "c": {
+      "file": "D:\\winoptimizeDir\\Desktop\\Misc学习\\ctf-atlas\\.work\\xwf-knowledge-20261004\\coverage-c.json",
+      "sha256": "6a2b52998516121f76be1834f85ee0f440db421456e672d8dc7464ee9e13dfab"
+    }
+  },
+  "preservation": {
+    "baselineFiles": 407,
+    "unchangedBaselineFiles": 404,
+    "changedBaselineFiles": [
+      "README.md",
+      "src/data/forensics-supplements.json",
+      "src/content/tools/forensic-xways.md"
+    ],
+    "baselineHashes": {
+      "README.md": "6f60703db69c0cf037d038039c936eb17efbb42cdd3351cfa7e633526b37d830",
+      "src/data/forensics-supplements.json": "20eb1f9ed6986dd236d80d6d3634c58dae4fe4e81923c6fa5daf607df19f7f1d",
+      "src/content/tools/forensic-xways.md": "e52cb276f0de4f0a457761da4628c1c032944c66698e998c65020e3f95a51f69"
+    }
+  },
+  "reimport": {
+    "checked_files": 412,
+    "changed": [],
+    "inventory_preserved": true,
+    "import_output": "Generated 82 Misc knowledge sections, 27 Forensics sections, 67 tool guides, 164 local tool entries\n"
+  },
+  "browser": {
+    "articleUrl": "http://127.0.0.1:4321/knowledge/forensic-xways-workflow/#18-%E6%9D%A5%E6%BA%90%E8%AF%B4%E6%98%8E",
+    "headingCount": 18,
+    "latestTextVerified": true,
+    "moduleEntryVerified": true,
+    "sourceAnchorVisible": true,
+    "sourceUrls": [
+      "https://www.forensics-wiki.com/node/0197f5eb-59ea-7d5d-a88f-d997aac44bdc",
+      "https://www.forensics-wiki.com/node/0197f603-6725-7f16-9edb-87c885033916",
+      "https://www.forensics-wiki.com/node/0197f606-44de-70fa-840c-6ed2c0462d5c",
+      "https://wenku.csdn.net/column/45z64793a5",
+      "https://www.cnblogs.com/suv789/p/18304375",
+      "https://www.forensics-wiki.com/node/0197f612-4279-7699-a18b-3ca961f7b7bb",
+      "https://www.forensics-wiki.com/node/0197fd30-0ac9-7077-b4a6-bb8badd8accf",
+      "https://www.forensics-wiki.com/node/0197fd4e-1ec0-7f00-a3a9-aa54a0705086"
+    ],
+    "search": {
+      "filters": [
+        "Forensics",
+        "通用方法",
+        "知识点",
+        "不限 WP 状态"
+      ],
+      "heading": "X-Ways Forensics 使用方法：配置、分析与交付",
+      "query": "XWF",
+      "resultCount": 1
+    }
+  },
+  "validation": {
+    "baselineUnit": {
+      "tests": 57,
+      "pass": 56,
+      "fail": 1,
+      "exit": 1
+    },
+    "modifiedUnit": {
+      "tests": 60,
+      "pass": 59,
+      "fail": 1,
+      "exit": 1
+    },
+    "xwfNewTests": {
+      "tests": 3,
+      "pass": 3
+    },
+    "ui": {
+      "tests": 5,
+      "pass": 5,
+      "exit": 0
+    },
+    "checkExit": 0,
+    "buildExit": 0,
+    "siteAuditExit": 0,
+    "webCoverageAuditExit": 0,
+    "knownFailure": {
+      "test": "test_every_catalog_location_exists_and_excludes_project_metadata",
+      "missingDirectory": "D:\\CTF_MISC_Tools\\Forensics\\Inseyets PA"
+    },
+    "xwfGUIExecuted": false
+  }
+}

@@ -1,0 +1,19 @@
+---
+interface Props {
+  title: string;
+  summary: string;
+  href: string;
+  kind: string;
+  module?: string;
+  tags?: string[];
+  meta?: string;
+}
+const { title, summary, href, kind, module, tags = [], meta } = Astro.props;
+---
+
+<a class="item-card" href={href}>
+  <div class="item-card-top"><span class="kind-label">{kind}</span>{module && <span class="module-pill">{module}</span>}</div>
+  <h3>{title}</h3>
+  <p>{summary}</p>
+  <div class="item-card-foot"><span>{tags.length ? tags.join(' · ') : meta || '查看详情'}</span><span aria-hidden="true">↗</span></div>
+</a>

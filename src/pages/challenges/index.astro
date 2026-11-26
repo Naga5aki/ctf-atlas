@@ -1,0 +1,31 @@
+---
+import Layout from '../../components/Layout.astro';
+import inventory from '../../data/inventory.json';
+const challenges = inventory.filter((item) => item.kind === 'challenge' && item.module !== 'Archive');
+---
+
+<Layout title="题目索引" active="challenges">
+  <div class="content-wrap"><header class="page-head"><div class="page-kicker">LIBRARY / CHALLENGES</div><h1>题目索引</h1><p>每个压缩包都有题目卡片。附件名可检索；解题状态会明确区分本站 WP、外部参考与待解。</p><div class="stat-line"><span>{challenges.length} 个五大模块题目附件</span><span>另有 11 个 Pwn 附件待归档</span></div></header>
+    <div class="filter-tabs" id="module-tabs"><a href="/challenges/" data-module="all">全部</a>{['Web','Misc','Reverse','Crypto'].map((module) => <a href={`/challenges/?module=${module}`} data-module={module}>{module}</a>)}</div>
+    <div class="list-toolbar"><h2>全部题目</h2><span id="shown-count"></span></div>
+    <div class="list-stack" id="challenge-list">{challenges.map((item, index) => <a class="list-row" href={`/challenge/${item.id}/`} data-module={item.module}><span class="list-row-index">{String(index + 1).padStart(2, '0')}</span><span class="list-row-body"><h3>{item.title}</h3><p>{item.contest} · {item.name}</p></span><span class="list-row-tail"><span class="module-pill">{item.module}</span><span class="module-pill">{item.wpStatus === 'local' ? '本地 WP' : item.wpStatus === 'external' ? '外部参考' : '待解'}</span><span>↗</span></span></a>)}</div>
+  </div>
+  <script>
+    const selected = new URLSearchParams(window.location.search).get('module') || 'all';
+    let visible = 0;
+    document.querySelectorAll<HTMLElement>('#challenge-list [data-module]').forEach((row) => {
+      const show = selected === 'all' || row.dataset.module === selected;
+      row.hidden = !show;
+      if (show) {
+        visible++;
+        const number = row.querySelector('.list-row-index');
+        if (number) number.textContent = String(visible).padStart(2, '0');
+      }
+    });
+    document.querySelectorAll<HTMLAnchorElement>('#module-tabs [data-module]').forEach((tab) => {
+      tab.classList.toggle('selected', tab.dataset.module === selected);
+    });
+    const count = document.getElementById('shown-count');
+    if (count) count.textContent = `${visible} 个结果`;
+  </script>
+</Layout>

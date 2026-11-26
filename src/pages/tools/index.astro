@@ -1,0 +1,45 @@
+---
+import Layout from '../../components/Layout.astro';
+import { getCollection } from 'astro:content';
+import inventory from '../../data/tool-inventory.json';
+import { forensicsTaxonomy, forensicsMethods } from '../../data/forensics-taxonomy';
+
+const manuals = await getCollection('tools');
+const modules = ['Web', 'Misc', 'Reverse', 'Crypto', 'Forensics'];
+const topicOrder: Record<string, string[]> = {
+  Web: ['协议与抓包', 'Web漏洞', '源码与环境'],
+  Misc: ['文件结构与提取', '图像与视觉', '压缩与口令', '文本与编码', '音频与信号', '流量与网络', '文档与取证'],
+  Reverse: ['程序结构', '逻辑逆推', '验证与复现'],
+  Crypto: ['参数与表示', '公钥密码', '对称与实现'],
+  Forensics: [...new Set([
+    ...forensicsTaxonomy.flatMap((track) => track.clusters.flatMap((cluster) => [...cluster.topics])),
+    ...forensicsMethods.clusters.flatMap((cluster) => [...cluster.topics]),
+  ])],
+};
+const guideModules = modules.map((module) => ({
+  module,
+  groups: topicOrder[module].map((topic) => ({ topic, items: manuals.filter((item) => item.data.module === module && item.data.topic === topic) })).filter((group) => group.items.length),
+})).filter((group) => group.groups.length);
+---
+
+<Layout title="工具索引" active="tools" pageType="工具">
+  <div class="content-wrap">
+    <header class="page-head" data-pagefind-body><div class="page-kicker">TOOLS / LOCAL WORKBENCH</div><h1>工具索引</h1><p>工具用法与本机位置分开呈现，按模块和主题快速查找。</p>
+      <div class="stat-line"><span>{manuals.length} 篇工具指南</span><span>{inventory.length} 个本机工具条目</span><span>5 个模块</span></div>
+    </header>
+    <div class="filter-tabs" data-pagefind-ignore><a href="/tools/" data-tool-filter="all">全部</a>{modules.map((module) => <a href={`/tools/?module=${module}`} data-tool-filter={module}>{module}</a>)}</div>
+    {guideModules.map((guideModule) => <section class="section-block" data-tool-section={guideModule.module}><div class="section-heading"><div><span class="section-kicker">01 / GUIDE / {guideModule.module.toUpperCase()}</span><h2>{guideModule.module} 使用指南</h2></div></div>
+      {guideModule.groups.map((group) => <div class="topic-group"><div class="topic-heading"><h3>{group.topic}</h3><span>{group.items.length} 篇</span></div><div class="compact-list">{group.items.map((item) => <a href={`/tool/${item.id}/`}><strong>{item.data.title}</strong><span>完整说明 ↗</span></a>)}</div></div>)}
+    </section>)}
+    <section class="section-block"><div class="section-heading"><div><span class="section-kicker">02 / LOCAL</span><h2>本机工具目录</h2></div></div><p class="section-note">展示 D:\CTF_MISC_Tools 中可定位的程序目录与入口文件。依赖和缓存不单列；文件存在不代表已运行验证。</p>
+      {modules.map((module) => <div class="topic-group" data-tool-section={module}><div class="topic-heading"><h3>{module}</h3><span>{inventory.filter((item) => item.module === module).length} 项</span></div><div class="tool-inventory-list">{inventory.filter((item) => item.module === module).map((item, index) => <div class="tool-inventory-item" id={item.id}><span class="tool-index">{String(index + 1).padStart(2, '0')}</span><div><strong>{item.name}</strong><small>{item.group} / {item.kind}</small><code>{item.path}</code></div><button class="copy-path" data-path={item.path}>复制路径</button></div>)}</div></div>)}
+    </section>
+  </div>
+  <script is:inline>
+    const selected = new URLSearchParams(location.search).get('module') || 'all';
+    document.querySelectorAll('[data-tool-filter]').forEach((tab) => tab.classList.toggle('selected', tab.dataset.toolFilter === selected));
+    document.querySelectorAll('[data-tool-section]').forEach((section) => { section.hidden = selected !== 'all' && section.dataset.toolSection !== selected; });
+    if (location.hash) requestAnimationFrame(() => document.getElementById(location.hash.slice(1))?.scrollIntoView());
+    document.querySelectorAll('.copy-path').forEach((button) => button.addEventListener('click', async () => { await navigator.clipboard.writeText(button.dataset.path || ''); button.textContent = '已复制'; }));
+  </script>
+</Layout>

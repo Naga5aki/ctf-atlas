@@ -1,0 +1,116 @@
+---
+import Layout from '../../components/Layout.astro';
+import toolInventory from '../../data/tool-inventory.json';
+import { forensicsTaxonomy, forensicsMethods } from '../../data/forensics-taxonomy';
+const toolSearchData = JSON.stringify(toolInventory).replace(/</g, '\\u003c');
+---
+
+<Layout title="全站搜索" active="search">
+  <div class="content-wrap"><header class="page-head"><div class="page-kicker">SEARCH / EVERYTHING</div><h1>找到下一步。</h1><p>同时查找知识点、工具、题目和 WP。用模块与内容类型快速缩小范围。</p></header>
+    <div class="search-panel"><label class="search-field"><span>⌕</span><input id="search-input" type="search" placeholder="试试 Acropalypse、LogPath、btrfs、ZipCracker..." autocomplete="off" autofocus /></label>
+      <div class="search-filters"><select id="module-filter" aria-label="按模块筛选"><option value="">全部模块</option><option>Web</option><option>Misc</option><option>Reverse</option><option>Crypto</option><option>Forensics</option><option value="Archive">待归档</option></select>
+        <select id="track-filter" aria-label="按取证题型筛选" hidden><option value="">全部取证题型</option>{forensicsTaxonomy.map((track) => <option>{track.name}</option>)}<option>{forensicsMethods.name}</option></select>
+        <select id="type-filter" aria-label="按内容类型筛选"><option value="">全部类型</option><option>知识点</option><option>工具</option><option>题目</option><option>WP</option></select>
+        <select id="wp-filter" aria-label="按 WP 状态筛选"><option value="">不限 WP 状态</option><option value="本地 WP">只看有本站 WP 的题目</option></select>
+      </div><div class="search-state" id="search-state">输入关键词开始检索。</div><div class="result-list" id="search-results"></div>
+    </div>
+  </div>
+  <script type="application/json" id="tool-search-data" set:html={toolSearchData} />
+  <script is:inline type="module">
+    const input = document.getElementById('search-input');
+    const state = document.getElementById('search-state');
+    const results = document.getElementById('search-results');
+    const moduleFilter = document.getElementById('module-filter');
+    const trackFilter = document.getElementById('track-filter');
+    const typeFilter = document.getElementById('type-filter');
+    const wpFilter = document.getElementById('wp-filter');
+    const localTools = JSON.parse(document.getElementById('tool-search-data').textContent || '[]');
+    let pagefind;
+    let requestNumber = 0;
+
+    function readableExcerpt(value) {
+      const named = { '&lt;': '<', '&gt;': '>', '&amp;': '&', '&quot;': '"', '&#39;': "'" };
+      return value.replace(/&(?:lt|gt|amp|quot|#39|#\d+);/g, (entity) => {
+        if (named[entity]) return named[entity];
+        const code = Number(entity.slice(2, -1));
+        return Number.isInteger(code) && code <= 0x10ffff ? String.fromCodePoint(code) : entity;
+      });
+    }
+
+    function addResult(data, index) {
+      const card = document.createElement('a');
+      card.className = 'result-item';
+      card.href = data.url;
+      const meta = document.createElement('div');
+      meta.className = 'result-meta';
+      meta.textContent = `${String(index + 1).padStart(2, '0')} / ` + [data.meta?.type || '内容', data.meta?.module || '', data.meta?.track || ''].filter(Boolean).join(' / ');
+      const title = document.createElement('h3');
+      title.textContent = data.meta?.title || data.url;
+      const excerpt = document.createElement('p');
+      excerpt.textContent = readableExcerpt(data.plain_excerpt || '');
+      card.append(meta, title, excerpt);
+      results.append(card);
+    }
+
+    function matchingLocalTools(term) {
+      if (wpFilter.value || trackFilter.value || (typeFilter.value && typeFilter.value !== '工具')) return [];
+      const query = term.toLocaleLowerCase();
+      return localTools.filter((item) =>
+        (!moduleFilter.value || item.module === moduleFilter.value) &&
+        [item.name, item.group, item.path].some((value) => value.toLocaleLowerCase().includes(query))
+      ).map((item) => ({
+        url: `/tools/?module=${encodeURIComponent(item.module)}#${item.id}`,
+        meta: { type: '工具', module: item.module, title: item.name },
+        plain_excerpt: `${item.group} · ${item.kind} · ${item.path}`,
+      }));
+    }
+
+    async function search() {
+      const number = ++requestNumber;
+      const term = input.value.trim();
+      results.replaceChildren();
+      if (!term) { state.textContent = '输入关键词开始检索。'; return; }
+      state.textContent = '正在检索...';
+      try {
+        pagefind ||= await import('/pagefind/pagefind.js');
+        const filters = {};
+        if (moduleFilter.value) filters.module = moduleFilter.value;
+        if (trackFilter.value) filters.track = trackFilter.value;
+        if (typeFilter.value) filters.type = typeFilter.value;
+        if (wpFilter.value) { filters.type = '题目'; filters.wp = wpFilter.value; }
+        const response = await pagefind.search(term, { filters });
+        const data = await Promise.all(response.results.slice(0, 40).map((item) => item.data()));
+        if (number !== requestNumber) return;
+        const matches = matchingLocalTools(term);
+        const combined = [...data, ...matches].slice(0, 40);
+        const total = response.results.length + matches.length;
+        state.textContent = `找到 ${total} 条结果${total > 40 ? '，显示前 40 条' : ''}`;
+        if (combined.length) combined.forEach(addResult);
+        else {
+          const empty = document.createElement('div');
+          empty.className = 'empty-state';
+          empty.textContent = '没有找到匹配结果。试试更短的关键词，或取消模块与类型筛选。';
+          results.append(empty);
+        }
+      } catch (error) {
+        state.textContent = '搜索索引尚未生成。请运行网站构建命令后打开预览版。';
+        console.error(error);
+      }
+    }
+    let timer;
+    input.addEventListener('input', () => { clearTimeout(timer); timer = setTimeout(search, 130); });
+    function showTrackFilter() {
+      trackFilter.hidden = moduleFilter.value !== 'Forensics';
+      if (trackFilter.hidden) trackFilter.value = '';
+    }
+    moduleFilter.addEventListener('change', () => { showTrackFilter(); search(); });
+    for (const filter of [trackFilter, typeFilter, wpFilter]) filter.addEventListener('change', search);
+    const params = new URLSearchParams(location.search);
+    if ([...moduleFilter.options].some((option) => option.value === params.get('module'))) moduleFilter.value = params.get('module');
+    showTrackFilter();
+    if (moduleFilter.value === 'Forensics' && [...trackFilter.options].some((option) => option.value === params.get('track'))) trackFilter.value = params.get('track');
+    const initial = params.get('q');
+    if (initial) { input.value = initial; search(); }
+    input.focus();
+  </script>
+</Layout>

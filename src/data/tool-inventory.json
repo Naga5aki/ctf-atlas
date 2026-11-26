@@ -1,0 +1,1298 @@
+[
+  {
+    "name": "gcc-shim",
+    "module": "Misc",
+    "path": "D:\\CTF_MISC_Tools\\build-tools\\gcc-shim",
+    "kind": "程序目录",
+    "group": "build-tools",
+    "id": "tool-dbbb73f19c3a"
+  },
+  {
+    "name": "llvm-mingw",
+    "module": "Misc",
+    "path": "D:\\CTF_MISC_Tools\\build-tools\\llvm-mingw",
+    "kind": "程序目录",
+    "group": "build-tools",
+    "id": "tool-569e10c3bfcd"
+  },
+  {
+    "name": "basecrack-master",
+    "module": "Crypto",
+    "path": "D:\\CTF_MISC_Tools\\crypto\\basecrack-master",
+    "kind": "程序目录",
+    "group": "crypto",
+    "id": "tool-c3b22a434f75"
+  },
+  {
+    "name": "BE-BerylEnigma",
+    "module": "Crypto",
+    "path": "D:\\CTF_MISC_Tools\\crypto\\BE-BerylEnigma",
+    "kind": "程序目录",
+    "group": "crypto",
+    "id": "tool-8408cbbe63ea"
+  },
+  {
+    "name": "BlueTeam_V3.58",
+    "module": "Crypto",
+    "path": "D:\\CTF_MISC_Tools\\crypto\\BlueTeam_V3.58",
+    "kind": "程序目录",
+    "group": "crypto",
+    "id": "tool-45dda0b9d97d"
+  },
+  {
+    "name": "CaptfEncoder_v2",
+    "module": "Crypto",
+    "path": "D:\\CTF_MISC_Tools\\crypto\\CaptfEncoder_v2",
+    "kind": "程序目录",
+    "group": "crypto",
+    "id": "tool-02e13eaaa45b"
+  },
+  {
+    "name": "CaptfEncoder_v3",
+    "module": "Crypto",
+    "path": "D:\\CTF_MISC_Tools\\crypto\\CaptfEncoder_v3",
+    "kind": "程序目录",
+    "group": "crypto",
+    "id": "tool-b17bc7df7eb0"
+  },
+  {
+    "name": "cyberchef",
+    "module": "Crypto",
+    "path": "D:\\CTF_MISC_Tools\\crypto\\cyberchef",
+    "kind": "程序目录",
+    "group": "crypto",
+    "id": "tool-64deb2da1389"
+  },
+  {
+    "name": "EBCTFCodeBox-v0.1.7-Lovely版",
+    "module": "Crypto",
+    "path": "D:\\CTF_MISC_Tools\\crypto\\EBCTFCodeBox-v0.1.7-Lovely版",
+    "kind": "程序目录",
+    "group": "crypto",
+    "id": "tool-8b3bd8a75096"
+  },
+  {
+    "name": "Encrypto",
+    "module": "Crypto",
+    "path": "D:\\CTF_MISC_Tools\\crypto\\Encrypto",
+    "kind": "程序目录",
+    "group": "crypto",
+    "id": "tool-2258caeb6f4f"
+  },
+  {
+    "name": "YAFU",
+    "module": "Crypto",
+    "path": "D:\\CTF_MISC_Tools\\crypto\\YAFU",
+    "kind": "程序目录",
+    "group": "crypto",
+    "id": "tool-b2552fee4f9d"
+  },
+  {
+    "name": "编解码转换工具",
+    "module": "Crypto",
+    "path": "D:\\CTF_MISC_Tools\\crypto\\编解码转换工具",
+    "kind": "程序目录",
+    "group": "crypto",
+    "id": "tool-21785d438ad4"
+  },
+  {
+    "name": "CTF-Script-Assistant",
+    "module": "Misc",
+    "path": "D:\\CTF_MISC_Tools\\CTF-Script-Assistant",
+    "kind": "工具套件",
+    "group": "CTF-Script-Assistant",
+    "id": "tool-ee022f6ae792"
+  },
+  {
+    "name": "CTFAIO",
+    "module": "Misc",
+    "path": "D:\\CTF_MISC_Tools\\CTFAIO",
+    "kind": "工具套件",
+    "group": "CTFAIO",
+    "id": "tool-af1945a9f9bb"
+  },
+  {
+    "name": "apk_analyzer",
+    "module": "Forensics",
+    "path": "D:\\CTF_MISC_Tools\\Forensics\\apk_analyzer",
+    "kind": "程序目录",
+    "group": "Forensics",
+    "id": "tool-abc54f41aabf"
+  },
+  {
+    "name": "Autopsy",
+    "module": "Forensics",
+    "path": "D:\\CTF_MISC_Tools\\Forensics\\Autopsy",
+    "kind": "程序目录",
+    "group": "Forensics",
+    "id": "tool-c8dd7f72bcd9"
+  },
+  {
+    "name": "DiskGenius",
+    "module": "Forensics",
+    "path": "D:\\CTF_MISC_Tools\\Forensics\\DiskGenius",
+    "kind": "程序目录",
+    "group": "Forensics",
+    "id": "tool-fe1691f5fdc3"
+  },
+  {
+    "name": "DumpIt",
+    "module": "Forensics",
+    "path": "D:\\CTF_MISC_Tools\\Forensics\\DumpIt",
+    "kind": "程序目录",
+    "group": "Forensics",
+    "id": "tool-a41a5d81c823"
+  },
+  {
+    "name": "Event Log Explorer",
+    "module": "Forensics",
+    "path": "D:\\CTF_MISC_Tools\\Forensics\\Event Log Explorer",
+    "kind": "程序目录",
+    "group": "Forensics",
+    "id": "tool-7246e5a26974"
+  },
+  {
+    "name": "ForensicsTool",
+    "module": "Forensics",
+    "path": "D:\\CTF_MISC_Tools\\Forensics\\ForensicsTool.exe",
+    "kind": "程序文件",
+    "group": "Forensics",
+    "id": "tool-24caa0cb5023"
+  },
+  {
+    "name": "FTK Imager",
+    "module": "Forensics",
+    "path": "D:\\CTF_MISC_Tools\\Forensics\\FTK Imager",
+    "kind": "程序目录",
+    "group": "Forensics",
+    "id": "tool-ef282d15ef23"
+  },
+  {
+    "name": "iLEAPP",
+    "module": "Forensics",
+    "path": "D:\\CTF_MISC_Tools\\Forensics\\iLEAPP",
+    "kind": "程序目录",
+    "group": "Forensics",
+    "id": "tool-e1bc969a51f7"
+  },
+  {
+    "name": "Inseyets PA",
+    "module": "Forensics",
+    "path": "D:\\CTF_MISC_Tools\\Forensics\\Inseyets PA",
+    "kind": "程序目录",
+    "group": "Forensics",
+    "id": "tool-6dcfcfceab3f"
+  },
+  {
+    "name": "Lovelymem",
+    "module": "Forensics",
+    "path": "D:\\CTF_MISC_Tools\\Forensics\\Lovelymem",
+    "kind": "程序目录",
+    "group": "Forensics",
+    "id": "tool-121e5f624ee2"
+  },
+  {
+    "name": "Magnet AXIOM",
+    "module": "Forensics",
+    "path": "D:\\CTF_MISC_Tools\\Forensics\\Magnet AXIOM",
+    "kind": "程序目录",
+    "group": "Forensics",
+    "id": "tool-e2a36daca868"
+  },
+  {
+    "name": "MemProcFS",
+    "module": "Forensics",
+    "path": "D:\\CTF_MISC_Tools\\Forensics\\MemProcFS",
+    "kind": "程序目录",
+    "group": "Forensics",
+    "id": "tool-0ad0afc67654"
+  },
+  {
+    "name": "PanelForensics",
+    "module": "Forensics",
+    "path": "D:\\CTF_MISC_Tools\\Forensics\\PanelForensics",
+    "kind": "程序目录",
+    "group": "Forensics",
+    "id": "tool-a5ff31cd8fff"
+  },
+  {
+    "name": "Plist-Parser-main",
+    "module": "Forensics",
+    "path": "D:\\CTF_MISC_Tools\\Forensics\\Plist-Parser-main",
+    "kind": "程序目录",
+    "group": "Forensics",
+    "id": "tool-7afd41c8b235"
+  },
+  {
+    "name": "qemu-img-win",
+    "module": "Forensics",
+    "path": "D:\\CTF_MISC_Tools\\Forensics\\qemu-img-win",
+    "kind": "程序目录",
+    "group": "Forensics",
+    "id": "tool-c8f2b5814d3e"
+  },
+  {
+    "name": "R-Studio",
+    "module": "Forensics",
+    "path": "D:\\CTF_MISC_Tools\\Forensics\\R-Studio",
+    "kind": "程序目录",
+    "group": "Forensics",
+    "id": "tool-06b19dbd94ec"
+  },
+  {
+    "name": "recoverMnemonic",
+    "module": "Forensics",
+    "path": "D:\\CTF_MISC_Tools\\Forensics\\recoverMnemonic.exe",
+    "kind": "程序文件",
+    "group": "Forensics",
+    "id": "tool-3c437cb255a7"
+  },
+  {
+    "name": "RegistryExplorer",
+    "module": "Forensics",
+    "path": "D:\\CTF_MISC_Tools\\Forensics\\RegistryExplorer",
+    "kind": "程序目录",
+    "group": "Forensics",
+    "id": "tool-59bd1117fa67"
+  },
+  {
+    "name": "RegRipper3.0-master",
+    "module": "Forensics",
+    "path": "D:\\CTF_MISC_Tools\\Forensics\\RegRipper3.0-master",
+    "kind": "程序目录",
+    "group": "Forensics",
+    "id": "tool-493b218f1ab0"
+  },
+  {
+    "name": "ufs-explorer-pro",
+    "module": "Forensics",
+    "path": "D:\\CTF_MISC_Tools\\Forensics\\ufs-explorer-pro.exe",
+    "kind": "程序文件",
+    "group": "Forensics",
+    "id": "tool-6d8a668da2e8"
+  },
+  {
+    "name": "VeraCrypt",
+    "module": "Forensics",
+    "path": "D:\\CTF_MISC_Tools\\Forensics\\VeraCrypt",
+    "kind": "程序目录",
+    "group": "Forensics",
+    "id": "tool-4cee60d12566"
+  },
+  {
+    "name": "volatility",
+    "module": "Forensics",
+    "path": "D:\\CTF_MISC_Tools\\Forensics\\volatility",
+    "kind": "程序目录",
+    "group": "Forensics",
+    "id": "tool-77700ed64ce6"
+  },
+  {
+    "name": "VolatilityWorkbench",
+    "module": "Forensics",
+    "path": "D:\\CTF_MISC_Tools\\Forensics\\VolatilityWorkbench",
+    "kind": "程序目录",
+    "group": "Forensics",
+    "id": "tool-6f9bffb20d31"
+  },
+  {
+    "name": "VolatilityWorkbench-v2.1",
+    "module": "Forensics",
+    "path": "D:\\CTF_MISC_Tools\\Forensics\\VolatilityWorkbench-v2.1",
+    "kind": "程序目录",
+    "group": "Forensics",
+    "id": "tool-4c913963af41"
+  },
+  {
+    "name": "X-Ways Forensics",
+    "module": "Forensics",
+    "path": "D:\\CTF_MISC_Tools\\Forensics\\X-Ways Forensics",
+    "kind": "程序目录",
+    "group": "Forensics",
+    "id": "tool-b20ee9ff3bc0"
+  },
+  {
+    "name": "弘连取证",
+    "module": "Forensics",
+    "path": "D:\\CTF_MISC_Tools\\Forensics\\弘连取证",
+    "kind": "程序目录",
+    "group": "Forensics",
+    "id": "tool-4723b99a4999"
+  },
+  {
+    "name": "火眼哈希值计算工具",
+    "module": "Forensics",
+    "path": "D:\\CTF_MISC_Tools\\Forensics\\火眼哈希值计算工具",
+    "kind": "程序目录",
+    "group": "Forensics",
+    "id": "tool-0ca6d9a4e461"
+  },
+  {
+    "name": "010 Editor",
+    "module": "Misc",
+    "path": "D:\\CTF_MISC_Tools\\hex_editor\\010 Editor",
+    "kind": "程序目录",
+    "group": "hex_editor",
+    "id": "tool-be309c787f91"
+  },
+  {
+    "name": "010EditorWin64Portable-15.0-汉化版",
+    "module": "Misc",
+    "path": "D:\\CTF_MISC_Tools\\hex_editor\\010EditorWin64Portable-15.0-汉化版",
+    "kind": "程序目录",
+    "group": "hex_editor",
+    "id": "tool-d56acfb66377"
+  },
+  {
+    "name": "HxD",
+    "module": "Misc",
+    "path": "D:\\CTF_MISC_Tools\\hex_editor\\HxD",
+    "kind": "程序目录",
+    "group": "hex_editor",
+    "id": "tool-876f7d4fb732"
+  },
+  {
+    "name": "winhex",
+    "module": "Misc",
+    "path": "D:\\CTF_MISC_Tools\\hex_editor\\winhex",
+    "kind": "程序目录",
+    "group": "hex_editor",
+    "id": "tool-c259bb4b6e21"
+  },
+  {
+    "name": "PuzzleSolver_Pro",
+    "module": "Misc",
+    "path": "D:\\CTF_MISC_Tools\\PuzzleSolver_Pro",
+    "kind": "工具套件",
+    "group": "PuzzleSolver_Pro",
+    "id": "tool-da97f3c5019b"
+  },
+  {
+    "name": "apktool_3.0.3",
+    "module": "Reverse",
+    "path": "D:\\CTF_MISC_Tools\\reverse\\apktool_3.0.3.jar",
+    "kind": "程序文件",
+    "group": "reverse",
+    "id": "tool-9fb78072dcb7"
+  },
+  {
+    "name": "Cheat Engine",
+    "module": "Reverse",
+    "path": "D:\\CTF_MISC_Tools\\reverse\\Cheat Engine",
+    "kind": "程序目录",
+    "group": "reverse",
+    "id": "tool-67f71fe398b6"
+  },
+  {
+    "name": "ghidra_12.1.2_PUBLIC",
+    "module": "Reverse",
+    "path": "D:\\CTF_MISC_Tools\\reverse\\ghidra_12.1.2_PUBLIC",
+    "kind": "程序目录",
+    "group": "reverse",
+    "id": "tool-89d99229e94c"
+  },
+  {
+    "name": "ida_pro",
+    "module": "Reverse",
+    "path": "D:\\CTF_MISC_Tools\\reverse\\ida_pro",
+    "kind": "程序目录",
+    "group": "reverse",
+    "id": "tool-8bf787144ffa"
+  },
+  {
+    "name": "jadx",
+    "module": "Reverse",
+    "path": "D:\\CTF_MISC_Tools\\reverse\\jadx",
+    "kind": "程序目录",
+    "group": "reverse",
+    "id": "tool-d08c0f2f9b68"
+  },
+  {
+    "name": "JPEXS Free Flash Decompiler",
+    "module": "Reverse",
+    "path": "D:\\CTF_MISC_Tools\\reverse\\JPEXS Free Flash Decompiler",
+    "kind": "程序目录",
+    "group": "reverse",
+    "id": "tool-2d413464948c"
+  },
+  {
+    "name": "mal_unpack",
+    "module": "Reverse",
+    "path": "D:\\CTF_MISC_Tools\\reverse\\mal_unpack.exe",
+    "kind": "程序文件",
+    "group": "reverse",
+    "id": "tool-d1b8b404981c"
+  },
+  {
+    "name": "PE-bear",
+    "module": "Reverse",
+    "path": "D:\\CTF_MISC_Tools\\reverse\\PE-bear",
+    "kind": "程序目录",
+    "group": "reverse",
+    "id": "tool-5b351583a386"
+  },
+  {
+    "name": "pyinstxtractor-ng",
+    "module": "Reverse",
+    "path": "D:\\CTF_MISC_Tools\\reverse\\pyinstxtractor-ng.exe",
+    "kind": "程序文件",
+    "group": "reverse",
+    "id": "tool-bd678749cd66"
+  },
+  {
+    "name": "Scylla",
+    "module": "Reverse",
+    "path": "D:\\CTF_MISC_Tools\\reverse\\Scylla",
+    "kind": "程序目录",
+    "group": "reverse",
+    "id": "tool-4ee329bc0d13"
+  },
+  {
+    "name": "ScyllaHide",
+    "module": "Reverse",
+    "path": "D:\\CTF_MISC_Tools\\reverse\\ScyllaHide",
+    "kind": "程序目录",
+    "group": "reverse",
+    "id": "tool-061e10045e24"
+  },
+  {
+    "name": "unipacker",
+    "module": "Reverse",
+    "path": "D:\\CTF_MISC_Tools\\reverse\\unipacker.bat",
+    "kind": "程序文件",
+    "group": "reverse",
+    "id": "tool-91c1b8ad9f64"
+  },
+  {
+    "name": "upx",
+    "module": "Reverse",
+    "path": "D:\\CTF_MISC_Tools\\reverse\\upx",
+    "kind": "程序目录",
+    "group": "reverse",
+    "id": "tool-cb87aec42e64"
+  },
+  {
+    "name": "x64dbg",
+    "module": "Reverse",
+    "path": "D:\\CTF_MISC_Tools\\reverse\\x64dbg",
+    "kind": "程序目录",
+    "group": "reverse",
+    "id": "tool-39202c6b1bb3"
+  },
+  {
+    "name": "android-malware-analysis",
+    "module": "Misc",
+    "path": "D:\\CTF_MISC_Tools\\UsefulSkills\\android-malware-analysis",
+    "kind": "程序目录",
+    "group": "UsefulSkills",
+    "id": "tool-2f488e0eee8b"
+  },
+  {
+    "name": "attack-analysis",
+    "module": "Misc",
+    "path": "D:\\CTF_MISC_Tools\\UsefulSkills\\attack-analysis",
+    "kind": "程序目录",
+    "group": "UsefulSkills",
+    "id": "tool-74ba631674ad"
+  },
+  {
+    "name": "linux-loader",
+    "module": "Misc",
+    "path": "D:\\CTF_MISC_Tools\\UsefulSkills\\linux-loader",
+    "kind": "程序目录",
+    "group": "UsefulSkills",
+    "id": "tool-377247ff3b6c"
+  },
+  {
+    "name": "utm-forensic-cli",
+    "module": "Misc",
+    "path": "D:\\CTF_MISC_Tools\\UsefulSkills\\utm-forensic-cli",
+    "kind": "程序目录",
+    "group": "UsefulSkills",
+    "id": "tool-0c1817f19995"
+  },
+  {
+    "name": "windows-loader",
+    "module": "Misc",
+    "path": "D:\\CTF_MISC_Tools\\UsefulSkills\\windows-loader",
+    "kind": "程序目录",
+    "group": "UsefulSkills",
+    "id": "tool-ce246db40766"
+  },
+  {
+    "name": "wire-toutetu",
+    "module": "Misc",
+    "path": "D:\\CTF_MISC_Tools\\UsefulSkills\\wire-toutetu",
+    "kind": "程序目录",
+    "group": "UsefulSkills",
+    "id": "tool-b2ce321af269"
+  },
+  {
+    "name": "writing-helper",
+    "module": "Misc",
+    "path": "D:\\CTF_MISC_Tools\\UsefulSkills\\writing-helper",
+    "kind": "程序目录",
+    "group": "UsefulSkills",
+    "id": "tool-3a69cb75609e"
+  },
+  {
+    "name": "[随波逐流]Web安全工具V1.0Beta_20260905",
+    "module": "Web",
+    "path": "D:\\CTF_MISC_Tools\\Web\\[随波逐流]Web安全工具V1.0Beta_20260905.exe",
+    "kind": "程序文件",
+    "group": "Web",
+    "id": "tool-2d0883de38ef"
+  },
+  {
+    "name": "BurpSuite V2025.2",
+    "module": "Web",
+    "path": "D:\\CTF_MISC_Tools\\Web\\BurpSuite V2025.2",
+    "kind": "程序目录",
+    "group": "Web",
+    "id": "tool-e6b9c0a61feb"
+  },
+  {
+    "name": "ctf-wscan-master",
+    "module": "Web",
+    "path": "D:\\CTF_MISC_Tools\\Web\\ctf-wscan-master",
+    "kind": "程序目录",
+    "group": "Web",
+    "id": "tool-9dbb33c36216"
+  },
+  {
+    "name": "d_safe_2.1.8.9",
+    "module": "Web",
+    "path": "D:\\CTF_MISC_Tools\\Web\\d_safe_2.1.8.9",
+    "kind": "程序目录",
+    "group": "Web",
+    "id": "tool-84a533d80082"
+  },
+  {
+    "name": "ddddocr",
+    "module": "Web",
+    "path": "D:\\CTF_MISC_Tools\\Web\\ddddocr.py",
+    "kind": "程序文件",
+    "group": "Web",
+    "id": "tool-3125065fd69d"
+  },
+  {
+    "name": "DirBuster-0.12",
+    "module": "Web",
+    "path": "D:\\CTF_MISC_Tools\\Web\\DirBuster-0.12",
+    "kind": "程序目录",
+    "group": "Web",
+    "id": "tool-5e85898d674f"
+  },
+  {
+    "name": "dirsearch-master",
+    "module": "Web",
+    "path": "D:\\CTF_MISC_Tools\\Web\\dirsearch-master",
+    "kind": "程序目录",
+    "group": "Web",
+    "id": "tool-fbcca067a4c5"
+  },
+  {
+    "name": "GitHack-master",
+    "module": "Web",
+    "path": "D:\\CTF_MISC_Tools\\Web\\GitHack-master",
+    "kind": "程序目录",
+    "group": "Web",
+    "id": "tool-208da9270ca7"
+  },
+  {
+    "name": "gobuster_Windows_x86_64",
+    "module": "Web",
+    "path": "D:\\CTF_MISC_Tools\\Web\\gobuster_Windows_x86_64",
+    "kind": "程序目录",
+    "group": "Web",
+    "id": "tool-ace6da689cbb"
+  },
+  {
+    "name": "godzilla",
+    "module": "Web",
+    "path": "D:\\CTF_MISC_Tools\\Web\\godzilla.jar",
+    "kind": "程序文件",
+    "group": "Web",
+    "id": "tool-1514de7d1563"
+  },
+  {
+    "name": "gofofa",
+    "module": "Web",
+    "path": "D:\\CTF_MISC_Tools\\Web\\gofofa",
+    "kind": "程序目录",
+    "group": "Web",
+    "id": "tool-dffb0e14abe7"
+  },
+  {
+    "name": "Hephaestus",
+    "module": "Web",
+    "path": "D:\\CTF_MISC_Tools\\Web\\Hephaestus.exe",
+    "kind": "程序文件",
+    "group": "Web",
+    "id": "tool-989075d709be"
+  },
+  {
+    "name": "jwt_gui",
+    "module": "Web",
+    "path": "D:\\CTF_MISC_Tools\\Web\\jwt_gui",
+    "kind": "程序目录",
+    "group": "Web",
+    "id": "tool-33309f343fa3"
+  },
+  {
+    "name": "masnmapscan",
+    "module": "Web",
+    "path": "D:\\CTF_MISC_Tools\\Web\\masnmapscan.py",
+    "kind": "程序文件",
+    "group": "Web",
+    "id": "tool-bd6e54463570"
+  },
+  {
+    "name": "mimikatz_trunk",
+    "module": "Forensics",
+    "path": "D:\\CTF_MISC_Tools\\Web\\mimikatz_trunk",
+    "kind": "程序目录",
+    "group": "Web",
+    "id": "tool-1ddf1bd3b259"
+  },
+  {
+    "name": "Nmap",
+    "module": "Web",
+    "path": "D:\\CTF_MISC_Tools\\Web\\Nmap",
+    "kind": "程序目录",
+    "group": "Web",
+    "id": "tool-9fe32cd0d206"
+  },
+  {
+    "name": "Nmap - Zenmap GUI",
+    "module": "Web",
+    "path": "D:\\CTF_MISC_Tools\\Web\\Nmap - Zenmap GUI.lnk",
+    "kind": "快捷方式",
+    "group": "Web",
+    "id": "tool-a30f33ac05e4"
+  },
+  {
+    "name": "SourceLeakHacker-master",
+    "module": "Web",
+    "path": "D:\\CTF_MISC_Tools\\Web\\SourceLeakHacker-master",
+    "kind": "程序目录",
+    "group": "Web",
+    "id": "tool-91c6b988cb92"
+  },
+  {
+    "name": "sqlmap",
+    "module": "Web",
+    "path": "D:\\CTF_MISC_Tools\\Web\\sqlmap",
+    "kind": "程序目录",
+    "group": "Web",
+    "id": "tool-ba3fd5f1ac00"
+  },
+  {
+    "name": "superfofa-windows-amd64",
+    "module": "Web",
+    "path": "D:\\CTF_MISC_Tools\\Web\\superfofa-windows-amd64",
+    "kind": "程序目录",
+    "group": "Web",
+    "id": "tool-5a50ec19d422"
+  },
+  {
+    "name": "蚁剑",
+    "module": "Web",
+    "path": "D:\\CTF_MISC_Tools\\Web\\蚁剑",
+    "kind": "程序目录",
+    "group": "Web",
+    "id": "tool-110b29bb4c69"
+  },
+  {
+    "name": "Advanced Archive Password Recovery",
+    "module": "Misc",
+    "path": "D:\\CTF_MISC_Tools\\压缩包\\Advanced Archive Password Recovery",
+    "kind": "程序目录",
+    "group": "压缩包",
+    "id": "tool-b9804a8ada83"
+  },
+  {
+    "name": "CRC32-Tools-main",
+    "module": "Misc",
+    "path": "D:\\CTF_MISC_Tools\\压缩包\\CRC32-Tools-main",
+    "kind": "程序目录",
+    "group": "压缩包",
+    "id": "tool-7716772c8c94"
+  },
+  {
+    "name": "hashcat-6.2.6",
+    "module": "Misc",
+    "path": "D:\\CTF_MISC_Tools\\压缩包\\hashcat-6.2.6",
+    "kind": "程序目录",
+    "group": "压缩包",
+    "id": "tool-bf4bbf4c8715"
+  },
+  {
+    "name": "john-1.9.0-jumbo-1-win64",
+    "module": "Misc",
+    "path": "D:\\CTF_MISC_Tools\\压缩包\\john-1.9.0-jumbo-1-win64",
+    "kind": "程序目录",
+    "group": "压缩包",
+    "id": "tool-9d7125989ee9"
+  },
+  {
+    "name": "Passware Kit Forensic(Eusrc)",
+    "module": "Misc",
+    "path": "D:\\CTF_MISC_Tools\\压缩包\\Passware Kit Forensic(Eusrc)",
+    "kind": "程序目录",
+    "group": "压缩包",
+    "id": "tool-677ca4800998"
+  },
+  {
+    "name": "RAR Recovery Kit",
+    "module": "Misc",
+    "path": "D:\\CTF_MISC_Tools\\压缩包\\RAR Recovery Kit",
+    "kind": "程序目录",
+    "group": "压缩包",
+    "id": "tool-5d78732757f8"
+  },
+  {
+    "name": "zipcracker",
+    "module": "Misc",
+    "path": "D:\\CTF_MISC_Tools\\压缩包\\zipcracker",
+    "kind": "程序目录",
+    "group": "压缩包",
+    "id": "tool-1cdbd52b7af7"
+  },
+  {
+    "name": "Acropalypse-Multi-Tool-1.0.0",
+    "module": "Misc",
+    "path": "D:\\CTF_MISC_Tools\\图像隐写\\Acropalypse-Multi-Tool-1.0.0",
+    "kind": "程序目录",
+    "group": "图像隐写",
+    "id": "tool-7dfa9ef870f2"
+  },
+  {
+    "name": "Arnold猫脸变换工具",
+    "module": "Misc",
+    "path": "D:\\CTF_MISC_Tools\\图像隐写\\Arnold猫脸变换工具",
+    "kind": "程序目录",
+    "group": "图像隐写",
+    "id": "tool-d2630c3eadf3"
+  },
+  {
+    "name": "bpg-0.9.8-win64",
+    "module": "Misc",
+    "path": "D:\\CTF_MISC_Tools\\图像隐写\\bpg-0.9.8-win64",
+    "kind": "程序目录",
+    "group": "图像隐写",
+    "id": "tool-e5d074bd61a7"
+  },
+  {
+    "name": "bpgviewer",
+    "module": "Misc",
+    "path": "D:\\CTF_MISC_Tools\\图像隐写\\bpgviewer",
+    "kind": "程序目录",
+    "group": "图像隐写",
+    "id": "tool-d4ff5da48d78"
+  },
+  {
+    "name": "CTF-Misc-Arsenal",
+    "module": "Misc",
+    "path": "D:\\CTF_MISC_Tools\\图像隐写\\CTF-Misc-Arsenal.exe",
+    "kind": "程序文件",
+    "group": "图像隐写",
+    "id": "tool-0f533817b283"
+  },
+  {
+    "name": "DeEgger Embedder",
+    "module": "Misc",
+    "path": "D:\\CTF_MISC_Tools\\图像隐写\\DeEgger Embedder",
+    "kind": "程序目录",
+    "group": "图像隐写",
+    "id": "tool-963c29380e44"
+  },
+  {
+    "name": "Deformed-Image-Restorer-main",
+    "module": "Misc",
+    "path": "D:\\CTF_MISC_Tools\\图像隐写\\Deformed-Image-Restorer-main",
+    "kind": "程序目录",
+    "group": "图像隐写",
+    "id": "tool-d5c0a534f82d"
+  },
+  {
+    "name": "depix",
+    "module": "Misc",
+    "path": "D:\\CTF_MISC_Tools\\图像隐写\\depix",
+    "kind": "程序目录",
+    "group": "图像隐写",
+    "id": "tool-f236563ce474"
+  },
+  {
+    "name": "Easy GIF Animator",
+    "module": "Misc",
+    "path": "D:\\CTF_MISC_Tools\\图像隐写\\Easy GIF Animator",
+    "kind": "程序目录",
+    "group": "图像隐写",
+    "id": "tool-0df760b07244"
+  },
+  {
+    "name": "Image Steganography",
+    "module": "Misc",
+    "path": "D:\\CTF_MISC_Tools\\图像隐写\\Image Steganography",
+    "kind": "程序目录",
+    "group": "图像隐写",
+    "id": "tool-03a5c239ae73"
+  },
+  {
+    "name": "JPEGsnoop",
+    "module": "Misc",
+    "path": "D:\\CTF_MISC_Tools\\图像隐写\\JPEGsnoop.exe",
+    "kind": "程序文件",
+    "group": "图像隐写",
+    "id": "tool-c75ebfa5c7d5"
+  },
+  {
+    "name": "jphswin",
+    "module": "Misc",
+    "path": "D:\\CTF_MISC_Tools\\图像隐写\\jphswin",
+    "kind": "程序目录",
+    "group": "图像隐写",
+    "id": "tool-68d7a013d0a7"
+  },
+  {
+    "name": "jsteg-windows-amd64",
+    "module": "Misc",
+    "path": "D:\\CTF_MISC_Tools\\图像隐写\\jsteg-windows-amd64.exe",
+    "kind": "程序文件",
+    "group": "图像隐写",
+    "id": "tool-7d0b70cac3dd"
+  },
+  {
+    "name": "npiet",
+    "module": "Misc",
+    "path": "D:\\CTF_MISC_Tools\\图像隐写\\npiet",
+    "kind": "程序目录",
+    "group": "图像隐写",
+    "id": "tool-970ad2d4d41b"
+  },
+  {
+    "name": "OpenPuff",
+    "module": "Misc",
+    "path": "D:\\CTF_MISC_Tools\\图像隐写\\OpenPuff",
+    "kind": "程序目录",
+    "group": "图像隐写",
+    "id": "tool-c78fa947d834"
+  },
+  {
+    "name": "OurSecret",
+    "module": "Misc",
+    "path": "D:\\CTF_MISC_Tools\\图像隐写\\OurSecret.exe",
+    "kind": "程序文件",
+    "group": "图像隐写",
+    "id": "tool-639559e07d5f"
+  },
+  {
+    "name": "paperbak",
+    "module": "Misc",
+    "path": "D:\\CTF_MISC_Tools\\图像隐写\\paperbak",
+    "kind": "程序目录",
+    "group": "图像隐写",
+    "id": "tool-9960fe23c5bf"
+  },
+  {
+    "name": "Puzzle-Merak",
+    "module": "Misc",
+    "path": "D:\\CTF_MISC_Tools\\图像隐写\\Puzzle-Merak.exe",
+    "kind": "程序文件",
+    "group": "图像隐写",
+    "id": "tool-78e480aeb210"
+  },
+  {
+    "name": "qrazybox-master",
+    "module": "Misc",
+    "path": "D:\\CTF_MISC_Tools\\图像隐写\\qrazybox-master",
+    "kind": "程序目录",
+    "group": "图像隐写",
+    "id": "tool-eff7ae6ab9e6"
+  },
+  {
+    "name": "SilentEye",
+    "module": "Misc",
+    "path": "D:\\CTF_MISC_Tools\\图像隐写\\SilentEye",
+    "kind": "程序目录",
+    "group": "图像隐写",
+    "id": "tool-5b68a35c66e8"
+  },
+  {
+    "name": "stegdetect",
+    "module": "Misc",
+    "path": "D:\\CTF_MISC_Tools\\图像隐写\\stegdetect",
+    "kind": "程序目录",
+    "group": "图像隐写",
+    "id": "tool-6f230676e323"
+  },
+  {
+    "name": "stegoVeritas（图片一把梭）",
+    "module": "Misc",
+    "path": "D:\\CTF_MISC_Tools\\图像隐写\\stegoVeritas（图片一把梭）",
+    "kind": "程序目录",
+    "group": "图像隐写",
+    "id": "tool-7238997943a0"
+  },
+  {
+    "name": "StegSolve",
+    "module": "Misc",
+    "path": "D:\\CTF_MISC_Tools\\图像隐写\\StegSolve.jar",
+    "kind": "程序文件",
+    "group": "图像隐写",
+    "id": "tool-07d14f4842b9"
+  },
+  {
+    "name": "TianTongEye",
+    "module": "Misc",
+    "path": "D:\\CTF_MISC_Tools\\图像隐写\\TianTongEye",
+    "kind": "程序目录",
+    "group": "图像隐写",
+    "id": "tool-d11ba5d72ace"
+  },
+  {
+    "name": "tweakpng",
+    "module": "Misc",
+    "path": "D:\\CTF_MISC_Tools\\图像隐写\\tweakpng",
+    "kind": "程序目录",
+    "group": "图像隐写",
+    "id": "tool-2560a5288651"
+  },
+  {
+    "name": "WaterMarkH",
+    "module": "Misc",
+    "path": "D:\\CTF_MISC_Tools\\图像隐写\\WaterMarkH.exe",
+    "kind": "程序文件",
+    "group": "图像隐写",
+    "id": "tool-734d0c6a8ccd"
+  },
+  {
+    "name": "爆破clocked-pixel密钥",
+    "module": "Misc",
+    "path": "D:\\CTF_MISC_Tools\\图像隐写\\爆破clocked-pixel密钥.py",
+    "kind": "程序文件",
+    "group": "图像隐写",
+    "id": "tool-e34191e8cbfc"
+  },
+  {
+    "name": "Beyond Compare 5",
+    "module": "Misc",
+    "path": "D:\\CTF_MISC_Tools\\实用小工具\\Beyond Compare 5",
+    "kind": "程序目录",
+    "group": "实用小工具",
+    "id": "tool-dcdc54c2037d"
+  },
+  {
+    "name": "detect it easy",
+    "module": "Misc",
+    "path": "D:\\CTF_MISC_Tools\\实用小工具\\detect it easy.lnk",
+    "kind": "快捷方式",
+    "group": "实用小工具",
+    "id": "tool-b0314dd1c977"
+  },
+  {
+    "name": "Everything",
+    "module": "Misc",
+    "path": "D:\\CTF_MISC_Tools\\实用小工具\\Everything",
+    "kind": "程序目录",
+    "group": "实用小工具",
+    "id": "tool-2e8396d8c6f1"
+  },
+  {
+    "name": "flaghunter",
+    "module": "Misc",
+    "path": "D:\\CTF_MISC_Tools\\实用小工具\\flaghunter",
+    "kind": "程序目录",
+    "group": "实用小工具",
+    "id": "tool-fbf2f17a38bd"
+  },
+  {
+    "name": "magika",
+    "module": "Misc",
+    "path": "D:\\CTF_MISC_Tools\\实用小工具\\magika",
+    "kind": "程序目录",
+    "group": "实用小工具",
+    "id": "tool-af57c722a4ae"
+  },
+  {
+    "name": "PromptOptimizer",
+    "module": "Misc",
+    "path": "D:\\CTF_MISC_Tools\\实用小工具\\PromptOptimizer.lnk",
+    "kind": "快捷方式",
+    "group": "实用小工具",
+    "id": "tool-16b21efb63d2"
+  },
+  {
+    "name": "Snipaste",
+    "module": "Misc",
+    "path": "D:\\CTF_MISC_Tools\\实用小工具\\Snipaste",
+    "kind": "程序目录",
+    "group": "实用小工具",
+    "id": "tool-d092d4da83c5"
+  },
+  {
+    "name": "Vim",
+    "module": "Misc",
+    "path": "D:\\CTF_MISC_Tools\\实用小工具\\Vim",
+    "kind": "程序目录",
+    "group": "实用小工具",
+    "id": "tool-c3954c3822c2"
+  },
+  {
+    "name": "破空_flag查找",
+    "module": "Misc",
+    "path": "D:\\CTF_MISC_Tools\\实用小工具\\破空_flag查找",
+    "kind": "程序目录",
+    "group": "实用小工具",
+    "id": "tool-ee736f2849d6"
+  },
+  {
+    "name": "DB Browser for SQLite",
+    "module": "Forensics",
+    "path": "D:\\CTF_MISC_Tools\\数据库\\DB Browser for SQLite",
+    "kind": "程序目录",
+    "group": "数据库",
+    "id": "tool-b597a3f4cdc5"
+  },
+  {
+    "name": "Letos",
+    "module": "Forensics",
+    "path": "D:\\CTF_MISC_Tools\\数据库\\Letos",
+    "kind": "程序目录",
+    "group": "数据库",
+    "id": "tool-a32e4515942e"
+  },
+  {
+    "name": "Navicat Premium Lite 17",
+    "module": "Forensics",
+    "path": "D:\\CTF_MISC_Tools\\数据库\\Navicat Premium Lite 17",
+    "kind": "程序目录",
+    "group": "数据库",
+    "id": "tool-8c90a06a52cf"
+  },
+  {
+    "name": "alternatestreamview",
+    "module": "Misc",
+    "path": "D:\\CTF_MISC_Tools\\文档隐写\\alternatestreamview",
+    "kind": "程序目录",
+    "group": "文档隐写",
+    "id": "tool-865f076fb18b"
+  },
+  {
+    "name": "Office Password Recovery Toolbox",
+    "module": "Misc",
+    "path": "D:\\CTF_MISC_Tools\\文档隐写\\Office Password Recovery Toolbox",
+    "kind": "程序目录",
+    "group": "文档隐写",
+    "id": "tool-bff35475d513"
+  },
+  {
+    "name": "PDFStreamDumper",
+    "module": "Misc",
+    "path": "D:\\CTF_MISC_Tools\\文档隐写\\PDFStreamDumper",
+    "kind": "程序目录",
+    "group": "文档隐写",
+    "id": "tool-b189e5f0cbe3"
+  },
+  {
+    "name": "SNOW",
+    "module": "Misc",
+    "path": "D:\\CTF_MISC_Tools\\文档隐写\\SNOW",
+    "kind": "程序目录",
+    "group": "文档隐写",
+    "id": "tool-667f61cfce91"
+  },
+  {
+    "name": "VBA Password Recovery Master",
+    "module": "Misc",
+    "path": "D:\\CTF_MISC_Tools\\文档隐写\\VBA Password Recovery Master",
+    "kind": "程序目录",
+    "group": "文档隐写",
+    "id": "tool-ea659b04b9d1"
+  },
+  {
+    "name": "wbs4open",
+    "module": "Misc",
+    "path": "D:\\CTF_MISC_Tools\\文档隐写\\wbs4open",
+    "kind": "程序目录",
+    "group": "文档隐写",
+    "id": "tool-044585ab4a07"
+  },
+  {
+    "name": "CTF-NetA",
+    "module": "Misc",
+    "path": "D:\\CTF_MISC_Tools\\流量分析\\CTF-NetA",
+    "kind": "程序目录",
+    "group": "流量分析",
+    "id": "tool-46b475abbf5b"
+  },
+  {
+    "name": "fiddler",
+    "module": "Misc",
+    "path": "D:\\CTF_MISC_Tools\\流量分析\\fiddler",
+    "kind": "程序目录",
+    "group": "流量分析",
+    "id": "tool-314fed05049f"
+  },
+  {
+    "name": "lovelyspark",
+    "module": "Misc",
+    "path": "D:\\CTF_MISC_Tools\\流量分析\\lovelyspark",
+    "kind": "程序目录",
+    "group": "流量分析",
+    "id": "tool-d556e6080149"
+  },
+  {
+    "name": "NetworkMiner_3-1",
+    "module": "Misc",
+    "path": "D:\\CTF_MISC_Tools\\流量分析\\NetworkMiner_3-1",
+    "kind": "程序目录",
+    "group": "流量分析",
+    "id": "tool-b000d9a0617f"
+  },
+  {
+    "name": "NTLMRawUnHide-master",
+    "module": "Misc",
+    "path": "D:\\CTF_MISC_Tools\\流量分析\\NTLMRawUnHide-master",
+    "kind": "程序目录",
+    "group": "流量分析",
+    "id": "tool-75df528642b7"
+  },
+  {
+    "name": "pcap2track-main",
+    "module": "Misc",
+    "path": "D:\\CTF_MISC_Tools\\流量分析\\pcap2track-main",
+    "kind": "程序目录",
+    "group": "流量分析",
+    "id": "tool-35d0e1528d10"
+  },
+  {
+    "name": "snmpv3brute-master",
+    "module": "Misc",
+    "path": "D:\\CTF_MISC_Tools\\流量分析\\snmpv3brute-master",
+    "kind": "程序目录",
+    "group": "流量分析",
+    "id": "tool-b888acd10f56"
+  },
+  {
+    "name": "WireMCP",
+    "module": "Misc",
+    "path": "D:\\CTF_MISC_Tools\\流量分析\\WireMCP",
+    "kind": "程序目录",
+    "group": "流量分析",
+    "id": "tool-000278877071"
+  },
+  {
+    "name": "Wireshark",
+    "module": "Misc",
+    "path": "D:\\CTF_MISC_Tools\\流量分析\\Wireshark",
+    "kind": "程序目录",
+    "group": "流量分析",
+    "id": "tool-acbc52c12254"
+  },
+  {
+    "name": "[随波逐流]224种编码图 V2.0",
+    "module": "Misc",
+    "path": "D:\\CTF_MISC_Tools\\随波逐流系列\\[随波逐流]224种编码图 V2.0.exe",
+    "kind": "程序文件",
+    "group": "随波逐流系列",
+    "id": "tool-50078e0177c6"
+  },
+  {
+    "name": "[随波逐流]CTF Flags1.0.0",
+    "module": "Misc",
+    "path": "D:\\CTF_MISC_Tools\\随波逐流系列\\[随波逐流]CTF Flags1.0.0.exe",
+    "kind": "程序文件",
+    "group": "随波逐流系列",
+    "id": "tool-435a38b8cc0c"
+  },
+  {
+    "name": "[随波逐流]CTF编码工具 V7.4_20260708",
+    "module": "Misc",
+    "path": "D:\\CTF_MISC_Tools\\随波逐流系列\\[随波逐流]CTF编码工具 V7.4_20260708.exe",
+    "kind": "程序文件",
+    "group": "随波逐流系列",
+    "id": "tool-b9a51f118ff3"
+  },
+  {
+    "name": "[随波逐流]二维码识别工具V2.0 20250710",
+    "module": "Misc",
+    "path": "D:\\CTF_MISC_Tools\\随波逐流系列\\[随波逐流]二维码识别工具V2.0 20250710.exe",
+    "kind": "程序文件",
+    "group": "随波逐流系列",
+    "id": "tool-32e5a30779cf"
+  },
+  {
+    "name": "[随波逐流]音乐搜索器V1.0 20250714",
+    "module": "Misc",
+    "path": "D:\\CTF_MISC_Tools\\随波逐流系列\\[随波逐流]音乐搜索器V1.0 20250714.exe",
+    "kind": "程序文件",
+    "group": "随波逐流系列",
+    "id": "tool-e2cc86853f57"
+  },
+  {
+    "name": "SuiYue_GUI_V1.0",
+    "module": "Misc",
+    "path": "D:\\CTF_MISC_Tools\\随波逐流系列\\SuiYue_GUI_V1.0.exe",
+    "kind": "程序文件",
+    "group": "随波逐流系列",
+    "id": "tool-2451cfd05902"
+  },
+  {
+    "name": "随波逐流OCR识别工具 V3.1 20250118",
+    "module": "Misc",
+    "path": "D:\\CTF_MISC_Tools\\随波逐流系列\\随波逐流OCR识别工具 V3.1 20250118.exe",
+    "kind": "程序文件",
+    "group": "随波逐流系列",
+    "id": "tool-d2124335f333"
+  },
+  {
+    "name": "随言随语编码加解密程序V1.0",
+    "module": "Misc",
+    "path": "D:\\CTF_MISC_Tools\\随波逐流系列\\随言随语编码加解密程序V1.0.exe",
+    "kind": "程序文件",
+    "group": "随波逐流系列",
+    "id": "tool-ea7fa4151ec1"
+  },
+  {
+    "name": "DeepSound",
+    "module": "Misc",
+    "path": "D:\\CTF_MISC_Tools\\音频隐写\\DeepSound",
+    "kind": "程序目录",
+    "group": "音频隐写",
+    "id": "tool-28d0504c051d"
+  },
+  {
+    "name": "dtmf2num",
+    "module": "Misc",
+    "path": "D:\\CTF_MISC_Tools\\音频隐写\\dtmf2num",
+    "kind": "程序目录",
+    "group": "音频隐写",
+    "id": "tool-0a840e62f076"
+  },
+  {
+    "name": "MMSSTV",
+    "module": "Misc",
+    "path": "D:\\CTF_MISC_Tools\\音频隐写\\MMSSTV",
+    "kind": "程序目录",
+    "group": "音频隐写",
+    "id": "tool-516e94f109f0"
+  },
+  {
+    "name": "MP3Stego",
+    "module": "Misc",
+    "path": "D:\\CTF_MISC_Tools\\音频隐写\\MP3Stego",
+    "kind": "程序目录",
+    "group": "音频隐写",
+    "id": "tool-0e675a8eda00"
+  },
+  {
+    "name": "VBCABLE_Driver_Pack45",
+    "module": "Misc",
+    "path": "D:\\CTF_MISC_Tools\\音频隐写\\VBCABLE_Driver_Pack45",
+    "kind": "程序目录",
+    "group": "音频隐写",
+    "id": "tool-20f13c640cfb"
+  }
+]

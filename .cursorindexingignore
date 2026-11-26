@@ -1,0 +1,7 @@
+# Exclude generated bulk from semantic indexing, not from explicit file reads.
+node_modules/
+dist/
+.astro/
+.npm-cache/
+.work/
+**/__pycache__/
