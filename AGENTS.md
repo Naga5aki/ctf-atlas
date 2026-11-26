@@ -17,3 +17,7 @@
 - 题目附件只记录元数据、哈希和路径；导入过程中不执行 ZIP 内程序。新增外部 WP 仅标为参考，不自动认定所有题目已有 WP。
 - CTF 操作命令默认使用 Kali/Linux 语法。涉及文件修改的步骤说明副本、目标偏移和修改后的实际验证。
 - 修改后运行单元测试、`npm run check`、`npm run build`、`python scripts/audit_site.py`，并在浏览器中检查实际页面和搜索。检查链接、WP 关系及目录计数，不只看构建退出码。
+
+## DSH 技能
+
+DeepSeek Harness 维护本站时，按任务先加载 `.dsh/skills/` 下的技能再动手：写文章用 `ctf-atlas-writing`，改后验证用 `ctf-atlas-verify`，接手或收尾用 `ctf-atlas-handoff`，查资料用 `ctf-atlas-research`。技能是操作摘要；与用户最新明确要求或本文件冲突时，以用户要求和本文件为准。
