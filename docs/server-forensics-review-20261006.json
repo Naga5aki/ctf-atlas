@@ -22033,7 +22033,7 @@
   "src/content-archive/docker/docker-first-pass.md": "232254b2331ab23ac8504fe799cd1b27eab0df303a8f2ca5760a6eaee654915e",
   "src/content-archive/docker/docker-logpath.md": "9fa8dfd36deeb03e56c983dae63f8665eec112d8e57d284d0a515bbdb4eef38a",
   "src/pages/archive/index.astro": "4e55c04cb0289c9a2e6fd40f3acb9df4a329b48b71f411a300e2c1e5afef56a0",
-  "src/pages/challenge/[id].astro": "4395699f80f6caa959d3ce45e30e180cf92ed4ebbf12271931d039168a1e6855",
+  "src/pages/challenge/[id].astro": "841e95bb3600b22d705f2090cd3200e81eb6660ea5fd5f15ea5bfbd1b70c6511",
   "src/pages/challenges/index.astro": "b8432f1ecbc414a475f887ea3ce41f1a6ad15ffb828195b7d915cb52d6f9db9a",
   "src/pages/knowledge/[id].astro": "cb5395efe0f98156269c7a3eef0e1e3315defda2092edd710d19f03f156033dc",
   "src/pages/search/index.astro": "5afba6ac428a1c5f41fffd45f114ed570d233d14d7d0a6e2328d1c9431b9f332",
